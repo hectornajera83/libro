@@ -1,0 +1,20 @@
+
+---
+title: "Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones"
+author: "Héctor Nájera con ayuda de mucha gente (favor de citar este borrador) "
+documentclass: book
+output: html_document
+fignos-cleveref: True
+fignos-plus-name: Fig.
+header-includes: \usepackage{caption} 
+                 \usepackage{float}
+                 \usepackage{amsmath}
+                 \usepackage{amssymb}
+                 \usepackage{mathrsfs} 
+                 \usepackage{booktabs}
+                 \usepackage[utf8]{inputenc}
+                 \usepackage[spanish]{babel}
+bibliography: [References_markdown.bib]
+csl: https://raw.githubusercontent.com/Keniajin/styles/master/apa.csl
+link-citations: yes
+---

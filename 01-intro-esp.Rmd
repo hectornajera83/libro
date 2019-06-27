@@ -1,0 +1,21 @@
+# Presentación {-}
+
+¿Cuál es la prevalencia de pobreza y por qué? ¿Por qué algunos grupos de población o regiones son más pobres que otras? Las respuestas a estas preguntas son decisivas para cuestionar nuestro orden institucional puesto que dan pistas sobre el estado y las tendencias de cuestiones capitales como la justicia social. La evidencia en forma de medición precisa y consistente es crucial porque la incertidumbre nubla y desvía nuestra atención, acción y juicios sobre el objetivo principal que es la erradicación de la pobreza. 
+
+El consenso internacional es que la pobreza es multidimensional y que debería medirse considerando los aspectos sustantivos de las necesidades para la vida. Sin embargo, la respuesta sobre la prevalencia y naturaleza de la pobreza multidimensional es aún debatida e insatisfactoria. Los peligros de una mala medida son muchos. Las sociedades pueden desperdiciar recursos y tiempo cuando se basan en evidencia y datos pobres. La academia y el gobierno tienen la responsabilidad de producir medidas que sean replicables y robustas a fin de que sean útiles para el diseño e instrumentación de políticas. 
+
+El error en medición es una de las principales fuentes detrás del problema de replicabilidad en ciencias sociales. El error añade ruido a nuestros modelos predictivos y aumenta la incertidumbre en la estimación de la prevalencia y severidad de pobreza. El ruido es variación aleatoria que nos distancia de lo que estamos interesados. En estos casos nuestra medida no es confiable. Además, hay otro tipo error, el sistemático. El cuál se origina por nuestros prejuicios y sesgos. Es decir, es todo aquello en lo que no estamos interesados cuando medimos pobreza, pero no nos damos cuenta porque tenemos fe en nuestros supuestos. En estos casos, nuestra medida no es válida. 
+
+Hay varias razones teóricas y metodológicas que han impedido la producción masiva de buenas medidas de pobreza (medidas válidas y confiables). Primero, la existencia de varios cuerpos teóricos sobre necesidades humanas que debaten cuáles son los aspectos sustantivos para que los humanos vivan con dignidad. Segundo, aún si las discusiones teóricas tuvieran una solución satisfactoria, en la práctica hay varios obstáculos que necesitan resolverse para el desarrollo exitoso de escalas de pobreza. Este reto se manifiesta en las distintas etapas de la producción de un Índice. Para empezar, la pobreza es una invención humana, una abstracción, que requiere rastrearse usando datos multivariados para poder capturar sus aspectos sustantivos. Inevitablemente, esto resulta en un proceso de magnificación de ruido debido a que las y los investigadores tienen que levantar diversos supuestos sobre cuáles son los conjuntos relevantes de necesidades a incluir en un Índice, los umbrales para identificar privación material, los pesos que se asignan a estos indicadores para reflejar o no la importancia diferenciada de las distintas necesidades y sobre la forma en la que el grupo pobre y no pobre son identificados. Además, todos estos supuestos se ubican en el contexto de los datos disponibles, los cuáles raramente se recolectan con la idea a priori de medir pobreza. Invariablemente, estas decisiones están basadas por nuestros prejuicios (más error aleatorio).
+
+La medición de la pobreza multidimensional requiere un marco coherente y sólido para mitigar los sesgos de confirmación -leer la evidencia de forma tal que confirme nuestros prejuicios- a través del escrutinio empírico de nuestros supuestos. Es decir, un marco que ayude a investigar y resolver algunos aspectos empíricos en el ejercicio de medición cómo: *¿Es sensible agregar nuestra lista ex ante de indicadores en un índice? ¿Hay algunos indicadores que no funcionan como se esperaba? ¿La escala ordena adecuadamente a nuestra población, es decir, de bajo a niveles altos de vida? ¿Es nuestro ordenamiento de la población consistente en distintas muestras y grupos? ¿Ayuda incluir pesos diferenciados o introduce más ruido? ¿Las dimensiones que proponemos parecen existir en los datos? ¿La división que usamos -pobre vs no pobre- lleva a grupos que tienen un perfil y significado teóricamente válido? Es decir,* **¿Es nuestro índice multidimensional una medida válida y confiable**
+
+
+
+
+
+
+
+
+
+

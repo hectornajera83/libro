@@ -1,0 +1,8 @@
+book_filename: "PM Libro"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Capítulo "
+
+output_dir: "docs"
+
