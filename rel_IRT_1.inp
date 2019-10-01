@@ -1,0 +1,16 @@
+TITLE:
+IRT model;
+DATA:
+FILE = "Rel_MD_data_1_1.dat";
+ 
+VARIABLE:
+
+     NAMES = x1-x9 resources educ_yr occupation hh_size class;
+     CATEGORICAL = x1-x9;
+     USEVARIABLES = x1-x9;
+ANALYSIS:
+ESTIMATOR = ml;
+              PROCESS = 4;
+MODEL:
+h by x1* x2-x9;
+         h@1;

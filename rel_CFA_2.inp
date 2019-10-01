@@ -1,0 +1,26 @@
+TITLE:
+Bi-factor model CFA;
+DATA:
+FILE = "Rel_MD_data_1_1.dat";
+ 
+VARIABLE:
+
+     NAMES = x1-x11 resources educ_yr occupation class;
+     CATEGORICAL = x1-x9;
+     USEVARIABLES = x1-x9;
+ANALYSIS:
+ESTIMATOR = wlsmv;
+              PROCESS = 4;
+MODEL:
+f1 by x1-x3;
+  f2 by x4-x6;
+  f3 by x7-x9;
+  h by x1 x2 x3 x4 x4 x5 x6 x7 x8 x9;
+  F1 with F2@0;
+  F2 with F3@0;
+  F3 with F1@0;
+  h with f1@0;
+  h with f2@0;
+  h with f3@0;
+OUTPUT:
+std stdyx;

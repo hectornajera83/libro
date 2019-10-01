@@ -1,0 +1,1985 @@
+% Encoding: UTF-8
+
+@Article{Schoot2012,
+  author  = {van de Schoot, Rens and Lugtig, Peter and Hox, Joop},
+  title   = {A checklist for testing measurement invariance},
+  journal = {European Journal of Developmental Psychology},
+  year    = {2012},
+  volume  = {9},
+  number  = {4},
+  pages   = {486-492},
+  doi     = {10.1080/17405629.2012.686740},
+  eprint  = {http://dx.doi.org/10.1080/17405629.2012.686740},
+  file    = {:C\:\\Users\\Hector\\Documents\\Artículos\\Van de Schoot et al (2012) - European journal of develomental psychology.pdf:PDF},
+  url     = { http://dx.doi.org/10.1080/17405629.2012.686740 
+},
+}
+
+@Book{Atkinson2017,
+  title     = {Monitoring social inclusion in Europe},
+  publisher = {Publications Office of the European Union},
+  year      = {2017},
+  author    = {Atkinson, Anthony B. and Guio, Anne-Catherine and Marlier, Eric},
+}
+
+@Article{Revelle2009,
+  author    = {Revelle, William and Zinbarg, Richard.},
+  title     = {Coefficients Alpha, Beta, Omega, and the glb: Comments on Sijtsma},
+  journal   = {Psychometrika},
+  year      = {2009},
+  volume    = {74},
+  number    = {1},
+  pages     = {145-154},
+  issn      = {0033-3123},
+  doi       = {10.1007/s11336-008-9102-z},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Revelle and Zinbarg (2008) -  Coefficients alpha, beta, omega and the glb.pdf:PDF},
+  keywords  = {reliability; internal consistency; homogeneity; test theory; coefficient alpha; coefficient omega; coefficient beta, Chapter 3, a},
+  language  = {English},
+  publisher = {Springer-Verlag},
+  url       = {http://dx.doi.org/10.1007/s11336-008-9102-z},
+}
+
+@Book{Streiner2015,
+  title     = {Health measurement scales: a practical guide to their development and use},
+  publisher = {Oxford University Press, USA},
+  year      = {2015},
+  author    = {Streiner, David L. and Norman, Geoffrey R. and Cairney, John},
+}
+
+@Article{Hallerod1995,
+  author   = {Haller\"od, B.},
+  title    = {The Truly Poor: Direct and Indirect Consensual Measurement of Poverty in Sweden},
+  journal  = {Journal of European Social Policy},
+  year     = {1995},
+  volume   = {5},
+  number   = {2},
+  pages    = {111-129},
+  abstract = { The analysis presented in this article is based on two different
+	concepts of poverty; the direct consensual definition developed by
+	Mack and Lansley (1985) and the indirect consensual definition established
+	by Godehart et al (1977). The distinction between indirect and direct
+	definitions of poverty is well establtshed within the field of poverty
+	research. However, it is argued here that the usefulness of this
+	dividing line can be questioned both at a theor etical and an empirical
+	level. },
+  doi      = {10.1177/095892879500500203},
+  eprint   = {http://esp.sagepub.com/content/5/2/111.full.pdf+html},
+  url      = {http://esp.sagepub.com/content/5/2/111.abstract},
+}
+
+@InCollection{Ravallion2010,
+  author    = {Ravallion, M.},
+  title     = {A Reply to Reddy and Pogge},
+  booktitle = {Debates on the Measurement of Global Poverty},
+  publisher = {Oxford Scholarship Online},
+  year      = {2010},
+  editor    = {Anand, S. and Segal P. and Stiglitz, J.},
+  chapter   = {4},
+  pages     = {p. 43},
+  keywords  = {Assigment poverty, Upgrade},
+  owner     = {Héctor},
+  texto     = {Debates on the Measurement of Global Poverty},
+  timestamp = {2012.05.05},
+}
+
+@Book{Townsend1979,
+  title     = {Poverty in the United Kingdom: A Survey of Household Resources and Standards of Living},
+  publisher = {University of California},
+  year      = {1979},
+  author    = {Townsend, P.},
+  editor    = {Townsend, P.},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Townsend, P. (1979) - Poverty in the UK.pdf:PDF},
+  keywords  = {Chapter 2},
+  owner     = {Hector},
+  timestamp = {2014.06.26},
+}
+
+@Book{Bandalos2018,
+  title     = {Measurement theory and applications for the social sciences},
+  publisher = {Guilford Publications},
+  year      = {2018},
+  author    = {Bandalos, Deborah L.},
+}
+
+@Article{Byrne1989,
+  author    = {Byrne, Barbara M and Shavelson, Richard J and Muth{\'e}n, Bengt},
+  title     = {Testing for the equivalence of factor covariance and mean structures: The issue of partial measurement invariance.},
+  journal   = {Psychological bulletin},
+  year      = {1989},
+  volume    = {105},
+  number    = {3},
+  pages     = {456},
+  publisher = {American Psychological Association},
+}
+
+@Article{Foster2010a,
+  author   = {Foster, James and Greer, Joel and Thorbecke, Erik},
+  title    = {The Foster--Greer--Thorbecke (FGT) poverty measures: 25 years later},
+  journal  = {The Journal of Economic Inequality},
+  year     = {2010},
+  volume   = {8},
+  number   = {4},
+  pages    = {491--524},
+  month    = {Dec},
+  issn     = {1573-8701},
+  abstract = {Twenty-five years ago, the FGT class of decomposable poverty measures was introduced in Foster, Greer, and Thorbecke (Econometrica 52:761--776, 1984). The present study provides a retrospective view of the FGT paper and the subsequent literature, as well as a brief discussion of future directions. We identify three categories of contributions: to measurement, to axiomatics, and to application. A representative subset of the literature generated by the FGT methodology is discussed and grouped according to this taxonomy. We show how the FGT paper has played a central role in several thriving literatures and has contributed to the design, implementation, and evaluation of prominent development programs; the breadth of its impact is evidenced by the many topics beyond poverty to which its methodology has been applied. We conclude with a selection of prospective research topics.},
+  day      = {01},
+  doi      = {10.1007/s10888-010-9136-1},
+  url      = {https://doi.org/10.1007/s10888-010-9136-1},
+}
+
+@InCollection{Gordon2006,
+  author    = {Gordon, D.},
+  title     = {The Concept and measurement of poverty},
+  booktitle = {Poverty and Social Exclusion in Birtain: The Milenium Survey},
+  publisher = {Bristol Policy Press},
+  year      = {2006},
+  editor    = {Pantazis, C. and Gordon, D. and Levitas, R.},
+  chapter   = {2},
+  pages     = {29-69},
+  keywords  = {Assigment poverty, Upgrade},
+  owner     = {Héctor},
+  texto     = {Poverty and social exclusion in Britain},
+  timestamp = {2012.05.04},
+}
+
+@Book{Gordon2003,
+  title     = {Child poverty in the developing world},
+  publisher = {The policy press. University of Bristol},
+  year      = {2003},
+  author    = {Gordon, D and Nandy, S. and Pantazis, C and Pemberton, S and Townsend, P.},
+  editor    = {Gordon, D.},
+  owner     = {Hector},
+  timestamp = {2014.07.02},
+}
+
+@Article{Betti2015,
+  author    = {Betti, Gianni and Gagliardi, Francesca and Lemmi, Achille and Verma, Vijay},
+  title     = {Comparative measures of multidimensional deprivation in the European Union},
+  journal   = {Empirical Economics},
+  year      = {2015},
+  volume    = {49},
+  number    = {3},
+  pages     = {1071--1100},
+  file      = {:Betti2015.pdf:PDF},
+  publisher = {Springer},
+}
+
+@Article{Townsend1985,
+  author              = {Townsend, Peter},
+  title               = {A Sociological Approach to the Measurement of Poverty--A Rejoinder to Professor Amartya Sen},
+  journal             = {Oxford Economic Papers},
+  year                = {1985},
+  volume              = {37},
+  number              = {4},
+  pages               = {pp. 659-668},
+  issn                = {00307653},
+  copyright           = {Copyright © 1985 Oxford University Press},
+  jstor_articletype   = {research-article},
+  jstor_formatteddate = {Dec., 1985},
+  keywords            = {Assigment poverty, Upgrade},
+  language            = {English},
+  owner               = {Hector},
+  publisher           = {Oxford University Press},
+  series              = {New Series},
+  timestamp           = {2014.06.25},
+  url                 = {http://www.jstor.org/stable/2663048},
+}
+
+@Book{Kakwani2008a,
+  title     = {Many Dimensions of Poverty},
+  publisher = {Springer},
+  year      = {2008},
+  author    = {Kakwani, Nanak and Silber, Jacques},
+  file      = {:Kakwani2008a.pdf:PDF},
+}
+
+@Book{Booth1903,
+  title     = {Life and Labour of the People in London},
+  publisher = {Macmillan},
+  year      = {1903},
+  author    = {Booth, Charles},
+  volume    = {1},
+}
+
+@InBook{Lazardfeld1968,
+  title     = {Latent structure Analysis},
+  publisher = {Boston: Houghton Mifflin.},
+  year      = {1968},
+  author    = {Lazardfeld, P. F. and Henry, N. W.},
+  owner     = {Hector},
+  timestamp = {2014.11.06},
+}
+
+@Article{Messick1987,
+  author    = {Messick, Samuel},
+  title     = {Validity},
+  journal   = {ETS Research Report Series},
+  year      = {1987},
+  volume    = {1987},
+  number    = {2},
+  pages     = {i--208},
+  publisher = {Wiley Online Library},
+}
+
+@Book{Brennan2006,
+  title     = {Educational Measurement. ACE/Praeger Series on Higher Education.},
+  publisher = {ERIC},
+  year      = {2006},
+  author    = {Brennan, Robert L.},
+}
+
+@InBook{Thurstone1947,
+  title     = {Multiple Factor Analysis},
+  publisher = {University of Chicago Press},
+  year      = {1947},
+  author    = {Thurstone, L.},
+  owner     = {Hector},
+  timestamp = {2014.09.30},
+}
+
+@TechReport{Muthen2013,
+  author      = {Muth\'en, Beng},
+  title       = {IRT in Mplus},
+  institution = {Mplus},
+  year        = {2013},
+  date        = {2013-14-11},
+  url         = {http://www.statmodel.com/download/MplusIRT2.pdf},
+}
+
+@Book{Muthen2012,
+  title     = {Mplus User's Guide. Seventh Edition},
+  publisher = {Mplus},
+  year      = {2012},
+  author    = {Muth\'en, L. and Muth\'en, B.},
+  editor    = {Muth\'en, L. and Muth\'en, B.},
+  owner     = {Hector},
+  timestamp = {2014.08.04},
+}
+
+@Article{Townsend1987,
+  author    = {Townsend,Peter},
+  title     = {Deprivation},
+  journal   = {Journal of Social Policy},
+  year      = {1987},
+  volume    = {16},
+  number    = {02},
+  pages     = {125-146},
+  abstract  = { ABSTRACT ABSTRACTWidening inequality in the distribution of resources,
+	higher rates of unemployment and deteriorating conditions in the
+	inner cities have concentrated attention in Britain, and elsewhere
+	in Europe, upon the idea and exact meaning of â€˜deprivationâ€™.
+	This scientific concept is used extensively not only in the analysis
+	of social conditions but also, in an applied form, as an instrument
+	of policy in allocating resources to particular regions, areas and
+	services. This paper argues that the indicators which are chosen
+	to represent the phenomenon are often unduly restricted and even
+	involve double counting. As a result the distribution and severity
+	of deprivation seems to be seriously misperceived and resources misallocated.
+	A review of the available studies shows how the concept might be
+	treated more coherently in relation to that of poverty. },
+  doi       = {10.1017/S0047279400020341},
+  eprint    = {http://journals.cambridge.org/article_S0047279400020341},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Townsend Peter (1987) - Deprivation.pdf:PDF},
+  keywords  = {Assigment poverty, Upgrade},
+  owner     = {Héctor},
+  timestamp = {2011.11.03},
+  url       = {http://dx.doi.org/10.1017/S0047279400020341},
+}
+
+@Article{Foster1984,
+  author              = {Foster, James and Greer, Joel and Thorbecke, Erik},
+  title               = {A Class of Decomposable Poverty Measures},
+  journal             = {Econometrica},
+  year                = {1984},
+  volume              = {52},
+  number              = {3},
+  pages               = {pp. 761-766},
+  issn                = {00129682},
+  copyright           = {Copyright © 1984 The Econometric Society},
+  jstor_articletype   = {research-article},
+  jstor_formatteddate = {May, 1984},
+  language            = {English},
+  publisher           = {The Econometric Society},
+  url                 = {http://www.jstor.org/stable/1913475},
+}
+
+@TechReport{Bradshaw2008,
+  author      = {Bradshaw, J. and Middleton, S. and Davis, A. and Oldfeld, N. and Smith, N. and Cusworth, L. and Williams, J.},
+  title       = {A minimum income standard for Britain},
+  institution = {Creative Commons},
+  year        = {2008},
+  keywords    = {Upgrade},
+  owner       = {Héctor},
+  timestamp   = {2012.08.30},
+  url         = {https://dspace.lboro.ac.uk/dspace-jspui/bitstream/2134/3465/1/2226-income-poverty-standards.pdf},
+}
+
+@Article{Spearman1904,
+  author    = {Spearman, C.},
+  title     = {The proof and measurement of association between two things.},
+  journal   = {{A}m\'erican Journal of Psychology},
+  year      = {1904},
+  volume    = {15},
+  number    = {1},
+  pages     = {72-101},
+  owner     = {Hector},
+  timestamp = {2014.08.08},
+}
+
+@Book{Boltvinik2001,
+  title     = {Pobreza y distribuci\'on del ingreso en {M}\'exico},
+  publisher = {Siglo XXI Editores},
+  year      = {2001},
+  author    = {Boltvinik, J. and Hern\'andez-L\'aos, H.},
+  editor    = {Boltvinik, J. and Hern\'andez-L\'aos, H.},
+  keywords  = {Upgrade},
+  owner     = {H\'ector},
+  timestamp = {2012.08.30},
+}
+
+@Book{Brown2006,
+  title     = {Confirmatory Factor Analysis for Applied Research},
+  publisher = {The Guilford Press},
+  year      = {2006},
+  author    = {Brown, T.},
+  editor    = {Brown, T},
+  owner     = {Hector},
+  timestamp = {2014.08.04},
+}
+
+@TechReport{UNDP2014,
+  author      = {UNDP},
+  title       = {Multidimensional {P}overty {I}ndex ({MPI})},
+  institution = {UNDP},
+  year        = {2014},
+  owner       = {Hector},
+  timestamp   = {2015.06.18},
+}
+
+@Article{Townsend1993,
+  author              = {Townsend, Peter},
+  title               = {The Politics Of Poverty And Health},
+  journal             = {BMJ: British Medical Journal},
+  year                = {1993},
+  volume              = {306},
+  number              = {6873},
+  pages               = {p. 337},
+  issn                = {09598138},
+  copyright           = {Copyright © 1993 BMJ Publishing Group},
+  jstor_articletype   = {research-article},
+  jstor_formatteddate = {Jan. 30, 1993},
+  language            = {English},
+  owner               = {Hector},
+  publisher           = {BMJ Publishing Group},
+  timestamp           = {2014.06.25},
+  url                 = {http://www.jstor.org/stable/29718417},
+}
+
+@Article{Najera2019,
+  author   = {Najera, Hector and Nandy, Shailen and Carrillo-Larco, Rodrigo M. and Miranda, J. Jaime},
+  title    = {Within-country migration and obesity dynamics: analysis of 94,783 women from the Peruvian demographic and health surveys},
+  journal  = {BMC Public Health},
+  year     = {2019},
+  volume   = {19},
+  number   = {1},
+  pages    = {263},
+  month    = {Mar},
+  issn     = {1471-2458},
+  abstract = {Rural-to-urban migration is associated with increased obesity, yet it remains unknown whether this association exist, and to what extent, with other types of internal migration.},
+  day      = {04},
+  doi      = {10.1186/s12889-019-6586-7},
+  url      = {https://doi.org/10.1186/s12889-019-6586-7},
+}
+
+@Article{Najera2018,
+  author   = {N{\'a}jera, H{\'e}ctor E.},
+  title    = {Reliability, Population Classification and Weighting in Multidimensional Poverty Measurement: A Monte Carlo Study},
+  journal  = {Social Indicators Research},
+  year     = {2018},
+  month    = {Jun},
+  issn     = {1573-0921},
+  abstract = {In poverty measurement, differential weighting aims to take into account the unequal importance of the diverse dimensions and aspects of poverty and to add valuable information that improves the classification of the poor and the not-poor. This practice, however, is in contention with both classical test theory and modern measurement theories, which state that high reliability is a necessary condition for consistent population classification, while differential weighting is not so. The literature needs a clear numerical illustration of the relationship between high/low reliability and good/poor population classification to dissolve this tension and assist applied researchers in the assessment of multidimensional poverty indexes, using different reliability statistics. This paper uses a Monte Carlo study based on factor mixture models to draw up a series of uni-and multidimensional poverty measures with different reliabilities and predefined groups. The article shows that low reliability results in a high proportion of the poor group erroneously classified as part of the not poor group. Therefore, reliability inspections should be a systematic practice in poverty measurement. The article provides guidelines for interpreting the effects of unreliability upon adequate population classification and suggest that the classification error of current unreliable multidimensional indexes is above 10{\%}.},
+  day      = {25},
+  doi      = {10.1007/s11205-018-1950-z},
+  url      = {https://doi.org/10.1007/s11205-018-1950-z},
+}
+
+@InCollection{Gordon2012,
+  author    = {Gordon, D. and Nandy, S.},
+  title     = {Measuring Child Poverty and Deprivation: Measurement, concepts, policy and action},
+  booktitle = {Global child poverty and well-being},
+  publisher = {The Policy Press. University of Bristol},
+  year      = {2012},
+  pages     = {57-102},
+  owner     = {Hector},
+  timestamp = {2014.08.06},
+}
+
+@Article{Najera2016,
+  author   = {Najera, Hector Ernesto},
+  title    = {Does measurement invariance hold for the official Mexican multidimensional poverty measure? A state-level analysis 2012},
+  journal  = {Quality \& Quantity},
+  year     = {2016},
+  pages    = {1--25},
+  issn     = {1573-7845},
+  abstract = {One of the main goals in poverty measurement is making comparisons of prevalence and severity across geographical units. This is attained by merely disaggregating the index in question. The underlying assumption is that comparisons across units are tenable, inasmuch as the same indicators are utilised for constructing the index. Nonetheless, in practice, this assumption is very rarely tested. From the statistical perspective, measurement invariance (MI) must hold for comparisons to be valid, and violations thereof indicate that a given poverty index measures different things across different countries, states, counties, etc. Consequently, differentials in severity and prevalence cannot be attributed exclusively to the underlying construct (i.e. poverty) but to factors not considered in the measure. This article tests whether MI holds for two indexes: the Mexican official multidimensional measure (MPM) and an adjusted multidimensional measure (MPM-A) that uses less severe thresholds. The analysis is conducted using a novel method called the `alignment method'. It uses these two measures and the method as an illustration of why it is vital to introduce MI tests into poverty measurement. The results suggest that partial strong MI holds for the official measure and MI is violated when the thresholds are adjusted. Partial strong MI guarantees making valid comparisons across the 32 states. Should the official measure requires to be updated with other thresholds, it would be necessary to adjust the threshold or drop the indicator for water deprivation.},
+  doi      = {10.1007/s11135-016-0327-0},
+  url      = {http://dx.doi.org/10.1007/s11135-016-0327-0},
+}
+
+@InCollection{Gordon2010,
+  author    = {Gordon, D.},
+  title     = {Metodolog\'ia de medici\'on multidimensional de la pobreza a partir del concepto de privaci\'on relativa},
+  booktitle = {La medicion de la pobreza multidimensional en {M}\'exico},
+  publisher = {El Colegio de {M}\'exico. CONEVAL},
+  year      = {2010},
+  editor    = {Mora, M.},
+  chapter   = {5},
+  pages     = {401-498},
+  keywords  = {Upgrade},
+  owner     = {Héctor},
+  texto     = {La Medición Multidimensional de la pobreza en {M}\'exico},
+  timestamp = {2012.08.30},
+}
+
+@InCollection{Nunnally1994,
+  author    = {Nunnally, J. and Bernstein, I.},
+  booktitle = {Psychometric theory},
+  publisher = {McGraw Hill.},
+  year      = {1994},
+  edition   = {3rd},
+  owner     = {Hector},
+  timestamp = {2015.03.30},
+}
+
+@Article{Rusch2017,
+  author   = {Thomas Rusch and Paul Benjamin Lowry and Patrick Mair and Horst Treiblmaier},
+  title    = {Breaking free from the limitations of classical test theory: Developing and measuring information systems scales using item response theory},
+  journal  = {Information \& Management},
+  year     = {2017},
+  volume   = {54},
+  number   = {2},
+  pages    = {189 - 203},
+  issn     = {0378-7206},
+  abstract = {Information systems (IS) research frequently uses survey data to measure the interplay between technological systems and human beings. Researchers have developed sophisticated procedures to build and validate multi-item scales that measure latent constructs. The vast majority of IS studies uses classical test theory (CTT), but this approach suffers from three major theoretical shortcomings: (1) it assumes a linear relationship between the latent variable and observed scores, which rarely represents the empirical reality of behavioral constructs; (2) the true score can either not be estimated directly or only by making assumptions that are difficult to be met; and (3) parameters such as reliability, discrimination, location, or factor loadings depend on the sample being used. To address these issues, we present item response theory (IRT) as a collection of viable alternatives for measuring continuous latent variables by means of categorical indicators (i.e., measurement variables). IRT offers several advantages: (1) it assumes nonlinear relationships; (2) it allows more appropriate estimation of the true score; (3) it can estimate item parameters independently of the sample being used; (4) it allows the researcher to select items that are in accordance with a desired model; and (5) it applies and generalizes concepts such as reliability and internal consistency, and thus allows researchers to derive more information about the measurement process. We use a CTT approach as well as Rasch models (a special class of IRT models) to demonstrate how a scale for measuring hedonic aspects of websites is developed under both approaches. The results illustrate how IRT can be successfully applied in IS research and provide better scale results than CTT. We conclude by explaining the most appropriate circumstances for applying IRT, as well as the limitations of IRT.},
+  doi      = {https://doi.org/10.1016/j.im.2016.06.005},
+  keywords = {Item response theory, Classical test theory, Scale development, Rasch model, Measurement, Measures, Hedonism, Reliability, Hedonic IS},
+  url      = {http://www.sciencedirect.com/science/article/pii/S0378720616300611},
+}
+
+@InBook{Reise2014,
+  pages     = {1-10},
+  title     = {Item Response Theory},
+  publisher = {American Cancer Society},
+  year      = {2014},
+  author    = {Reise, Steven P.},
+  isbn      = {9781118625392},
+  abstract  = {Item response theory (IRT) methods are alternatives to classical test theory (CTT) approaches to scale construction, analysis, and scoring. A differentiating feature of IRT modeling is the estimation of a mathematical function that relates individual differences on a continuous latent variable to the propensity to respond to a scale item (e.g., respond correctly to a multiple-choice aptitude item, or respond in category 3 on a five-point ordered rating scale). Commonly applied IRT models appropriate for dichotomous and polytomous item response data are described. Assumptions underlying these models and interpretation of indices derived from model parameters are presented. Finally, popular applications of IRT models, such as computerized adaptive testing, are summarized.},
+  booktitle = {The Encyclopedia of Clinical Psychology},
+  doi       = {10.1002/9781118625392.wbecp357},
+  eprint    = {https://www.onlinelibrary.wiley.com/doi/pdf/10.1002/9781118625392.wbecp357},
+  keywords  = {measurement in psychology, psychometric testing, methodology},
+  url       = {https://www.onlinelibrary.wiley.com/doi/abs/10.1002/9781118625392.wbecp357},
+}
+
+@Book{Bartholomew1987,
+  title     = {Latent variables models and factor analysis.},
+  publisher = {New York: Oxford University Press.},
+  year      = {1987},
+  author    = {Bartholomew, D. J.},
+  editor    = {Bartholomew, D. J},
+  owner     = {Hector},
+  timestamp = {2014.08.07},
+}
+
+@Article{Sen1985,
+  author    = {Sen, A.},
+  title     = {A Sociological Approach to the Measurement of Poverty: A Reply to Peter Townsend},
+  journal   = {Oxford Economic Papers},
+  year      = {1985},
+  volume    = {37},
+  pages     = {669-676},
+  keywords  = {Assigment poverty, Upgrade},
+  owner     = {Héctor},
+  timestamp = {2012.05.08},
+}
+
+@Article{Revelle1979,
+  author    = {Revelle, W.},
+  title     = {Hierarchical Cluster Analysis and the Internal Structure of Tests.},
+  journal   = {Multivariate Behavioral Research},
+  year      = {1979},
+  volume    = {14},
+  number    = {1},
+  pages     = {57-74},
+  owner     = {Hector},
+  timestamp = {2014.08.04},
+}
+
+@Book{McDonald2013,
+  title     = {Test theory: A unified treatment},
+  publisher = {Psychology Press},
+  year      = {2013},
+  author    = {McDonald, Roderick P.},
+}
+
+@InCollection{Boltvinik2014,
+  author    = {Boltvinik, Julio},
+  title     = {{A}m\'erica {L}atina, de la vanguardia al rezago en Medici\'on multidimensional de la pobreza. La experiencia contrastante de {M}\'exico . Una gu\'ia para la regi\'on},
+  booktitle = {La multidimensionalidad como un desaf\'io para los m\'etdos y t\'ecnicas de la Medici\'on de la pobreza},
+  publisher = {CLACSO-CROP},
+  year      = {2014},
+  editor    = {Boltviniki, J et al.},
+  owner     = {Hector},
+  timestamp = {2015.06.23},
+}
+
+@InCollection{Muthen2007,
+  author    = {Muth\'en, B.},
+  title     = {Laten Variable Hybrids. Overview of Old and New Models},
+  booktitle = {Advances in Latent Variable Mixture Models},
+  publisher = {Information Age Publishing},
+  year      = {2007},
+  editor    = {Hancock, G and Samuelsen, K},
+  owner     = {Hector},
+  timestamp = {2014.07.24},
+}
+
+@InCollection{Mora2010,
+  author    = {Mora, M.},
+  title     = {Medici\'on multidimensional de la pobreza en {M}\'exico},
+  booktitle = {Medici\'on multidimensional de la pobreza en {M}\'exico},
+  publisher = {El Colegio De {M}\'exico, CONEVAL},
+  year      = {2010},
+  editor    = {Mora, M.},
+  chapter   = {Introduction},
+  pages     = {1-25},
+  keywords  = {Upgrade, Chapter 4},
+  owner     = {Héctor},
+  texto     = {Medición multidimensional de la pobreza en México},
+  timestamp = {2012.08.29},
+}
+
+@Book{VandenBosch2001,
+  title  = {Identifying the poor: Using subjective and consensual measures},
+  year   = {2001},
+  author = {Van den Bosch, Karel},
+}
+
+@Article{McCullagh2002,
+  author    = {McCullagh, Peter},
+  title     = {What is a statistical model?},
+  journal   = {Annals of statistics},
+  year      = {2002},
+  pages     = {1225--1267},
+  publisher = {JSTOR},
+}
+
+@Book{Nussbaum2000,
+  title     = {Women and human development: The capabilities approach},
+  publisher = {Cambridge University Press},
+  year      = {2000},
+  author    = {Nussbaum, Martha C.},
+  volume    = {3},
+}
+
+@Book{Allen2001,
+  title     = {Introduction to measurement theory},
+  publisher = {Waveland Press},
+  year      = {2001},
+  author    = {Allen, Mary J. and Yen, Wendy M.},
+}
+
+@Article{Joreskog1979,
+  author    = {Joreskog, Karl G. and Sorbom, Dag and Magidson, Jay},
+  title     = {Advances in factor analysis and structural equation models.},
+  year      = {1979},
+  publisher = {New York New York University Press of America 1979.},
+}
+
+@Article{Martinetti2006,
+  author    = {Martinetti, Enrica Chiappero},
+  title     = {Complexity and vagueness in the capability approach: strengths or weaknesses},
+  journal   = {University of Pavia, Italy,(Mimeo)},
+  year      = {2006},
+  publisher = {Citeseer},
+}
+
+@InCollection{Thorbecke2007,
+  author    = {Thorbecke, Erik},
+  title     = {Multidimensional poverty: Conceptual and measurement issues},
+  booktitle = {The many dimensions of poverty},
+  publisher = {Springer},
+  year      = {2007},
+  pages     = {3--19},
+}
+
+@Article{Alkire2011a,
+  author    = {Alkire, S. and Foster, J.},
+  title     = {Counting and Multidimensional Poverty Measurement},
+  journal   = {Journal of Public Economics},
+  year      = {2011},
+  volume    = {95},
+  number    = {7},
+  pages     = {476-487},
+  file      = {:Alkire2011a.pdf:PDF},
+  keywords  = {Poverty, Measurement, Chapter 4},
+  owner     = {pthen},
+  timestamp = {2013.07.12},
+}
+
+@Article{Sen1976,
+  author              = {Sen, Amartya},
+  title               = {Poverty: An Ordinal Approach to Measurement},
+  journal             = {Econometrica},
+  year                = {1976},
+  volume              = {44},
+  number              = {2},
+  pages               = {pp. 219-231},
+  issn                = {00129682},
+  abstract            = {The primary aim of this paper is to propose a new measure of poverty,
+	which should avoid some of the shortcomings of the measures currently
+	in use. An axiomatic approach is used to derive the measure. The
+	conception of welfare in the axiom set is ordinal. The information
+	requirement for the new measure is quite limited, permitting practical
+	use.},
+  copyright           = {Copyright © 1976 The Econometric Society},
+  jstor_articletype   = {research-article},
+  jstor_formatteddate = {Mar., 1976},
+  language            = {English},
+  publisher           = {The Econometric Society},
+  url                 = {http://www.jstor.org/stable/1912718},
+}
+
+@Manual{RCT2018,
+  title        = {R: A Language and Environment for Statistical Computing},
+  author       = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address      = {Vienna, Austria},
+  year         = {2018},
+  url          = {https://www.R-project.org/},
+}
+
+@Article{Tsui2002,
+  author    = {Tsui, Kai-yuen},
+  title     = {Multidimensional poverty indices},
+  journal   = {Social choice and welfare},
+  year      = {2002},
+  volume    = {19},
+  number    = {1},
+  pages     = {69--93},
+  publisher = {Springer},
+}
+
+@Article{Joereskog1970,
+  author    = {J{\"o}reskog, Karl G.},
+  title     = {Estimation and testing of simplex models},
+  journal   = {ETS Research Bulletin Series},
+  year      = {1970},
+  volume    = {1970},
+  number    = {2},
+  pages     = {i--45},
+  publisher = {Wiley Online Library},
+}
+
+@Misc{AERA2014,
+  author    = {{AERA, APA and NCME}},
+  title     = {Standards for educational and psychological testing},
+  year      = {2014},
+  editor    = {{American Educational Research (AERA) and American Psychological Association (APA) and National Council on Measurement in Education (NCME) and Joint Committee on Standards for Educational and Psychological Testing (US)}},
+  publisher = {Amer Educational Research Assn},
+}
+
+@Article{Max-Neef1992,
+  author    = {Max-Neef, Manfred and Elizalde, Antonio and Hopenhayn, Martin},
+  title     = {Development and human needs},
+  journal   = {Real-life economics: Understanding wealth creation},
+  year      = {1992},
+  pages     = {197--213},
+  publisher = {Routledge London/New York},
+}
+
+@Article{Narayan2001,
+  author  = {Narayan, Deepa},
+  title   = {Voices of the Poor},
+  journal = {Faith in Development: Partnership between the World Bank and the Churches in Africa, Washington, DC: World Bank and Oxford: Regnum Books},
+  year    = {2001},
+  pages   = {39--50},
+}
+
+@TechReport{Revelle2014,
+  author      = {Revelle, W.},
+  title       = {{P}sych. {R} package.},
+  institution = {R software},
+  year        = {2014},
+  owner       = {Hector},
+  timestamp   = {2014.07.18},
+}
+
+@Article{Meredith2006,
+  author              = {Meredith, William and Teresi, Jeanne A.},
+  title               = {An Essay on Measurement and Factorial Invariance},
+  journal             = {Medical Care},
+  year                = {2006},
+  volume              = {44},
+  number              = {11},
+  pages               = {pp. S69-S77},
+  issn                = {00257079},
+  abstract            = {Background: Analysis of subgroups such as different ethnic, language,
+	or education groups selected from among a parent population is common
+	in health disparities research. One goal of such analyses is to examine
+	measurement equivalence, which includes both qualitative review of
+	the meaning of items as well as quantitative examination of different
+	levels of factorial invariance and differential item functioning.
+	Objectives: The purpose of this essay is to review the definitions
+	and assumptions associated with factorial invariance, placing this
+	formulation in the context of bias, fairness, and equity. The connection
+	between the concepts of factorial invariance and item bias (differential
+	item functioning) using a variant of item response theory is discussed.
+	The situations under which different forms of invariance (weak, strong,
+	and strict) are required are discussed. Methods: Establishing factorial
+	invariance involves a hierarchy of levels that include tests of weak,
+	strong, and strict invariance. Pattern (metric or weak) factorial
+	invariance implies that the regression slopes are invariant across
+	groups. Pattern invariance requires only invariant factor loadings.
+	Strong factorial invariance implies that the conditional expectation
+	of the response, given the common and specific factors, is invariant
+	across groups. Strong factorial invariance requires that specific
+	factor means (represented as invariant intercepts) also be identical
+	across groups. Strict factorial invariance implies that, in addition,
+	the conditional variance of the response, given the common and specific
+	factors, is invariant across groups. Strict factorial invariance
+	requires that, in addition to equal factor loadings and intercepts,
+	the residual (specific factor plus error variable) variances are
+	equivalent across groups. The concept of measurement invariance that
+	is most closely aligned to that of item response theory considers
+	the latent variable as a common factor measured by manifest variables;
+	the specific factors can be characterized as nuisance variables.
+	Conclusions: Invariance of factor loadings across studied groups
+	is required for valid comparisons of scale score or latent variable
+	means. Strong and strict invariance may be less important in the
+	context of basic research in which group differences in specific
+	factors are indicative of individual differences that are important
+	for scientific exploration. However, for most applications in which
+	the aim is to ensure fairness and equity, strict factorial invariance
+	is required. Health disparities research often focuses on self-reported
+	clinical outcomes such as quality of life that are not observed directly.
+	Latent variable models such as factor analyses are central to establishing
+	valid assessment of such outcomes.},
+  copyright           = {Copyright © 2006 Lippincott Williams & Wilkins},
+  file                = {:C\:/Users/Hector/Documents/Artículos/Meredith and Teresi (2006) - An essay on measurement invariance.pdf:PDF;:Meredith2006.pdf:PDF},
+  jstor_articletype   = {research-article},
+  jstor_formatteddate = {November 2006},
+  jstor_issuetitle    = {Measurement in a Multi-Ethnic Society},
+  language            = {English},
+  publisher           = {Lippincott Williams \& Wilkins},
+  url                 = {http://www.jstor.org/stable/41219507},
+}
+
+@TechReport{Guio2009,
+  author      = {Guio, A and Fusco, A. and Marlier, E.},
+  title       = {A European Union Approach to Material Deprivation using EU-SILC and Eurobarometer data},
+  institution = {International Networks for Studies in Technology, Environment, Alternatives and Development},
+  year        = {2009},
+  file        = {:C\:\\Users\\Hector\\Documents\\Artículos\\Guio et al (2009) - A european union approach to material deprivation using EU-SILC.pdf:PDF},
+  owner       = {Hector},
+  timestamp   = {2015.05.05},
+}
+
+@Article{Hallquist2018,
+  author  = {Michael N. Hallquist and Joshua F. Wiley},
+  title   = {{MplusAutomation}: An {R} Package for Facilitating Large-Scale Latent Variable Analyses in {Mplus}},
+  journal = {Structural Equation Modeling},
+  year    = {2018},
+  pages   = {1--18},
+  doi     = {10.1080/10705511.2017.1402334},
+  url     = {http://www.tandfonline.com/doi/full/10.1080/10705511.2017.1402334},
+}
+
+@Article{Sen1983,
+  author    = {Sen, A.},
+  title     = {Poor Relatively Speaking},
+  journal   = {Oxford Economic Papers},
+  year      = {1983},
+  volume    = {35},
+  pages     = {153-169},
+  keywords  = {Assigment poverty, Upgrade},
+  owner     = {Héctor},
+  timestamp = {2012.05.08},
+}
+
+@TechReport{CONEVAL2011a,
+  author      = {CONEVAL},
+  title       = {Medici\'on de la pobreza en los municipios de {M}\'exico},
+  institution = {CONEVAL},
+  year        = {2011},
+  keywords    = {Upgrade, Chapter 7, Chapter 4},
+  owner       = {Héctor},
+  timestamp   = {2012.08.29},
+}
+
+@Book{Alkire2015,
+  title     = {Multidimensional poverty measurement and analysis},
+  publisher = {Oxford University Press, USA},
+  year      = {2015},
+  author    = {Alkire, Sabina and Roche, Jos{\'e} Manuel and Ballon, Paola and Foster, James and Santos, Maria Emma and Seth, Suman},
+}
+
+@TechReport{Alkire2011,
+  author      = {Alkire, S. and Roche, J.},
+  title       = {Beyond Headcount: Measures that reflect the Breath and Components of Child Poverty},
+  institution = {Oxford Poverty and Human Development Initiative (OPHI)},
+  year        = {2011},
+  number      = {2},
+  keywords    = {Poverty, Measurement, Chapter 4},
+  owner       = {pthen},
+  timestamp   = {2013.07.12},
+}
+
+@TechReport{Alkire2010,
+  author      = {Alkire, S. and Santos, M.},
+  title       = {Acute Multidimensional Poverty: A new index for developing countries},
+  institution = {OPHI Working Paper No. 38},
+  year        = {2010},
+  owner       = {Hector},
+  timestamp   = {2014.10.14},
+}
+
+@Article{Maslow1943,
+  author    = {Maslow, Abraham Harold},
+  title     = {A theory of human motivation.},
+  journal   = {Psychological review},
+  year      = {1943},
+  volume    = {50},
+  number    = {4},
+  pages     = {370},
+  publisher = {American Psychological Association},
+}
+
+@Article{Kvalheim2012,
+  author    = {Kvalheim, Olav M.},
+  title     = {History, philosophy and mathematical basis of the latent variable approach: from a peculiarity in psychology to a general method for analysis of multivariate data},
+  journal   = {Journal of Chemometrics},
+  year      = {2012},
+  volume    = {26},
+  number    = {6},
+  pages     = {210--217},
+  issn      = {1099-128X},
+  doi       = {10.1002/cem.2427},
+  file      = {:Kvalheim2012.pdf:PDF},
+  keywords  = {latent variable, factor analysis, chemometrics, history, philosophy},
+  publisher = {John Wiley \& Sons, Ltd},
+  url       = {http://dx.doi.org/10.1002/cem.2427},
+}
+
+@Article{CONEVAL2011d,
+  author    = {CONEVAL},
+  title     = {Metodolog\'ia para la Medici\'on multidimensional de la pobreza en {M}\'exico},
+  journal   = {Realidad, Datos y Espacio. Revista internacional de estad\'istica y geograf\'ia},
+  year      = {2011},
+  volume    = {2},
+  number    = {1},
+  pages     = {36-63},
+  owner     = {Hector},
+  timestamp = {2014.08.11},
+}
+
+@Article{Guttman1945,
+  author       = {Guttman, Louis},
+  title        = {A basis for analyzing test-retest reliability},
+  journal      = {Psychometrika},
+  year         = {1945},
+  volume       = {10},
+  number       = {4},
+  pages        = {255--282},
+  issn         = {1860-0980},
+  abstract     = {Three sources of variation in experimental results for a test are distinguished: trials, persons, and items. Unreliability is defined only in terms of variation over trials. This definition leads to a more complete analysis than does the conventional one; Spearman's contention is verified that the conventional approach---which was formulated by Yule---introduces unnecessary hypotheses. It is emphasized that at least two trials are necessary to estimate the reliability coefficient. This paper is devoted largely to developinglower bounds to the reliability coefficient that can be computed from but asingle trial; these avoid the experimental difficulties of making two independent trials. Six different lower bounds are established, appropriate for different situations. Some of the bounds are easier to compute than are conventional formulas, and all the bounds assume less than do conventional formulas. The terminology used is that of psychological and sociological testing, but the discussion actually provides a general analysis of the reliability of the sum ofn variables.},
+  doi          = {10.1007/BF02288892},
+  journaltitle = {Psychometrika},
+  url          = {http://dx.doi.org/10.1007/BF02288892},
+}
+
+@Book{Rowntree1901,
+  title     = {Poverty: A study of Town Life},
+  publisher = {Macmillan and Co.},
+  year      = {1901},
+  author    = {Rowntree, S.},
+  editor    = {Rowntree, S},
+  keywords  = {a},
+  owner     = {Hector},
+  timestamp = {2014.07.02},
+}
+
+@Article{Hu1999,
+  author  = {Hu, L and Bentler, P.},
+  title   = {Cutoff criteria for fit indexes in covariance structure analysis: Conventional criteria versus new alternatives},
+  journal = {Structural Equation Modeling: A Multidisciplinary Journal},
+  year    = {1999},
+  volume  = {6},
+  number  = {1},
+  pages   = {1-55},
+  doi     = {10.1080/10705519909540118},
+  eprint  = {http://dx.doi.org/10.1080/10705519909540118},
+  url     = { http://dx.doi.org/10.1080/10705519909540118 
+},
+}
+
+@Article{Cronbach1951,
+  author    = {Cronbach, L. J.},
+  title     = {Coefficient alpha and the internal structure of tests.},
+  journal   = {Psychometrika},
+  year      = {1951},
+  volume    = {16},
+  pages     = {297-334},
+  owner     = {Hector},
+  timestamp = {2014.08.07},
+}
+
+@Article{Skrondal2007,
+  author    = {Skrondal, Anders and Rabe-Hesketh, Sophia},
+  title     = {Latent Variable Modelling: A Survey},
+  journal   = {Scandinavian Journal of Statistics},
+  year      = {2007},
+  volume    = {34},
+  number    = {4},
+  pages     = {712--745},
+  issn      = {1467-9469},
+  doi       = {10.1111/j.1467-9469.2007.00573.x},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Skrondal, A (2007) - Latent Variable Modelling a Survey.pdf:PDF},
+  keywords  = {factor analysis, GLLAMM, item–response theory, latent class, latent trait, latent variable, measurement error, mixed effects model, multilevel model, random effect, structural equation model},
+  publisher = {Blackwell Publishing Ltd},
+  url       = {http://dx.doi.org/10.1111/j.1467-9469.2007.00573.x},
+}
+
+@Article{Novick1967,
+  author   = {Novick, Melvin R. and Lewis, Charles},
+  title    = {Coefficient alpha and the reliability of composite measurements},
+  journal  = {Psychometrika},
+  year     = {1967},
+  volume   = {32},
+  number   = {1},
+  pages    = {1--13},
+  issn     = {1860-0980},
+  abstract = {Following a general approach due to Guttman, coefficient$\alpha$ is rederived as a lower bound on the reliability of a test. A necessary and sufficient condition under which equality is attained in this inequality and hence that$\alpha$ is equal to the reliability of the test is derived and shown to be closely related to the recent redefinition of the concept of parallel measurements due to Novick. This condition is then also shown to be closely related to the unit rank assumption originally adopted by Kuder and Richardson in the derivation of their formula 20. The assumption later adopted by Jackson and Ferguson and the one adopted by Gulliksen are shown to be related to the necessary and sufficient condition derived here. It is then pointed out that the statement that ``coefficient$\alpha$ is equal to the mean of the split-half reliabilities'' is true only under the restricted condition assumed by Cronbach in the body of his derivation of this result. Finally some limitations on the uses of any function of$\alpha$ as a measure of internal consistency are noted.},
+  doi      = {10.1007/BF02289400},
+  url      = {http://dx.doi.org/10.1007/BF02289400},
+}
+
+@Article{Guio2017,
+  author   = {Guio, Anne-Catherine and Gordon, David and Marlier, Eric and Najera, Hector and Pomati, Marco},
+  title    = {Towards an EU measure of child deprivation},
+  journal  = {Child Indicators Research},
+  year     = {2017},
+  month    = {Oct},
+  issn     = {1874-8988},
+  abstract = {This paper proposes a new measure of child material and social deprivation (MSD) in the European Union (EU) which includes age appropriate child-specific information available from the thematic deprivation modules included in the 2009 and 2014 waves of the ``EU Statistics on Income and Living Conditions'' (EU-SILC). It summarises the main results of the in-depth analysis of these two datasets, identifies an optimal set of robust children MSD items and recommends a child-specific MSD indicator for use by EU countries and the European Commission in their regular social monitoring. In doing this, the paper replicates and expands on the methodological framework outlined in Guio et al. (2012, 2016), particularly by including additional advanced reliability tests.},
+  day      = {10},
+  doi      = {10.1007/s12187-017-9491-6},
+  file     = {:Guio2017.pdf:PDF},
+  url      = {https://doi.org/10.1007/s12187-017-9491-6},
+}
+
+@Article{Lord1952,
+  author    = {Lord, F.},
+  title     = {A theory of test scores},
+  journal   = {Psychometric Monographs},
+  year      = {1952},
+  volume    = {7},
+  number    = {1},
+  pages     = {84},
+  owner     = {Hector},
+  timestamp = {2015.03.30},
+}
+
+@Article{Guio2016,
+  author   = {Anne-Catherine Guio and Eric Marlier and David Gordon and Eldin Fahmy and Shailen Nandy and Marco Pomati},
+  title    = {Improving the measurement of material deprivation at the European Union level},
+  journal  = {Journal of European Social Policy},
+  year     = {2016},
+  volume   = {26},
+  number   = {3},
+  pages    = {219-333},
+  abstract = { In June 2010, European Union (EU) Heads of State and Government adopted a social inclusion target as part of the new ‘Europe 2020 Strategy’: to lift at least 20 million people in the EU from the risk of poverty and exclusion by 2020. One of the three indicators used to monitor progress towards this target is the EU indicator of severe material deprivation (MD). A main limitation of this indicator is the weak reliability of some of the items it is based on. For this reason, a thematic module on MD was included in the 2009 wave of the EU Statistics on Income and Living Conditions (EU-SILC) survey. This article assesses the 2009 EU-SILC MD data and proposes an analytical framework for developing robust EU MD indicators. It carries out a systematic item by item analysis at both EU and country levels to identify the MD items which satisfactorily meet suitability, validity, reliability and additivity criteria across the EU. This approach has resulted in a proposed 13-item MD indicator covering some key aspects of living conditions which are customary across the whole EU covering a broad range of basic (food, clothes, shoes, etc.) as well as social (Internet, regular leisure activities, etc.) necessities. },
+  doi      = {10.1177/0958928716642947},
+  eprint   = {http://dx.doi.org/10.1177/0958928716642947},
+  url      = { 
+        http://dx.doi.org/10.1177/0958928716642947
+    
+},
+}
+
+@TechReport{Altimir1979,
+  author      = {Altimir, O.},
+  title       = {La dimensi\'on de la pobreza en {A}m\'erica {L}atina},
+  institution = {CEPAL},
+  year        = {1979},
+  comment     = {Access to public services (section F)
+	
+	
+	Material components of basic needs},
+  file        = {:Altimir1979.pdf:PDF},
+  keywords    = {Poverty, Measurement, Chapter 1, Chapter 4},
+  owner       = {pthen},
+  timestamp   = {2013.10.04},
+}
+
+@InCollection{Alkire2007,
+  author    = {Alkire, Sabina},
+  title     = {Choosing dimensions: The capability approach and multidimensional poverty},
+  booktitle = {The many dimensions of poverty},
+  publisher = {Springer},
+  year      = {2007},
+  pages     = {89--119},
+}
+
+@InCollection{Cortes2014,
+  author    = {Cort\'es, F.},
+  title     = {La Medici\'on multiimensional de la pobreza en {M}\'exico},
+  booktitle = {La multmultidimensional como un desaf\'io para los m\'etdos y t\'ecnicas de la Medici\'on de la pobreza},
+  publisher = {CLACSO-CROP},
+  year      = {2014},
+  editor    = {Boltvinik, J et al.},
+  owner     = {Hector},
+  timestamp = {2015.06.23},
+}
+
+@TechReport{Guio2012,
+  author      = {Guio, A. and Gordon, D. and Marlier, E.},
+  title       = {MEASURING MATERIAL DEPRIVATION IN THE EU: Indicators for the whole population and child-specific indicators},
+  institution = {EUROSTAT},
+  year        = {2012},
+  file        = {:Guio2012.pdf:PDF},
+  owner       = {Hector},
+  timestamp   = {2014.08.07},
+}
+
+@Article{Cronbach1955,
+  author    = {Cronbach, Lee J. and Meehl, Paul E.},
+  title     = {Construct validity in psychological tests.},
+  journal   = {Psychological bulletin},
+  year      = {1955},
+  volume    = {52},
+  number    = {4},
+  pages     = {281},
+  publisher = {American Psychological Association},
+}
+
+@Book{Mack1985,
+  title     = {Poor Britain},
+  publisher = {London, George Allen \& Unwin},
+  year      = {1985},
+  author    = {Mack, J. and Lansley, S.},
+  editor    = {Mack, J. and Lansley, S.},
+  owner     = {Hector},
+  timestamp = {2014.08.11},
+}
+
+@TechReport{Boltvinik1998,
+  author      = {Boltvinik, J.},
+  title       = {Poverty Measurement methods: An overview},
+  institution = {Series on Poverty Reduction: An overview},
+  year        = {1998},
+  keywords    = {Poverty, Measurement, Human Need, Chapter 4},
+  owner       = {pthen},
+  timestamp   = {2013.10.15},
+}
+
+@Article{Boltvinik1992,
+  author    = {Boltvinik, J.},
+  title     = {El m\'etodo de medici\'on integrada de la pobreza. Una propuesta para su desarrollo.},
+  journal   = {Comercio Exterior},
+  year      = {1992},
+  volume    = {42},
+  number    = {4},
+  pages     = {354-365},
+  owner     = {Hector},
+  timestamp = {2014.08.12},
+}
+
+@Book{Bradshaw1993,
+  title     = {Budget Standards for the United Kingdom.},
+  publisher = {Aldershot: Avebury.},
+  year      = {1993},
+  author    = {Bradshaw, J.},
+  editor    = {Bradshaw, J},
+  owner     = {Hector},
+  timestamp = {2014.08.07},
+}
+
+@Article{Bradshaw1995,
+  author  = {Bradshaw, J. and Holmes, H. and Hallerod, B.},
+  title   = {Adapting the consensual definition of poverty},
+  journal = {Breadline Britain in the 1990s, Department of Social Policy and Planning, University of Bristol, Bristol},
+  year    = {1995},
+}
+
+@Book{Pantazis2006a,
+  title     = {Poverty and Social Exclusion in Britain: The Millennium Survey},
+  publisher = {Policy Press},
+  year      = {2006},
+  author    = {Pantazis, C. and Gordon, D. and Levitas, R.},
+  editor    = {Pantazis, C. and Gordon, D. and Levitas, R.},
+  series    = {Studies in poverty, inequality, and social exclusion},
+  isbn      = {9781861343734},
+  booktitle = {Pantazis, C., and Gordon, D., and Levitas, R.},
+  lccn      = {2006491022},
+  url       = {https://books.google.com/books?id=o-H0J4BMWS8C},
+}
+
+@Article{Lubke2003,
+  author   = {Gitta H. Lubke and Conor V. Dolan and Henk Kelderman and Gideon J. Mellenbergh},
+  title    = {On the relationship between sources of within- and between-group differences and measurement invariance in the common factor model},
+  journal  = {Intelligence},
+  year     = {2003},
+  volume   = {31},
+  number   = {6},
+  pages    = {543 - 566},
+  issn     = {0160-2896},
+  abstract = {Investigating sources of within- and between-group differences and
+	measurement invariance (MI) across groups is fundamental to any meaningful
+	group comparison based on observed test scores. It is shown that
+	by placing certain restrictions on the multigroup confirmatory factor
+	model, it is possible to investigate the hypothesis that within-
+	and between-group differences are due to the same factors. Moreover,
+	the modeling approach clarifies that absence of measurement bias
+	implies common sources of within- and between-group variation. It
+	is shown how the influence of background variables can be incorporated
+	in the model. The advantages of the modeling approach as compared
+	with other commonly used methods for group comparisons is discussed
+	and illustrated by means of an analysis of empirical data.},
+  doi      = {http://dx.doi.org/10.1016/S0160-2896(03)00051-5},
+  file     = {:C\:\\Users\\Hector\\Documents\\Artículos\\Lubke et al., (2003) - On the relationship between sources of within-and between group differences and measurment invariance.pdf:PDF},
+  keywords = {Common factor model,, Measurement Invariance},
+  url      = {http://www.sciencedirect.com/science/article/pii/S0160289603000515},
+}
+
+@Book{Cudeck2012,
+  title     = {Factor analysis at 100: Historical developments and future directions},
+  publisher = {Routledge},
+  year      = {2012},
+  author    = {Cudeck, Robert and MacCallum, Robert C.},
+}
+
+@InCollection{Reckase2009,
+  author    = {Reckase, Mark D.},
+  title     = {Multidimensional item response theory models},
+  booktitle = {Multidimensional item response theory},
+  publisher = {Springer},
+  year      = {2009},
+  pages     = {79--112},
+}
+
+@Misc{Lumley2016,
+  author = {Thomas Lumley},
+  title  = {survey: analysis of complex survey samples},
+  year   = {2016},
+  note   = {R package version 3.32},
+}
+
+@Book{Townsend2000,
+  title     = {Breadline Europe: the measurment of poverty},
+  publisher = {Bristol Policy Press},
+  year      = {2000},
+  author    = {Townsend, Peter and Gordon, D.},
+  editor    = {Townsend, Peter and Gordon, D.},
+  note      = {HV238 BRE},
+  keywords  = {Assigment poverty, Universalism, Upgrade},
+  owner     = {Héctor},
+  timestamp = {2011.12.17},
+}
+
+@Article{Pogge2005a,
+  author    = {Pogge, T.},
+  title     = {World Poverty and Human RIghts},
+  journal   = {Ethics \& International Affairs},
+  year      = {2005},
+  volume    = {19},
+  number    = {1},
+  pages     = {1-7},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Pogge, T (2005) - World Poverty and Human Rights.pdf:PDF},
+  keywords  = {Chapter 2},
+  owner     = {Hector},
+  timestamp = {2014.06.28},
+}
+
+@InCollection{Reddy2010,
+  author    = {Reddy, S. and Pogge, Thomas.},
+  title     = {How Not to Count the Poor},
+  booktitle = {Debates on the Measurement of Global Poverty},
+  publisher = {Oxford Scholarship Online},
+  year      = {2010},
+  editor    = {Anand, S. and Segal P. and Stiglitz, J.},
+  chapter   = {3},
+  pages     = {p. 43},
+  keywords  = {Assigment poverty, Upgrade},
+  owner     = {Héctor},
+  texto     = {Debates on the Measurement of Global Poverty},
+  timestamp = {2012.05.05},
+}
+
+@Book{Lumley2011,
+  title     = {Complex surveys: a guide to analysis using R},
+  publisher = {John Wiley \& Sons},
+  year      = {2011},
+  author    = {Lumley, Thomas},
+  volume    = {565},
+  file      = {:D\:\\Articles\\Lumley, T (2010) - Complex Surveys A guide to analysis using R.pdf:PDF},
+}
+
+@Article{Rigdon1996,
+  author  = {Rigdon, Edward E.},
+  title   = {CFI versus RMSEA: A comparison of two fit indexes for structural equation modeling},
+  journal = {Structural Equation Modeling: A Multidisciplinary Journal},
+  year    = {1996},
+  volume  = {3},
+  number  = {4},
+  pages   = {369-379},
+  doi     = {10.1080/10705519609540052},
+  eprint  = {http://dx.doi.org/10.1080/10705519609540052},
+  url     = { http://dx.doi.org/10.1080/10705519609540052 
+},
+}
+
+@Article{Rosseel2012,
+  author  = {Yves Rosseel},
+  title   = {{lavaan}: An {R} Package for Structural Equation Modeling},
+  journal = {Journal of Statistical Software},
+  year    = {2012},
+  volume  = {48},
+  number  = {2},
+  pages   = {1--36},
+  url     = {http://www.jstatsoft.org/v48/i02/},
+}
+
+@Article{Bank2017,
+  author  = {World-Bank},
+  title   = {Monitoring Global Poverty: Report of the Commission on Global Poverty (The Atkinson Commission).},
+  journal = {World Bank, Washington},
+  year    = {2017},
+}
+
+@Book{Spicker2006,
+  title     = {Poverty and international glossary},
+  publisher = {International Studies in Poverty Research. International Social Science Council. Zen Books.},
+  year      = {2006},
+  author    = {Spicker, P. and Alvarez, S. and Gordon, D.},
+  editor    = {Spicker, P. and Alvarez, S., and Gordon, D.},
+  owner     = {Hector},
+  timestamp = {2014.06.30},
+}
+
+@Article{Browne1993,
+  author    = {Browne, Michael W. and Cudeck, Robert and others},
+  title     = {Alternative ways of assessing model fit},
+  journal   = {Sage focus editions},
+  year      = {1993},
+  volume    = {154},
+  pages     = {136--136},
+  publisher = {Sage publications},
+}
+
+@InCollection{Townsend1993d,
+  author    = {Townsend, P. and Gordon, D.},
+  title     = {How much is enough?},
+  booktitle = {The international analysis of poverty},
+  publisher = {Harvester Wheatsheaf},
+  year      = {1993},
+  editor    = {Townsend, P.},
+  chapter   = {1},
+  pages     = {1-1},
+  file      = {:C\:\\Users\\Héctor\\Documents\\Artículos\\CO Townsend (1993) – Introduction The Changing World Map of Poverty.docx:Word},
+  keywords  = {Assigment poverty, Poverty, Developing, Upgrade},
+  owner     = {Héctor},
+  texto     = {The international analysis of poverty},
+  timestamp = {2012.04.03},
+}
+
+@InCollection{Michell2015,
+  author    = {Joel Michell},
+  title     = {Measurement Theory: History and Philosophy},
+  booktitle = {International Encyclopedia of the Social \& Behavioral Sciences (Second Edition)},
+  publisher = {Elsevier},
+  year      = {2015},
+  editor    = {James D. Wright},
+  pages     = {868 - 872},
+  address   = {Oxford},
+  edition   = {Second Edition},
+  isbn      = {978-0-08-097087-5},
+  abstract  = {Measurement theory is the attempt to understand scientific measurement. It is at least as old as Euclid’s Elements, where concepts basic to the classical understanding are defined. At first the classical concept applied only to extensive quantities, but in the Middle Ages it was expanded to include intensive quantities. It was further developed to include the concepts of unbounded, continuous quantity and fundamental, derived, and conjoint measurement, all of which raised questions about practices called ‘psychological measurement.’ The classical concept was later challenged by representational and operational concepts, but it still dominates within the paradigmatically quantitative sciences.},
+  doi       = {https://doi.org/10.1016/B978-0-08-097086-8.43062-X},
+  keywords  = {Conjoint (measurement), Degree, Derived (measurement), Extensive (quantity), Fundamental (measurement), Intensive (quantity), Magnitude, Measurement, Number, Operationism, Quantity, Ratio, Representationism},
+  url       = {http://www.sciencedirect.com/science/article/pii/B978008097086843062X},
+}
+
+@Article{Lawley1971,
+  author    = {Lawley, D. N. and Maxwell, A. E.},
+  title     = {Factor analysis as a statistical method},
+  year      = {1971},
+  publisher = {Butterworths},
+}
+
+@TechReport{Katzman2000,
+  author      = {Katzman, R.},
+  title       = {Notas sobre la medici\'on de la vulnerabilidad social},
+  institution = {CEPAL},
+  year        = {2000},
+  owner       = {Hector},
+  timestamp   = {2014.08.11},
+}
+
+@Article{Nandy2015,
+  author   = {Nandy, Shailen and Pomati, Marco},
+  title    = {Applying the Consensual Method of Estimating Poverty in a Low Income African Setting},
+  journal  = {Social Indicators Research},
+  year     = {2015},
+  volume   = {124},
+  number   = {3},
+  pages    = {693--726},
+  issn     = {1573-0921},
+  abstract = {We present the first study of multidimensional poverty in Benin using the consensual or socially perceived necessities approach. There is a remarkable level consensus about what constitutes the necessities of life and an adequate standard of living. Following Townsend's concept of relative deprivation, we show how social consensus provides the basis for a reliable and valid index of multiple deprivation, which can be used to reflect multidimensional poverty. We discuss the issue of adaptive preferences, which has previously been used to criticise the consensual approach, and provide evidence to contest the claim that the poor adjust their aspirations downwards.},
+  doi      = {10.1007/s11205-014-0819-z},
+  url      = {http://dx.doi.org/10.1007/s11205-014-0819-z},
+}
+
+@InProceedings{Steiger1980,
+  author    = {Steiger, James H.},
+  title     = {Statistically based tests for the number of common factors},
+  booktitle = {the annual meeting of the Psychometric Society. Iowa City, IA. 1980},
+  year      = {1980},
+}
+
+@Article{Gibbons2007,
+  author    = {Gibbons, Robert D. and Immekus, Jason C. and Bock, R. Darrell and Gibbons, Robert D.},
+  title     = {The added value of multidimensional IRT models},
+  journal   = {Multidimensional and hierarchical modeling monograph},
+  year      = {2007},
+  volume    = {1},
+  publisher = {Citeseer},
+}
+
+@TechReport{Guio2009a,
+  author      = {Guio, Anne-Catherine},
+  title       = {What can be learned from deprivation indicators in Europe},
+  institution = {eurostat. Methodologies and working papers},
+  year        = {2009},
+  owner       = {Hector},
+  timestamp   = {2015.05.29},
+}
+
+@Article{Sen2005,
+  author    = {Sen, Amartya},
+  title     = {Human Rights and Capabilities},
+  journal   = {Journal of Human Development},
+  year      = {2005},
+  volume    = {6},
+  number    = {2},
+  pages     = {151-166},
+  doi       = {10.1080/14649880500120491},
+  eprint    = {http://www.tandfonline.com/doi/pdf/10.1080/14649880500120491},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Sen (2005) – Human Rights and Capabilities.docx:Word 2007+;:C\:\\Users\\Hector\\Documents\\Artículos\\Sen, A (2005) - Human Rights and Capabilities.pdf:PDF},
+  keywords  = {Human rights, Poverty, Chapter 2},
+  owner     = {pthen},
+  timestamp = {2012.11.28},
+  url       = {http://www.tandfonline.com/doi/abs/10.1080/14649880500120491},
+}
+
+@Article{Santos2016,
+  author   = {Santos, Maria Emma and Villatoro, Pablo},
+  title    = {A Multidimensional Poverty Index for Latin America},
+  journal  = {Review of Income and Wealth},
+  year     = {2016},
+  pages    = {n/a--n/a},
+  issn     = {1475-4991},
+  doi      = {10.1111/roiw.12275},
+  file     = {:C\:\\Users\\Hector\\Documents\\Artículos\\Santos and Villatoro (2016) - A multidimensional poverty index for latin america.pdf:PDF},
+  keywords = {D31, I32, O54, poverty measurement, multidimensional poverty, Latin America, Unsatisfied Basic Needs, SDGs},
+  url      = {http://dx.doi.org/10.1111/roiw.12275},
+}
+
+@Article{Clark2005,
+  author    = {Clark, David A. and Qizilbash, Mozaffar},
+  title     = {Core Poverty, Basic Capabilities and Vagueness: An Application to the South African Context.},
+  year      = {2005},
+  publisher = {GPRG},
+}
+
+@Article{Zinbarg2005,
+  author    = {Zinbarg, RichardE. and Revelle, William and Yovel, Iftah and Li, Wen},
+  title     = {Cronbach{’}s $\alpha$, Revelle{’}s $\beta$, and Mcdonald{’}s $ \omega_h$ : their relations with each other and two alternative conceptualizations of reliability},
+  journal   = {Psychometrika},
+  year      = {2005},
+  volume    = {70},
+  number    = {1},
+  pages     = {123-133},
+  issn      = {0033-3123},
+  doi       = {10.1007/s11336-003-0974-7},
+  file      = {:C\:\\Users\\Hector\\Documents\\Artículos\\Zinbarg et al (2005) - Cronbach, revelle and mcdonalds.pdf:PDF},
+  language  = {English},
+  publisher = {Springer-Verlag},
+  url       = {http://dx.doi.org/10.1007/s11336-003-0974-7},
+}
+
+@Article{Meredith1993,
+  author    = {Meredith, William},
+  title     = {Measurement invariance, factor analysis and factorial invariance},
+  journal   = {Psychometrika},
+  year      = {1993},
+  volume    = {58},
+  number    = {4},
+  pages     = {525-543},
+  issn      = {0033-3123},
+  doi       = {10.1007/BF02294825},
+  keywords  = {measurement invariance; test bias; item bias; factor analysis; factorial invariance; selection; group differences; fairness; equity},
+  language  = {English},
+  publisher = {Springer-Verlag},
+  url       = {http://dx.doi.org/10.1007/BF02294825},
+}
+
+@Article{Muthen1984,
+  author    = {Muth\'en, Bengt},
+  title     = {A general structural equation model with dichotomous, ordered categorical, and continuous latent variable indicators},
+  journal   = {Psychometrika},
+  year      = {1984},
+  volume    = {49},
+  number    = {1},
+  pages     = {115-132},
+  issn      = {0033-3123},
+  doi       = {10.1007/BF02294210},
+  keywords  = {polychoric correlations; probit regressions; generalized least-squares; weight matrix},
+  language  = {English},
+  publisher = {Springer-Verlag},
+  url       = {http://dx.doi.org/10.1007/BF02294210},
+}
+
+@TechReport{Beccaria1985,
+  author      = {Beccaria, L. and Minuj\'in, A.},
+  title       = {M\'etodos alternativos para medir la evoluci\'on del tama{\~n}o de la pobreza},
+  institution = {Documento de Trabajo N. 6, INDEC, Buenos Aires.},
+  year        = {1985},
+  owner       = {Hector},
+  timestamp   = {2014.08.21},
+}
+
+@Article{McKay2004,
+  author    = {McKay, Stephen},
+  title     = {Poverty or preference: what do consensual deprivation indicators really mean?},
+  journal   = {Fiscal studies},
+  year      = {2004},
+  volume    = {25},
+  number    = {2},
+  pages     = {201--223},
+  publisher = {Wiley Online Library},
+}
+
+@Article{Bentler2007,
+  author   = {Peter M. Bentler},
+  title    = {On tests and indices for evaluating structural models},
+  journal  = {Personality and Individual Differences},
+  year     = {2007},
+  volume   = {42},
+  number   = {5},
+  pages    = {825 - 829},
+  issn     = {0191-8869},
+  note     = {Special issue on Structural Equation Modeling},
+  abstract = {Eight recommendations are given for the improved reporting of research
+	based on structural equation modeling. These recommendations differ
+	substantially from those offered by Prof. Barrett in this issue,
+	especially with regard to the virtues and limitations of current
+	statistical methods. },
+  doi      = {http://dx.doi.org/10.1016/j.paid.2006.09.024},
+  keywords = {Test statistic},
+  url      = {http://www.sciencedirect.com/science/article/pii/S0191886906003898},
+}
+
+@Misc{Thorndike1969,
+  author    = {Thorndike, R. and Hagen, Elizabeth},
+  title     = {Measurement and evaluation in education and psychology},
+  year      = {1969},
+  publisher = {New York, NY: John Wiley and Sons},
+}
+
+@Article{Whelan2006a,
+  author    = {Whelan, Christopher and Nolan, Brian and Maitre, Bertrand},
+  title     = {Measuring consistent poverty in Ireland with EU SILC data},
+  year      = {2006},
+  publisher = {Economic and Social Research Institute},
+}
+
+@Book{McDonald1999,
+  title     = {Test theory: A unified treatment},
+  publisher = {Mahwah, N.J. L. Erlbaum Associates.},
+  year      = {1999},
+  author    = {McDonald, R. P.},
+  editor    = {McDonald, R. P.},
+  owner     = {Hector},
+  timestamp = {2014.08.08},
+}
+
+@Article{Bock1981,
+  author    = {Bock, R. Darrell and Aitkin, Murray},
+  title     = {Marginal maximum likelihood estimation of item parameters: Application of an EM algorithm},
+  journal   = {Psychometrika},
+  year      = {1981},
+  volume    = {46},
+  number    = {4},
+  pages     = {443-459},
+  issn      = {0033-3123},
+  doi       = {10.1007/BF02293801},
+  keywords  = {estimation of item parameters; EM algorithm; item analysis; latent trait; dichotomous factor analysis; Law School Aptitude Test (LSAT)},
+  language  = {English},
+  publisher = {Springer-Verlag},
+  url       = {http://dx.doi.org/10.1007/BF02293801},
+}
+
+@Article{Ganzeboom1996,
+  author    = {Ganzeboom, Harry B. G. and Treiman, Donald J.},
+  title     = {Internationally comparable measures of occupational status for the 1988 International Standard Classification of Occupations},
+  journal   = {Social science research},
+  year      = {1996},
+  volume    = {25},
+  number    = {3},
+  pages     = {201--239},
+  publisher = {Elsevier},
+}
+
+@Article{Klasen2000,
+  author    = {Klasen, Stephen},
+  title     = {Measuring poverty and deprivation in South Africa},
+  journal   = {Review of income and wealth},
+  year      = {2000},
+  volume    = {46},
+  number    = {1},
+  pages     = {33--58},
+  publisher = {Wiley Online Library},
+}
+
+@Article{Stocking1983,
+  author    = {Stocking, Martha L and Lord, Frederic M},
+  title     = {Developing a common metric in item response theory},
+  journal   = {Applied psychological measurement},
+  year      = {1983},
+  volume    = {7},
+  number    = {2},
+  pages     = {201--210},
+  publisher = {Sage Publications Sage CA: Thousand Oaks, CA},
+}
+
+@Article{Novick1966,
+  author   = {Melvin R. Novick},
+  title    = {The axioms and principal results of classical test theory},
+  journal  = {Journal of Mathematical Psychology},
+  year     = {1966},
+  volume   = {3},
+  number   = {1},
+  pages    = {1 - 18},
+  issn     = {0022-2496},
+  abstract = {Following an approach due to Guttman the axioms of the classical test theory model are shown to be derivable as constructions from a specified sampling rule and from the assumption that the observed score of an arbitrarily specified or randomly selected person may be considered as an observation of a random variable having finite and positive variance. Without further assumption the reliability of a test is defined. Parallel measurements are then independently defined, and the concept of replication is explicated. The derived axioms of the classical test theory model are then stated in a refined form of Woodbury's stochastic process notation, and the basic results of this model are derived. The assumptions of experimental independence, homogeneity of error distribution, and conditional independence are related to the classical model and to each other. Finally, a brief sketch of some stronger models assuming the independence of error and true scores or the existence of higher-order moments of error distributions or those making specific distributional assumptions is given.},
+  doi      = {https://doi.org/10.1016/0022-2496(66)90002-2},
+  url      = {http://www.sciencedirect.com/science/article/pii/0022249666900022},
+}
+
+@Article{Decancq2013,
+  author  = {Koen Decancq and María Ana Lugo},
+  title   = {Weights in Multidimensional Indices of Wellbeing: An Overview},
+  journal = {Econometric Reviews},
+  year    = {2013},
+  volume  = {32},
+  number  = {1},
+  pages   = {7-34},
+  doi     = {10.1080/07474938.2012.690641},
+  eprint  = {http://dx.doi.org/10.1080/07474938.2012.690641},
+  url     = {http://dx.doi.org/10.1080/07474938.2012.690641},
+}
+
+@Article{Loken2017,
+  author    = {Loken, Eric and Gelman, Andrew},
+  title     = {Measurement error and the replication crisis},
+  journal   = {Science},
+  year      = {2017},
+  volume    = {355},
+  number    = {6325},
+  pages     = {584--585},
+  issn      = {0036-8075},
+  doi       = {10.1126/science.aal3618},
+  eprint    = {https://science.sciencemag.org/content/355/6325/584.full.pdf},
+  publisher = {American Association for the Advancement of Science},
+  url       = {https://science.sciencemag.org/content/355/6325/584},
+}
+
+@Article{Harris1989,
+  author    = {Harris, Deborah},
+  title     = {Comparison of 1, 2, and 3-Parameter IRT Models},
+  journal   = {Educational Measurement: Issues and Practice},
+  year      = {1989},
+  volume    = {8},
+  number    = {1},
+  pages     = {35--41},
+  issn      = {1745-3992},
+  abstract  = {This module discusses the 1-, 2-, and 3-parameter logistic item response
+	theory models. Mathematical formulas are given for each model, and
+	comparisons among the three models are made. Figures are included
+	to illustrate the effects of changing the a, b, or c parameter, and
+	a single data set is used to illustrate the effects of estimating
+	parameter values (as opposed to the true parameter values) and to
+	compare parameter estimates achieved though applying the different
+	models. The estimation procedure itself is discussed briefly. Discussions
+	of model assumptions, such as dimensionality and local independence,
+	can be found in many of the annotated references (e.g., Hambleton,
+	1988).},
+  doi       = {10.1111/j.1745-3992.1989.tb00313.x},
+  publisher = {Blackwell Publishing Ltd},
+  url       = {http://dx.doi.org/10.1111/j.1745-3992.1989.tb00313.x},
+}
+
+@Article{NajeraForthcoming,
+  author  = {N\'ajera, H.},
+  title   = {Scale reliability and the monotonicity axiom in multidimensional poverty measurement},
+  journal = {Social Indicators Research},
+  year    = {Forthcoming},
+}
+
+@InCollection{Gordon2018,
+  author    = {Gordon, D.},
+  title     = {Measuring Poverty in the UK},
+  booktitle = {Poverty and Social Exclusion in the UK},
+  year      = {2018},
+  editor    = {Dermott, E and Main, Gill},
+  date      = {2018},
+}
+
+@Article{Raykov2010,
+  author    = {Tenko Raykov and Dimiter M. Dimitrov and Tihomir Asparouhov},
+  title     = {Evaluation of Scale Reliability With Binary Measures Using Latent Variable Modeling},
+  journal   = {Structural Equation Modeling: A Multidisciplinary Journal},
+  year      = {2010},
+  volume    = {17},
+  number    = {2},
+  pages     = {265-279},
+  doi       = {10.1080/10705511003659417},
+  eprint    = {https://doi.org/10.1080/10705511003659417},
+  publisher = {Routledge},
+  url       = { 
+        https://doi.org/10.1080/10705511003659417
+    
+},
+}
+
+@Article{Petrillo2015,
+  author   = {Jennifer Petrillo and Stefan J. Cano and Lori D. McLeod and Cheryl D. Coon},
+  title    = {Using Classical Test Theory, Item Response Theory, and Rasch Measurement Theory to Evaluate Patient-Reported Outcome Measures: A Comparison of Worked Examples},
+  journal  = {Value in Health},
+  year     = {2015},
+  volume   = {18},
+  number   = {1},
+  pages    = {25 - 34},
+  issn     = {1098-3015},
+  abstract = {Objective
+To provide comparisons and a worked example of item- and scale-level evaluations based on three psychometric methods used in patient-reported outcome development—classical test theory (CTT), item response theory (IRT), and Rasch measurement theory (RMT)—in an analysis of the National Eye Institute Visual Functioning Questionnaire (VFQ-25).
+Methods
+Baseline VFQ-25 data from 240 participants with diabetic macular edema from a randomized, double-masked, multicenter clinical trial were used to evaluate the VFQ at the total score level. CTT, RMT, and IRT evaluations were conducted, and results were assessed in a head-to-head comparison.
+Results
+Results were similar across the three methods, with IRT and RMT providing more detailed diagnostic information on how to improve the scale. CTT led to the identification of two problematic items that threaten the validity of the overall scale score, sets of redundant items, and skewed response categories. IRT and RMT additionally identified poor fit for one item, many locally dependent items, poor targeting, and disordering of over half the response categories.
+Conclusions
+Selection of a psychometric approach depends on many factors. Researchers should justify their evaluation method and consider the intended audience. If the instrument is being developed for descriptive purposes and on a restricted budget, a cursory examination of the CTT-based psychometric properties may be all that is possible. In a high-stakes situation, such as the development of a patient-reported outcome instrument for consideration in pharmaceutical labeling, however, a thorough psychometric evaluation including IRT or RMT should be considered, with final item-level decisions made on the basis of both quantitative and qualitative results.},
+  doi      = {https://doi.org/10.1016/j.jval.2014.10.005},
+  keywords = {patient-reported outcome, psychometrics, item response theory, classical test theory, Rasch measurement theory},
+  url      = {http://www.sciencedirect.com/science/article/pii/S1098301514047305},
+}
+
+@Article{Schmid1957,
+  author    = {Schmid, J. and Leiman, J. N..},
+  title     = {The development of hierarchical factor solutions},
+  journal   = {Psychometrika},
+  year      = {1957},
+  volume    = {22},
+  number    = {1},
+  pages     = {53-61},
+  owner     = {Hector},
+  timestamp = {2014.08.04},
+}
+
+@Article{Wolff2005,
+  author    = {Wolff, Hans-Georg and Preising, Katja},
+  title     = {Exploring item and higher order factor structure with the Schmid-Leiman solution: Syntax codes for {SPSS} and {SAS}},
+  journal   = {Behavior Research Methods},
+  year      = {2005},
+  volume    = {37},
+  number    = {1},
+  pages     = {48-58},
+  issn      = {1554-351X},
+  doi       = {10.3758/BF03206397},
+  language  = {English},
+  publisher = {Springer-Verlag},
+  url       = {http://dx.doi.org/10.3758/BF03206397},
+}
+
+@TechReport{Canberra-Group2012,
+  author      = {Canberra-Group},
+  title       = {Canberra Group Handbook},
+  institution = {International Expert Group on Household Income Statistics},
+  year        = {2012},
+  owner       = {Hector},
+  timestamp   = {2014.08.07},
+}
+
+@Book{Rao2015,
+  title     = {Small-Area Estimation},
+  publisher = {Wiley Online Library},
+  year      = {2015},
+  author    = {Rao, John NK and Molina, I},
+}
+
+@Book{Kolen2004,
+  title     = {Test Equating, Scaling, and Linking: Methods and Practices},
+  publisher = {Springer},
+  year      = {2004},
+  author    = {Kolen, M.J. and Brennan, R.L.},
+  series    = {Statistics for Social and Behavioral Sciences},
+  isbn      = {9780387400860},
+  lccn      = {2004045617},
+  url       = {https://books.google.com/books?id=tusOwjb7LWsC},
+}
+
+@Article{Gonzalez2017,
+  author    = {Gonz{\'a}lez, Jorge and Wiberg, Marie},
+  title     = {Applying test equating methods},
+  journal   = {New York: Springer. doi},
+  year      = {2017},
+  volume    = {10},
+  pages     = {978--3},
+  publisher = {Springer},
+}
+
+@Article{Haebara1980,
+  author    = {Haebara, Tomokazu},
+  title     = {Equating logistic ability scales by a weighted least squares method},
+  journal   = {Japanese Psychological Research},
+  year      = {1980},
+  volume    = {22},
+  number    = {3},
+  pages     = {144--149},
+  publisher = {The Japanese Psychological Association},
+}
+
+@Article{Petersen1983,
+  author    = {Petersen, Nancy S and Cook, Linda L and Stocking, Martha L},
+  title     = {IRT versus conventional equating methods: A comparative study of scale stability},
+  journal   = {Journal of Educational Statistics},
+  year      = {1983},
+  volume    = {8},
+  number    = {2},
+  pages     = {137--156},
+  publisher = {Sage Publications Sage CA: Thousand Oaks, CA},
+}
+
+@Article{Kolen1988,
+  author    = {Kolen, Michael J},
+  title     = {Traditional equating methodology},
+  journal   = {Educational Measurement: Issues and Practice},
+  year      = {1988},
+  volume    = {7},
+  number    = {4},
+  pages     = {29--37},
+  publisher = {Wiley Online Library},
+}
+
+@InCollection{Holland2007,
+  author    = {Holland, Paul W},
+  title     = {A framework and history for score linking},
+  booktitle = {Linking and aligning scores and scales},
+  publisher = {Springer},
+  year      = {2007},
+  pages     = {5--30},
+}
+
+@Book{Davier2010,
+  title     = {Statistical models for test equating, scaling, and linking},
+  publisher = {Springer Science \& Business Media},
+  year      = {2010},
+  author    = {von Davier, Alina},
+}
+
+@Article{Gonzalez2014,
+  author    = {Gonz{\'a}lez, Jorge and others},
+  title     = {SNSequate: Standard and nonstandard statistical models and methods for test equating},
+  journal   = {Journal of Statistical Software},
+  year      = {2014},
+  volume    = {59},
+  number    = {7},
+  pages     = {1--30},
+  publisher = {Foundation for Open Access Statistics},
+}
+
+@Article{Fahrenkamp-Uppenbrink2017,
+  author    = {Fahrenkamp-Uppenbrink, Julia},
+  title     = {Misconceptions about measurement error},
+  journal   = {Science},
+  year      = {2017},
+  volume    = {355},
+  number    = {6325},
+  pages     = {591--593},
+  issn      = {0036-8075},
+  doi       = {10.1126/science.355.6325.591-r},
+  eprint    = {https://science.sciencemag.org/content/355/6325/591.18.full.pdf},
+  publisher = {American Association for the Advancement of Science},
+  url       = {https://science.sciencemag.org/content/355/6325/591.18},
+}
+
+@Article{Alkire2002,
+  author    = {Sabina Alkire},
+  title     = {Dimensions of Human Development},
+  journal   = {World Development},
+  year      = {2002},
+  volume    = {30},
+  number    = {2},
+  pages     = {181 - 205},
+  issn      = {0305-750X},
+  abstract  = {If human development is â??multidimensionalâ?? then perhaps we need
+	to discuss what we mean by multidimensional: what is a dimension,
+	and what are the multiple dimensions of interest? This paper develops
+	an account of dimensions of human development, and shows its usefulness
+	and its limitationsâ??both in general and in relation to Amartya
+	Sen's capability approach. The second half of the paper surveys other
+	major â??listsâ?? of dimensions that have been published in poverty
+	studies, crosscultural psychology, moral philosophy, quality of life
+	indicators, participatory development, and basic needs, and compares
+	and contrasts them with the account sketched here. },
+  doi       = {http://dx.doi.org/10.1016/S0305-750X(01)00109-7},
+  keywords  = {Poverty, Human Need, Chapter 4},
+  owner     = {pthen},
+  timestamp = {2013.09.23},
+  url       = {http://www.sciencedirect.com/science/article/pii/S0305750X01001097},
+}
+
+@TechReport{EUROSTAT2016,
+  author      = {EUROSTAT},
+  title       = {Europe 2020 indicators: poverty and social exclusion},
+  institution = {EUROSTAT},
+  year        = {2016},
+  url         = {http://ec.europa.eu/eurostat/statistics-explained/index.php/Europe_2020_indicators_-_poverty_and_social_exclusion},
+}
+
+@Book{Finch2016,
+  title         = {Multilevel modeling using R},
+  publisher     = {Crc Press},
+  year          = {2016},
+  author        = {Finch, W Holmes and Bolin, Jocelyn E and Kelley, Ken},
+  __markedentry = {[trial:6]},
+}
+
+@Misc{Lumley2016a,
+  author        = {Thomas Lumley},
+  title         = {survey: analysis of complex survey samples},
+  year          = {2016},
+  note          = {R package version 3.32},
+  __markedentry = {[trial:6]},
+}
+
+@Book{Gorsuch2014,
+  title         = {Factor Analysis: Classic Edition},
+  publisher     = {Taylor \& Francis},
+  year          = {2014},
+  author        = {Gorsuch, R.L.},
+  series        = {Psychology Press \& Routledge Classic Editions},
+  isbn          = {9781317564881},
+  __markedentry = {[trial:6]},
+  url           = {https://books.google.com.mx/books?id=pDqcBQAAQBAJ},
+}
+
+@Misc{AERA2014a,
+  author        = {{AERA, APA and NCME}},
+  title         = {Standards for educational and psychological testing},
+  year          = {2014},
+  __markedentry = {[trial:6]},
+  editor        = {{American Educational Research (AERA) and American Psychological Association (APA) and National Council on Measurement in Education (NCME) and Joint Committee on Standards for Educational and Psychological Testing (US)}},
+  publisher     = {Amer Educational Research Assn},
+}
+
+@Book{Raykov2012,
+  title         = {Basic statistics: An introduction with R},
+  publisher     = {Rowman \& Littlefield Publishers},
+  year          = {2012},
+  author        = {Raykov, Tenko and Marcoulides, George A},
+  __markedentry = {[trial:6]},
+}
+
+@Book{Raykov2011,
+  title         = {Introduction to psychometric theory},
+  publisher     = {Routledge},
+  year          = {2011},
+  author        = {Raykov, Tenko and Marcoulides, George A},
+  __markedentry = {[trial:6]},
+}
+
+@Misc{Revelle2009c,
+  author        = {Revelle, William},
+  title         = {An introduction to psychometric theory with applications in R},
+  year          = {2009},
+  __markedentry = {[trial:6]},
+  publisher     = {Springer},
+}
+
+@Book{Mulaik2009,
+  title         = {Foundations of factor analysis},
+  publisher     = {Chapman and Hall/CRC},
+  year          = {2009},
+  author        = {Mulaik, Stanley A},
+  __markedentry = {[trial:6]},
+}
+
+@Book{Loehlin2004,
+  title         = {Latent variable models: An introduction to factor, path, and structural equation analysis},
+  publisher     = {Psychology Press},
+  year          = {2004},
+  author        = {Loehlin, John C},
+  __markedentry = {[trial:6]},
+}
+
+@Book{Pett2003,
+  title         = {Making sense of factor analysis: The use of factor analysis for instrument development in health care research},
+  publisher     = {Sage},
+  year          = {2003},
+  author        = {Pett, Marjorie A and Lackey, Nancy R and Sullivan, John J},
+  __markedentry = {[trial:6]},
+}
+
+@Misc{Thorndike1969a,
+  author        = {Thorndike, R. and Hagen, Elizabeth},
+  title         = {Measurement and evaluation in education and psychology},
+  year          = {1969},
+  __markedentry = {[trial:6]},
+  publisher     = {New York, NY: John Wiley and Sons},
+}
+
+@Article{Kuder1937,
+  author    = {Kuder, G Frederic and Richardson, Marion W},
+  title     = {The theory of the estimation of test reliability},
+  journal   = {Psychometrika},
+  year      = {1937},
+  volume    = {2},
+  number    = {3},
+  pages     = {151--160},
+  publisher = {Springer},
+}
+
+@Book{Willitts2006,
+  title     = {Measuring child poverty using material deprivation: possible approaches},
+  publisher = {Corporate Document Services Leeds},
+  year      = {2006},
+  author    = {Willitts, Maxine},
+  volume    = {28},
+}
+
+@Article{Desai1988,
+  author    = {Desai, Meghnad and Shah, Anup},
+  title     = {An econometric approach to the measurement of poverty},
+  journal   = {Oxford Economic Papers},
+  year      = {1988},
+  volume    = {40},
+  number    = {3},
+  pages     = {505--522},
+  publisher = {Oxford University Press},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

@@ -1,0 +1,242 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+10/01/2019  12:24 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  IRT model;
+  DATA:
+  FILE = "Rel_MD_data_1_1.dat";
+
+  VARIABLE:
+
+       NAMES = x1-x9 resources educ_yr occupation hh_size class;
+       CATEGORICAL = x1-x9;
+       USEVARIABLES = x1-x9;
+  ANALYSIS:
+  ESTIMATOR = ml;
+                PROCESS = 4;
+  MODEL:
+  h by x1* x2-x9;
+           h@1;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+IRT model;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        5000
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   X1          X2          X3          X4          X5          X6
+   X7          X8          X9
+
+Continuous latent variables
+   H
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            1
+  Adaptive quadrature                                           ON
+Link                                                         LOGIT
+Cholesky                                                        ON
+
+Input data file(s)
+  Rel_MD_data_1_1.dat
+Input data format  FREE
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    X1
+      Category 1    0.505         2523.000
+      Category 2    0.495         2477.000
+    X2
+      Category 1    0.706         3532.000
+      Category 2    0.294         1468.000
+    X3
+      Category 1    0.837         4186.000
+      Category 2    0.163          814.000
+    X4
+      Category 1    0.514         2570.000
+      Category 2    0.486         2430.000
+    X5
+      Category 1    0.711         3553.000
+      Category 2    0.289         1447.000
+    X6
+      Category 1    0.843         4214.000
+      Category 2    0.157          786.000
+    X7
+      Category 1    0.549         2746.000
+      Category 2    0.451         2254.000
+    X8
+      Category 1    0.744         3718.000
+      Category 2    0.256         1282.000
+    X9
+      Category 1    0.843         4215.000
+      Category 2    0.157          785.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       18
+
+Loglikelihood
+
+          H0 Value                      -20131.110
+
+Information Criteria
+
+          Akaike (AIC)                   40298.220
+          Bayesian (BIC)                 40415.529
+          Sample-Size Adjusted BIC       40358.332
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                           4358.153
+          Degrees of Freedom                   493
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           2415.876
+          Degrees of Freedom                   493
+          P-Value                           0.0000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ H        BY
+    X1                 2.290      0.089     25.693      0.000
+    X2                 2.192      0.087     25.146      0.000
+    X3                 2.207      0.100     22.167      0.000
+    X4                 2.312      0.091     25.521      0.000
+    X5                 2.383      0.097     24.600      0.000
+    X6                 2.172      0.099     21.905      0.000
+    X7                 2.548      0.102     24.901      0.000
+    X8                 2.561      0.109     23.420      0.000
+    X9                 2.498      0.118     21.131      0.000
+
+ Thresholds
+    X1$1               0.055      0.051      1.077      0.282
+    X2$1               1.535      0.064     23.888      0.000
+    X3$1               2.768      0.095     29.013      0.000
+    X4$1               0.124      0.051      2.416      0.016
+    X5$1               1.659      0.070     23.569      0.000
+    X6$1               2.803      0.096     29.172      0.000
+    X7$1               0.411      0.056      7.316      0.000
+    X8$1               2.050      0.084     24.545      0.000
+    X9$1               3.074      0.114     26.903      0.000
+
+ Variances
+    H                  1.000      0.000    999.000    999.000
+
+
+IRT PARAMETERIZATION
+
+ Item Discriminations
+
+ H        BY
+    X1                 2.290      0.089     25.693      0.000
+    X2                 2.192      0.087     25.146      0.000
+    X3                 2.207      0.100     22.167      0.000
+    X4                 2.312      0.091     25.521      0.000
+    X5                 2.383      0.097     24.600      0.000
+    X6                 2.172      0.099     21.905      0.000
+    X7                 2.548      0.102     24.901      0.000
+    X8                 2.561      0.109     23.420      0.000
+    X9                 2.498      0.118     21.131      0.000
+
+ Item Difficulties
+    X1                 0.024      0.022      1.078      0.281
+    X2                 0.700      0.026     26.853      0.000
+    X3                 1.254      0.035     35.343      0.000
+    X4                 0.054      0.022      2.425      0.015
+    X5                 0.696      0.025     27.676      0.000
+    X6                 1.291      0.037     35.152      0.000
+    X7                 0.161      0.022      7.492      0.000
+    X8                 0.800      0.026     31.216      0.000
+    X9                 1.231      0.033     36.969      0.000
+
+ Variances
+    H                  1.000      0.000      0.000      1.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.258E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  12:24:55
+        Ending Time:  12:24:55
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen

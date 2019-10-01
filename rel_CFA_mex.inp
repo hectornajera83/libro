@@ -1,0 +1,45 @@
+TITLE:
+Bi-factor model CFA;
+DATA:
+FILE = "Mex_pobreza_14.dat";
+ 
+VARIABLE:
+
+     NAMES = proyecto folioviv foliohog icv_muros icv_techos 
+             icv_pisos icv_hac isb_agua isb_dren isb_luz isb_combus
+             ic_sbv ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad
+             ia_7men ia_8men ia_9men ia_10men ia_11men ia_12men 
+             tv_dep radio_dep fridge_dep
+             washingmach_dep compu_dep inter_dep psu weight
+             rururb tot_integ durables educ_hh; 
+MISSING=.;
+     CATEGORICAL = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad 
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+     USEVARIABLES = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad 
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+
+WEIGHT=weight;
+cluster = psu;
+ANALYSIS:
+TYPE = complex;
+
+ESTIMATOR = wlsmv;
+PROCESS = 4;
+MODEL:
+f1 by icv_muros icv_techos icv_pisos icv_hac;
+  f2 by isb_agua
+        isb_dren isb_luz isb_combus;
+  f3 by ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+  h  by icv_muros icv_techos icv_pisos icv_hac isb_agua
+        isb_dren isb_luz isb_combus ia_1ad ia_2ad 
+        ia_3ad ia_4ad ia_5ad ia_6ad;
+  F1 with F2@0;
+  F2 with F3@0;
+  F3 with F1@0;
+  h with f1@0;
+  h with f2@0;
+  h with f3@0;
+OUTPUT:
+std stdyx;

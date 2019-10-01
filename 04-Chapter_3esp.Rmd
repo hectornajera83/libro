@@ -1,0 +1,1480 @@
+# Confiabilidad en medición de pobreza {#Chapter-3}
+
+**Resumen**
+
+Este capítulo introduce la teoría del concepto y principio estadístico de **confiabilidad**. Para introducir el tema, en la primera sección se plantean algunas nociones básicas para entender la importancia de la confiabilidad en medición y se subrayan las implicaciones de su (in)cumplimiento en la práctica. Después, se introduce formalmente la teoría de la confiabilidad. Desde el punto de vista aplicado, hay distintas formas de estimar el nivel de confiabilidad de una escala, el capítulo presenta y discute sus limitaciones y sus ventajas. A partir de la seccion 3.6 se ilustra cómo se implementan los análisis de confiabilidad usando **R** y **Mplus** usando datos simulados. Posteriormente, se utilizan datos reales para ilustrar algunos de los problemas que pueden surgir en la práctica cuando se hacen análisis de este tipo. El capítulo cierra con la presentación y discusión de temas avanzados de confiabilidad que son relevantes para la medición de pobreza.  
+
+
+## Explicación intuitiva del concepto de confiabilidad
+
+¿Cómo el principio de confiabilidad nos lleva a producir cifras de las que podemos fiarnos? Los analistas de la pobreza y los hacedores de política requieren *creer* en la evidencia que utilizan para poderse enfocar en el estudio y desarrollo de estrategias para la erradicación de la pobreza. No hay nada peor en medición que una escala que causa dudas puesto que el debate tiende a concentrarse en qué tan mala o inútil es la medida que utilizamos y no sobre qué tan buena o mala es la política en cuestión. La *confianza* se construye a partir de estimaciones que tienen sentido para quienes las utilizan y que son consistentes en diversas aplicaciones. Por ejemplo, consideremos el caso hipotético en el que podamos realizar dos encuestas con la misma población. Idealmente, lo que esperaríamos encontrar es que los patrones de respuesta no cambien de $t_1$ a $t_2$. Esto nos estaría diciendo que la información que utilizamos para nuestro índice es estable o invariante. Si usamos esa información para un índice de pobreza, lo que encontraríamos es que la clasificación de nuestra población sería la misma. Por el contrario, patrones de respuesta distintos entre $t_1$ y $t_2$ llevarían a clasificaciones inconsistentes y sería imposible distinguir la fuente de la variación en las cifras obtenidas. Es decir, no podríamos saber si nuestra medida de pobreza caputra buena parte de la *señal* en la que estamos interesados o si, en realidad, caputura mayormente *ruido* (todo aquello que no nos interesa). 
+
+Si la fuente de variación de indicadores observados es distinta, estaremos capturando variabilidad que no nos interesa. Esto tiene una serie de implicaciones importantes porque la confiabilidad implicaría que la gente que tiene bajo nivel de vida -latente- debería siempre permanecer en la parte baja de la distribución *ceteris paribus* a lo largo de diferentes mediciones^[Por ahora decimos latente porque en este punto estamos hablando de confiabilidad y no hemos demostrado que la escala que utilizamos efectivamente mide nivel de vida y pobreza. El capítulo de validez explica esta diferencia]. 
+
+Otra consecuencia fundamental del principio de confiabilidad puede ilustrarse pensando en otro caso hipotético, aunque muy común, en el que perdemos o ganamos información. Es decir, dejamos fuera buenos indicadores e incluimos buenos indicadores. Imaginemos un mal indicador de pobreza como tener una bicicleta plegable o un indicador que se levantó mal en campo y la gente no entendió la pregunta. Esta variable tendrá baja correlación con el resto de los indicadores de privación. La teoría de @Spearman1904, fundamento del principio de confiabilidad, nos dice que el principio de confiabilidad nos empujaría a sospechar de este comportamiento. Esto se debe a que la baja correlación (o incluso negativa) sugiere que el indicador en cuestión no es una consecuencia del fenómeno en cuestión, i.e. pobreza (*Falta de recursos en el tiempo* \@ref(Chapter-1)). ¿Por qué? Bajo la teoría de Spearman -e incluso un razonamiento lógico sobre causalidad-, la correlación es una condición necesaria para causalidad. Si partimos de que los indicadores de privación deben ser causados por el mismo fenómeno (pobreza) deberíamos observar que están relacionados. 
+
+¿Cuál es entonces el efecto de indicadores con ruido sobre la confiabilidad? Primero, por indicador con ruido nos referimos a aquellos indicadores cuya variabilidad no tiene correspondencia con la variabilidad de los otros indicadores, i.e. bicicleta plegable guarda poca relación con indicadores de pobreza. Aunque es posible ignorar el consejo de Spearman sobre la búsqueda de correlación, esto no significa que las consecuencias negativas de un mal indicador van a desaparecer. Si incluimos un indicador que no guarda correlación con el resto (si nos quedamos con la bicicleta plegable para identificar pobreza) lo que va a ocurrir es que el ordenamiento de nuestra población va a ser condicional al *ruido* de este indicador. Es decir, va a depender de información -variabilidad- que no nos interesa.
+
+¿Qué tan diferente va a ser el orden de la población con y sin este indicador? Dependerá de dos cosas: de que tan baja o negativa es la correlación de este indicador con el resto y de cuál es la correlación del resto de los indicadores como grupo, i.e. la matriz de correlación del resto. Este segundo punto es de fundamental importancia. La razón es que, si partimos de que correlación es fundamental para causalidad, la correlación de cada indicador con el resto nos da una estimación de que tan *homogénea* es la escala.
+
+Para entender el significado de *homogeneidad* -no confundir con unidimensionalidad- podemos pensar en otro caso. Si tenemos una medida con muy buenos indicadores, una preocupación perder información importante si omitimos un indicador. Este escenario parece un poco ingenuo. Sin embargo, si lo pensamos dos veces nos daremos cuenta de que todo el tiempo perdemos información. En el segundo capítulo mencionamos que trabajos con muestras de los conjuntos relevantes -dimensiones, indicadores y pesos-. Por tanto, siempre omitiremos algún tipo de información. Imagine el caso de que no incluimos un indicador razonable como: carencia de agua dentro de la vivienda (asumiendo que este es un país en desarrollo donde probablemente este indicador funcione para medir pobreza). Si no incluimos este indicador, haríamos la *señal* más débil. Dado que este es un problema común, quisiéramos tener cierta protección respecto a las pérdidas de información. Es decir, tener un índice que es menos sensible a la pérdida de variables. Confiabilidad precisamente aspira a tal tipo de escala. Esto es, a ponernos en una posición en la que obtengamos medidas que podemos confiar. Alta confiabilidad/homogeneidad es una propiedad que, de hecho, garantiza que un índice sea sensible a pérdidas de *señal*. Intuitivamente, esto significa que si tenemos indicadores altamente correlacionados entre sí tendremos una medida con mucha información, es decir, con *señal* suficiente para darnos el lujo de tener pérdidas. La información es intercambiable con buenos indicadores. El ordenamiento de la población se mantiene bajo alta confiabilidad. 
+
+El resto del capítulo es sobre las bases y el cálculo de la homogeneidad de una escala. Veremos que la confiabilidad se preocupa principalente por discernir la parte de la variación de los indicadores que se debe a ruido o error aleatorio. De manera tal que si nuestra medida tiene *mucho* ruido aleatorio, los valores de carencia o privación resultantes de un índice son no confiables. La estimación del tamaño del ruido es un tema central en el análisis de confiabilidad y dedicaremos varias secciones al cálculo en **R** y **Mplus**. 
+
+## Teoría de la confiabilidad
+
+Confiabilidad es un concepto central de la teoría de la medición y puede simplemente definirse como la **homogeneidad** de un índice [@Revelle2009]. Un índice homogéneo es una escala cuyos indicadores son manifestaciones del mismo fenómeno. La teoría de @Spearman1904 es fundamental para entender el principio de confiabilidad. Su proposición original fue que una condición necesaria en medición multivariada es que los indicadores estén correlacionados puesto que tienen una causa común^[En el Capítulo 1 subrayamos el hecho de que no podemos afirmar que observamos la pobreza directamente en tanto que es una invención de la mente humana. Lo que podemos decir es que bajo nuestra teoría de pobreza nos orienta respecto a qué tipo de manifestaciones deberíamos observar (en forma de privación) para estimar los niveles de vida]. En la literatura, varios autores se refieren a la confiabilidad como la *consistencia interna* ¿De qué manera consistencia y homogeneidad están relacionadas? En el ejemplo de la introducción mencionamos que un indicador que no es una buena medida de pobreza tiene poca, nula o correlación negativa con el resto de indicadores. Esto fundamentalmente significa que el indicador es causado por otro fenómeno. Si incluimos indicadores que provienen de distintos fenómenos tendríamos una medida heterogénea -no confundir con multidimensional-. La consecuencia de heterogenidad es que el ordenamiento de la población no va a ser consistente -va a cambiar bastante dependiendo de si dejamos o no el indicador que produce heterogeneidad-. De ahí la relación entre heterogeneidad e inconsistencia. Por tanto, en el corazón del principio de confiabilidad se encuentra la idea de que tener una serie de indicadores con un comportamiento predecible cuando se agregan, i.e. si un índice es confiable deberíamos esperar tener ordenamientos similares en diferentes muestras y con distintos subconjuntos de indicadores -confiables-^[Es interesante que esta es también una propiedad deseable en otros marcos como el marco axiomático de Sen, en forma del axioma de Monotonicidad @NajeraForthcoming, see \@ref(itemlevelrel)].
+
+La historia de la teoría del concepto de confiabilidad está inextricablemente conectada con el nacimiento y evolución de la teoría de la medición en ciencias. El origen de la teoría de la confiabilidad puede rastrearse a @Spearman1904, quien propuso el concepto de **atenuación** (ver abajo) y los fundamentos de la teoría clásica del test. A partir de entonces la teoría de la confiabilidad ha estado en constante desarrollo, principalmente gracias a los avances de modelación de variables latentes. 
+
+El principio de confiabilidad tiene sus raíces en el reconocimiento explícito de que todas las medidas tienen una mezcla de **señal** (la variabilidad que nos interesa) y el **ruido** (variabilidad que no es deseable porque no es de nuestro interés). @Spearman1904 formalizó el tratamiento del ruido en medición al proponer que todo valor **perfecto/verdadero** (score verdadero) en el mundo real tiene una equivalencia que comprende el *score observado* y el *error* (Ver \@ref(eq:truescore)). Esta diferencia es lo que llevó a Spearman a proponer el concepto de atenuación. Para él, debería ser posible evaluar qué tanto la asociación entre el score verdadero y el observado se *atenúa* por el ruido. Esto tiene una analogía en la estadística clásica (de frecuencia). El score verdadero, como el valor de la media poblacional, lo es en el sentido de que hay un valor esperado después de varias replicaciones del mejor experimento posible. Es decir, no se plantea que es **verdadero** porque la naturaleza así lo demanda sino es el valor esperado después de varias replicaciones.
+
+La relación entre observación, error y valor verdadero puede formalizarse de la siguiente manera. Si planteamos que $\theta$ es el valor verdadero, en la teoría clásica del test se propone que:
+
+\begin{equation}
+(\#eq:truescore)
+x = \theta + \varepsilon
+\end{equation}
+
+Con varianzas se define como:
+
+\begin{equation}
+(\#eq:truescore)
+\sigma^{2}_{x} = \sigma^{2}_{\theta + \varepsilon}
+\end{equation}
+
+Definimos al ruido como toda la variabilidad que no nos interesa. Esto significa que si observamos un score (por ejemplo, la privación por agua entubada dentro de la vivienda) idealmente esperaríamos que el 100% de quien tiene privación estuviera en esa situación por falta de recursos en el tiempo. Esto significaría que la variación se explica perfectamente por pobreza. Intuitivamente esto nos dice que si los cambios no se explican por pobreza podríamos afirmar que los cambios de estado de privación a no privación tienen que ver con otro fenómeno. Así, la variabilidad es clave para estimar la confiabilidad y de hecho la confiabilidad puede planearse en términos de descomposición de varianza (\@ref(eq:truescore)), i.e. la razón que nos dice qué proporción de la variabilidad se debe a la señal y que tanto se debe al ruido. 
+
+La teoría clásica del test asume que los errores ocurren aleatoriamente, i.e. misma probabilidad de que el error infle o desinfle el valor observado. Esto significa que el error es independiente de pobreza, por ejemplo. Este supuesto, es similar al que se hace en estadística o econometría, el promedio del error es igual a cero y los errores no están correlacionados con el valor verdadero. 
+
+En el ideal, lo que nos interesa es tener medidas de pobreza cuya variación se deba a pobreza y no a otra cosa. Si la variación de las privaciones se debe a puro ruido, tendermos poco qué decir sobre la relación entre la variación *real o verdadera* y la *variación observada*. Así, en la teoría clásica del test la relación entre la varianza observada y la verdadera es fundamental. Se propone entonces que la varianza del score observado "x" $\sigma^{2}_{x}$ es entonces igual a la varianza del score verdadero más la varianza del error. La discrepancia entre el score verdadero y el observado es un estimado de la confiabilidad (veremos que hay varias aproximaciones puntuales para este cálculo): 
+
+\begin{equation}
+(\#eq:reliability1)
+  \rho^{2}_{\theta x} = \frac{\sigma^{2}_{\theta}} {\sigma^{2}_{x}}
+\end{equation}
+
+En este caso $\rho$ es la confiabilidad total, $\sigma^{2}_{x}$ es la variabilidad observada y $\sigma^{2}_{\theta}$ la variabilidad del score verdadero. Dado que esto es una simple proporción, el valor estimado de la confiabilidad oscilará entre 0 y 1^[Si la escala está muy mal construida, el valor podría ser incluso negativo usando algunos estadísticos como $\alpha$]. Para aquellos lectores interesados en el tratamiento formal, se recomienda ampliamente el texto de William Revelle en línea: 
+knitr::include_url(https://personality-project.org/revelle/publications/reliability-final.pdf). 
+
+La ecuación \@ref(eq:reliability1) es útil para formalizar la definición de confiabilidad pero bajo una segunda lectura podemos pensar que tiene algo sospechoso. Si quisiéramos usar esta ecuación para estimar confiabilidad no sabríamos por dónde empezar. El problema fundamental es que no conocemos los valores verdaderos y, por tanto, no podemos calcular $\sigma^{2}_{\theta}$. No solo eso, sino que no es claro qué valores podría asumir ¿Cómo solucionar este problema? @Spearman1904 propuso un método para aproximar el cálculo de $\rho$. Lo que él estableció fue una forma indirecta de resolver el problema. Él asumió que uno puede aproximar los parámetros de esta ecuación artificialmente (x y x'). La idea detrás de su cálculo es el siguiente: Para saber el valor **verdadero** de una correlación necesitamos el valor real o, por lo menos, muchos experimentos ¿Qué tal y si asumo que dos indicadores son expresiones del constructo que quiero medir?  
+
+Esto significa que si las dos x's tienen los mismos valores verdaderos en común, pero con errores independientes y varianzas iguales, entonces la correlación de estos es un estimador directo de $\sigma^2_\theta$ Es decir:
+
+\begin{equation}
+(\#eq:reliability2)
+  \sigma^{2}_{e} = \sigma^{2}_{e'}
+\end{equation}
+
+Entonces:
+
+\begin{equation}
+(\#eq:reliability3)
+  r_{xx´} = \frac{\sigma_{\theta x}\sigma_{\theta x'}} {\sigma_x \sigma_x'} = \frac {\sigma^2_{\theta x}} {\sigma_x \sigma_x'}
+\end{equation}
+
+Como x y x' son medidas del mismo valor verdadero, entonces sus varianzas de error son iguales. La correlación de estos tests paralelos es igual a la correlación del score verdadero con el valor observado:
+
+\begin{equation}
+(\#eq:reliability3)
+  r_{xx´} = \frac {\sigma^2_{\theta x}} {\sigma^2_x} = \frac {\sigma^2_{\theta}} {\sigma^2_x} = \rho^2_{x\theta}
+\end{equation}
+
+Confiabilidad, bajo el enfoque de @Spearman1904, entonces es la correlación de dos tests paralelos (o medidas del mismo constructo) correjidas por atenuación de los errores. También se define como la correlación entre el verdadero score elevado al cuadrado (esto porque es igual a la razón de la varianza del error sobre la observada). 
+¿Es satisfactoria la solución vía tests paralelos? El problema con esta estrategia es que en el fondo estamos asumiendo que:
+
+1. Los valores verdaderos de x y x' son iguales (esto se conoce como equivalencia de $\tau$. Volveremos a este punto cuando hablemos de variables latentes)
+2. Las varianzas del error de x y x' son iguales. 
+
+Estos supuestos son muy fuertes y deberíamos pensar que raramente se sostienen en la práctica. Sin embargo, son útiles para formalizar y contextualizar los desarrollos más recientes en la teoría de confiabilidad. Es decir, esta definición clásica de la confiabilidad se ha modernizado por parte del tratamiento moderno de la teoría de la medida: enfoque de variables latentes [@Kvalheim2012; @Skrondal2007; @Rusch2017; @Raykov2010]. Aunque ha cambiado el cálculo y tratamiento formal de la confiabilidad, hay varios aspectos en común entre la teoría clásica y el enfoque moderno de medición [@Petrillo2015; @Raykov2010; @Rusch2017]. El enfoque de variables latentes no se preocupa mucho por usar la idea del score *verdadero* -aunque puede estimarse- sino parte del grado en el que los indicadores reflejan el constructo en cuestión. Esto es un reconocimiento explícito a que en las ciencias sociales trabajamos con datos discretos y no es necesario asumir aproximaciones continuas, i.e. altísima precisión en medición [@Raykov2010]. La pregunta entonces es ¿Cómo se enmarca el concepto de confiabilidad en el marco de variables latentes? 
+
+Un aspecto central entre la teoría clásica del test y el enfoque de variables latentes es que ambos marcos asumen que los indicadores observados con realizaciones de un fenómeno subyacente, i.e. su causa es el fenómeno. Una diferencia importante es que el enfoque de variables latentes no utiliza la idea del valor **verdadero**. En realidad, este marco parte de que los indicadores observados tienen como causa un factor **congénere** (compartido). Esta pequeña diferencia es fundamental porque entonces el supuesto clave es que *los indicadores son medidas imperfectas del factor subyacente*. Esto nos lleva a plantear la confiabilidad desde la perspectiva de los modelos de pobreza que enseñamos en el Capítulo 2 con las ecuaciones \@ref(eq:model1) and \@ref(eq:model2).
+
+\begin{equation}
+ x_{ij} = \lambda_{ij} \eta_j + \varepsilon_ij   
+\end{equation}
+
+\begin{equation}
+ \eta_j = \gamma_{j} \zeta  + \xi
+\end{equation}
+
+De acuerdo con nuestro modelo multidimensional $\lambda_{ij}$ representan la relación (imperfecta) de cada indicador con el factor, i.e. su causa común. Como puede observarse, \varepsilon_ij son los errores de cada indicador. Es decir, en nuestro modelo convertimos a los errores un parámetro y no lo dejamos como supuesto. Esta es otra de las grandes ventajas respecto a la teoría clásica del test. A continuación, formulamos una equivalencia entre la confiabilidad de la teoría clásica del test y el enfoque de variables latentes. En este caso utilizaremos la expresión de un modelo unidimensional. 
+
+\begin{equation}
+(\#eq:reliability4)
+\rho_{x_{i}\theta} = \frac{\lambda^2_{i}} {\sigma^{2}_{xi}}
+\end{equation}
+
+Las cargas factoriales $\lambda_i$'s (aquí las *i*'s son los indicadores o ítems que usamos en el test *x*, como en la teoría clásica del test) son clave puesto que reflejan la asociación entre el indicador observado y el constructo/factor (esto veremos es la varianza de nuestro indicador que explica la causa común). Por tanto, el enfoque de variables latentes naturalmente encaja el concepto de variabilidad observada. Si el factor explica en mayor medida la variabilidad del indicador observado -i.e. en la medida en la que la privación sea resultado de pobreza- el error será menor y el indicador tendrá una contribución mayor a la confiabilidad total.   
+
+El uso de está ´potente infraestructura estadística permite que el enfoque de variables latentes vaya más allá de las capacidades de la teoría del test clásico. Este es un punto importante porque ilustra el poder que tiene usar modelos (en el sentido teórico y empírico) en la inspección de nuestras medidas de pobreza. La modelación de variables latentes es mucho más potente y flexible que la teoría del test clásico. Incluso, algunas extensiones permiten caminar hacia relaciones no lineales (teoría de respuesta al ítem); es posible estimar el valor del factor; los parámetros son menos sensibles al tamaño de muestra; los indicadores se seleccionan conforme a un modelo deseable; parámetros clave como $\sigma^{2}_{x}$ and $\sigma^{2}_{e}$  pueden estimarse y no *suponerse* [@Raykov2010; @Rusch2017].
+
+## Estimadores de confiabilidad {#Chapter-3-measuresrel}
+
+Hay diferentes formas de estimar la confiabilidad de una escala, cada una con sus ventajas y desventajas. Estos estimadores lo que buscan es formular un procedimiento aplicable de cálculo de confiabilidad. Como discutíamos en la sección anterior, en problema en la teoría clásica del test es que el valor verdadero no se conoce y, por tanto, fue necesario proponer algún tipo de aproximación al cómputo de confiabilidad. 
+
+### Estimadores: teoría clásica del test
+
+El estimador más famoso de confiabilidad es $\alpha$ o también conocido como $\lambda_3$ [@Guttman1945] (no confundir con cargas factoriales) [@Cronbach1951;@Guttman1945]. Este estimador tiene sus raíces en la TCT y se basa en la propuesta de @Spearman1904 para estimar la varianza observada a partir del supuesto de tests paralelos y, más importantemente, en la idea de que corregir el valor de una correlación por **atenuación** llevaría al mejor estimado de confiabilidad. Es decir ¿Qué tan parecidas son las correlaciones observadas a las correlaciones verdaderas? ¿Cómo está relación se atenúa por el ruido? 
+
+La propuesta de Spearman es bastante astuta porque permite estimar confiabilidad usando una sola medición (i.e. no requiere varias repeticiones para comparar resultados entre distintos ejercicios) e incluir una estimación del efecto del error sobre las correlaciones entre ítems. Idealmente, nos gustaría tener mediciones repetidas para la misma muestra porque de esta manera podríamos comparar si los resultados de nuestro ejercicio de medición cambian a fin de tener una idea de que tan inestables son los resultados de nuestro instrumento. Además, nos gustaría contar con una aproximación a la varianza verdadera $\sigma^{2}_{\theta}$ haciendo uso de la información disponible, en este caso la varianza observada  $\sigma^{2}_{x}$. Partiendo de @Spearman1904 y de la propuesta de @Kuder1937, @Guttman1945 (variables continuas) y @Cronbach1951 (variables categóricas) propusieron la siguiente forma general, en versión moderna, para calcular confiabilidad: 
+
+\begin{equation}
+(\#eq:alpha)
+\alpha = \lambda_3 = \frac{\sigma^{2}_{x} - \sum\sigma^{2}_{xi}} {\sigma^{2}_{x}} \frac{n} {n-1}
+\end{equation}
+
+O en la formulación original:
+
+\begin{equation}
+(\#eq:alpha1)
+ \alpha = \frac{k^2 \bar{\sigma_{ij}}} {\sigma^{2}_{X}}
+\end{equation}
+
+Donde $k^2$ es el número total de ítems y $\sigma^{2}_{X}$ es la varianza total de la escala en cuestión. 
+
+El coeficiente $\alpha$ puede utilizarse para ítems binarios, ordinales o continuos (con $\lambda_3$). La ecuación \@ref(eq:alpha) esconde varios supuestos [@Kuder1937]. Parte de que la covarianza promedio entre ítems es un estimador de la varianza de cada ítem ($\sigma^{2}_{ei} = \sigma^{2}_{xi} - \bar\sigma^{2}_{ij}$. Por tanto, la varianza del error de cada ítem $\sigma^{2}_{ei}$ es simplemente la diferencia de la varianza del ítem menos la covarianza promedio. 
+
+El $\alpha$ de Cronbach es, sin embargo, un estimador de confiabilidad bastante limitado [@Zinbarg2005;@Revelle2009]. Primero, $\alpha$ y $\lambda_3$ son función del número de ítems de una escala, i.e. más ítems eventualmente producen estiman alta confiabilidad. Segundo, es función de la correlación entre ítems. Entonces al añadir algunos ítems que correlacionen alto es posible manipular estos estimadores. Tercero, este estimador funciona bien bajo supuestos bastante restrictivos: la asociación entre cada indicador y la variable latente es igual. Por ejemplo, una medida con tres indicadores asume que las cargas factoriales son $\lambda_1=\lambda_2=\lambda_3$; y asume que las varianzas de los indicadores son iguales. Estos supuestos son más endebles cuando se trata de medidas multidimensionales porque la relación de los indicadores está mediada por el número de dimensiones. Por ejemplo, falta de agua y saneamiento probablemente tengan la misma relación con la dimensión de acceso a servicios básicos pero probablemente no tengan la misma relación con pobreza. Estos dos supuestos son, sin embargo, necesarios porque de otra manera no podríamos estimar $\sigma^{2}_{\theta}$ y $\sigma^{2}_{x}$. El problema es que estos supuestos raramente se sostienen en la práctica (La tabla \@ref(ta:reliabilitystats) resume la relación entre distintos estimadores de confiabilidad y dimensionalidad).  
+
+Dado que $\alpha$ o $\lambda_3$ se basan en supuestos que difícilmente se sostienen, hay distintas propuestas para estimar confiabilidad bajo condiciones más generales. @Revelle1979 propone el estadístico $\beta$. Este coeficiente, más que se un sustituto de $\alpha$, es una medida que informa sobre qué tan baja es la confiabilidad de una escala. Es decir, nos da una estimación pesimista de confiabilidad. Decimos *baja* definida a partir de la heterogeneidad de la escala en cuestión, i.e. examina el efecto que tiene el indicador con la correlación más baja sobre la confiabilidad. Formalmente, $\beta$ considera la peor correlación entre dos mitades. Es decir, minimiza la covarianza promedio a partir de la correlación entre ítems más baja ($\bar{\sigma_{ij}}$). Por tanto, $\beta$ es una medida del más bajo nivel de confiabilidad partiendo de que nuestra preocupación principal es qué tan heterogénea es nuestra escala en el límite. Siempre, por tanto, $\beta < \alpha$. Se estima de la siguiente manera: 
+
+\begin{equation}
+(\#eq:beta)
+ \beta = \frac{k^2 \bar{\sigma_{ij}}} {\sigma^{2}_{X}}
+\end{equation}
+
+Donde en la ecuación \@ref(eq:beta), \bar{\sigma_{ij}} es la covarianza de los ítems (de distintas particiones) considerando la combinación más baja de ítems, $k^2$ es el número de ítems al cuadrado. Esta expresión es similar a la que propone Cronbach pero \bar{\sigma_{ij}} es distinto, i.e. es el que minimiza la covarianza. Como bien afirma @Cronbach1951 *[H]igh or low coefficient depends on whether the high interitem covariances are place in the between halves covariance* (p. 304). Computacionalmente, lo que hace que hace $\beta$ es lo siguiente: Estima la matriz de correlaciones, combina los dos ítems más similares en un ítem compuesto, encuentra la correlación de este nuevo ítem con el resto, repite estos pasos hasta que encuentra la correlación más baja.
+
+### Estimadores: variables latentes
+
+Una de las ventajas del marco de variables latentes es que directamente trabaja con parámetros para la estimación de confiabilidad. @McDonald1999 propuso dos medidas alternativas de confiabilidad: $\omega$ y $\omega_h$. Estos estadísticos pueden enmarcarse mejor dentro del marco de variables latentes porque se estiman a partir de análisis factorial -preferentemente análisis confirmatorio (@Brown2006), ver sección \@ref(relestimation)-. Ambos estimadores se basan en la idea expresada en la ecuación \@ref(eq:reliability2), i.e. la varianza de un indicador depende de su relación con el factor y la suma de éstas relaciones para todos los indicadores de la escala. El primer estadístico, ($\omega$) también se conoce como la medida que maximiza la estimación de confiabilidad, i.e. se conoce como el estimador del techo de confiabilidad [@Zinbarg2005]. La ecuación \@ref(eq:omega) muestra la fórmula de cálculo de $\omega$. Esta ecuación representa la proporción de la varianza que explica el factor. En otras palabras, si tenemos varios buenos indicadores de privación que son causados por pobreza, esperaríamos que el error sea bajo y que las cargas factoriales de cada indicador sean altas. Consecuentemente, $\omega$ será muy alto, i.e. con valores próximos a 1, que es su valor máximo. 
+
+\begin{equation}
+(\#eq:omega)
+ \omega = \frac{ \sum\limits_{j=1}^k  \bigg(\sum\limits_{i=1}^p \lambda_{ij}\bigg)^2 } {\sum\limits_{j=1}^k  \bigg(\sum\limits_{i=1}^p \lambda_{ij}\bigg)^2 + \sum\limits_{i=1}^p e_i}
+\end{equation}
+
+El estadístico $\omega$ está pensado en calcular el porcentaje de la varianza explicado por el factor general. Sin embargo, no se preocupa por la existencia de dimensiones. En medición de la pobreza, esto no es ideal porque, aunque nos gustaría saber la confiabilidad total, nos interesa saber cuál es la confiabilidad cuando se consideran las dimensiones. Esto se debe a que en medición multidimensional pensamos que existe un factor general con distintos factores anidados (dimensiones de la pobreza). Entonces, existen por lo menos dos tipos de relación: 1) La relación de cada indicador con el factor general (pobreza), y (2) la relación de cada indicador con su respectiva dimensión. De hecho, esto es más complicado que parece, porque la primera relación puede descomponerse y plantearse en términos de la relación del factor general con cada dimensión. 
+
+La respuesta al problema de dimensiones anidadas para el computo de confiabilidad es  $\omega_h$. La ecuación \@ref(eq:omegah) muestra la fórmula para estimar este estadístico. Se trata de una versión jerárquica de $\omega$ en el sentido de que apunta a estimar los dos tipos de relación mencionados arriba: la varianza de los indicadores que se explica por ambos el factor genera y las dimensiones. La mejor manera de estimar $\omega_h$ es a partir de la transformación @Schmid1957 (ver por ejemplo [@Wolff2005] and sección (\@ref(relestimation)). Esta transformación es un procedimiento relativamente simple que transforma un modelo factorial jerárquico en un modelo en el que las cargas factoriales de los indicadores se estiman considerando por separado el factor general y las dimensiones. Esto tiene mucho sentido desde la perspectiva de que nos interesa tanto la relación del indicador con pobreza como su relación con alguna dimensión como vivienda digna, por ejemplo. 
+
+\begin{equation}
+(\#eq:omegah)
+\omega_h = \frac{  \bigg(\sum\limits_{i=1}^p \lambda_{ij}\bigg) ^2 } {\sum\limits_{j=1}^k  \bigg(\sum\limits_{i=1}^p \lambda_{ij}\bigg) ^2 + \sum\limits_{i=1}^p e_i}
+\end{equation}
+
+### Criterios de uso: Estimadores de confiabilidad
+
+La existencia de distintos estimadores de confiabilidad abre la pregunta siguiente ¿Cuál debemos usar? Hay dos formas complementarias de responder a esta pregunta. Primero, estas medidas de confiabilidad están basadas en supuesto y su uso depende del grado en el que cada supuesto es adecuado para los datos que utilizamos. 
+
+$\alpha$ es un caso muy específico y sus supuestos raramente se cumplirán en la práctica. La recomendación general es evitar utilizar $\alpha$  y enfocarse en el cálculo de $\omega$ y $\omega_h$. $\omega$ casi siempre funcionará, el único cuidado que debemos tener es utilizar estimadores complementarios cuando la medida es multidimensional. En tal situación, $\omega_h$ es una medida más adecuada porque siempre nos dirá la varianza debida al factor de alto orden menos la varianza que explican las dimensiones. 
+
+@Zinbarg2005 realizaron un estudio de Monte Carlo para examinar cómo los distintos indicadores de confiabilidad se comparan entre sí. Estos autores encontraron lo siguiente (ver Tabla \@ref(tab:reliabilitystats)): 
+
+  Table: (\#tab:reliabilitystats) Resumen de relación de $\beta$, $\alpha$, $\omega$ y
+  confiabilidad dependiendo de la dimensionalidad del índice. Tomado de [@Zinbarg2005 p.128] 
+
+    Dimensionality              Expected behaviour
+  ------------------  ------------------------------------------
+   Multidimensional       $\beta<\alpha<\omega\leq\rho$
+                            $\omega_h<\omega\leq\rho$
+  Unidimensional        $\beta<\alpha<\omega_h=\omega\leq\rho$
+    
+  ------------------  ------------------------------------------
+ 
+La segunda manera de contestar a la pregunta de cuándo usar cada estimador tiene que ver con las conclusiones que podemos sacar de cada medida de confiabilidad. Es decir, si los supuestos de violan nuestras conclusiones se verían afectadas. Ahora bien, asumiendo que elegimos el indicador adecuadamente, una pregunta adicional sobre estos estadísticos es ¿Qué valor de confiabilidad es inaceptable?
+
+Una de las consecuencias de confiabilidad es que esta propiedad garantiza un ordenamiento adecuado de nuestra población, i.e. de bajo nivel de vida a alto nivel de vida. @Najera2018 realizó un experimento de Monte Carlo para examinar la relación entre confiabilidad y la clasificación de la población. Este estudio plantea la pregunta sobre el nivel de confiabilidad que garantiza bajo nivel de error. El resultado de este estudio es que hay una relación clara entre confiabilidad y clasificación de la población. El resumen de los resultados de @Najera2018 se muestra en la Tabla \@ref(tab:relentropy). La simulación consideró tres posibles estructuras dimensionales: unidimensional, dimensionalidad débil y fuerte. La dimensionalidad débil se definió como el caso en el que las dimensiones tienen relativamente bajas cargas factoriales respecto al factor general. 
+
+
+  Table: (\#tab:relentropy) Resumen de la relación de
+  $\beta$, $\alpha$, $\omega$ y entropía dependiendo de la
+  dimensionalidad del índice. Tomado de @Najera2018. 
+  En este caso, el modelo unidimensional parece cumplir 
+ equivalencia de  $\tau$, i.e. cargas factoriales iguales.
+  
+  ---------------- ----------- ---------------------- ---------
+  Estimador de      Lleva a     Erro de clasificación   Entropía
+  Confiabilidad                            (%)             
+                                                      
+  $\alpha>.8$       $\approx$          $<5\%$           $>.8$
+  
+  $\omega>.8$       $\approx$          $<5\%$           $>.8$
+  
+  $\omega>.85$      $\approx$          $<5\%$           $>.8$
+  
+  $\omega_h>.65$    $\approx$          $<5\%$           $>.8$
+  
+  $\omega>.85$      $\approx$          $<5\%$           $>.8$
+  
+  $\omega_h>.70$    $\approx$          $<5\%$           $>.8$
+  --------------- ------------ ---------------------- ---------
+  
+## Confiabilidad por ítem y pesos diferenciales {#itemlevelrel}
+
+La teoría clásica del test se preocupa por estimar la confiabilidad total de los scores. Asimismo, los estadísticos $omega$ y $omega_h$ son medidas de confiabilidad global Pero ¿Qué hay del aporte de cada indicador a la confiabilidad de los scores? En otras palabras ¿Cuál es la contribución puntual del indicador a la confiabilidad total? La teoría de respuesta al ítem (TRI) se apartó de la idea del valor verdadero y se enfoca en la relación que tiene cada indicador con el fenómeno subyacente (e.g. inteligencia, depresión o pobreza) [@Harris1989, Reise2014]. La TRI es una teoría que encaja en el marco unificado de variables latentes porque igualmente busca estimar cierto tipo de relaciones con un constructo. 
+
+En su origen, la TRI se desarrolló pensando en medidas unidimensionales (i.e. los indicadores son manifestaciones de un sólo fenómeno) y se ha extendido a mediciones multidimensionales -como veremos la diferencia no es tan relevante- [Reise2014]. La relación que busca estimar la TRI es el tipo de información que cada indicador nos brinda sobre el factor. En el modelo más básico la TRI se enfoca en la *severidad* (dificultad) de cada ítem. Por ejemplo, estima si tener piso de tierra y carecer de agua entubada son manifestaciones igualmente severas de pobreza. Este tipo de modelo se conoce como TRI de un parámetro. Los modelos TRI pueden ser más complicados que eso. Una pregunta importante en medición de pobreza es ¿Qué indicadores son mejores para distinguir quién es pobre de quién no lo es? Los modelos TRI pueden incorporar un segundo parámetro llamado *discriminación*. Este parámetro nos estima la probabilidad de que una persona sea identificada como pobre dado que observamos privación en cierto indicador. Este modelo se conoce como IRT de dos parámetros. Este tipo de modelo es el que se ha utilizado en trabajos recientes en medición de pobreza como @Guio2016 and @Guio2017, por ejemplo.
+
+El modelo general de la teoría de respuesta al ítem de dos parámetros es el siguiente (Ecuación (\#eq:irt)):
+
+\begin{equation}
+(\#eq:irt)
+P_i\theta = \frac{1} {1+e^{-1.7a_i(\theta-b_i)}}
+\end{equation}
+
+La ecuación \@ref(eq:irt), traducida a la medición de pobreza, establece que la probabilidad de *observar* que alguien tiene privación en el indicador $i$ está dada por la discriminación (a) y la severidad (b) del indicador en cuestión para el nivel de pobreza la persona observada. Pensemos en un indicador confiable y uno no confiable para un país en desarrollo: Agua entubada dentro de la vivienda y bicicleta plegable, respectivamente. El primer indicador debería tener alta discriminación y tener severidad positiva. El segundo, baja discriminación y severidad probablemente negativa. ¿Por qué? Si pensamos en los datos, el patrón de respuesta de la gente con privación múltiple nos va a indicar que efectivamente privación múltiple se asocia con el indicador de agua y no mucho con el de bicicleta plegable. Esto llevará una alta discriminación. Como estamos en pobreza el foco es en los niveles bajos de vida, la severidad -por la métrica del factor- será positiva. Esperaríamos que, si nuestra teoría tiene sentido, que la baja proporción de gente con bicicletas plegables se deba a que es un *lujo* y no un bien necesario para vivir dignamente. 
+
+¿Hay alguna relación entre TRI y análisis factorial? Sí, @Muthen2013 muestra cómo estos dos modelos se relacionan, las ecuaciones 21 and 22 de su texto. Intuitivamente, esta relación se debe a que la severidad es simplemente la ordenada al origen de la carga factorial, i.e. el valor promedio del factor condicionada por el indicador. Las cargas factoriales $\lambda_{i}$ son equivalentes al parámetro de discriminación. La diferencia decisiva es la parametrización que usa TRI. Cuando las cargas factoriales son más altas, esto significa que hay mayor relación entre el indicador y el factor y, por tanto, existe el indicador discrimina más potentemente. Si consideramos que $\psi$ es la varianza de la variable latente: 
+
+\begin{equation}
+(\#eq:irta)
+ a_{i}=\lambda_{i}\sqrt{\psi} 
+\end{equation}
+
+La ecuación \@ref(eq:irta) muestra el cálculo de la confiabilidad para un modelo factorial unidimensional pero fácilmente ajustable para modelos multidimensionales. Los modelos TRI fundamentalmente se diseñaron bajo el supuesto de escalas unidimensionales, i.e. un factor con varias variables de manifiesto que pertenece exclusivamente a tal factor. Sin embargo, es posible estimar modelos multidimensionales [@Reckase2009]. Es fácil identificar por qué. Los modelos factoriales confirmatorios pueden ser unidimensionales y multidimensionales y como hay una equivalencia entre estos modelos y TRI es posible estimar severidad y discriminación para modelos con múltiples dimensiones. Sin embargo, es importante volver al concepto de *homogeneidad* y su rol para la confiabilidad. @Gibbons2007 ha mostrado que la presencia de un factor de alto orden produce poco sesgo en la estimación de los parámetros de los modelos TRI. En principio, este debería ser el supuesto en medición multidimensional de pobreza porque trabajamos con modelos que -presumimos- tienen tal estructura. En cualquier caso, es posible siempre estimar un modelo factorial confirmatorio. 
+
+### Criterios de uso: Estimadores de confiabilidad de ítem
+
+Los estadísticos $\beta$, $\alpha$, $\omega$ y $\omega_h$ se enfocan en estimar la confiabilidad global de una escala. Sin embargo, hay aspectos puntuales que conectan con el cálculo de la confiabilidad para cada ítem. El cálculo de $\omega$ se basa en cargas factoriales. Cargas factoriales con valores bajos nos indican que hay mayor error y si esto ocurre para el resto de los indicadores tendremos confiabilidad global baja. De manera análoga, bajos $\lambda_{i}$ pueden traducirse en estándares de baja confiabilidad de ítem. La pregunta es entonces ¿Qué tan bajo es bajo? En estudio de pobreza @Guio2016 usa regla de  $<.4$ para cargas factoriales estandarizadas como media de baja confiabilidad. @Najera2018 mostró que efectivamente esos valores tienen una alta probabilidad de resultar en baja confiabilidad global y alto error de clasificación. 
+
+En la sección anterior se ilustró la conexión entre cargas factoriales y el parámetro de discriminación. Para los parámetros de un modelo TRI, los estándares son $\lesssim.8$ para discriminación y $\geq 3$ deviaciones estándar para severidad. En este último caso, cuando la severidad es tan alta, quiere decir que el indicador tiene muy poca información para ser de utilidad es redundante. Estas reglas, sin embargo, son guías para la interpretación. 
+
+## Confiabilidad de ítem: Pesos, discriminación y axiomas 
+
+En esta sección discutiremos la relación entre confiabilidad, confiabilidad de ítem y pesos. Esto se debe a que estos aspectos están íntimamente relacionados y, sin embargo, en medición de pobreza raramente se hace está conexión de manera explícita. 
+
+Primero hablemos de lo que significan los pesos en medición de pobreza. Uno de los temas más discutidos en medición de pobreza multidimensional gira en torno a la ponderación de los indicadores y las dimensiones [@Decancq2013]. Esta discusión se ha dado en dos planos: Uno teórico -¿Son algunas necesidades más importantes o críticas que otras?- y el otro es empírico -¿Cuál es el efecto de los pesos en la identificación del grupo pobre o no pobre?-. Esta sección es sobre el lado empírico de la medición de pobreza así que nos enfocaremos en esta parte de la discusión. Un problema central es que la medición de pobreza a discutido de un marco analítico para analizar el rol que tienen los pesos en medición. ¿Qué significa está afirmación? Pensemos primero en lo que son los pesos. Si hay dos indicadores binarios y a uno se le asigna un peso de $w_1=.5$ y a otro un peso de $w_2=2$, se afirman varias cosas: que un indicador es cuatro veces más importante que otro, que tener privación del segundo indicador lleva a tener mayor severidad de pobreza e, indirectamente, que la probabilidad de ser clasificado como pobre es condicional en los pesos $w_i$. 
+
+Mencionamos en el Capítulo 2 (\@ref(Chapter-2)) que lo que se hace en medición es tomar muestras de los indicadores en este caso cuando incorporamos pesos, lo que hacemos es un muestreo informado de los pesos $\Theta$. La muestra más usada es $w_i=1$, es decir, todos los pesos son iguales. La pregunta en medición multidimensional de pobreza es binaria: Pesos diferenciales o pesos iguales. Si la respuesta es pesos diferenciales, entonces la pregunta es sobre qué conjunto de pesos diferenciales. Mencionamos que hay una carencia de un marco analítico en medición de pobreza cuando se habla de los pesos. Es decir, de un marco que nos diga empíricamente (fundamentado en alguna teoría, no de pobreza sino de medición) cómo evaluar el efecto de los pesos. Esto se debe a que lo que normalmente se hace es algún tipo de análisis de sensibilidad para ver el efecto que tienen los pesos sobre algún tipo de ranking (de población o de países), de manera que, si encontramos altas discrepancias, es probable que nuestros pesos estén introduciendo demasiada variabilidad [Alkire2015]. El problema con este tipo de análisis es que los análisis de sensibilidad llevan a alto sesgo de confirmación porque los investigadores pueden ponerle límites a su análisis discrecionalmente. 
+
+¿Qué tienen que ver los pesos con confiabilidad? Si los pesos reflejan la relación entre el nivel de pobreza y el indicador, entonces entramos naturalmente al postulado de variables latentes sobre la relación de la variable observada y el nivel latente de pobreza. Dentro de la teoría de la medición ¿Qué parámetros nos dicen algo sobre esa relación? Dentro de la TRI tanto la severidad como la discriminación nos dan piezas de información puntual sobre la relación del indicador con el atributo que estamos midiendo. En medición de pobreza hay literatura que utiliza *pesos de prevalencia*, es decir, usa la severidad de la privación para asignar peso a las necesidades humanas [@Willitts2006; @Desai1988]. Otro enfoque es usar la discriminación para asignar pesos, en este caso priorizaríamos los indicadores que nos dan mejor información para distinguir entre el grupo pobre y no pobre. 
+
+Hay una entonces una conexión obvia entre los parámetros de confiabilidad de ítem y pesos en medición multidimensional de pobreza. Esto no es casual, la teoría de la medida tiene décadas preocupándose por este tema [@Brennan2006]. La teoría de la medición propone que una de las consecuencias de confiabilidad es un ordenamiento consistente de la población, i.e. de alta a baja severidad de pobreza condicional en los indicadores. En otras palabras, una medida con alta confiabilidad es una escala autoajustable debido a que garantiza adecuada clasificación de la población [@Streiner2015]. ¿Cómo es posible esto? El parámetro de discriminación tiene un rol crucial en la clasificación y ordenamiento de la población. Debido a que las cargas factoriales son la varianza explicada por el factor común (i.e. Comunalidad). Esto significa que las cargas factoriales pueden verse como los pesos *óptimos* de los indicadores para los datos en cuestión -incluso son generalizables para la población ceteris paribus-. Esto parece sugerir entonces que los pesos diferenciales serían la solución óptima al problema de los pesos. Sin embargo, lo que nos dice la teoría de la confiabilidad es: *la confiabilidad de cada ítem es más importante que los pesos y hay que preocuparse por pesos diferenciales para corregir la baja confiabilidad*. 
+
+@Najera2018 muestra experimentalmente cómo ocurre la relación entre pesos, cargas factoriales y clasificación de la población. A través de un estudio de Monte Carlo se puede apreciar que alta confiabilidad resulta en un índice autoajustable en el sentido de que el ordenamiento de la población es muy poco sensible a cambios en los pesos. Es decir, si se tiene alta confiabilidad y alta confiabilidad de ítem, ya no hay información extra que podamos añadir para mejorar nuestra escala -veremos empíricamente que pasa en la próxima sección-. Con un poco de intuición podemos ver por qué esto es posible. Si las cargas factoriales nos dicen la varianza que se explica por el factor y tenemos indicadores con alta relación con el factor, esto quiere decir que hay poca información que podamos incluir para mejorar nuestro índice. El score de privación es la suma de los indicadores (y estos indicadores discriminan muy bien entre la población pobre y no pobre) y el valor para cada persona estará altamente correlación con cambios por ponderación. La gente con alta severidad permanecerá en esta posición independientemente de los pesos que se usen. El punto crucial es que si se usan pesos diferenciales, el investigador tiene que asumir que son desconocidos, y siempre se introducirá más ruido a la clasificación de la población. Mientras confiabilidad es una condición necesaria para ordenamientos poblacionales consistentes, los pesos diferenciales no lo son. 
+
+### Confiabilidad y monotonicidad
+
+La relación entre confiabilidad y pesos va más allá del ordenamiento poblacional. Mencionamos en el Capítulo 1 (\@ref(Chapter-1)) que un aspecto decisivo en medición de pobreza es la correspondencia que hay entre supuestos y experimento. Uno de los axiomas más famosos en la medición multidimensional de pobreza es el de Monotonicidad de @Sen1976. Este axioma nos dice que la pobreza *ceteris paribus* debería disminuir después de una mejora en los logros observados [@Sen1976; @Alkire2015]. Para @Kyburg1984 es fundamental revisar vía del experimento si los axiomas de una medida se sostienen en el mundo real. ¿Qué evidencia tenemos de que el axioma de monotonicidad se cumple? ¿Qué tiene que ver esto con confiabilidad?
+
+La teoría de la medición es mucho más madura que los esquemas de medición que se tienen en pobreza. No es casual que desde los orígenes de análisis factorial existiera no solo un axioma sobre la relación del indicador observado y el factor, sino un método de escrutinio sobre tal relación. La teoría de la medida establece que los valores observados de una medida al final reflejan su relación con un factor determinado, i.e. la carencia de agua entubada es causada por pobreza. De esta manera, las cargas factoriales nos dicen no sólo si el indicador es confiable o no sino si respeta el axioma de monotonicidad. @NajeraForthcoming hizo un ejercicio de Monte Carlo para ejemplificar numéricamente esta relación haciendo uso de parámetros reales.
+
+El estudio de Monte Carlo muestra que la poca o nula confiabilidad de ítem lleva a una violación del axioma de monotonicidad. La conclusión es que indicadores que tienen baja discriminación ($\lambda_ij<.4$, cargas estandarizadas) violan el axioma de monotonicidad débil y en algunas circunstancias pueden violar monotonicidad fuerte. Estos indicadores por tanto introducen más ruido que señal en la medición de pobreza. @NajeraForthcoming basó el experimento en parámetros reales provenientes del Índice Multidimensional de Pobreza aguda que proponen @Alkire2010, el índice para Latinoamérica de Santos2016 y el índice para la Unión Europea @Guio2012. ¿Qué exactamente pasa en la práctica? Considere el indicador de desempleo de la medida que proponen Santos2016. Si uno observa con cuidad las tasas de desempleo en la región se dará cuenta que son muy bajas y que el perfil del desempleado generalmente corresponde a la población joven de clase media. Esta es la población que tiene al desempleo como opción, quienes no lo tienen se dedican a una actividad informal. Por otro lado, el desempleo es un predictor no una manifestación de pobreza. Entonces hay razones para sospechar de este indicador. Los análisis sugieren que efectivamente este indicador no es confiable. La lección del estudio de Monte Carlo es que aumentos de privación en este indicador no están asociados con mayor pobreza. Es decir, se viola el axioma de monotonicidad débil. Lo que concretamente está pasando es que pasar a la categoría de desempleo significa ser clase media y, por tanto, hay una relación baja (a veces inversa) con privación.
+
+Puede ilustrarse muy sencillamente el gran riesgo que se corre al dejar indicadores con baja confiabilidad en términos de la violación del axioma de monotonicidad. Considere que tenemos una medida que consta de 10 indicadores con una muestra de 20 personas (O 20 millones). Imagine que la tasa de desempleo es 10% -dos personas desempleadas-. Si comparamos a dos personas con el mismo score de población concluiríamos que su severidad de pobreza es muy parecida, pero ¿Qué si una es desempleada y otra no? Lo que ocurriría es que en realidad tienen niveles latentes de pobreza distintos. Si la desempleada cambia de estado (a empleada), haríamos conclusiones muy distintas de su severidad observada cuando en realidad puede ser que su pobreza no haya cambiado. Esto absolutamente indeseable en medición porque si usamos una línea de referencia para calcular la prevalencia de pobreza, vamos a clasificar equivocadamente a la población (ilustraremos esto en la siguiente sección).
+
+
+## Estimación de confiabilidad: Global y de ítem {#relestimation}
+
+### Confiabilidad global
+
+```{r echo=FALSE, include=FALSE, eval=FALSE}
+library(MplusAutomation)
+#########################################################################################
+setwd("C:\\OneDrive\\Proyectos Investigacion\\PM Libro")
+##########################################################################################
+
+#T1#
+
+test<-mplusObject(MONTECARLO = "NAMES=U1-U11 y1 x1 x2 x3; 
+                  GENERATE = U1-U11(1);
+                  CATEGORICAL = U1-U11;
+                  GENCLASSES = c(2);
+                  CLASSES = c(2);
+                  NOBS = 5000;
+                  SEED = 3454367;
+                  NREP = 1;
+                  SAVE = Rel_MD_data_1_*.dat;
+                  REPSAVE = all;", 
+                  MODELPOPULATION ="%OVERALL%
+
+x3@4;
+[x3@3];
+                  
+x2@7
+[x2@7];
+                  
+x1@5;
+[x1@9];
+
+x3 with x1@-.6;
+
+                  
+[c#1*-.4]; 
+[y1@5000];
+y1@1000000;
+                  
+ f1 by u1@2.6
+               u2@2.2
+               u3@1.9
+                u10@.1
+                u11@.1;
+
+  f2 by u4@2.6
+               u5@2.2
+               u6@1.9;
+
+
+
+  f3 by  u7@2.9
+               u8@2.3
+               u9@2.1;
+
+
+  f1@1; f2@1; f3@1;
+
+
+             [u1$1@-5]
+             [u2$1@-2]
+             [u3$1@.1]
+             [u4$1@-4.8]
+             [u5$1@-1.8]
+             [u6$1@.1]
+             [u7$1@-4.9]
+             [u8$1@-1.5]
+             [u9$1@.1]
+             [u10$1@.5]
+             [u11$1@.5];
+
+
+f by f1@1.1 f2@1.1 f3@1.1;
+
+f on y1@-.0004;
+f on x1@-.05;
+f on x2$1@.05;
+
+
+[f@0];
+f@1;
+
+%c#1%
+
+    [y1@6000];
+    y1@2500000;
+
+x3@2;
+[x3@2.5];
+
+    x1@4;
+   [x1@11];
+
+   x2@3;
+   [x2@4];
+   
+
+%c#2%
+
+  [y1@3000];
+  y1@1000000;
+
+x3@4;
+[x3@4];
+
+  x1@4;
+   [x1@7.5];
+
+     x2@7;
+   [x2@7];",
+                  ANALYSIS = 
+                    "TYPE = MIXTURE;
+                  ALGORITHM=INTEGRATION;
+                  PROCESS=8;")
+
+for(i in 1:1){
+  mplusModeler(test, modelout=paste("Rel_MD_data_1_",i,".inp",sep=""),  writeData = "never",
+               hashfilename = FALSE)
+}
+
+
+
+runModels(filefilter = "Rel_MD_data_1")
+
+```
+
+Para introducir la idea de confiabilidad usaremos la base de datos "Rel\_MD\_data\_1\_1.dat". Estos son datos simulados para producir una medida de alto orden multidimensional de pobreza ($n=5000$). La medida tiene nueve indicadores en total distribuidos de manera equivalente en tres dimensiones. 
+
+```{r include=FALSE, eval=FALSE}
+Rel_MD_1<-read.table("Rel_MD_data_1_1.dat")
+colnames(Rel_MD_1)<-c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11",
+                      "resources","educ_yr","occupation","hh_members","class")
+Rel_MD_1$educ_yr<-round(Rel_MD_1$educ_yr,0)
+Rel_MD_1$occupation<-round(Rel_MD_1$occupation,0)
+Rel_MD_1$hh_members<-round(Rel_MD_1$hh_members,0)
+Rel_MD_1$hh_members[Rel_MD_1$hh_members<1]<-1
+write.table(file="Rel_MD_data_1_1.dat",Rel_MD_1,col.names=FALSE,row.names=FALSE)
+```
+
+Comenzaremos a usar el programa R **R-software** para la estimación de confiabilidad. Los datos fueron simulados en **Mplus 8** [@Muthen2012]. Para comenzar leeremos el archivo "Rel\_MD\_data\_1\_1.dat" con la función `read.table()`. Lo siguiente que vamos a hacer es asignarle nombre a nuestras variables usando la función `colnames()`. Como vamos a usar esta base varias veces, le diremos a R que guarde esto en un *objeto* llamado `Rel_MD_1`. Así podremos manipularlo más fácilmente. Una vez con los datos podemos explorarlos usando distintas funciones. Usaremos `str()` para ver las variables que tenemos. Podemos ver que tenemos 11 variables binarias (indicadores de privación) y tenemos además algunas variables auxiliares que usaremos después para algunos cálculos posteriores. 
+
+ We ask R to store this on `Rel_MD_1` for easy access and manipulations. Now we will explore the contents of this data set with `str()` to see which variables we have. We have 11 binary variables (deprivation indicators) and then we have some ancillary data that we will use later for some computations. We have 11 binary variables but above we said that the index has 9 indicators. We will use x10 and x11 below but for now focus on x1-x9. 
+
+```{r echo=TRUE, message=FALSE}
+library(plyr)
+Rel_MD_1<-read.table("Rel_MD_data_1_1.dat")
+colnames(Rel_MD_1)<-c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11",
+                      "resources","educ_yr","occupation","hh_members","class")
+str(Rel_MD_1)
+```
+
+En esta sección vamos a enfocarnos en los nueve indicadores de privación (mencionamos que nuestra medida tiene 9 indicadores y no 11: variables x10 y x11). Los indicadores de privación de nuestra medida son los primeros nueve x1-x9. Lo primero que vamos a hacer es checar cómo lucen nuestros datos. Le pediremos a R que nos muestre los primeros 10 renglones (personas) de nuestra base de datos. 
+
+```{r echo=TRUE, message=FALSE}
+Rel_MD_1[1:10,1:9]
+```
+
+Una de las primeras cosas que nos interesaría saber es la proporción de personas que tiene privación para cada indicador. Primero, le pediremos a R que estime la media `mean()` para todos los indicadores y que guarde la información en el objeto `dep_prop`. Después le pediremos a R que redondee los valores para los nueve indicadores. Después de estas manipulaciones podemos apreciar que el 50% de la población en esta muestra carece del indicador x1, por ejemplo. 
+
+```{r}
+dep_prop<-unlist(lapply(Rel_MD_1, function(x) mean(x)))
+dep_prop<-round(dep_prop[1:9]*100,0)
+dep_prop
+```
+
+Vamos a asumir por el momento que nuestros datos están listos para el análisis y que provienen de una muestra aleatoria. En el Capítulo 1 (\@ref(Chapter-1)) se hizo énfasis en la importancia de producir medidas de pobreza que estén basadas en teoría. También mencionamos que este nos siempre es el caso y que en la práctica se trabaja más de manera exploratoria. Por esta razón vamos a mostrar la estimación de confiabilidad desde un punto de vista exploratorio y confirmatorio. Comenzaremos con el primer tipo de análisis de confiabilidad: Exploratoria. 
+
+### Estimación exploratoria de confiabilidad gloal {#Chapter-3-expoverel}
+
+Ahora que nos hemos familiarizado con los datos podemos proceder a estimar la confiabilidad global de nuestra escala. En esta sección asumiremos el caso donde no tenemos un modelo teórico de pobreza (i.e. tenemos una lista de indicadores candidatos pero no tenemos una estructura predefinida). El principio de confiabilidad se preocupa por la homogeneidad de una escala y su capacidad de producir ordenamientos poblaciones para una población. Comenzaremos por estimar la confiabilidad global de nuestra escala usando el paquete `psych` del programa R [Revelle2014]. Este paquete contiene una lista bastante completa y útil para calcular diferentes estimadores de confiabilidad ($\alpha$, $\beta$, $\omega$ and $\omega_h$) bajo diferentes condiciones. El paquete `pscyh` puede usarse para análisis confirmatorios y exploratorios tanto para medidas unidimensionales como multidimensionales. En este caso, partimos de que no conocemos la estructura de la escala. En las secciones subsecuentes mostraremos como `pscyh` interactúa con otros paquetes como `lavaan` para estimar $\omega$ y $\omega_h$ a partir de un modelo confirmatorio [@Rosseel2012]. 
+
+El paquete `pysch` permite estimar $\alpha$ y $\omega$ usando la misma función (`omega()`). El paquete tiene diferentes opciones y los parámetros precodificados coinciden con los de nuestra medida^[Es importante subrayar que aquí estamos partiendo de que no conocemos la estructura. En estos casos se recomienda un mínimo de tres dimensiones con tres indicadores por dimensión para que el modelo esté identificado. En la simulación de los datos que se están usando, se tomaron esos parámetros como referencia]. Es muy importante recalcar que el valor de $\omega$ de un modelo exploratorio (Modelo Factorial Exploratorio, MFE) es una aproximación al valor óptimo proveniente de un modelo confirmatorio. En la siguiente sección ilustramos cómo se calcula $\omega$ para un modelo confirmatorio. 
+
+Lo único que tenemos que hacer es aplicar la función `omega()` a los nueve indicadores en cuestión. En este caso corresponden a las primeras nueve columnas de nuestra base. Recomendamos usar el comando `?omega()` para inspeccionar las opciones de estimación. Le solicitaremos a R que guarde los resultados en el objeto `omega_exp1` porque lo utilizaremos más adelante. En este objeto se guardan los resultados del análisis como las cargas factoriales de cada indicador a cada subdimensión -del modelo bi-factorial basado en Schmid Leiman-, valores del ajuste del modelo, la información de distintos estadísticos de confiabilidad, ajuste global del modelo exploratorio, la estimación de $\alpha$ y $\omega$, así como la estimación de omega total para cada dimensión (`str(omega_exp1)` nos muestra los objetos que contiene la estimación).   
+
+Después de aplicar la función `omega()` a nuestros nueve indicadores, observaremos que hay distintos objetos si ejecutamos: `omega_exp1` o `str(omega_exp1)`. En este caso nos enfocaremos en la estimación de $\alpha$ y $\omega$ porque estamos interesados en *explorar* cuál es la confiabilidad global de esos nueve indicadores con una solución para tres dimensiones. Para extraer los dos estimadores de interés crearemos un `data.frame` que contenga la extracción del objeto `omega_exp1`. 
+
+```{r echo=TRUE, message=FALSE, warning = FALSE, fig.keep='none'}
+# install.packages("psych")
+require(psych)
+omega_exp1<-omega(Rel_MD_1[,c(1:9)])
+rel_uni_exp<-data.frame(omega_exp1=omega_exp1$omega.tot, 
+                        alpha=omega_exp1$alpha)
+rel_uni_exp
+```
+
+Podemos apreciar que ambos valores son bastante altos  ($\geq.8$) (Ver sección \@ref(Chapter-3-measuresrel) para una explicación) y esto nos sugiere que la escala es altamente confiable. En este caso $\alpha<\omega$ indicando que la escala viola el supuesto de equivalencia $\tau$ (igualdad de cargas factoriales). 
+
+A estas alturas de nuestro ejercicio esto puede generarnos la falsa sensación de que estimar $\alpha$ y $\omega$ es trivial. Efectivamente, tanto la ejecución de la función y como la obtención de valores altos de confiabilidad fue producto de pasos muy sencillos. Sin embargo, este ejemplo es fácil porque todos los indicadores tienen buen comportamiento- esto proviene de datos perfectos. Por tanto, para ganar un mejor entendimiento de confiabilidad y sus efectos sobre la clasificación de poblaciones mostraremos que pasa cuando se incluyen indicadores que reducen la confiabilidad. Esto puede hacerse si añadimos indicadores ruidosos a nuestra medida, i.e. indicadores que añaden heterogeneidad. Lo que haremos a continuación es sustituir los indicadores x1 y x2 por los indicadores x10 y x11.  
+
+Ahora aplicamos la función `omega()` a la nueva matriz de datos que incluye los indicadores x10 y x11 y excluye los indicadores x1 y x2. Vemos que la confiabilidad cae lo suficiente para preocuparnos porque ambos $\omega$ y $\alpha$ están por debajo de las reglas sugeridas que se derivan de la experimentación de Monte Carlo. En este caso guardamos los resultados de la implementación de $\omega$ en el objeto `omega_unr_exp` y extraemos los valores de $\omega$ y $\alpha$. 
+
+```{r echo=TRUE,  fig.keep='none'}
+omega_unr_exp<-omega(Rel_MD_1[,c(3:11)])
+unrel_uni_exp<-data.frame(omega_exp=omega_unr_exp$omega.tot, 
+                          alpha=omega_unr_exp$alpha)
+unrel_uni_exp
+```
+
+¿Cuál es el impacto del uso de estos dos nuevos indicadores? Para este experimento, primero, estimaremos los valores de omega usando diferentes combinaciones de ítems. Es decir, estamos simulando que la medida perfecta es la de los ítems x1-x9 y que las otras son casos especiales con combinaciones de indicadores buenos y malos. Esto no es muy distinto a lo que pasa en la práctica puesto que siempre trabajos con *muestras* del conjunto perfecto. En todos estos casos especiales dejaremos por lo menos siete indicadores de la medida perfecta. 
+
+Lo que haremos es calcular cinco casos especiales y guardarlos en los objetos `omega_exp2-5`. Todas estas medidas son parte del conjunto de indicadores confiables y deberíamos esperar pérdidas bajas de confiabilidad. Al extraer los valores de $\omega$ de las cinco medidas y de la medida que incorpora los indicadores x10 y x11 podemos ver la diferencia entre las medidas confiables y la no confiables.
+
+```{r echo=TRUE,  fig.keep='none'}
+omega_exp2<-omega(Rel_MD_1[,c(3:9)])
+omega_exp3<-omega(Rel_MD_1[,c(1,2,4,5,7,8)])
+omega_exp4<-omega(Rel_MD_1[,c(2,3,5,6,8,9)])
+omega_exp5<-omega(Rel_MD_1[,c(1,3,4,6,7,9)])
+
+
+omegas_exp<-data.frame(omega_exp1=omega_exp1$omega.tot, 
+                       omega_exp2=omega_exp2$omega.tot,
+                       omega_exp3=omega_exp3$omega.tot, 
+                       omega_exp4=omega_exp4$omega.tot, 
+                       omega_exp5=omega_exp5$omega.tot, 
+                       omega_unrel=omega_unr_exp$omega.tot)
+```
+
+Una vez que estimamos los cinco modelos exploratorios con la función `omega()`, podemos comparar los valores de confiabilidad guardados en el objeto `omegas_exp`. Vemos que la teoría se sostiene para este ejemplo. Vemos que la escala con menor confiabilidad es la que incorpora a los indicadores x10 y x11. Las medidas con siete ítems tienen mayor confiabilidad. Esta es una lección muy importante para la gente interesada en medir pobreza porque en algunos casos se preservan malos indicadores en los índices y la consecuencia casi siempre será una pérdida importante de confiabilidad. 
+
+```{r echo=TRUE}
+t(omegas_exp)
+```
+
+### Análisis confirmatorio de confiabilidad
+
+La producción ideal de una medida de pobreza debe incluir una clara especificación del modelo de medición que asume nuestro índice. Tanto en la literatura teórica como en la aplicada, distintos autores proponen que la pobreza es multidimensional y tiene una estructura jerárquica \@ref(Chapter-1-dimensions)). Por tanto, en la medición multidimensional de la pobreza casi siempre estaremos interesados en examinar la confiabilidad de nuestro índice haciendo uso de un modelo a priori y requeriremos estimar tanto el omega global $\omega$ como el omega jerárquico $\omega_h$. Estos dos estimadores pueden estimarse a partir de un modelo exploratorio con el paquete `pysch`. Sin embargo, este libro busca alentar a los investigadores en el uso y escrutinio de modelos teóricos y no alentar enfoques puramente exploratorios. 
+
+Esta sección se enfoca en el análisis de confiabilidad para modelos teóricos (a priori) de pobreza. A diferencia de la sección previa, los siguientes ejemplos utilizan análisis factorial confirmatorio (AFC) [@Brown2006]. La diferencia clave entre análisis exploratorio y confirmatorios es precisamente que el segundo tipo se basa en un modelo teórico que establece la estructura de la medida en cuestión, i.e. un plano/diagrama para medir pobreza \@ref(Chapter-2-blueprint)). El AFC es una forma de examinar el grado en el que el modelo teórico (i.e. número de dimensiones, contenidos de las dimensiones-indicadores, e independencia de las dimensiones) es capaz de reproducir los datos observados. En términos estadísticos, los investigadores establecen un patrón de relaciones entre dimensiones e indicadores (cargas factoriales) y se estima el grado en el que tales relaciones existen. Esto se especifica en las ecuaciones \@ref(eq:model1) y \@ref(eq:model2). Esto es simplemente la formulación matemática de los diagramas presentados en las sección \@ref(Chapter-2-blueprint). 
+
+\begin{equation}
+ x_{ij} = \lambda_{ij} \eta_j + \varepsilon_ij   
+\end{equation}
+
+\begin{equation}
+ \eta_j = \gamma_{j} \zeta  + \xi
+\end{equation}
+
+La confiabilidad se estima después de que hayamos estimado nuestro modelo confirmatorio porque ambos $\omega$ and $\omega_h$ se calculan a partir de piezas clave de información del AFC: Las cargas factoriales y los errores. Esto es, las cargas factoriales de cada indicador y los residuales del modelo son los parámetros necesarios para calcular ambos estadísticos de confiabilidad (Ver ecuación \@ref(eq:omega)).
+
+En lo siguiente mostraremos como calcular $\omega$ and $\omega_h$ usando **Mplus** y **R**. Comenzaremos con el programa **R** y el paquete `lavaan` [@Rosseel2012]. Este paquete tiene una serie de funciones para estimar diferentes tipos de modelos de variables latentes como modelos de medición (AFC) y modelos analíticos (Ecuaciones Estructurales). Una vez que el modelo confirmatorio se estima con el paquete de R `lavaan`, utilizaremos la función `omegaFromSem()` del paquete `psych` para estimar $\omega$ and $\omega_h$. Sin embargo, mostraremos cómo podemos calcular manualmente para familiarizarnos con las diferencias concretas en el cálculo de ambos estadísticos y también nos ayudará a entender el proceso de estimación con  **Mplus**. 
+
+#### Estimación usando R y lavaan
+
+Para ilustrar el calculo de $\omega$ y $\omega_h$ continuaremos usando nuestros datos simulados ("Rel\_MD\_data\_1\_1.dat"). En la sección previa guardamos nuestros datos en el objeto `Rel_MD_1`. La primera pregunta que tenemos que hacernos es *¿Cuál es la estructura del modelo de medición?*. En otras palabras, tenemos que especificar cuántas dimensiones, cuántos y qué indicadores tenemos por dimensión. En este caso, asumiremos que nuestra teoría nos dice que la estructura de nuestra medida tiene un factor de alto orden (pobreza), tres sub-factores (dimensiones de pobreza) y tres indicadores por dimensión. Con esto en mente, lo que tenemos que decirle a `lavaan` (`library(lavaan)`) es cómo luce nuestro modelo (dado que es más fácil calcular $\omega$ y $\omega_h$ a partir de la transformación de @Schmid1957) considerando una estructura no jerárquica sino bi-factorial (i.e. el efecto directo del factor y sub-factores sobre los indicadores). Para hacer este paso, crearemos un objeto llamado `MD_model`. Lo que indicaremos es algo muy sencillo. Primero, diremos que hay un factor de alto orden *h* que tiene nueve variables de manifiesto/indicadores (x1-x9). Después lo que indicamos es que hay tres dimensiones *F1, F2 y F3* donde cada una tiene tres indicadores. Por ejemplo, F1 tiene x7, x8 Y X9 como indicadores. Para propósitos de la estimación, estableceremos que los factores no están correlacionados para ser consistentes con nuestro modelo teórico y la transformación @Schmid1957. 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+library(lavaan)
+MD_model <- ' h =~ +x1+x2+x3+x4+x5+x6+x7+x8+x9 
+                F1=~  + x7 + x8 + x9        
+                F2=~  + x4 + x5 + x6         
+                F3=~  + x1 + x2 + x3
+                h  ~~ 0*F1
+                h  ~~ 0*F2
+                h  ~~ 0*F3
+                F1 ~~ 0*F2
+                F2 ~~ 0*F3
+                F1 ~~ 0*F3
+
+'
+```
+
+Hasta ahora sólo hemos especificado nuestro modelo, no hemos dado la instrucción a R de que lo estime usando `lavaan`. Para estimar el modelo confirmatorio usaremos la función `sem`la cual es una función general que comprende `cfa` y `lavaan` (ambas pueden usarse). Es muy importante tener en mente que las variables de nuestra medición son *categóricas*, por tanto tenemos que incluir la opción `ordered()` y pediremos que lavaan incluya cargas factoriales estandarizadas con el comando `std.lv=TRUE`. Guardaremos nuestros resultados en el objeto `fit`. 
+
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+fit <- sem(MD_model, data = Rel_MD_1, 
+           ordered=c("x1","x2","x3","x4","x5",
+                     "x6","x7","x8","x9"),
+           std.lv=TRUE)
+```
+
+Antes de mostrar la forma automática para estimar $\omega$ y $\omega_h$, mostraremos la forma de hacer el cálculo manual. Hay dos parámetros principales que necesitamos para el cálculo: las cargas factoriales de los indicadores al factor general ($\lambda_h$), las cargas correspondientes a cada dimensión ($\lambda_j$) y el error de cada indicador. Esto se puede extraer del objeto `fit` de la siguiente manera: 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+lambdas<-as.data.frame(fit@Model@GLIST$lambda)
+error<-colSums(fit@Model@GLIST$theta)
+```
+
+Para poder calcular nuestros estadísticos de confiabilidad necesitamos la suma de las cargas factoriales al cuadrado ($\lambda_h$) y ($\lambda_j$), así como la suma del error. Posteriormente, calculamos ambos estadísticos  $\omega$ and $\omega_h$ usando las ecuaciones \@ref(eq:omega) and \@ref(eq:omegah). Vemos que fundamentalmente, $\omega_$ es el descuento de lo que aportan las dimensiones a la explicación de la variabilidad de los indicadores. Así, $\omega_h$ es una medida de confiabilidad que se enfoca en el residuo de lo que añaden la dimensiones a la variabilidad de los indicadores. Cuando $\omega = \omega_h$, evidentemente la aportación de las dimensiones es nula. Vemos que los valores de $\omega$ y $\omega_h$ son altos, aunque ligeramente distintos a los valores del modelo exploratorio. Recordemos que estos valores son los que idealmente deben interesarnos puesto que son el valor estimado de confiabilidad para nuestra propuesta teórica. 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+Slambda_2<-sum(lambdas[1])^2 + sum(lambdas[2])^2 + 
+           sum(lambdas[3])^2 + sum(lambdas[4])^2
+error <- sum(error)
+
+omega_t <- Slambda_2 / (Slambda_2+error)
+omega_h <- sum(lambdas[1])^2 / (Slambda_2+error)
+omegamanual<-c(omega_h=omega_h,omega_t=omega_t)
+omegamanual
+```
+
+La función `omegaFromSem()` del paquete `pysch` estima confiabilidad de manera automática. Para aplicar esta función lo único que necesitamos es indicar el objeto que contiene las cargas factoriales, en este caso `fit`. Vamos a guardar los resultados en el objeto `omegasem`. Los resultados corresponden con lo previamente observado y concluimos que para esos valores la confiabilidad global y dimensional es alta. 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE,  fig.keep='none'}
+omegasem<-omegaFromSem(fit)
+omegasem<-c(omega_h=omegasem$omega,
+            omega_t=omegasem$omega.tot)
+omegasem
+```
+
+#### Computo de confiabilidad usando Mplus y R
+
+El paquete de R `mplusAutomation` es una excelente alternativa para automatizar la estimación de modelos en Mplus desde R -es posible organizar múltiples estimaciones y evitar perderse con tantas ventanas- [@Hallquist2018]. Podemos crear dentro de R una sintaxis que sea legible por Mplus. En esta sintaxis llamada `test`, indicamos el nombre de las variables, el tipo de variables (categóricas) y qué variables vamos a usar. En la sección ANALYSIS, le pedimos al programa Mplus que use el estimador wlsmv y cuatro núcleos^[El estimador wlsmv usa robust Weighted Least Squares para estimar el AFC. Este estimador es una buena aproximación a los resultados de Máxima Verosimilitud, pero es menos computacionalmente intenso y factible cuando se tienen más de tres factores. Recomendamos checar la documentación de Mplus y el libro de @Brown2006 es una excelente compañía]. A continuación, indicamos que el factor general es *h* y que hay nueve indicadores. Hacemos lo mismo para las tres dimensiones donde tenemos tres indicadores por dimensión. Nuevamente, indicamos que la correlación entre los factores es cero para hacerlo compatible con la transformación @Schmid1957. Al igual que en el caso previo con `lavaan` este es un modelo bi-factorial. Guardamos esta sintaxis en el objeto `test`. 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+library(MplusAutomation)
+test <- mplusObject(
+TITLE = "Bi-factor model CFA;",
+   VARIABLE = "
+     NAMES = x1-x11 resources educ_yr occupation class;
+     CATEGORICAL = x1-x9;
+     USEVARIABLES = x1-x9;",
+   ANALYSIS = "ESTIMATOR = wlsmv;
+              PROCESS = 4;",
+
+MODEL = "f1 by x1-x3;
+  f2 by x4-x6;
+  f3 by x7-x9;
+  h by x1 x2 x3 x4 x4 x5 x6 x7 x8 x9;
+  F1 with F2@0;
+  F2 with F3@0;
+  F3 with F1@0;
+  h with f1@0;
+  h with f2@0;
+  h with f3@0;",
+
+OUTPUT = "std stdyx;")
+```
+
+Ahora que hemos especificado el modelo y lo hemos guardado en el objeto `test`, podemos pasar esta sintaxis de R para estimarla en Mplus (\*.inp)´. La función `mplusModeler()` va a hacer esta traducción por nosotros. Le diremos a esta función que el objeto `test` contiene la información del modelo que queremos estimar, que lo que queremos es un archivo de Mplus llamado *rel_CFA_2.inp* y que utilice los datos *Rel_MD_data_1_1.dat* para estimar el modelo. La función que se presenta a continuación permite utilizar el modelo directamente usando la opción `run`^[El lector puede apreciar que el archivo \*.inp puede abrirse en Mplus]:
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+res <- mplusModeler(test, modelout = "rel_CFA_2.inp", 
+                    writeData = "never", hashfilename = FALSE, 
+                    dataout="Rel_MD_data_1_1.dat", run = 1L)
+```
+
+Una vez que el modelo se haya estimado, podemos importar los resultados a R usando la función `readModels()`. Ahora podemos explorar los resultados en el siguiente capítulo, por ahora, nos enfocaremos en la estimación de $\omega$ and $\omega_h$. Las cargas factoriales del modelo bifactorial se encuentran en una lista bajo el nombre `parameters`. Podemos ahora pedir las cargas factoriales estandarizadas como hicimos con `lavaan`. También podemos pedir que nos muestre los errores guardados en el objeto `r2`. Una vez que tenemos los parámetros de interés, procedemos a estimar de la misma manera los estadísticos de confiabilidad. Podemos apreciar que reproducimos los resultados de `lavaan`. 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+REL_CFA_2<-readModels(filefilter ="rel_CFA_2")
+```
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+lambdas<-REL_CFA_2$parameters$std.standardized[1:18,1:3]
+error<-REL_CFA_2$parameters$r2[6]
+
+lambda_2<-sum(lambdas[10:18,3])^2 + sum(lambdas[1:3,3])^2 + 
+          sum(lambdas[4:6,3])^2 + sum(lambdas[7:9,3])^2
+error <- sum(error)
+
+omega_t <- lambda_2 / (lambda_2+error)
+omega_h <- sum(lambdas[10:18,3])^2 / (lambda_2+error)
+
+omega_t
+omega_h
+```
+
+
+### Confiabilidad por ítem
+
+#### Estimación con R
+
+La confiabilidad global es una aproximación sintética a la calidad de un índice en tanto estima el grado de homogeneidad de la escala y su capacidad para producir ordenamientos consistentes de la población de estudio. En la sección \@ref(#relestimation) mostramos que la confiabilidad es sensible a la inclusión de ítems con baja correlación y que esto tiene implicaciones negativas en la consistencia de los resultados en distintas mediciones. Esta sección se enfoca en los atributos de los indicadores que producen baja confiabilidad -más allá de correlación, i.e. cómo ítems específicos contribuyen positiva o negativamente a la confiabilidad de los puntajes de una población. 
+
+La sección \@ref(itemlevelrel) presenta la teoría de respuesta al ítem (TRI), la cual es una teoría sobre las propiedades de los indicadores. La TRI propone a los parámetros de discriminación y severidad como una manera de conceptualizar atributos clave de los indicadores de interés. La TRI asume que la escala es unidimensional y que los indicadores son variables de manifiesto de un fenómeno subyacente -análogo al análisis factorial-. Sin embargo, gracias al desarrollo paralelo de los análisis factoriales confirmatorios (AFC), la TRI ha incorporado modelos multidimensionales. Aunque no hay restricciones por multidimensionalidad, es importante tener en mente que la TRI puede descansar en el supuesto de que la escala es homogénea -factor de alto orden- y que mientras exista un factor subyacente general, las conclusiones sobre discriminación y severidad no deberían cambiar sustancialmente. 
+
+En esta sección nos enfocamos en la estimación de modelos basados en la TRI usando R y Mplus. Para ello, primero trabajaremos con los mismos datos que hemos venido utilizando en el capítulo "Rel\_MD\_1". Comenzaremos con la estimación en R usando el paquete `ltm`, el cual permite estimar distintos tipos de modelos -unidimensionales- de TRI. La función `ltm()` estima modelos TRI de uno, dos y tres parámetros. A continuación, estimamos un modelo de dos parámetros usando los indicadores x1-x9 y añadiendo el parámetro de discriminación -recordemos que el modelo de un parámetro estima severidad/dificultad-. 
+
+Los resultados muestran los coeficientes de los parámetros de severidad y dificultad. La dificultad representa la severidad (en desviaciones estándar) del factor subyacente. Por ejemplo, el ítem x1 es menos severo que el ítem x3. La segunda columna `Dscrmn` muestra los valores del parámetro de discriminación. Hay tanto discriminación positiva como negativa, en este caso como la privación esta codificada con *1* y la no privación con *0*, esperamos que los coeficientes sean positivos. Todos los ítems tienen valores mayores a $>.9$, lo cual está por encima del umbral sugerido por @Guio2016 and @Najera2018.
+
+```{r, echo=TRUE, message=FALSE, warning = FALSE,}
+library(ltm)
+rel_irt<-ltm(Rel_MD_1[,c(1:9)] ~ z1)
+rel_irt
+```
+
+Antes de hace la estimación del mismo modelo con Mplus, mostraremos qué pasa cuando incluimos los ítems que afectan la confiabilidad de los scores. Lo que hacemos es reemplazar los ítems x1 y x2 por los ítems x10 Y X11. Como era de esperarse, los valores de discriminación son inaceptablemente bajos y los valores de severidad son muy altos ($\geq3$). Si quisiéramos utilizar estos indicadores para predecir con confianza y cierta probabilidad quién es pobre y quién no lo es usando x10 o x11, encontraríamos que una persona con privación en x10 tiene la misma probabilidad de ser pobre de alguien que no la tiene. Esto, por supuesto, carece de sentido y utilidad en medición de pobreza. 
+
+```{r, message=FALSE, warning = FALSE,}
+head(Rel_MD_1[,c(3:11)])
+rel_irt_2<-ltm(Rel_MD_1[,c(3:11)] ~ z1)
+rel_irt_2
+```
+
+#### Estimación en Mplus vía R
+
+En esta sección utilizaremos el paquete de R `mplusAutomation` [@Hallquist2018]. Este paquete de R traduce los scripts de R a archivos \*.inp de Mplus. El primer paso consiste en especificar el modelo con la función `mplusObject()`. En este caso utilizaremos los ítems x1-x9. Especificamos un factor *h* con varianza 1. Vamos a guardar el modelo en el objeto test.  
+
+```{r, message=FALSE, warning = FALSE}
+test <- mplusObject(
+TITLE = "IRT model;",
+   VARIABLE = "
+     NAMES = x1-x9 resources educ_yr occupation hh_size class;
+     CATEGORICAL = x1-x9;
+     USEVARIABLES = x1-x9;",
+   ANALYSIS = "ESTIMATOR = ml;
+              PROCESS = 4;",
+
+MODEL = "h by x1* x2-x9;
+         h@1;")
+```
+
+Para estimar el modelo utilizaremos la función `mplusModeler()`. Lo único que tenemos que hacer indicar el nombre del objeto (en este caso `test`). El nombre de nuestra sintaxis para este modelo es *rel_IRT_1.inp* y usaremos los datos *Rel_MD_data_1_1.dat*. La opción `run` sirve para indicar a Mplus que ejecute el modelo desde R. 
+
+```{r, results='hide', message=FALSE, warning = FALSE,}
+res <- mplusModeler(test, modelout = "rel_IRT_1.inp", 
+                    writeData = "never", hashfilename = FALSE, 
+                    dataout="Rel_MD_data_1_1.dat", run = 1L)
+```
+
+Después de ejecutar el modelo, podemos leer los resultados en R usando la función `readModels()`. Pedimos que guarde los resultados en el objeto *REL_IRT_1*.
+
+```{r, results='hide', message=FALSE, warning = FALSE,}
+REL_IRT_1<-readModels(filefilter ="rel_IRT_1")
+```
+
+La función `readModels()` extrae los resultados producidor por Mplus y los pone en listas. En este caso los resultados con la estimación de los dos parámetros se encuentran en *REL_IRT_1$parameters$irt.parameterization*. Después de hacer algunos ajustes, podemos ver que los resultados son similares a los del paquete `ltm`. 
+
+```{r, message=FALSE, warning = FALSE,}
+rel_irt<-REL_IRT_1$parameters$irt.parameterization
+rel_irt<-rel_irt[1:18,]
+rel_irt<-data.frame(a=rel_irt$est[1:9],b=rel_irt$est[10:18])
+rel_irt
+```
+
+### Confiabilidad por ítem: Evaluación multidimensional 
+
+La confiabilidad por ítem se puede analizar tanto multidimensional como unidimensionalmente. Lo importante es tener en claro respecto a qué constructo se quieren examinar las propiedades del indicador de severidad y validez. En principio, estamos interesados en la relación de los indicadores con el factor general pero también es de interés revisar las propiedades que tiene el indicador respecto a la dimensión que pretende medir. 
+
+Un modelo TRI multidimensional es muy similar a un MFC jerárquico con variables categóricas. Una forma de examinar la confiabilidad a nivel de ítem es examinando las cargas factoriales estandarizadas (similar, aunque bajo distinta parametrización, a la discriminación) y la ordenada al origen de cada indicador (similar, aunque bajo distinta parametrización, severidad). Para examinar la confiabilidad por ítem el primer paso es estimar un modelo factorial de alto orden (equivalente al modelo bi-factorial pero en este caso anidado). Después los valores de las cargas factoriales y el $R^2$ de cada indicador (es decir, $\lambda_{hj}^2$).  $R^2\leq.25$ es la varianza explicada por el factor latente del indicador, que equivalente a $\lambda_{hj}^2$ cuando $\lambda_{hj}\leq.5$. Estos umbrales son usados en la práctica para marcar cargas factoriales inaceptablemente bajas. Estos valores son equivalentes al umbral que se parámetro de discriminación $\leq.9$ en TRI. 
+
+Los resultados para estos datos muestran que las cargas factoriales están por encima de los umbrales críticos para el parámetro de discriminación. 
+
+```{r, message=FALSE, warning = FALSE,}
+ MD_model <- ' f1  =~ x1 + x2 + x3
+              f2 =~ x4 + x5 + x6
+              f3   =~ x7 + x8 + x9
+                h =~ f1 + f2 + f3
+ '
+
+fit <- sem(MD_model, data = Rel_MD_1,
+           ordered=c("x1","x2","x3","x4","x5",
+                     "x6","x7","x8","x9"))
+inspect(fit,what="std")$lambda
+```
+
+## Ejemplo con datos reales
+
+Utilizaremos datos de la medida oficial mexicana de pobreza multidimensional *Mex_pobreza_14.dta*. Esta base de datos contiene un subconjunto de indicadores de carencia/privación material para medir pobreza multidimensional en México. La medida oficial mexicana tiene dos dominios: ingreso y derechos sociales. El dominio de los derechos sociales tiene cinco dimensiones: servicios esenciales, vivienda, inseguridad alimentaria, seguridad social y educción. Alguna de estas dimensiones son medidas con un par de indicadores como educación y seguridad social. Esto pone limitaciones puesto que no se puede estimar un modelo no identificado. Por tanto, vamos a utilizar una versión reducida del modelo de CONEVAL con tres dimensiones: servicios, vivienda e inseguridad alimentaria. 
+
+Los datos provienen de una muestra nacional representativa obtenida por muestre complejo. Utilizaremos el paquete de R `survey` [@Lumley2016]. Este paquete contiene distintas funciones para analizar datos provenientes de muestras complejas. Para producir la prevalencia de privación de diseño para cada uno de los 14 indicadores necesitamos especificar varias cosas. Primero, necesitamos identificar los factores de expansión y las unidades primarias de muestreo (UPMs). Para estos datos es necesario imponer la opción `options(scipen=999, survey.lonely.psu="adjust")` para prevenir errores dado que en algunas PSUs hay sólo un hogar. 
+
+Lo que haremos a continuación es especificar el diseño muestral en el objeto *des*. A este objeto es posible añadir estratos con la opción strata. Después de especificar las variables de diseño, podemos pedir las medias por indicador para obtener la prevalencia de privación por indicador con la función: `svymean()`. Para mostrar y discutir los resultados, redondeamos los porcentajes para facilitar la lectura -consideramos que es de poca utilidad tratar buscar precisión inexistente mediante el uso de decimales-. Podemos apreciar que los porcentajes de los indicadores de la dimensión de vivienda son muy bajos. Servicios esenciales presenta prevalencias mayores pero la carencia por electricidad es sumamente baja. También vemos que de las tres dimensiones la de alimentación presenta los porcentajes de carencia más altos en promedio. 
+
+```{r, message=FALSE, warning = FALSE,}
+library(haven)
+Mex_D<-read_dta("pobreza_14.dta")
+
+cols <- c("icv_muros", "icv_techos", "icv_pisos", "icv_hac",
+          "isb_agua","isb_dren", "isb_luz", "isb_combus",
+          "ic_sbv", "ia_1ad", "ia_2ad", "ia_3ad", "ia_4ad", 
+          "ia_5ad",  "ia_6ad")
+
+library(survey)
+options(scipen=999, survey.lonely.psu="adjust")
+des <- svydesign(data=Mex_D, id=~1, CLUSTER=~psu, weights=~weight)
+propr <- data.frame(svymean(Mex_D[, cols],des,na.rm=T))
+propr <- round(propr*100,1)
+propr
+```
+
+### Análisis global de confiabilidad 
+
+Una vez que estamos familiarizados con los 14 indicadores de privación, podemos estimar los estadísticos de confiabilidad. Es posible hacer estimaciones con `lavaan.survey()` [@Oberski2014]. En este caso, estimaremos el modelo en Mplus para incorporar el diseño de la encuesta en cuestión en la estimación de los parámetros. Al igual que en los ejercicio con datos simulados, lo primero que tenemos que hacer es crear el input para Mplus desde R con la función `mplusObject()` del paquete `mplusAutomation` [@Hallquist2018]. 
+
+En el objeto *test* especificamos un modelo bi-factorial con tres dimensiones y un factor general. Esto siguiendo nuestro modelo teórico donde vivienda (f1), servicios esenciales (2) e inseguridad alimentaria (3) y el factor de alto orden es (h). Posteriormente usamos la función `mplusModeler()` (esto generará el archivo de Mplus rel_CFA_mex.inp). Finalmente leemos los resultados con `readModels()` y guardamos todo en el objeto *REL_CFA_mex*. 
+
+```{r, results='hide', message=FALSE, warning = FALSE,}
+test <- mplusObject(
+TITLE = "Bi-factor model CFA;",
+   VARIABLE = "
+     NAMES = proyecto folioviv foliohog icv_muros icv_techos 
+             icv_pisos icv_hac isb_agua isb_dren isb_luz isb_combus
+             ic_sbv ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad
+             ia_7men ia_8men ia_9men ia_10men ia_11men ia_12men 
+             tv_dep radio_dep fridge_dep
+             washingmach_dep compu_dep inter_dep psu weight
+             rururb tot_integ durables educ_hh; 
+MISSING=.;
+     CATEGORICAL = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad 
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+     USEVARIABLES = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad 
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+
+WEIGHT=weight;
+cluster = psu;",
+
+   ANALYSIS = "TYPE = complex;
+
+ESTIMATOR = wlsmv;
+PROCESS = 4;",
+
+MODEL = "f1 by icv_muros icv_techos icv_pisos icv_hac;
+  f2 by isb_agua
+        isb_dren isb_luz isb_combus;
+  f3 by ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+  h  by icv_muros icv_techos icv_pisos icv_hac isb_agua
+        isb_dren isb_luz isb_combus ia_1ad ia_2ad 
+        ia_3ad ia_4ad ia_5ad ia_6ad;
+  F1 with F2@0;
+  F2 with F3@0;
+  F3 with F1@0;
+  h with f1@0;
+  h with f2@0;
+  h with f3@0;",
+
+OUTPUT = "std stdyx;")
+
+mplusModeler(test, modelout = "rel_CFA_mex.inp", 
+                    writeData = "never", hashfilename = FALSE, 
+                    dataout="Mex_pobreza_14.dat", run = 1L)
+REL_CFA_mex<-readModels("rel_CFA_mex.out")
+```
+
+Con los resultados del modelo podemos estimar $\omega$ y $\omega_h$^[Antes de la estimación de confiabilidad es vital revisar el ajuste del modelo dado que un modelo con mal ajuste no será útil para estimar omega. Después discutiremos, en el siguiente capítulo \@ref(Chapter-4), los estadísticos de ajuste. Por el momento nos enfocaremos en el principio de que un mal modelo produce malos estadísticos de confiabilidad- no tiene sentido estimar la confiabilidad de un modelo que no tiene sentido. Para examinar el ajuste del modelo utilizaremos cuatro estadísticos:  $\chi^2$, TLI, CFI y RMSEA. Para este modelo todos los estadísticos lucen bien y podemos continuar] Para estimar confiabilidad utilizaremos el script de R utilizado en secciones anteriores. Esto implica obtener las cargas factoriales y los errores de cada indicador. Tomaremos el cuadrado de la sumatoria de las lambdas y la suma del error. Esto es, seguimos las fórmulas de las ecuaciones \@ref(eq:omega) y \@ref(eq:omegah). 
+
+
+Tanto $\omega$ y $\omega_h$ son altos (.97 y .81, respectivamente) y por encima de los valores críticos recomendados [@Najera2018]. Estos resultados sugieren que la escala es homogénea y multidimensional ($\omega_h<\omega$). 
+
+
+```{r, message=FALSE, warning = FALSE,}
+lambdas<-REL_CFA_mex$parameters$std.standardized[1:28,1:3]
+error<-REL_CFA_mex$parameters$r2[6]
+
+lambda_2<-sum(lambdas[10:28,3])^2 + sum(lambdas[1:4,3])^2 + 
+          sum(lambdas[5:8,3])^2 + sum(lambdas[9:14,3])^2
+error <- sum(error)
+
+omega_t <- lambda_2 / (lambda_2+error)
+omega_h <- sum(lambdas[10:28,3])^2 / (lambda_2+error)
+
+omega_t
+omega_h
+```
+
+### Confiabilidad por ítem
+
+La confiabilidad global de la medida mexicana es alta. Ahora podemos analizar la confiabilidad por ítem de manera multidimensional mediante el cálculo de las cargas factoriales de un modelo jerárquico. Lo que tenemos que hacer es reescribir nuestro modelo anterior para representar un modelo donde las dimensiones cargan en un sólo factor. Esto puede hacerse simplemente mediante la especificación de un modelo donde la dimensión general *h* comprende tres dimensiones (f1, f2 y f3) y cada dimensión tiene distintos indicadores. Para ello especificamos la estructura del modelo usando la función `mplusObject()`. Esto generará el archivo \*.inp de Mplus y después podemos ejecutar el modelo desde R con la función `mplusModeler()`.
+
+```{r, results='hide', message=FALSE, warning = FALSE,}
+test <- mplusObject(
+TITLE = "CFA higher order model CFA;",
+   VARIABLE = "
+     NAMES = proyecto folioviv foliohog icv_muros icv_techos 
+             icv_pisos icv_hac isb_agua isb_dren isb_luz isb_combus
+             ic_sbv ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad
+             ia_7men ia_8men ia_9men ia_10men ia_11men ia_12men 
+             tv_dep radio_dep fridge_dep
+             washingmach_dep compu_dep inter_dep psu weight
+            rururb tot_integ; 
+MISSING=.;
+     CATEGORICAL = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad 
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+     USEVARIABLES = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad 
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+
+WEIGHT=weight;
+cluster = psu;",
+
+   ANALYSIS = "TYPE = complex;
+
+ESTIMATOR = wlsmv;
+PROCESS = 4;",
+
+MODEL = "f1 by icv_muros icv_techos icv_pisos icv_hac;
+  f2 by isb_agua
+        isb_dren isb_luz isb_combus;
+  f3 by ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+  h by f1 f2 f3;",
+
+OUTPUT = "std stdyx;")
+
+mplusModeler(test, modelout = "rel_CFA_mex2.inp", 
+                    writeData = "never", hashfilename = FALSE, 
+                    dataout="Mex_pobreza_14.dat", run = 1L)
+```
+
+Ahora podemos pedir las cargas factoriales estandarizadas e inspeccionar sus valores usando la función `readModels()`. Para facilitar la interpretación, podemos graficar las cargas factoriales estandarizadas (Figure \@ref(fig:lamdamex). Vemos que todos los indicadores tienen muy altas cargas factoriales y que están por arriba del umbral sugerido ($\lambda_ij>.5$). Esto significa que estos indicadores discriminan bien y que individualmente contribuyen a la confiabilidad de los scores. Podemos ver, sin embargo, que los indicadores de vivienda tienden a tener valores bajos. Esto puede ser una indicación de que estos indicadores están perdiendo poder discriminatorio -esto tal vez por cambios en nivel de vida y que la medida mexicana necesita actualizarse. 
+
+```{r, results='hide', message=FALSE, warning = FALSE,}
+REL_CFA_mex2<-readModels("rel_CFA_mex2.out")
+modelParams<- REL_CFA_mex2$parameters$std.standardized[1:14,]
+modelParams <- subset(modelParams, select=c("paramHeader", "param", "est", "se"))
+```
+
+```{r lamdamex, echo=TRUE, message=F, fig.cap="Esta gráfica muestra las cargas factoriales estandarizadas de los 14 ítems"}
+library(ggplot2)
+limits <- aes(ymax = est + se, ymin=est - se)
+ ggplot(modelParams, aes(x=param, y=est)) + geom_pointrange(limits) +scale_x_discrete("") +
+   geom_hline(yintercept=0, color="grey50") + theme_bw() +ylab("Std Loading") + coord_flip()
+```
+
+```{r, include=FALSE}
+jpeg(filename = "Loadings_CFAMex.jpg", units="cm", width=10, height=10, res=300)
+ ggplot(modelParams, aes(x=param, y=est)) + geom_pointrange(limits) +scale_x_discrete("") +
+   geom_hline(yintercept=0, color="grey50") + theme_bw() +ylab("Std Loading") + coord_flip()
+dev.off()
+```
+
+## Temas avananzados: Clasificación poblacional y pesos
+
+El principio de confiabilidad tiene diferentes implicaciones en medición. Una forma de entender los efectos de la confiabilidad en nuestras mediciones es mediante experimentación. Si uno de los intereses principales de la confiabilidad es la clasificación poblacional, podemos observar qué pasa con la consistencia del orden de los individuos en nuestra muestra ante cambios en indicadores y valores globales de confiabilidad. En medición de pobreza hay dos aspectos que ameritan atención. El primero, es la relación entre el score de privación observado y confiabilidad. El segundo, es la relación que tiene la confiabilidad de ítem con los pesos que se asignan a los indicadores. Exploraremos ambos casos vía experimentación a continuación.  
+
+
+### Clasificación poblacional y confiabilidad 
+
+Una de las predicciones de la teoría de la medición es que la confiabilidad lleva a ordenamientos consistentes poblacionales, i.e. la gente pobre tendrá altos valores observados de privación y los no pobres tendrán bajos scores de privación (see Table (\@ref(tab:relentropy)). Para ilustrar esta relación vamos a utilizar post-estimación de variables latentes. Por tanto, tenemos que calcular el score observado de privación y el score latente. Primero calcularemos el score observado o severidad observada. Una de las medidas clásicas para medir la severidad de privación es el score de Townsend, que es el conteo de carencias. Considerando los datos *Rel\_MD\_1* mostramos el score de privación a continuación. Nuevamente, abrimos nuestros datos guardados en el archivo "Rel_MD_data_1_1.dat". 
+
+
+```{r echo=FALSE, include=FALSE, eval=FALSE}
+#########################################################################################
+setwd("C:\\OneDrive\\Proyectos Investigacion\\PM Libro")
+##########################################################################################
+
+#T1#
+
+test<-mplusObject(MONTECARLO = "NAMES=U1-U15 y1 x1 x2 x3; 
+                  GENERATE = U1-U15(1);
+                  CATEGORICAL = U1-U15;
+                  GENCLASSES = c(2);
+                  CLASSES = c(2);
+                  NOBS = 5000;
+                  SEED = 3454367;
+                  NREP = 1;
+                  SAVE = Rel_MD_data_2_*.dat;
+                  REPSAVE = all;", 
+                  MODELPOPULATION ="%OVERALL%
+
+x3@4;
+[x3@3];
+                  
+x2@7
+[x2@7];
+                  
+x1@5;
+[x1@9];
+
+x3 with x1@-.6;
+
+                  
+[c#1*-.4]; 
+[y1@5000];
+y1@1000000;
+                  
+ f1 by u1@2.6
+               u2@2.2
+               u3@1.9
+                u10@.1
+                u11@.1;
+
+  f2 by u4@2.6
+               u5@2.2
+               u6@1.9
+               u12@.2
+               u15@.04;
+
+
+
+  f3 by  u7@2.9
+               u8@2.3
+               u9@2.1
+               u13@.1
+               u14@.1;
+
+
+  f1@1; f2@1; f3@1;
+
+
+             [u1$1@-5]
+             [u2$1@-2]
+             [u3$1@.1]
+             [u4$1@-4.8]
+             [u5$1@-1.8]
+             [u6$1@.1]
+             [u7$1@-4.9]
+             [u8$1@-1.5]
+             [u9$1@.1]
+             [u10$1@.5]
+             [u11$1@.5]
+             [u12$1@.6]
+             [u13$1@.7]
+             [u14$1@.8]
+             [u15$1@.9];
+
+
+f by f1@1.1 f2@1.1 f3@1.1;
+
+f on y1@-.0004;
+f on x1@-.05;
+f on x2$1@.05;
+
+
+[f@0];
+f@1;
+
+%c#1%
+
+    [y1@6000];
+    y1@2500000;
+
+x3@2;
+[x3@2.5];
+
+    x1@4;
+   [x1@11];
+
+   x2@3;
+   [x2@4];
+   
+
+%c#2%
+
+  [y1@3000];
+  y1@1000000;
+
+x3@4;
+[x3@4];
+
+  x1@4;
+   [x1@7.5];
+
+     x2@7;
+   [x2@7];",
+                  ANALYSIS = 
+                    "TYPE = MIXTURE;
+                  ALGORITHM=INTEGRATION;
+                  PROCESS=8;")
+
+for(i in 1:1){
+  mplusModeler(test, modelout=paste("Rel_MD_data_2_",i,".inp",sep=""),  writeData = "never",
+               hashfilename = FALSE)
+}
+
+
+
+runModels(filefilter = "Rel_MD_data_2")
+```
+
+```{r}
+library(plyr)
+Rel_MD_2<-read.table("Rel_MD_data_2_1.dat")
+colnames(Rel_MD_2)<-c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11", "x12", "x13", "x14", "x15",
+                      "resources","educ_yr","occupation","hh_members","class")
+str(Rel_MD_2)
+```
+
+Para obtener el score de privación simplemente sumamos los primeros nueve indicadores. En este caso altos scores observados indican alta severidad de privación y pobreza. 
+```{r echo=TRUE}
+Rel_MD_2$ds<-rowSums(Rel_MD_2[,c(1:9)])
+```
+
+```{r message=F, include=F}
+library(ggplot2) 
+```
+
+Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura \@ref(fig:depscore2)): 
+
+```{r depscore2, echo=TRUE, message=F, fig.cap="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count."}
+require(ggplot2)
+ggplot(Rel_MD_2, aes(ds)) +
+    geom_histogram() + theme_bw() + labs(x = "Deprivation score") + 
+  scale_x_continuous(breaks = seq(0, 9, by = 1))
+```
+
+El cálculo del score latente requiere post-estimación. Esto significa estimar el valor de pobreza latente (i.e. el del factor) para cada persona en la muestra usando los datos (Rel\_MD\_1). Primero especificamos el modelo bi-factorial: 
+
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+library(lavaan)
+MD_model <- ' h =~ +x1+x2+x3+x4+x5+x6+x7+x8+x9 
+                F1=~  + x7 + x8 + x9        
+                F2=~  + x4 + x5 + x6         
+                F3=~  + x1 + x2 + x3
+                h  ~~ 0*F1
+                h  ~~ 0*F2
+                h  ~~ 0*F3
+                F1 ~~ 0*F2
+                F2 ~~ 0*F3
+                F1 ~~ 0*F3
+
+'
+```
+
+Para estimar el modelo confirmatorio usaremos la función `sem()` la cual es una función general que comprende `cfa` y `lavaan` (ambas pueden usarse). Es muy importante tener en mente que las variables de nuestra medición son *categóricas*, por tanto tenemos que incluir la opción `ordered()` y pediremos que lavaan incluya cargas factoriales estandarizadas con el comando `std.lv=TRUE`. Guardaremos nuestros resultados en el objeto `fit`. 
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+fit <- sem(MD_model, data = Rel_MD_2, 
+           ordered=c("x1","x2","x3","x4","x5",
+                     "x6","x7","x8","x9"),
+           std.lv=TRUE)
+```
+
+Lo que ahora tenemos que hacer es calcular el factor usando los resultados de nuestro objeto `fit` mediante la función `predict()` para obtener estimaciones basados en Máxima Verosimilitud de la variable latente. Después simplemente podemos pegar estos valores con los de nuestra base de datos. La predicción genera cuatro estimaciones para la variable latente: factor general (h) y los valores para cada dimensión.
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+factor_scores<-predict(fit)
+Rel_MD_2<-cbind(Rel_MD_2,factor_scores)
+head(Rel_MD_2[,c(22:25)])
+```
+
+Para contrastar los valores latentes obtenidos de esta medición con los valores de una medición alternativa que produce scores no confiables, estimaremos otro modelo. Siguiendo el ejemplo previo (Section \@ref(#Chapter-3-expoverel)), lo que haremos es reemplazar los indicadores x1 y x2 por los indicadores x10 y x11. Ambos los pondremos como variables de manifiesto del primer factor (f1). Guardaremos los resultados de la estimación en el objeto `fit_ur` y estimaremos los valores de la variable latente usando nuevamente la función `predict()`. Finalmente, inspeccionamos los valores.  
+
+```{r  echo=TRUE, message=FALSE, warning = FALSE}
+MD_model <- ' h =~ +x11+x7+x10+x4+x5+x6+x3+x8+x9 
+                F1=~  + x7 + x8 + x9        
+                F2=~  + x4 + x5 + x6         
+                F3=~  + x11 + x10 + x3
+                h  ~~ 0*F1
+                h  ~~ 0*F2
+                h  ~~ 0*F3
+                F1 ~~ 0*F2
+                F2 ~~ 0*F3
+                F1 ~~ 0*F3
+
+'
+
+fit_ur <- sem(MD_model, data = Rel_MD_2, 
+           ordered=c("x11","x13","x10","x4","x5","x6","x3","x8","x9"),
+           std.lv=TRUE)
+factor_scores_ur<-predict(fit_ur)
+colnames(factor_scores_ur)[1:4]<-c("hur","F1ur","F2ur","F3ur")
+Rel_MD_2<-cbind(Rel_MD_2,factor_scores_ur)
+head(Rel_MD_2[,c(26:29)])
+```
+
+Para contrastar la consistencia que arrojan ambas escalas, graficaremos los valores latentes contra los scores observados de privación. La Figura \@ref(fig:fsdesrel) muestra que el valor latente de privación son muy similares dentro de cada grupo. Este es el tipo de comportamiento que queremos ver. También observamos que para cada score observado vemos valores latentes muy distintos (no hay traslapes entre las cajas de dispersión), indicando que el score observado es efectivamente una buena manera para ordenar y dividir a la población según nivel de severidad de privación. 
+
+```{r fsdesrel, echo=TRUE, message=F, fig.cap="Relationship between the deprivation score (x1-x9) and the latent variable score. We appreciate the narrowness of the box plots, indicating good group separation."}
+require(ggplot2)
+g <- ggplot(Rel_MD_2, aes(as.factor(ds), h))
+g + geom_boxplot(varwidth=T) + 
+    labs(x="Deprivation score. Reliable",
+         y="Factor score (Latent variable)") + theme_bw()
+```
+
+En contraste, la Figura \@ref(fig:fsdesunrel) muestra que aunque hay una relación entre el score observado y el latente, la asociación tiene mucho más ruido. No solo hay mayor variabilidad dentro de cada grupo (privación observada) sino que hay traslapes entre grupos. Si trazáramos una línea horizontal para dividir a la población, tendríamos mayor error en la identificación de grupos. Esto significa que, si usamos algún umbral para distinguir al grupo pobre del no pobre usando el score de privación, vamos a tener una probabilidad más alta de confundir a un grupo con el otro. En este caso la mezcla de grupos no es tan dramática, pero recordemos que el valor de confiabilidad es bastante alto. 
+
+```{r}
+Rel_MD_2$ds_ur<-rowSums(Rel_MD_2[,(3:11)])
+```
+
+```{r fsdesunrel, echo=TRUE, message=F, fig.cap="Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation."}
+g <- ggplot(Rel_MD_2, aes(as.factor(ds_ur), hur))
+g + geom_boxplot(varwidth=T) + 
+    labs(x="Deprivation score. Unreliable",
+         y="Factor score (Latent variable)") + theme_bw()
+```
+
+### Pesos, confiabilidad y clasificación poblacional
+
+La primera predicción de la teoría de la confiabilidad es que los ordenamientos de la población son consistentes para valores altos de confiabilidad. Esto tiene una relación muy estrecha con los pesos porque éstos afectan la contribución relativa que cada indicador tiene al score observado de privación. Para entender la relación entre estos tres grandes temas (confiabilidad, pesos y clasificación poblacional) veremos desde otro ángulo la relación entre confiabilidad y scores observados de privación. Una manera de checar esto es estimando la correlación de los scores observados de privación para cada uno de los casos especiales que usamos previamente (`omega_exp1-5`). ¿Qué es el score de privación? Hemos hablado que el score de privación en medición multidimensional es la suma ponderada (diferencial o no diferencialmente) de las privaciones observadas. Esta es una medida inventada por Townsend de severidad de privación. Entre más alto el score, mayor la severidad de privación material y social y pobreza. El cálculo que haremos a continuación se basa en pesos no diferenciales -como mencionamos, aunque lo vamos a demostrar a más adelante, la confiabilidad es una precondición para buena clasificación y los pesos no-. El score de privación se obtiene con la suma de los indicadores de carencia con la función `rowSums`. Haremos esto para la medida perfecta que se compone de los indicadores x1-x9. 
+
+
+```{r}
+library(plyr)
+Rel_MD_2<-read.table("Rel_MD_data_2_1.dat")
+colnames(Rel_MD_2)<-c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11", "x12", "x13", "x14", "x15",
+                      "resources","educ_yr","occupation","hh_members","class")
+str(Rel_MD_2)
+```
+
+
+```{r echo=TRUE}
+Rel_MD_2$ds<-rowSums(Rel_MD_2[,c(1:9)])
+```
+
+```{r message=F, include=F}
+library(ggplot2) 
+```
+
+Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura \@ref(fig:depscore)): 
+
+```{r depscore, echo=TRUE, message=F, fig.cap="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count."}
+require(ggplot2)
+ggplot(Rel_MD_2, aes(ds)) +
+    geom_histogram() + theme_bw() + labs(x = "Deprivation score") + 
+  scale_x_continuous(breaks = seq(0, 9, by = 1))
+```
+
+```{r include=F}
+RES_DEP<-ddply(Rel_MD_2, .(ds), summarise, 
+               mean_resources=mean(resources), 
+               sd_resources=sqrt(var(resources)), 
+               mean_occupation=mean(occupation), 
+               mean_educ_yr=mean(educ_yr), n=length(ds))
+RES_DEP
+```
+
+```{r echo=TRUE, message=F, include=FALSE}
+ggplot(RES_DEP, aes(x = ds, y = mean_resources)) + geom_point(size=4) + 
+  geom_errorbar(aes(ymax=mean_resources+1.96*(sd_resources/sqrt(n)), 
+                    ymin=mean_resources-1.96*(sd_resources/sqrt(n)))) +
+  scale_x_continuous(breaks = seq(0, 9, by = 1)) +
+  labs(x = "Deprivation Count", y="Resources") + theme_bw() 
+```
+
+```{r include=FALSE}
+jpeg("depscore.jpg", units="cm", width=10, height=10, res=300)
+ggplot(Rel_MD_2, aes(ds)) +
+    geom_histogram() + theme_bw() + labs(x = "Deprivation score") + scale_x_continuous(breaks = seq(0, 9, by = 1))
+dev.off()
+
+#Plotting the estimates and save them for later#
+
+jpeg("Rel_res_ds.jpg", units="cm", width=10, height=10, res=300)
+ggplot(RES_DEP, aes(x = ds, y = mean_resources)) + geom_point(size=4) + 
+  geom_errorbar(aes(ymax=mean_resources+1.96*(sd_resources/sqrt(n)), ymin=mean_resources-1.96*(sd_resources/sqrt(n)))) +
+ scale_x_continuous(breaks = seq(0, 9, by = 1)) +
+  labs(x = "Deprivation Count", y="Resources") + theme_bw() 
+dev.off()
+```
+
+Vemos que nuestro score de privación se ve desinflado a la derecha y inflado a la izquierda. Esta es normalmente la distribución que siguen este tipo de scores en la mayoría de sociedades donde la privación múltiple es baja. Esto luciría bastante distinto en un país en desarrollo donde la gente privación múltiple es mayor. 
+
+Ahora tenemos los fundamentos para seguir nuestra exploración de la relación entre confiabilidad y diferentes scores de privación. Para ello, calcularemos los scores de privación correspondientes a cada una de las medidas anteriormente usadas (`rowSums(Rel_MD_1[,c(3:9)]` para el segundo índice, por ejemplo). Haremos esto para los cinco subconjuntos de que incluyen buenos indicadores y para dos casos que incluyen los ítems x10 y x11. Con estos scores, lo que tenemos es la severidad de privación observada para cada una de las personas en la muestra. Idealmente, esperaríamos que la población con baja severidad siempre tuviera baja severidad independientemente del subconjunto de indicadores utilizados. 
+
+Una vez que cada persona tiene sus cinco scores de privación, podemos calcular la correlación entre todos estos scores para nuestra muestra. Lo que vemos es que efectivamente la teoría se sostiene. Las medidas con altos valores de $\omega$ tienen una correlación muy alta. La correlación de las medidas con baja confiabilidad es aún alta, pero se observa una caída (.93 y .87 cuando se empeora la medida). Por simulación, cuando $\omega<.8$ podemos esperar tener un error de clasificación de $>5\%$, lo cual es muy preocupado cuando se pone en perspectiva. Si la pobreza es $20\%$ y el error es $>5\%$, esto significaría que el $25\%$ de la población pobre está incorrectamente clasificada [@Najera2018]. 
+
+```{r  message=FALSE, warning=FALSE, fig.keep='none'}
+library(psych)
+omega_expA<-omega(Rel_MD_2[,c(3:9)])
+omega_expB<-omega(Rel_MD_2[,c(1,2,4,5,7,8,10)])
+omega_expC<-omega(Rel_MD_2[,c(2,3,5,6,8,9,11)])
+omega_expD<-omega(Rel_MD_2[,c(1,3,4,6,7,9,15)])
+omega_expE<-omega(Rel_MD_2[,c(3:7,10,11)])
+omega_expF<-omega(Rel_MD_2[,c(3,4,6,10,11,13,15)])
+omega_expG<-omega(Rel_MD_2[,c(2,3,5,6,10,11,15)])
+omega_expH<-omega(Rel_MD_2[,c(1,2,6,12,13,14,15)])
+
+omegas_exp<-data.frame(omega_expA=omega_expA$omega.tot, 
+                       omega_expB=omega_expB$omega.tot,
+                       omega_expC=omega_expC$omega.tot, 
+                       omega_expD=omega_expD$omega.tot, 
+                       omega_expE=omega_expE$omega.tot,
+                       omega_expF=omega_expF$omega.tot,
+                       omega_expG=omega_expG$omega.tot,
+                       omega_expH=omega_expH$omega.tot)
+```
+
+```{r echo=TRUE}
+Rel_MD_2$ds_A<-rowSums(Rel_MD_2[,c(3:9)])
+Rel_MD_2$ds_B<-rowSums(Rel_MD_2[,c(1,2,4,5,7,8,10)])
+Rel_MD_2$ds_C<-rowSums(Rel_MD_2[,c(2,3,5,6,8,9,11)])
+Rel_MD_2$ds_D<-rowSums(Rel_MD_2[,c(1,3,4,6,7,9,15)])
+Rel_MD_2$ds_E<-rowSums(Rel_MD_2[,c(3:7,10,11)])
+Rel_MD_2$ds_F<-rowSums(Rel_MD_2[,c(3,4,6,10,11,13,15)])
+Rel_MD_2$ds_G<-rowSums(Rel_MD_2[,c(2,3,5,6,10,11,15)])
+Rel_MD_2$ds_H<-rowSums(Rel_MD_2[,c(1,2,6,12,13,14,15)])
+
+ds.m<-(Rel_MD_2[,c(22:29)])
+ds.cor<-cor(ds.m)
+ds.cor
+```
+
+### Impacto de la confiabilidad y pesos en la identificación de grupos
+
+En esta sección exploraremos el impacto que tiene la baja y alta confiabilidad cuando se utilizan pesos diferenciales. Lo primero que tenemos que hacer es crear una función que estima parcialmente el método de Alkire y Foster. La función estima el score de privación ponderado, la prevalencia de pobreza para un determinado umbral, calcula la intensidad de la pobreza y el valor omega exploratorio.  
+
+```{r}
+AF<-function(vars,weights,cutoff,data){
+  data$score <- rowSums(vars* weights)
+  data$poor <- ifelse(data$score > cutoff,1,0)
+  intensity<-aggregate(data$score ~ data$poor, FUN=mean, data=data, na.rm=TRUE)
+  poor <- mean(data$poor,na.rm=TRUE)
+  data
+  omega<-omega(vars)
+  parms<-list(H=prop.table(table(data$poor)), 
+              M0=poor*intensity[2,2], omega=omega$omega.tot, DT=data)
+  return(parms)
+}
+```
+
+Ahora creamos una función `ws()` que produce pesos aleatorios con el fin de aplicar pesos aleatorios a nuestros indicadores y examinar la relación entre confiabilidad y pesos diferenciales. La función requiere simplemente especificar el número de indicadores, la media y desviación estándar. Hacemos un ajuste para que la función no tome valores negativos. A esta función le agregamos otra `wstats` que nos va a calcular algunos descriptivos de los pesos: mínimo, máximo y coeficiente de variación. Así, tendremos una idea de la variabilidad de los pesos. 
+
+```{r}
+#Random weights
+ws<-function(i,range1,range2){
+  w<-rnorm(i,range1,range2)
+  tw<-rep(1/i,i)
+  ws<-w+tw
+  ws[ws<=0]<-.01
+  ws<-ws/sum(ws)
+  ws
+}
+
+#Stats of dispersion of the weights
+wstats<-function(vector,i){
+      maxdis<-(max(vector)/(1/i))-1
+      mindis<-(min(vector)/(1/i))-1
+      cv<-sd(vector)/mean(vector)
+      parms<-data.frame(mindis=mindis*100,maxdis=maxdis*100,CV=cv*100)
+      return(parms)
+       }
+```   
+
+Para el ejercicio utilizaremos los datos `Rel_MD_2`. Lo que haremos a continuación es calcular el método de agregación AF a distintas versiones de nuestra medida y aplicaremos distintos sets de pesos. Lo hacemos para siete variantes de la misma medida. Aplicamos nuestra función AF de la siguiente manera: 
+
+```{r}
+library(plyr)
+Rel_MD_2<-read.table("Rel_MD_data_2_1.dat")
+colnames(Rel_MD_2)<-c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11", "x12", "x13", "x14", "x15",
+                      "resources","educ_yr","occupation","hh_members","class")
+str(Rel_MD_2)
+```
+
+```{r message=FALSE, warning=FALSE, fig.keep='none'}
+AF1<-AF(Rel_MD_2[,c(1:9)],rep(1/9,9),.33,Rel_MD_2)
+AF2<-AF(Rel_MD_2[,c(3:9)],ws(9,.1,.05),.33,Rel_MD_2)
+AF3<-AF(Rel_MD_2[,c(1,2,4,5,7,8,10)],ws(9,.1,.05),.33,Rel_MD_2)
+AF4<-AF(Rel_MD_2[,c(2,3,5,6,8,9,11)],ws(9,.1,.05),.33,Rel_MD_2)
+AF5<-AF(Rel_MD_2[,c(1,3,4,6,7,9,15)],ws(9,.1,.05),.33,Rel_MD_2)
+AF6<-AF(Rel_MD_2[,c(3:7,10,11)],ws(9,.1,.05),.33,Rel_MD_2)
+AF7<-AF(Rel_MD_2[,c(3,4,6,10,11,13,15)],ws(9,.1,.05),.33,Rel_MD_2)
+AF8<-AF(Rel_MD_2[,c(1,2,6,12,13,14,15)],ws(9,.1,.05),.33,Rel_MD_2)
+```
+
+Posteriormente calculamos los estadísticos de los pesos para tener una idea de qué tanta variación tiene este set.
+
+```{r message=FALSE, warning=FALSE}
+wstats(ws(9,.1,.05),9)
+```
+
+A continuación, inspeccionamos dos tipos de correlación. El primero, es la correlación de la identificación del grupo pobre y no pobre. Es decir, la relación de personas que son siempre clasificadas como pobres a pesar de cambios en los pesos. El segundo tipo de correlación es la asociación entre los scores de privación. Esta correlación debe ser mayor a la primera puesto que estamos clasificando a la población por severidad/ranking y no estatus. 
+
+```{r}
+respoor<-cbind(AF1$DT$poor,AF2$DT$poor,AF3$DT$poor,AF4$DT$poor,AF5$DT$poor,AF6$DT$poor,AF7$DT$poor,AF8$DT$poor)
+resscore<-cbind(AF1$DT$score,AF2$DT$score,AF3$DT$score,AF4$DT$score,AF5$DT$score,AF6$DT$score,AF7$DT$score,AF8$DT$poor)
+
+cor(respoor)
+cor(resscore)
+```
+
+Para apreciar la relación entre confiabilidad global y el efecto de los pesos podemos solicitar lo siguiente. Observamos que para valores de confiabilidad sustancialmente menores a $\omega=.8$ la correlación cae dramáticamente:
+
+```{r}
+omegas<-rbind(AF1$omega,AF2$omega,AF3$omega,AF4$omega,AF5$omega,AF6$omega,AF7$omega,AF8$omega)
+relation<-cbind(omegas,cor(resscore)[,1])
+```
+
+
+### Error promedio simulado con pesos
+
+Una limitación de los resultados de la sección anterior es que muestran el efecto de distintos sets de pesos para distintas medidas usando una variante. Recordemos que la función `rnorm()` elige un set de pesos, i.e. una muestra. Aunque esto es útil, es importante ver que pasa cuando se usan variantes de la distribución posible de pesos dada una media y una desviación estándar. A continuación, haremos un ejercicio similar pero con repeticiones. 
+
+Lo primero que haremos es mostrar lo que pasa cuando asignamos distintos subconjuntos de pesos a una medida confiable. Esto nos permitirá tener una conclusión más robusta sobre la relación entre confiabilidad y pesos. Lo que haremos es aplicar cuatro subconjuntos de pesos con 100 repeticiones a los scores confiables obtenidos a partir de los indicadores x1-x9 de la base *Rel_MD_2*. Los subconjuntos van de menor a mayor variabilidad comenzando por el caso de pesos iguales o no diferenciales. 
+
+```{r fig.keep='none'}
+reps <- 100
+set.seed(0)
+system.time(
+  AF1<-replicate(reps,AF(Rel_MD_2[,c(1:9)],rep(1/9,9),.33,Rel_MD_2))
+)
+
+
+reps <- 100
+set.seed(0)
+system.time(
+  AF2<-replicate(reps,AF(Rel_MD_2[,c(1:9)],ws(9,.1,.025),.33,Rel_MD_2))
+)
+
+reps <- 100
+set.seed(0)
+system.time(
+  AF3<-replicate(reps,AF(Rel_MD_2[,c(1:9)],ws(9,.1,.05),.33,Rel_MD_2))
+)
+
+reps <- 100
+set.seed(0)
+system.time(
+  AF4<-replicate(reps,AF(Rel_MD_2[,c(1:9)],ws(9,.1,.075),.33,Rel_MD_2))
+)
+```
+
+Ahora tenemos cuatro listas con 400 elementos. Lo que queremos saber es la correlación promedio entre el ranking bajo el score observado sin ponderar con el ranking con ponderación. Para ello necesitamos agrupar las listas de la siguiente manera. Por ejemplo, el objeto *poorlist4* es una base de datos con los scores y la identificación pobre no pobre (con $k=33%$) para todas las repeticiones de AF4. 
+
+
+```{r}
+poorlist1<-AF1[c(seq(4,300,by=4))]
+poorlist2<-AF2[c(seq(4,300,by=4))]
+poorlist3<-AF3[c(seq(4,300,by=4))]
+poorlist4<-AF4[c(seq(4,300,by=4))]
+
+poorlist1<-do.call(rbind, poorlist1)
+poorlist2<-do.call(rbind, poorlist2)
+poorlist3<-do.call(rbind, poorlist3)
+poorlist4<-do.call(rbind, poorlist4)
+```
+
+Lo que tenemos que hacer ahora es calcular la correlación para cada uno de los cuatro grandes grupos de pesos. 
+
+```{r}
+Dpoor<-as.data.frame(cbind(poorlist1$poor,poorlist2$poor,poorlist3$poor,poorlist4$poor))
+Dscore<-cbind(poorlist1$score,poorlist2$score,poorlist3$score,poorlist4$poor)
+cor(Dpoor, method="spearman")
+cor(Dscore, method="spearman")
+```
+
+Vemos que, efectivamente, para el caso de scores con alta confiabilidad, cambios pequeños y moderados en los pesos resultan en pérdidas marginales en el ordenamiento y clasificación de la población. También observamos que la relación entre pesos diferenciales y pesos no diferenciales -moderados- es casi perfecta. Esto, precisamente, es una de las predicciones de la teoría detrás del principio de confiabilidad [@Streiner2015, @Najera2018]. 
+
+Para cambios sustantivos en los pesos vemos una pérdida más fuerte. Para entender un poco mejor qué fue lo que ocurrió podemos verificar los valores que toma uno de los casos especiales de pesos con desviación igual a .075. Hay variables que tienen un peso seis veces mayor, lo cual es difícil -aunque no imposible- de ver en la práctica. 
+
+```{r}
+ws(9,.1,.075)
+```
+
+#### Error promedio simulado con pesos: Baja confiabilidad
+
+Hemos visto que hay una clara relación entre alta confiabilidad y el grado de sensibilidad a los pesos- alta confiabilidad reduce el efecto de los pesos sobre el ordenamiento de la población. Ahora vamos a revisar la misma relación, pero para el caso de una medida con baja confiabilidad. En este caso usaremos los indicadores x4-x12 y los compararemos con nuestro estándar de oro que es la medida x1-x9. Este segundo set de indicadores resulta en una confiabilidad igual a $\omega=.77$- aún alto.  
+
+
+```{r fig.keep='none'}
+reps <- 100
+set.seed(0)
+system.time(
+  AF1<-replicate(reps,AF(Rel_MD_2[,c(1:9)],rep(1/9,9),.33,Rel_MD_2))
+)
+
+
+reps <- 100
+set.seed(0)
+system.time(
+  AF2<-replicate(reps,AF(Rel_MD_2[,c(4:12)],ws(9,.1,.025),.33,Rel_MD_2))
+)
+
+reps <- 100
+set.seed(0)
+system.time(
+  AF3<-replicate(reps,AF(Rel_MD_2[,c(4:12)],ws(9,.1,.05),.33,Rel_MD_2))
+)
+
+reps <- 100
+set.seed(0)
+system.time(
+  AF4<-replicate(reps,AF(Rel_MD_2[,c(4:12)],ws(9,.1,.075),.33,Rel_MD_2))
+)
+
+
+poorlist1<-AF1[c(seq(4,300,by=4))]
+poorlist2<-AF2[c(seq(4,300,by=4))]
+poorlist3<-AF3[c(seq(4,300,by=4))]
+poorlist4<-AF4[c(seq(4,300,by=4))]
+
+poorlist1<-do.call(rbind, poorlist1)
+poorlist2<-do.call(rbind, poorlist2)
+poorlist3<-do.call(rbind, poorlist3)
+poorlist4<-do.call(rbind, poorlist4)
+
+Dpoor<-as.data.frame(cbind(poorlist1$poor,poorlist2$poor,poorlist3$poor,poorlist4$poor))
+Dscore<-cbind(poorlist1$score,poorlist2$score,poorlist3$score,poorlist4$poor)
+cor(Dpoor, method="spearman")
+cor(Dscore, method="spearman")
+```
+
+Observamos la gran caída que tenemos en la correspondencia entre grupos. Hay una diferencia sustancial entre la identificación pobre y no pobre que obtenemos (de más del 25%) y también una diferencia importante respecto a al ordenamiento de nuestra población bajo el score de privación ideal y el ponderado con baja confiabilidad. 
+
+### Monotonicidad y confiabilidad por ítem
+
+Hemos revisado la relación entre confiabilidad global, ordenamiento población y pesos diferenciales. Ahora vamos a inspeccionar la conexión entre el axioma de monotonicidad de @Sen1976 y la confiabilidad por ítem. Recordemos que el axioma de monotonicidad predice que caídas/aumentos en pobreza deben reflejar cambios en la misma dirección en carencia, i.e. aumento de pobreza debe reflejar un aumento de carencias observadas. 
+
+Cargas factoriales con bajos valores indican que el indicador probablemente no es una manifestación del constructo en cuestión. Esto es, cambios en pobreza latente no resultan en cambios en privación. La sección \@ref(itemlevelrel) sugiere que hay una relación entre confiabilidad por ítem y el axioma de monotonicidad. Esta idea se ha explorado recientemente por @NajeraForthcoming y muestra que efectivamente bajas cargas factoriales -aproximadamente $\leq.5$- llevan a violaciones del axioma de monotonicidad fuerte, i.e. una reducción en pobreza no refleja una mejora en la matriz de logros. Monotonicidad débil se viola cuando una mejora de pobreza resulta en un incremento de privación. Esto ocurriría cuando las cargas factoriales son negativas, por ejemplo. 
+
+Para revisar cómo funciona operativamente esta relación entre confiabilidad de ítem y monotonicidad utilizaremos los datos *Rel_MD_2* y estimaremos un modelo factorial jerárquico. Reemplazaremos los indicadores x10 y x11 por x1 y x2. 
+
+```{r, message=FALSE}
+ MD_model <- ' f1  =~ x10 + x11 + x3
+              f2 =~ x4 + x5 + x6
+              f3   =~ x7 + x8 + x9
+                h =~ f1 + f2 + f3
+ '
+
+fit <- sem(MD_model, data = Rel_MD_2,
+           ordered=c("x10","x11","x3","x4","x5",
+                      "x6","x7","x8","x9"))
+inspect(fit,what="std")$lambda
+```
+
+Las cargas factoriales de ambos indicadores son sumamente bajas -es posible también checar las $R^2$ de cada indicador con la función `summary()`. Observamos de nuevo, como en los análisis de TRI, que los indicadores están muy débilmente relacionados con el factor. Estos ítems deberían excluirse del análisis porque aportan poca información sobre el constructo en cuestión. Esto podría implicar deshacerse de la primera dimensión en la ausencia de indicadores alternativos. 
+
+## Comentarios finales
+
+En este capítulo revisamos la teoría, implementación e implicaciones para la medición del principio de confiabilidad. En ciencias sociales, tendemos a trabajar con conceptos que difícilmente pueden capturarse con una sola variable. Trabajamos con aproximaciones indirectas a los conceptos de interés. Creemos, entonces, en una teoría que predice que la pobreza resulta en ciertas manifestaciones y que usamos éstas últimas como una forma de aproximarnos a su medición. Este salto de la teoría del concepto a la medición de este ocurre en contextos de muy alta o baja incertidumbre y quisiéramos tener una forma de descifrar el ruido que tiene nuestros resultados. Confiabilidad es un principio clave puesto que ayuda a estimar el grado en el que la señal puede distinguirse del ruido, es decir, nos aproxima a la estimación del error. Al hacer esto, la medición de pobreza se beneficia porque ayuda a producir ordenamientos poblaciones consistentes -de alta a bajas formas de privación material- y robustos para los cuales asignar una línea de pobreza es menos problemático. 
+
+El cálculo de confiabilidad implica reconocer que cualquier ejercicio de medición multidimensional descansa en una serie de supuestos. La confiabilidad examina el grado en el que nuestros prejuicios introducen ruido y nos señala qué aspectos de la escala necesitan trabajarse de nuevo. 
+
+Cualquier teoría, en este caso de cómo medir pobreza, demanda el uso de métodos adecuados para su escrutinio. Hemos puesto dos estadísticos clave para analizar confiabilidad: $\omega$ y $\omega_h$. Sin embargo, debemos reconocer que alta confiabilidad simplemente nos dice si tenemos ordenamientos consistentes de una población. ¿Orden respecto a qué? Esa es la pregunta. Hasta ahora, no sabemos si los indicadores en cuestión son efectivamente medidas de pobreza. En otras palabras, creemos que la variable latente es pobreza, pero no hemos dado ningún tipo de evidencia que sostenga nuestra expectativa. En el siguiente capítulo respondemos la pregunta ¿Cómo saber si medimos pobreza? Es decir, cómo sabemos si estamos midiendo lo que queremos medir. 
+
+
+
+
+
