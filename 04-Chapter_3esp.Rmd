@@ -870,7 +870,7 @@ modelParams<- REL_CFA_mex2$parameters$std.standardized[1:14,]
 modelParams <- subset(modelParams, select=c("paramHeader", "param", "est", "se"))
 ```
 
-```{r lamdamex, echo=TRUE, message=F, fig.cap="Esta gráfica muestra las cargas factoriales estandarizadas de los 14 ítems"}
+```{r lamdamex, include=FALSE, message=F, fig.cap="Esta gráfica muestra las cargas factoriales estandarizadas de los 14 ítems"}
 library(ggplot2)
 limits <- aes(ymax = est + se, ymin=est - se)
  ggplot(modelParams, aes(x=param, y=est)) + geom_pointrange(limits) +scale_x_discrete("") +
@@ -1043,11 +1043,15 @@ library(ggplot2)
 
 Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura \@ref(fig:depscore2)): 
 
-```{r depscore2, echo=TRUE, message=F, fig.cap="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count."}
+```{r echo=TRUE}
 require(ggplot2)
 ggplot(Rel_MD_2, aes(ds)) +
     geom_histogram() + theme_bw() + labs(x = "Deprivation score") + 
   scale_x_continuous(breaks = seq(0, 9, by = 1))
+```
+
+```{r depscore2, echo=TRUE, message=F, fig.cap="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count."}
+knitr::include_graphics("depscore2-1.png")
 ```
 
 El cálculo del score latente requiere post-estimación. Esto significa estimar el valor de pobreza latente (i.e. el del factor) para cada persona en la muestra usando los datos (Rel\_MD\_1). Primero especificamos el modelo bi-factorial: 
@@ -1113,7 +1117,7 @@ head(Rel_MD_2[,c(26:29)])
 
 Para contrastar la consistencia que arrojan ambas escalas, graficaremos los valores latentes contra los scores observados de privación. La Figura \@ref(fig:fsdesrel) muestra que el valor latente de privación son muy similares dentro de cada grupo. Este es el tipo de comportamiento que queremos ver. También observamos que para cada score observado vemos valores latentes muy distintos (no hay traslapes entre las cajas de dispersión), indicando que el score observado es efectivamente una buena manera para ordenar y dividir a la población según nivel de severidad de privación. 
 
-```{r fsdesrel, echo=TRUE, message=F, fig.cap="Relationship between the deprivation score (x1-x9) and the latent variable score. We appreciate the narrowness of the box plots, indicating good group separation."}
+```{r echo=TRUE}
 require(ggplot2)
 g <- ggplot(Rel_MD_2, aes(as.factor(ds), h))
 g + geom_boxplot(varwidth=T) + 
@@ -1121,18 +1125,24 @@ g + geom_boxplot(varwidth=T) +
          y="Factor score (Latent variable)") + theme_bw()
 ```
 
-En contraste, la Figura \@ref(fig:fsdesunrel) muestra que aunque hay una relación entre el score observado y el latente, la asociación tiene mucho más ruido. No solo hay mayor variabilidad dentro de cada grupo (privación observada) sino que hay traslapes entre grupos. Si trazáramos una línea horizontal para dividir a la población, tendríamos mayor error en la identificación de grupos. Esto significa que, si usamos algún umbral para distinguir al grupo pobre del no pobre usando el score de privación, vamos a tener una probabilidad más alta de confundir a un grupo con el otro. En este caso la mezcla de grupos no es tan dramática, pero recordemos que el valor de confiabilidad es bastante alto. 
+```{r fsdesrel, echo=F, message=F, fig.cap="Relationship between the deprivation score (x1-x9) and the latent variable score. We appreciate the narrowness of the box plots, indicating good group separati2on."}
+knitr::include_graphics("fsdesrel-1.png")
+```
+
+En contraste, la Figura \@ref(fig:fsdesunrel) muestra que aunque hay una relación entre el score observado y el latente, la asociación tiene mucho más ruido. No solo hay mayor variabilidad dentro de cada gripo (privación observada) sino que hay traslapes entre grupos. Si trazáramos una línea horizontal para dividir a la población, tendríamos mayor error en la identificación de grupos. Esto significa que, si usamos algún umbral para distinguir al grupo pobre del no pobre usando el score de privación, vamos a tener una probabilidad más alta de confundir a un grupo con el otro. En este caso la mezcla de grupos no es tan dramática, pero recordemos que el valor de confiabilidad es bastante alto. 
 
 ```{r}
 Rel_MD_2$ds_ur<-rowSums(Rel_MD_2[,(3:11)])
 ```
 
-```{r fsdesunrel, echo=TRUE, message=F, fig.cap="Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation."}
+```{r fsdesunrel, echo=T, message=F, fig.cap="Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation."}
 g <- ggplot(Rel_MD_2, aes(as.factor(ds_ur), hur))
 g + geom_boxplot(varwidth=T) + 
     labs(x="Deprivation score. Unreliable",
          y="Factor score (Latent variable)") + theme_bw()
 ```
+
+
 
 ### Pesos, confiabilidad y clasificación poblacional
 
@@ -1165,6 +1175,11 @@ ggplot(Rel_MD_2, aes(ds)) +
     geom_histogram() + theme_bw() + labs(x = "Deprivation score") + 
   scale_x_continuous(breaks = seq(0, 9, by = 1))
 ```
+
+```{r include=FALSE}
+knitr::include_graphics("depscore-1.png")
+```
+
 
 ```{r include=F}
 RES_DEP<-ddply(Rel_MD_2, .(ds), summarise, 
