@@ -1280,28 +1280,28 @@ Figure 3.4: This is the histogram of the deprivation score. It shows the number 
 <span id="cb86-4"><a href="Chapter-3.html#cb86-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb86-5"><a href="Chapter-3.html#cb86-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.09    0.85   10.37</code></pre>
+##   10.19    1.26   12.89</code></pre>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="Chapter-3.html#cb88-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb88-2"><a href="Chapter-3.html#cb88-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb88-3"><a href="Chapter-3.html#cb88-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb88-4"><a href="Chapter-3.html#cb88-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb88-5"><a href="Chapter-3.html#cb88-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.00    1.14   10.53</code></pre>
+##    9.54    0.96   11.49</code></pre>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="Chapter-3.html#cb90-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb90-2"><a href="Chapter-3.html#cb90-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb90-3"><a href="Chapter-3.html#cb90-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb90-4"><a href="Chapter-3.html#cb90-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb90-5"><a href="Chapter-3.html#cb90-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.02    0.68   10.29</code></pre>
+##    9.17    0.87   10.64</code></pre>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="Chapter-3.html#cb92-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb92-2"><a href="Chapter-3.html#cb92-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb92-3"><a href="Chapter-3.html#cb92-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb92-4"><a href="Chapter-3.html#cb92-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb92-5"><a href="Chapter-3.html#cb92-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    8.89    0.94   10.36</code></pre>
+##    9.10    0.81   10.48</code></pre>
 <p>Ahora tenemos cuatro listas con 400 elementos. Lo que queremos saber es la correlación promedio entre el ranking bajo el score observado sin ponderar con el ranking con ponderación. Para ello necesitamos agrupar las listas de la siguiente manera. Por ejemplo, el objeto <em>poorlist4</em> es una base de datos con los scores y la identificación pobre no pobre (con <span class="math inline">\(k=33%\)</span>) para todas las repeticiones de AF4.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="Chapter-3.html#cb94-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
 <span id="cb94-2"><a href="Chapter-3.html#cb94-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
@@ -1341,28 +1341,28 @@ Figure 3.4: This is the histogram of the deprivation score. It shows the number 
 <span id="cb101-4"><a href="Chapter-3.html#cb101-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb101-5"><a href="Chapter-3.html#cb101-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    8.92    0.94   10.31</code></pre>
+##   10.11    0.88   12.14</code></pre>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="Chapter-3.html#cb103-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb103-2"><a href="Chapter-3.html#cb103-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb103-3"><a href="Chapter-3.html#cb103-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb103-4"><a href="Chapter-3.html#cb103-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb103-5"><a href="Chapter-3.html#cb103-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.44    1.05   11.13</code></pre>
+##   10.37    0.98   12.66</code></pre>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="Chapter-3.html#cb105-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb105-2"><a href="Chapter-3.html#cb105-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb105-3"><a href="Chapter-3.html#cb105-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb105-4"><a href="Chapter-3.html#cb105-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb105-5"><a href="Chapter-3.html#cb105-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.46    1.00   10.92</code></pre>
+##    9.15    1.00   10.82</code></pre>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="Chapter-3.html#cb107-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb107-2"><a href="Chapter-3.html#cb107-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb107-3"><a href="Chapter-3.html#cb107-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb107-4"><a href="Chapter-3.html#cb107-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb107-5"><a href="Chapter-3.html#cb107-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.70    0.81   11.19</code></pre>
+##    9.38    0.96   10.89</code></pre>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="Chapter-3.html#cb109-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
 <span id="cb109-2"><a href="Chapter-3.html#cb109-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
 <span id="cb109-3"><a href="Chapter-3.html#cb109-3"></a>poorlist3&lt;-AF3[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
