@@ -919,26 +919,10 @@ P_i\theta = \frac{1} {1+e^{-1.7a_i(\theta-b_i)}}
 <span id="cb50-35"><a href="Chapter-3.html#cb50-35"></a><span class="kw">mplusModeler</span>(test, <span class="dt">modelout =</span> <span class="st">&quot;rel_CFA_mex2.inp&quot;</span>, </span>
 <span id="cb50-36"><a href="Chapter-3.html#cb50-36"></a>                    <span class="dt">writeData =</span> <span class="st">&quot;never&quot;</span>, <span class="dt">hashfilename =</span> <span class="ot">FALSE</span>, </span>
 <span id="cb50-37"><a href="Chapter-3.html#cb50-37"></a>                    <span class="dt">dataout=</span><span class="st">&quot;Mex_pobreza_14.dat&quot;</span>, <span class="dt">run =</span> 1L)</span></code></pre></div>
-<p>Ahora podemos pedir las cargas factoriales estandarizadas e inspeccionar sus valores usando la función <code>readModels()</code>. Para facilitar la interpretación, podemos graficar las cargas factoriales estandarizadas (Figure <a href="Chapter-3.html#fig:lamdamex">3.1</a>. Vemos que todos los indicadores tienen muy altas cargas factoriales y que están por arriba del umbral sugerido (<span class="math inline">\(\lambda_ij&gt;.5\)</span>). Esto significa que estos indicadores discriminan bien y que individualmente contribuyen a la confiabilidad de los scores. Podemos ver, sin embargo, que los indicadores de vivienda tienden a tener valores bajos. Esto puede ser una indicación de que estos indicadores están perdiendo poder discriminatorio -esto tal vez por cambios en nivel de vida y que la medida mexicana necesita actualizarse.</p>
+<p>Ahora podemos pedir las cargas factoriales estandarizadas e inspeccionar sus valores usando la función <code>readModels()</code>. Para facilitar la interpretación, podemos graficar las cargas factoriales estandarizadas (Figure <a href="#fig:lamdamex"><strong>??</strong></a>. Vemos que todos los indicadores tienen muy altas cargas factoriales y que están por arriba del umbral sugerido (<span class="math inline">\(\lambda_ij&gt;.5\)</span>). Esto significa que estos indicadores discriminan bien y que individualmente contribuyen a la confiabilidad de los scores. Podemos ver, sin embargo, que los indicadores de vivienda tienden a tener valores bajos. Esto puede ser una indicación de que estos indicadores están perdiendo poder discriminatorio -esto tal vez por cambios en nivel de vida y que la medida mexicana necesita actualizarse.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="Chapter-3.html#cb51-1"></a>REL_CFA_mex2&lt;-<span class="kw">readModels</span>(<span class="st">&quot;rel_CFA_mex2.out&quot;</span>)</span>
 <span id="cb51-2"><a href="Chapter-3.html#cb51-2"></a>modelParams&lt;-<span class="st"> </span>REL_CFA_mex2<span class="op">$</span>parameters<span class="op">$</span>std.standardized[<span class="dv">1</span><span class="op">:</span><span class="dv">14</span>,]</span>
 <span id="cb51-3"><a href="Chapter-3.html#cb51-3"></a>modelParams &lt;-<span class="st"> </span><span class="kw">subset</span>(modelParams, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&quot;paramHeader&quot;</span>, <span class="st">&quot;param&quot;</span>, <span class="st">&quot;est&quot;</span>, <span class="st">&quot;se&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="Chapter-3.html#cb52-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;ggplot2&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:psych&#39;:
-## 
-##     %+%, alpha</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="Chapter-3.html#cb55-1"></a>limits &lt;-<span class="st"> </span><span class="kw">aes</span>(<span class="dt">ymax =</span> est <span class="op">+</span><span class="st"> </span>se, <span class="dt">ymin=</span>est <span class="op">-</span><span class="st"> </span>se)</span>
-<span id="cb55-2"><a href="Chapter-3.html#cb55-2"></a> <span class="kw">ggplot</span>(modelParams, <span class="kw">aes</span>(<span class="dt">x=</span>param, <span class="dt">y=</span>est)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_pointrange</span>(limits) <span class="op">+</span><span class="kw">scale_x_discrete</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-3"><a href="Chapter-3.html#cb55-3"></a><span class="st">   </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>, <span class="dt">color=</span><span class="st">&quot;grey50&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Std Loading&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</span></code></pre></div>
-<p><img src="PM-Libro_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
-<div class="figure"><span id="fig:lamdamex"></span>
-<img src="lambdamex-1.png" alt="Esta gráfica muestra las cargas factoriales estandarizadas de los 14 ítems"  />
-<p class="caption">
-Figure 3.1: Esta gráfica muestra las cargas factoriales estandarizadas de los 14 ítems
-</p>
-</div>
 </div>
 </div>
 <div id="temas-avananzados-clasificacion-poblacional-y-pesos" class="section level2">
@@ -947,12 +931,12 @@ Figure 3.1: Esta gráfica muestra las cargas factoriales estandarizadas de los 1
 <div id="clasificacion-poblacional-y-confiabilidad" class="section level3">
 <h3><span class="header-section-number">3.8.1</span> Clasificación poblacional y confiabilidad</h3>
 <p>Una de las predicciones de la teoría de la medición es que la confiabilidad lleva a ordenamientos consistentes poblacionales, i.e. la gente pobre tendrá altos valores observados de privación y los no pobres tendrán bajos scores de privación (see Table (<a href="Chapter-3.html#tab:relentropy">3.2</a>). Para ilustrar esta relación vamos a utilizar post-estimación de variables latentes. Por tanto, tenemos que calcular el score observado de privación y el score latente. Primero calcularemos el score observado o severidad observada. Una de las medidas clásicas para medir la severidad de privación es el score de Townsend, que es el conteo de carencias. Considerando los datos <em>Rel_MD_1</em> mostramos el score de privación a continuación. Nuevamente, abrimos nuestros datos guardados en el archivo “Rel_MD_data_1_1.dat”.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="Chapter-3.html#cb56-1"></a><span class="kw">library</span>(plyr)</span>
-<span id="cb56-2"><a href="Chapter-3.html#cb56-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">read.table</span>(<span class="st">&quot;Rel_MD_data_2_1.dat&quot;</span>)</span>
-<span id="cb56-3"><a href="Chapter-3.html#cb56-3"></a><span class="kw">colnames</span>(Rel_MD_<span class="dv">2</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,</span>
-<span id="cb56-4"><a href="Chapter-3.html#cb56-4"></a>                      <span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>, <span class="st">&quot;x12&quot;</span>, <span class="st">&quot;x13&quot;</span>, <span class="st">&quot;x14&quot;</span>, <span class="st">&quot;x15&quot;</span>,</span>
-<span id="cb56-5"><a href="Chapter-3.html#cb56-5"></a>                      <span class="st">&quot;resources&quot;</span>,<span class="st">&quot;educ_yr&quot;</span>,<span class="st">&quot;occupation&quot;</span>,<span class="st">&quot;hh_members&quot;</span>,<span class="st">&quot;class&quot;</span>)</span>
-<span id="cb56-6"><a href="Chapter-3.html#cb56-6"></a><span class="kw">str</span>(Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="Chapter-3.html#cb52-1"></a><span class="kw">library</span>(plyr)</span>
+<span id="cb52-2"><a href="Chapter-3.html#cb52-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">read.table</span>(<span class="st">&quot;Rel_MD_data_2_1.dat&quot;</span>)</span>
+<span id="cb52-3"><a href="Chapter-3.html#cb52-3"></a><span class="kw">colnames</span>(Rel_MD_<span class="dv">2</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,</span>
+<span id="cb52-4"><a href="Chapter-3.html#cb52-4"></a>                      <span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>, <span class="st">&quot;x12&quot;</span>, <span class="st">&quot;x13&quot;</span>, <span class="st">&quot;x14&quot;</span>, <span class="st">&quot;x15&quot;</span>,</span>
+<span id="cb52-5"><a href="Chapter-3.html#cb52-5"></a>                      <span class="st">&quot;resources&quot;</span>,<span class="st">&quot;educ_yr&quot;</span>,<span class="st">&quot;occupation&quot;</span>,<span class="st">&quot;hh_members&quot;</span>,<span class="st">&quot;class&quot;</span>)</span>
+<span id="cb52-6"><a href="Chapter-3.html#cb52-6"></a><span class="kw">str</span>(Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    5000 obs. of  20 variables:
 ##  $ x1        : num  1 0 1 1 0 1 0 0 0 0 ...
 ##  $ x2        : num  1 0 1 0 0 1 0 0 0 0 ...
@@ -975,44 +959,44 @@ Figure 3.1: Esta gráfica muestra las cargas factoriales estandarizadas de los 1
 ##  $ hh_members: num  5.44 0.458 2.787 6.949 2.386 ...
 ##  $ class     : int  2 2 2 2 1 2 2 1 1 2 ...</code></pre>
 <p>Para obtener el score de privación simplemente sumamos los primeros nueve indicadores. En este caso altos scores observados indican alta severidad de privación y pobreza.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="Chapter-3.html#cb58-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)])</span></code></pre></div>
-<p>Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura <a href="Chapter-3.html#fig:depscore2">3.2</a>):</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="Chapter-3.html#cb59-1"></a><span class="kw">require</span>(ggplot2)</span>
-<span id="cb59-2"><a href="Chapter-3.html#cb59-2"></a><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(ds)) <span class="op">+</span></span>
-<span id="cb59-3"><a href="Chapter-3.html#cb59-3"></a><span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation score&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb59-4"><a href="Chapter-3.html#cb59-4"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">9</span>, <span class="dt">by =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="Chapter-3.html#cb54-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)])</span></code></pre></div>
+<p>Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura <a href="Chapter-3.html#fig:depscore2">3.1</a>):</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="Chapter-3.html#cb55-1"></a><span class="kw">require</span>(ggplot2)</span>
+<span id="cb55-2"><a href="Chapter-3.html#cb55-2"></a><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(ds)) <span class="op">+</span></span>
+<span id="cb55-3"><a href="Chapter-3.html#cb55-3"></a><span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation score&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb55-4"><a href="Chapter-3.html#cb55-4"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">9</span>, <span class="dt">by =</span> <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="PM-Libro_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="Chapter-3.html#cb61-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;depscore2-1.png&quot;</span>)</span></code></pre></div>
+<p><img src="PM-Libro_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="Chapter-3.html#cb57-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;depscore2-1.png&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:depscore2"></span>
 <img src="depscore2-1.png" alt="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count."  />
 <p class="caption">
-Figure 3.2: This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count.
+Figure 3.1: This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count.
 </p>
 </div>
 <p>El cálculo del score latente requiere post-estimación. Esto significa estimar el valor de pobreza latente (i.e. el del factor) para cada persona en la muestra usando los datos (Rel_MD_1). Primero especificamos el modelo bi-factorial:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="Chapter-3.html#cb62-1"></a><span class="kw">library</span>(lavaan)</span>
-<span id="cb62-2"><a href="Chapter-3.html#cb62-2"></a>MD_model &lt;-<span class="st"> &#39; h =~ +x1+x2+x3+x4+x5+x6+x7+x8+x9 </span></span>
-<span id="cb62-3"><a href="Chapter-3.html#cb62-3"></a><span class="st">                F1=~  + x7 + x8 + x9        </span></span>
-<span id="cb62-4"><a href="Chapter-3.html#cb62-4"></a><span class="st">                F2=~  + x4 + x5 + x6         </span></span>
-<span id="cb62-5"><a href="Chapter-3.html#cb62-5"></a><span class="st">                F3=~  + x1 + x2 + x3</span></span>
-<span id="cb62-6"><a href="Chapter-3.html#cb62-6"></a><span class="st">                h  ~~ 0*F1</span></span>
-<span id="cb62-7"><a href="Chapter-3.html#cb62-7"></a><span class="st">                h  ~~ 0*F2</span></span>
-<span id="cb62-8"><a href="Chapter-3.html#cb62-8"></a><span class="st">                h  ~~ 0*F3</span></span>
-<span id="cb62-9"><a href="Chapter-3.html#cb62-9"></a><span class="st">                F1 ~~ 0*F2</span></span>
-<span id="cb62-10"><a href="Chapter-3.html#cb62-10"></a><span class="st">                F2 ~~ 0*F3</span></span>
-<span id="cb62-11"><a href="Chapter-3.html#cb62-11"></a><span class="st">                F1 ~~ 0*F3</span></span>
-<span id="cb62-12"><a href="Chapter-3.html#cb62-12"></a></span>
-<span id="cb62-13"><a href="Chapter-3.html#cb62-13"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="Chapter-3.html#cb58-1"></a><span class="kw">library</span>(lavaan)</span>
+<span id="cb58-2"><a href="Chapter-3.html#cb58-2"></a>MD_model &lt;-<span class="st"> &#39; h =~ +x1+x2+x3+x4+x5+x6+x7+x8+x9 </span></span>
+<span id="cb58-3"><a href="Chapter-3.html#cb58-3"></a><span class="st">                F1=~  + x7 + x8 + x9        </span></span>
+<span id="cb58-4"><a href="Chapter-3.html#cb58-4"></a><span class="st">                F2=~  + x4 + x5 + x6         </span></span>
+<span id="cb58-5"><a href="Chapter-3.html#cb58-5"></a><span class="st">                F3=~  + x1 + x2 + x3</span></span>
+<span id="cb58-6"><a href="Chapter-3.html#cb58-6"></a><span class="st">                h  ~~ 0*F1</span></span>
+<span id="cb58-7"><a href="Chapter-3.html#cb58-7"></a><span class="st">                h  ~~ 0*F2</span></span>
+<span id="cb58-8"><a href="Chapter-3.html#cb58-8"></a><span class="st">                h  ~~ 0*F3</span></span>
+<span id="cb58-9"><a href="Chapter-3.html#cb58-9"></a><span class="st">                F1 ~~ 0*F2</span></span>
+<span id="cb58-10"><a href="Chapter-3.html#cb58-10"></a><span class="st">                F2 ~~ 0*F3</span></span>
+<span id="cb58-11"><a href="Chapter-3.html#cb58-11"></a><span class="st">                F1 ~~ 0*F3</span></span>
+<span id="cb58-12"><a href="Chapter-3.html#cb58-12"></a></span>
+<span id="cb58-13"><a href="Chapter-3.html#cb58-13"></a><span class="st">&#39;</span></span></code></pre></div>
 <p>Para estimar el modelo confirmatorio usaremos la función <code>sem()</code> la cual es una función general que comprende <code>cfa</code> y <code>lavaan</code> (ambas pueden usarse). Es muy importante tener en mente que las variables de nuestra medición son <em>categóricas</em>, por tanto tenemos que incluir la opción <code>ordered()</code> y pediremos que lavaan incluya cargas factoriales estandarizadas con el comando <code>std.lv=TRUE</code>. Guardaremos nuestros resultados en el objeto <code>fit</code>.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="Chapter-3.html#cb63-1"></a>fit &lt;-<span class="st"> </span><span class="kw">sem</span>(MD_model, <span class="dt">data =</span> Rel_MD_<span class="dv">2</span>, </span>
-<span id="cb63-2"><a href="Chapter-3.html#cb63-2"></a>           <span class="dt">ordered=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,</span>
-<span id="cb63-3"><a href="Chapter-3.html#cb63-3"></a>                     <span class="st">&quot;x6&quot;</span>,<span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>),</span>
-<span id="cb63-4"><a href="Chapter-3.html#cb63-4"></a>           <span class="dt">std.lv=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="Chapter-3.html#cb59-1"></a>fit &lt;-<span class="st"> </span><span class="kw">sem</span>(MD_model, <span class="dt">data =</span> Rel_MD_<span class="dv">2</span>, </span>
+<span id="cb59-2"><a href="Chapter-3.html#cb59-2"></a>           <span class="dt">ordered=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,</span>
+<span id="cb59-3"><a href="Chapter-3.html#cb59-3"></a>                     <span class="st">&quot;x6&quot;</span>,<span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>),</span>
+<span id="cb59-4"><a href="Chapter-3.html#cb59-4"></a>           <span class="dt">std.lv=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Lo que ahora tenemos que hacer es calcular el factor usando los resultados de nuestro objeto <code>fit</code> mediante la función <code>predict()</code> para obtener estimaciones basados en Máxima Verosimilitud de la variable latente. Después simplemente podemos pegar estos valores con los de nuestra base de datos. La predicción genera cuatro estimaciones para la variable latente: factor general (h) y los valores para cada dimensión.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="Chapter-3.html#cb64-1"></a>factor_scores&lt;-<span class="kw">predict</span>(fit)</span>
-<span id="cb64-2"><a href="Chapter-3.html#cb64-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">cbind</span>(Rel_MD_<span class="dv">2</span>,factor_scores)</span>
-<span id="cb64-3"><a href="Chapter-3.html#cb64-3"></a><span class="kw">head</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">22</span><span class="op">:</span><span class="dv">25</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="Chapter-3.html#cb60-1"></a>factor_scores&lt;-<span class="kw">predict</span>(fit)</span>
+<span id="cb60-2"><a href="Chapter-3.html#cb60-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">cbind</span>(Rel_MD_<span class="dv">2</span>,factor_scores)</span>
+<span id="cb60-3"><a href="Chapter-3.html#cb60-3"></a><span class="kw">head</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">22</span><span class="op">:</span><span class="dv">25</span>)])</span></code></pre></div>
 <pre><code>##            h              F1         F2         F3
 ## 1  0.4538218 -0.822549923602 -0.1368005  1.1627338
 ## 2 -0.6644685 -0.086343939586 -0.1587308 -0.1357508
@@ -1021,26 +1005,26 @@ Figure 3.2: This is the histogram of the deprivation score. It shows the number 
 ## 5 -0.6644685 -0.086343939586 -0.1587308 -0.1357508
 ## 6  0.7277524 -0.281435486545  0.3040441  0.3303090</code></pre>
 <p>Para contrastar los valores latentes obtenidos de esta medición con los valores de una medición alternativa que produce scores no confiables, estimaremos otro modelo. Siguiendo el ejemplo previo (Section @ref(#Chapter-3-expoverel)), lo que haremos es reemplazar los indicadores x1 y x2 por los indicadores x10 y x11. Ambos los pondremos como variables de manifiesto del primer factor (f1). Guardaremos los resultados de la estimación en el objeto <code>fit_ur</code> y estimaremos los valores de la variable latente usando nuevamente la función <code>predict()</code>. Finalmente, inspeccionamos los valores.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="Chapter-3.html#cb66-1"></a>MD_model &lt;-<span class="st"> &#39; h =~ +x11+x7+x10+x4+x5+x6+x3+x8+x9 </span></span>
-<span id="cb66-2"><a href="Chapter-3.html#cb66-2"></a><span class="st">                F1=~  + x7 + x8 + x9        </span></span>
-<span id="cb66-3"><a href="Chapter-3.html#cb66-3"></a><span class="st">                F2=~  + x4 + x5 + x6         </span></span>
-<span id="cb66-4"><a href="Chapter-3.html#cb66-4"></a><span class="st">                F3=~  + x11 + x10 + x3</span></span>
-<span id="cb66-5"><a href="Chapter-3.html#cb66-5"></a><span class="st">                h  ~~ 0*F1</span></span>
-<span id="cb66-6"><a href="Chapter-3.html#cb66-6"></a><span class="st">                h  ~~ 0*F2</span></span>
-<span id="cb66-7"><a href="Chapter-3.html#cb66-7"></a><span class="st">                h  ~~ 0*F3</span></span>
-<span id="cb66-8"><a href="Chapter-3.html#cb66-8"></a><span class="st">                F1 ~~ 0*F2</span></span>
-<span id="cb66-9"><a href="Chapter-3.html#cb66-9"></a><span class="st">                F2 ~~ 0*F3</span></span>
-<span id="cb66-10"><a href="Chapter-3.html#cb66-10"></a><span class="st">                F1 ~~ 0*F3</span></span>
-<span id="cb66-11"><a href="Chapter-3.html#cb66-11"></a></span>
-<span id="cb66-12"><a href="Chapter-3.html#cb66-12"></a><span class="st">&#39;</span></span>
-<span id="cb66-13"><a href="Chapter-3.html#cb66-13"></a></span>
-<span id="cb66-14"><a href="Chapter-3.html#cb66-14"></a>fit_ur &lt;-<span class="st"> </span><span class="kw">sem</span>(MD_model, <span class="dt">data =</span> Rel_MD_<span class="dv">2</span>, </span>
-<span id="cb66-15"><a href="Chapter-3.html#cb66-15"></a>           <span class="dt">ordered=</span><span class="kw">c</span>(<span class="st">&quot;x11&quot;</span>,<span class="st">&quot;x13&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>),</span>
-<span id="cb66-16"><a href="Chapter-3.html#cb66-16"></a>           <span class="dt">std.lv=</span><span class="ot">TRUE</span>)</span>
-<span id="cb66-17"><a href="Chapter-3.html#cb66-17"></a>factor_scores_ur&lt;-<span class="kw">predict</span>(fit_ur)</span>
-<span id="cb66-18"><a href="Chapter-3.html#cb66-18"></a><span class="kw">colnames</span>(factor_scores_ur)[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]&lt;-<span class="kw">c</span>(<span class="st">&quot;hur&quot;</span>,<span class="st">&quot;F1ur&quot;</span>,<span class="st">&quot;F2ur&quot;</span>,<span class="st">&quot;F3ur&quot;</span>)</span>
-<span id="cb66-19"><a href="Chapter-3.html#cb66-19"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">cbind</span>(Rel_MD_<span class="dv">2</span>,factor_scores_ur)</span>
-<span id="cb66-20"><a href="Chapter-3.html#cb66-20"></a><span class="kw">head</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">26</span><span class="op">:</span><span class="dv">29</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="Chapter-3.html#cb62-1"></a>MD_model &lt;-<span class="st"> &#39; h =~ +x11+x7+x10+x4+x5+x6+x3+x8+x9 </span></span>
+<span id="cb62-2"><a href="Chapter-3.html#cb62-2"></a><span class="st">                F1=~  + x7 + x8 + x9        </span></span>
+<span id="cb62-3"><a href="Chapter-3.html#cb62-3"></a><span class="st">                F2=~  + x4 + x5 + x6         </span></span>
+<span id="cb62-4"><a href="Chapter-3.html#cb62-4"></a><span class="st">                F3=~  + x11 + x10 + x3</span></span>
+<span id="cb62-5"><a href="Chapter-3.html#cb62-5"></a><span class="st">                h  ~~ 0*F1</span></span>
+<span id="cb62-6"><a href="Chapter-3.html#cb62-6"></a><span class="st">                h  ~~ 0*F2</span></span>
+<span id="cb62-7"><a href="Chapter-3.html#cb62-7"></a><span class="st">                h  ~~ 0*F3</span></span>
+<span id="cb62-8"><a href="Chapter-3.html#cb62-8"></a><span class="st">                F1 ~~ 0*F2</span></span>
+<span id="cb62-9"><a href="Chapter-3.html#cb62-9"></a><span class="st">                F2 ~~ 0*F3</span></span>
+<span id="cb62-10"><a href="Chapter-3.html#cb62-10"></a><span class="st">                F1 ~~ 0*F3</span></span>
+<span id="cb62-11"><a href="Chapter-3.html#cb62-11"></a></span>
+<span id="cb62-12"><a href="Chapter-3.html#cb62-12"></a><span class="st">&#39;</span></span>
+<span id="cb62-13"><a href="Chapter-3.html#cb62-13"></a></span>
+<span id="cb62-14"><a href="Chapter-3.html#cb62-14"></a>fit_ur &lt;-<span class="st"> </span><span class="kw">sem</span>(MD_model, <span class="dt">data =</span> Rel_MD_<span class="dv">2</span>, </span>
+<span id="cb62-15"><a href="Chapter-3.html#cb62-15"></a>           <span class="dt">ordered=</span><span class="kw">c</span>(<span class="st">&quot;x11&quot;</span>,<span class="st">&quot;x13&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>),</span>
+<span id="cb62-16"><a href="Chapter-3.html#cb62-16"></a>           <span class="dt">std.lv=</span><span class="ot">TRUE</span>)</span>
+<span id="cb62-17"><a href="Chapter-3.html#cb62-17"></a>factor_scores_ur&lt;-<span class="kw">predict</span>(fit_ur)</span>
+<span id="cb62-18"><a href="Chapter-3.html#cb62-18"></a><span class="kw">colnames</span>(factor_scores_ur)[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]&lt;-<span class="kw">c</span>(<span class="st">&quot;hur&quot;</span>,<span class="st">&quot;F1ur&quot;</span>,<span class="st">&quot;F2ur&quot;</span>,<span class="st">&quot;F3ur&quot;</span>)</span>
+<span id="cb62-19"><a href="Chapter-3.html#cb62-19"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">cbind</span>(Rel_MD_<span class="dv">2</span>,factor_scores_ur)</span>
+<span id="cb62-20"><a href="Chapter-3.html#cb62-20"></a><span class="kw">head</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">26</span><span class="op">:</span><span class="dv">29</span>)])</span></code></pre></div>
 <pre><code>##          hur       F1ur       F2ur         F3ur
 ## 1  0.5284583 -0.9239858 -0.1932797  0.099658014
 ## 2 -0.6194308 -0.3597970 -0.1874615  0.120171332
@@ -1048,42 +1032,37 @@ Figure 3.2: This is the histogram of the deprivation score. It shows the number 
 ## 4  0.7873244 -0.3003439  0.2605288  0.301053386
 ## 5 -0.6622207 -0.3403600 -0.1685598 -0.209509151
 ## 6  0.3843159  0.2368446  0.6203767 -0.277058191</code></pre>
-<p>Para contrastar la consistencia que arrojan ambas escalas, graficaremos los valores latentes contra los scores observados de privación. La Figura <a href="Chapter-3.html#fig:fsdesrel">3.3</a> muestra que el valor latente de privación son muy similares dentro de cada grupo. Este es el tipo de comportamiento que queremos ver. También observamos que para cada score observado vemos valores latentes muy distintos (no hay traslapes entre las cajas de dispersión), indicando que el score observado es efectivamente una buena manera para ordenar y dividir a la población según nivel de severidad de privación.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="Chapter-3.html#cb68-1"></a><span class="kw">require</span>(ggplot2)</span>
-<span id="cb68-2"><a href="Chapter-3.html#cb68-2"></a>g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="kw">as.factor</span>(ds), h))</span>
-<span id="cb68-3"><a href="Chapter-3.html#cb68-3"></a>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="dt">varwidth=</span>T) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb68-4"><a href="Chapter-3.html#cb68-4"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Deprivation score. Reliable&quot;</span>,</span>
-<span id="cb68-5"><a href="Chapter-3.html#cb68-5"></a>         <span class="dt">y=</span><span class="st">&quot;Factor score (Latent variable)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</span></code></pre></div>
-<p><img src="PM-Libro_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p>Para contrastar la consistencia que arrojan ambas escalas, graficaremos los valores latentes contra los scores observados de privación. La Figura <a href="Chapter-3.html#fig:fsdesrel">3.2</a> muestra que el valor latente de privación son muy similares dentro de cada grupo. Este es el tipo de comportamiento que queremos ver. También observamos que para cada score observado vemos valores latentes muy distintos (no hay traslapes entre las cajas de dispersión), indicando que el score observado es efectivamente una buena manera para ordenar y dividir a la población según nivel de severidad de privación.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="Chapter-3.html#cb64-1"></a><span class="kw">require</span>(ggplot2)</span>
+<span id="cb64-2"><a href="Chapter-3.html#cb64-2"></a>g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="kw">as.factor</span>(ds), h))</span>
+<span id="cb64-3"><a href="Chapter-3.html#cb64-3"></a>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="dt">varwidth=</span>T) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb64-4"><a href="Chapter-3.html#cb64-4"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Deprivation score. Reliable&quot;</span>,</span>
+<span id="cb64-5"><a href="Chapter-3.html#cb64-5"></a>         <span class="dt">y=</span><span class="st">&quot;Factor score (Latent variable)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="PM-Libro_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 <div class="figure"><span id="fig:fsdesrel"></span>
 <img src="fsdesrel-1.png" alt="Relationship between the deprivation score (x1-x9) and the latent variable score. We appreciate the narrowness of the box plots, indicating good group separati2on."  />
 <p class="caption">
-Figure 3.3: Relationship between the deprivation score (x1-x9) and the latent variable score. We appreciate the narrowness of the box plots, indicating good group separati2on.
+Figure 3.2: Relationship between the deprivation score (x1-x9) and the latent variable score. We appreciate the narrowness of the box plots, indicating good group separati2on.
 </p>
 </div>
-<p>En contraste, la Figura <a href="Chapter-3.html#fig:fsdesunrel">3.4</a> muestra que aunque hay una relación entre el score observado y el latente, la asociación tiene mucho más ruido. No solo hay mayor variabilidad dentro de cada grupo (privación observada) sino que hay traslapes entre grupos. Si trazáramos una línea horizontal para dividir a la población, tendríamos mayor error en la identificación de grupos. Esto significa que, si usamos algún umbral para distinguir al grupo pobre del no pobre usando el score de privación, vamos a tener una probabilidad más alta de confundir a un grupo con el otro. En este caso la mezcla de grupos no es tan dramática, pero recordemos que el valor de confiabilidad es bastante alto.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="Chapter-3.html#cb69-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_ur&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,(<span class="dv">3</span><span class="op">:</span><span class="dv">11</span>)])</span></code></pre></div>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="Chapter-3.html#cb70-1"></a>g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="kw">as.factor</span>(ds_ur), hur))</span>
-<span id="cb70-2"><a href="Chapter-3.html#cb70-2"></a>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="dt">varwidth=</span>T) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb70-3"><a href="Chapter-3.html#cb70-3"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Deprivation score. Unreliable&quot;</span>,</span>
-<span id="cb70-4"><a href="Chapter-3.html#cb70-4"></a>         <span class="dt">y=</span><span class="st">&quot;Factor score (Latent variable)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</span></code></pre></div>
-<p><img src="PM-Libro_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p>En contraste, la Figura <a href="Chapter-3.html#fig:fsdesunrel">3.3</a> muestra que aunque hay una relación entre el score observado y el latente, la asociación tiene mucho más ruido. No solo hay mayor variabilidad dentro de cada grupo (privación observada) sino que hay traslapes entre grupos. Si trazáramos una línea horizontal para dividir a la población, tendríamos mayor error en la identificación de grupos. Esto significa que, si usamos algún umbral para distinguir al grupo pobre del no pobre usando el score de privación, vamos a tener una probabilidad más alta de confundir a un grupo con el otro. En este caso la mezcla de grupos no es tan dramática, pero recordemos que el valor de confiabilidad es bastante alto.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="Chapter-3.html#cb65-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_ur&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,(<span class="dv">3</span><span class="op">:</span><span class="dv">11</span>)])</span></code></pre></div>
 <div class="figure"><span id="fig:fsdesunrel"></span>
-<img src="fsdesunrel-1.png" alt="Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation."  />
+<img src="PM-Libro_files/figure-html/fsdesunrel-1.png" alt="Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation." width="672" />
 <p class="caption">
-Figure 3.4: Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation.
+Figure 3.3: Relationship between the deprivation score (x10, x11 and x3-x9) and the latent variable score. There is more variability in this case indicating poor group separation.
 </p>
 </div>
 </div>
 <div id="pesos-confiabilidad-y-clasificacion-poblacional" class="section level3">
 <h3><span class="header-section-number">3.8.2</span> Pesos, confiabilidad y clasificación poblacional</h3>
 <p>La primera predicción de la teoría de la confiabilidad es que los ordenamientos de la población son consistentes para valores altos de confiabilidad. Esto tiene una relación muy estrecha con los pesos porque éstos afectan la contribución relativa que cada indicador tiene al score observado de privación. Para entender la relación entre estos tres grandes temas (confiabilidad, pesos y clasificación poblacional) veremos desde otro ángulo la relación entre confiabilidad y scores observados de privación. Una manera de checar esto es estimando la correlación de los scores observados de privación para cada uno de los casos especiales que usamos previamente (<code>omega_exp1-5</code>). ¿Qué es el score de privación? Hemos hablado que el score de privación en medición multidimensional es la suma ponderada (diferencial o no diferencialmente) de las privaciones observadas. Esta es una medida inventada por Townsend de severidad de privación. Entre más alto el score, mayor la severidad de privación material y social y pobreza. El cálculo que haremos a continuación se basa en pesos no diferenciales -como mencionamos, aunque lo vamos a demostrar a más adelante, la confiabilidad es una precondición para buena clasificación y los pesos no-. El score de privación se obtiene con la suma de los indicadores de carencia con la función <code>rowSums</code>. Haremos esto para la medida perfecta que se compone de los indicadores x1-x9.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="Chapter-3.html#cb71-1"></a><span class="kw">library</span>(plyr)</span>
-<span id="cb71-2"><a href="Chapter-3.html#cb71-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">read.table</span>(<span class="st">&quot;Rel_MD_data_2_1.dat&quot;</span>)</span>
-<span id="cb71-3"><a href="Chapter-3.html#cb71-3"></a><span class="kw">colnames</span>(Rel_MD_<span class="dv">2</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,</span>
-<span id="cb71-4"><a href="Chapter-3.html#cb71-4"></a>                      <span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>, <span class="st">&quot;x12&quot;</span>, <span class="st">&quot;x13&quot;</span>, <span class="st">&quot;x14&quot;</span>, <span class="st">&quot;x15&quot;</span>,</span>
-<span id="cb71-5"><a href="Chapter-3.html#cb71-5"></a>                      <span class="st">&quot;resources&quot;</span>,<span class="st">&quot;educ_yr&quot;</span>,<span class="st">&quot;occupation&quot;</span>,<span class="st">&quot;hh_members&quot;</span>,<span class="st">&quot;class&quot;</span>)</span>
-<span id="cb71-6"><a href="Chapter-3.html#cb71-6"></a><span class="kw">str</span>(Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="Chapter-3.html#cb66-1"></a><span class="kw">library</span>(plyr)</span>
+<span id="cb66-2"><a href="Chapter-3.html#cb66-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">read.table</span>(<span class="st">&quot;Rel_MD_data_2_1.dat&quot;</span>)</span>
+<span id="cb66-3"><a href="Chapter-3.html#cb66-3"></a><span class="kw">colnames</span>(Rel_MD_<span class="dv">2</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,</span>
+<span id="cb66-4"><a href="Chapter-3.html#cb66-4"></a>                      <span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>, <span class="st">&quot;x12&quot;</span>, <span class="st">&quot;x13&quot;</span>, <span class="st">&quot;x14&quot;</span>, <span class="st">&quot;x15&quot;</span>,</span>
+<span id="cb66-5"><a href="Chapter-3.html#cb66-5"></a>                      <span class="st">&quot;resources&quot;</span>,<span class="st">&quot;educ_yr&quot;</span>,<span class="st">&quot;occupation&quot;</span>,<span class="st">&quot;hh_members&quot;</span>,<span class="st">&quot;class&quot;</span>)</span>
+<span id="cb66-6"><a href="Chapter-3.html#cb66-6"></a><span class="kw">str</span>(Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    5000 obs. of  20 variables:
 ##  $ x1        : num  1 0 1 1 0 1 0 0 0 0 ...
 ##  $ x2        : num  1 0 1 0 0 1 0 0 0 0 ...
@@ -1105,53 +1084,51 @@ Figure 3.4: Relationship between the deprivation score (x10, x11 and x3-x9) and 
 ##  $ occupation: num  4.36 3.58 8.33 2.24 2.59 ...
 ##  $ hh_members: num  5.44 0.458 2.787 6.949 2.386 ...
 ##  $ class     : int  2 2 2 2 1 2 2 1 1 2 ...</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="Chapter-3.html#cb73-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)])</span></code></pre></div>
-<p>Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura <a href="Chapter-3.html#fig:depscore">3.5</a>):</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="Chapter-3.html#cb74-1"></a><span class="kw">require</span>(ggplot2)</span>
-<span id="cb74-2"><a href="Chapter-3.html#cb74-2"></a><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(ds)) <span class="op">+</span></span>
-<span id="cb74-3"><a href="Chapter-3.html#cb74-3"></a><span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation score&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb74-4"><a href="Chapter-3.html#cb74-4"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">9</span>, <span class="dt">by =</span> <span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="PM-Libro_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="Chapter-3.html#cb68-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)])</span></code></pre></div>
+<p>Podemos graficar la distribución de nuestro score de privación de la manera siguiente (Figura <a href="Chapter-3.html#fig:depscore">3.4</a>):</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="Chapter-3.html#cb69-1"></a><span class="kw">require</span>(ggplot2)</span>
+<span id="cb69-2"><a href="Chapter-3.html#cb69-2"></a><span class="kw">ggplot</span>(Rel_MD_<span class="dv">2</span>, <span class="kw">aes</span>(ds)) <span class="op">+</span></span>
+<span id="cb69-3"><a href="Chapter-3.html#cb69-3"></a><span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Deprivation score&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb69-4"><a href="Chapter-3.html#cb69-4"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">9</span>, <span class="dt">by =</span> <span class="dv">1</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:depscore"></span>
-<img src="depscore-1.png" alt="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count."  />
+<img src="PM-Libro_files/figure-html/depscore-1.png" alt="This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count." width="672" />
 <p class="caption">
-Figure 3.5: This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count.
+Figure 3.4: This is the histogram of the deprivation score. It shows the number of people by the equally weighted deprivation count.
 </p>
 </div>
 <p>Vemos que nuestro score de privación se ve desinflado a la derecha y inflado a la izquierda. Esta es normalmente la distribución que siguen este tipo de scores en la mayoría de sociedades donde la privación múltiple es baja. Esto luciría bastante distinto en un país en desarrollo donde la gente privación múltiple es mayor.</p>
 <p>Ahora tenemos los fundamentos para seguir nuestra exploración de la relación entre confiabilidad y diferentes scores de privación. Para ello, calcularemos los scores de privación correspondientes a cada una de las medidas anteriormente usadas (<code>rowSums(Rel_MD_1[,c(3:9)]</code> para el segundo índice, por ejemplo). Haremos esto para los cinco subconjuntos de que incluyen buenos indicadores y para dos casos que incluyen los ítems x10 y x11. Con estos scores, lo que tenemos es la severidad de privación observada para cada una de las personas en la muestra. Idealmente, esperaríamos que la población con baja severidad siempre tuviera baja severidad independientemente del subconjunto de indicadores utilizados.</p>
 <p>Una vez que cada persona tiene sus cinco scores de privación, podemos calcular la correlación entre todos estos scores para nuestra muestra. Lo que vemos es que efectivamente la teoría se sostiene. Las medidas con altos valores de <span class="math inline">\(\omega\)</span> tienen una correlación muy alta. La correlación de las medidas con baja confiabilidad es aún alta, pero se observa una caída (.93 y .87 cuando se empeora la medida). Por simulación, cuando <span class="math inline">\(\omega&lt;.8\)</span> podemos esperar tener un error de clasificación de <span class="math inline">\(&gt;5\%\)</span>, lo cual es muy preocupado cuando se pone en perspectiva. Si la pobreza es <span class="math inline">\(20\%\)</span> y el error es <span class="math inline">\(&gt;5\%\)</span>, esto significaría que el <span class="math inline">\(25\%\)</span> de la población pobre está incorrectamente clasificada <span class="citation">(Nájera, <a href="referencias.html#ref-Najera2018" role="doc-biblioref">2018</a>)</span>.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="Chapter-3.html#cb76-1"></a><span class="kw">library</span>(psych)</span>
-<span id="cb76-2"><a href="Chapter-3.html#cb76-2"></a>omega_expA&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">9</span>)])</span>
-<span id="cb76-3"><a href="Chapter-3.html#cb76-3"></a>omega_expB&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>)])</span>
-<span id="cb76-4"><a href="Chapter-3.html#cb76-4"></a>omega_expC&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)])</span>
-<span id="cb76-5"><a href="Chapter-3.html#cb76-5"></a>omega_expD&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">15</span>)])</span>
-<span id="cb76-6"><a href="Chapter-3.html#cb76-6"></a>omega_expE&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)])</span>
-<span id="cb76-7"><a href="Chapter-3.html#cb76-7"></a>omega_expF&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>)])</span>
-<span id="cb76-8"><a href="Chapter-3.html#cb76-8"></a>omega_expG&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">15</span>)])</span>
-<span id="cb76-9"><a href="Chapter-3.html#cb76-9"></a>omega_expH&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)])</span>
-<span id="cb76-10"><a href="Chapter-3.html#cb76-10"></a></span>
-<span id="cb76-11"><a href="Chapter-3.html#cb76-11"></a>omegas_exp&lt;-<span class="kw">data.frame</span>(<span class="dt">omega_expA=</span>omega_expA<span class="op">$</span>omega.tot, </span>
-<span id="cb76-12"><a href="Chapter-3.html#cb76-12"></a>                       <span class="dt">omega_expB=</span>omega_expB<span class="op">$</span>omega.tot,</span>
-<span id="cb76-13"><a href="Chapter-3.html#cb76-13"></a>                       <span class="dt">omega_expC=</span>omega_expC<span class="op">$</span>omega.tot, </span>
-<span id="cb76-14"><a href="Chapter-3.html#cb76-14"></a>                       <span class="dt">omega_expD=</span>omega_expD<span class="op">$</span>omega.tot, </span>
-<span id="cb76-15"><a href="Chapter-3.html#cb76-15"></a>                       <span class="dt">omega_expE=</span>omega_expE<span class="op">$</span>omega.tot,</span>
-<span id="cb76-16"><a href="Chapter-3.html#cb76-16"></a>                       <span class="dt">omega_expF=</span>omega_expF<span class="op">$</span>omega.tot,</span>
-<span id="cb76-17"><a href="Chapter-3.html#cb76-17"></a>                       <span class="dt">omega_expG=</span>omega_expG<span class="op">$</span>omega.tot,</span>
-<span id="cb76-18"><a href="Chapter-3.html#cb76-18"></a>                       <span class="dt">omega_expH=</span>omega_expH<span class="op">$</span>omega.tot)</span></code></pre></div>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="Chapter-3.html#cb77-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_A&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">9</span>)])</span>
-<span id="cb77-2"><a href="Chapter-3.html#cb77-2"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_B&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>)])</span>
-<span id="cb77-3"><a href="Chapter-3.html#cb77-3"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_C&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)])</span>
-<span id="cb77-4"><a href="Chapter-3.html#cb77-4"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_D&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">15</span>)])</span>
-<span id="cb77-5"><a href="Chapter-3.html#cb77-5"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_E&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)])</span>
-<span id="cb77-6"><a href="Chapter-3.html#cb77-6"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_F&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>)])</span>
-<span id="cb77-7"><a href="Chapter-3.html#cb77-7"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_G&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">15</span>)])</span>
-<span id="cb77-8"><a href="Chapter-3.html#cb77-8"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_H&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)])</span>
-<span id="cb77-9"><a href="Chapter-3.html#cb77-9"></a></span>
-<span id="cb77-10"><a href="Chapter-3.html#cb77-10"></a>ds.m&lt;-(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">22</span><span class="op">:</span><span class="dv">29</span>)])</span>
-<span id="cb77-11"><a href="Chapter-3.html#cb77-11"></a>ds.cor&lt;-<span class="kw">cor</span>(ds.m)</span>
-<span id="cb77-12"><a href="Chapter-3.html#cb77-12"></a>ds.cor</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="Chapter-3.html#cb70-1"></a><span class="kw">library</span>(psych)</span>
+<span id="cb70-2"><a href="Chapter-3.html#cb70-2"></a>omega_expA&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">9</span>)])</span>
+<span id="cb70-3"><a href="Chapter-3.html#cb70-3"></a>omega_expB&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>)])</span>
+<span id="cb70-4"><a href="Chapter-3.html#cb70-4"></a>omega_expC&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)])</span>
+<span id="cb70-5"><a href="Chapter-3.html#cb70-5"></a>omega_expD&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">15</span>)])</span>
+<span id="cb70-6"><a href="Chapter-3.html#cb70-6"></a>omega_expE&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)])</span>
+<span id="cb70-7"><a href="Chapter-3.html#cb70-7"></a>omega_expF&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>)])</span>
+<span id="cb70-8"><a href="Chapter-3.html#cb70-8"></a>omega_expG&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">15</span>)])</span>
+<span id="cb70-9"><a href="Chapter-3.html#cb70-9"></a>omega_expH&lt;-<span class="kw">omega</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)])</span>
+<span id="cb70-10"><a href="Chapter-3.html#cb70-10"></a></span>
+<span id="cb70-11"><a href="Chapter-3.html#cb70-11"></a>omegas_exp&lt;-<span class="kw">data.frame</span>(<span class="dt">omega_expA=</span>omega_expA<span class="op">$</span>omega.tot, </span>
+<span id="cb70-12"><a href="Chapter-3.html#cb70-12"></a>                       <span class="dt">omega_expB=</span>omega_expB<span class="op">$</span>omega.tot,</span>
+<span id="cb70-13"><a href="Chapter-3.html#cb70-13"></a>                       <span class="dt">omega_expC=</span>omega_expC<span class="op">$</span>omega.tot, </span>
+<span id="cb70-14"><a href="Chapter-3.html#cb70-14"></a>                       <span class="dt">omega_expD=</span>omega_expD<span class="op">$</span>omega.tot, </span>
+<span id="cb70-15"><a href="Chapter-3.html#cb70-15"></a>                       <span class="dt">omega_expE=</span>omega_expE<span class="op">$</span>omega.tot,</span>
+<span id="cb70-16"><a href="Chapter-3.html#cb70-16"></a>                       <span class="dt">omega_expF=</span>omega_expF<span class="op">$</span>omega.tot,</span>
+<span id="cb70-17"><a href="Chapter-3.html#cb70-17"></a>                       <span class="dt">omega_expG=</span>omega_expG<span class="op">$</span>omega.tot,</span>
+<span id="cb70-18"><a href="Chapter-3.html#cb70-18"></a>                       <span class="dt">omega_expH=</span>omega_expH<span class="op">$</span>omega.tot)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="Chapter-3.html#cb71-1"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_A&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">9</span>)])</span>
+<span id="cb71-2"><a href="Chapter-3.html#cb71-2"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_B&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>)])</span>
+<span id="cb71-3"><a href="Chapter-3.html#cb71-3"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_C&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)])</span>
+<span id="cb71-4"><a href="Chapter-3.html#cb71-4"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_D&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">15</span>)])</span>
+<span id="cb71-5"><a href="Chapter-3.html#cb71-5"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_E&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)])</span>
+<span id="cb71-6"><a href="Chapter-3.html#cb71-6"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_F&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>)])</span>
+<span id="cb71-7"><a href="Chapter-3.html#cb71-7"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_G&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">15</span>)])</span>
+<span id="cb71-8"><a href="Chapter-3.html#cb71-8"></a>Rel_MD_<span class="dv">2</span><span class="op">$</span>ds_H&lt;-<span class="kw">rowSums</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)])</span>
+<span id="cb71-9"><a href="Chapter-3.html#cb71-9"></a></span>
+<span id="cb71-10"><a href="Chapter-3.html#cb71-10"></a>ds.m&lt;-(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">22</span><span class="op">:</span><span class="dv">29</span>)])</span>
+<span id="cb71-11"><a href="Chapter-3.html#cb71-11"></a>ds.cor&lt;-<span class="kw">cor</span>(ds.m)</span>
+<span id="cb71-12"><a href="Chapter-3.html#cb71-12"></a>ds.cor</span></code></pre></div>
 <pre><code>##           ds_A      ds_B      ds_C      ds_D      ds_E      ds_F      ds_G
 ## ds_A 1.0000000 0.9071840 0.9039950 0.9221182 0.8880842 0.6555425 0.7252570
 ## ds_B 0.9071840 1.0000000 0.8402092 0.8911441 0.8898064 0.6726461 0.7732807
@@ -1174,43 +1151,43 @@ Figure 3.5: This is the histogram of the deprivation score. It shows the number 
 <div id="impacto-de-la-confiabilidad-y-pesos-en-la-identificacion-de-grupos" class="section level3">
 <h3><span class="header-section-number">3.8.3</span> Impacto de la confiabilidad y pesos en la identificación de grupos</h3>
 <p>En esta sección exploraremos el impacto que tiene la baja y alta confiabilidad cuando se utilizan pesos diferenciales. Lo primero que tenemos que hacer es crear una función que estima parcialmente el método de Alkire y Foster. La función estima el score de privación ponderado, la prevalencia de pobreza para un determinado umbral, calcula la intensidad de la pobreza y el valor omega exploratorio.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="Chapter-3.html#cb79-1"></a>AF&lt;-<span class="cf">function</span>(vars,weights,cutoff,data){</span>
-<span id="cb79-2"><a href="Chapter-3.html#cb79-2"></a>  data<span class="op">$</span>score &lt;-<span class="st"> </span><span class="kw">rowSums</span>(vars<span class="op">*</span><span class="st"> </span>weights)</span>
-<span id="cb79-3"><a href="Chapter-3.html#cb79-3"></a>  data<span class="op">$</span>poor &lt;-<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>score <span class="op">&gt;</span><span class="st"> </span>cutoff,<span class="dv">1</span>,<span class="dv">0</span>)</span>
-<span id="cb79-4"><a href="Chapter-3.html#cb79-4"></a>  intensity&lt;-<span class="kw">aggregate</span>(data<span class="op">$</span>score <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>poor, <span class="dt">FUN=</span>mean, <span class="dt">data=</span>data, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
-<span id="cb79-5"><a href="Chapter-3.html#cb79-5"></a>  poor &lt;-<span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>poor,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
-<span id="cb79-6"><a href="Chapter-3.html#cb79-6"></a>  data</span>
-<span id="cb79-7"><a href="Chapter-3.html#cb79-7"></a>  omega&lt;-<span class="kw">omega</span>(vars)</span>
-<span id="cb79-8"><a href="Chapter-3.html#cb79-8"></a>  parms&lt;-<span class="kw">list</span>(<span class="dt">H=</span><span class="kw">prop.table</span>(<span class="kw">table</span>(data<span class="op">$</span>poor)), </span>
-<span id="cb79-9"><a href="Chapter-3.html#cb79-9"></a>              <span class="dt">M0=</span>poor<span class="op">*</span>intensity[<span class="dv">2</span>,<span class="dv">2</span>], <span class="dt">omega=</span>omega<span class="op">$</span>omega.tot, <span class="dt">DT=</span>data)</span>
-<span id="cb79-10"><a href="Chapter-3.html#cb79-10"></a>  <span class="kw">return</span>(parms)</span>
-<span id="cb79-11"><a href="Chapter-3.html#cb79-11"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="Chapter-3.html#cb73-1"></a>AF&lt;-<span class="cf">function</span>(vars,weights,cutoff,data){</span>
+<span id="cb73-2"><a href="Chapter-3.html#cb73-2"></a>  data<span class="op">$</span>score &lt;-<span class="st"> </span><span class="kw">rowSums</span>(vars<span class="op">*</span><span class="st"> </span>weights)</span>
+<span id="cb73-3"><a href="Chapter-3.html#cb73-3"></a>  data<span class="op">$</span>poor &lt;-<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>score <span class="op">&gt;</span><span class="st"> </span>cutoff,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb73-4"><a href="Chapter-3.html#cb73-4"></a>  intensity&lt;-<span class="kw">aggregate</span>(data<span class="op">$</span>score <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>poor, <span class="dt">FUN=</span>mean, <span class="dt">data=</span>data, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
+<span id="cb73-5"><a href="Chapter-3.html#cb73-5"></a>  poor &lt;-<span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>poor,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
+<span id="cb73-6"><a href="Chapter-3.html#cb73-6"></a>  data</span>
+<span id="cb73-7"><a href="Chapter-3.html#cb73-7"></a>  omega&lt;-<span class="kw">omega</span>(vars)</span>
+<span id="cb73-8"><a href="Chapter-3.html#cb73-8"></a>  parms&lt;-<span class="kw">list</span>(<span class="dt">H=</span><span class="kw">prop.table</span>(<span class="kw">table</span>(data<span class="op">$</span>poor)), </span>
+<span id="cb73-9"><a href="Chapter-3.html#cb73-9"></a>              <span class="dt">M0=</span>poor<span class="op">*</span>intensity[<span class="dv">2</span>,<span class="dv">2</span>], <span class="dt">omega=</span>omega<span class="op">$</span>omega.tot, <span class="dt">DT=</span>data)</span>
+<span id="cb73-10"><a href="Chapter-3.html#cb73-10"></a>  <span class="kw">return</span>(parms)</span>
+<span id="cb73-11"><a href="Chapter-3.html#cb73-11"></a>}</span></code></pre></div>
 <p>Ahora creamos una función <code>ws()</code> que produce pesos aleatorios con el fin de aplicar pesos aleatorios a nuestros indicadores y examinar la relación entre confiabilidad y pesos diferenciales. La función requiere simplemente especificar el número de indicadores, la media y desviación estándar. Hacemos un ajuste para que la función no tome valores negativos. A esta función le agregamos otra <code>wstats</code> que nos va a calcular algunos descriptivos de los pesos: mínimo, máximo y coeficiente de variación. Así, tendremos una idea de la variabilidad de los pesos.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="Chapter-3.html#cb80-1"></a><span class="co">#Random weights</span></span>
-<span id="cb80-2"><a href="Chapter-3.html#cb80-2"></a>ws&lt;-<span class="cf">function</span>(i,range1,range2){</span>
-<span id="cb80-3"><a href="Chapter-3.html#cb80-3"></a>  w&lt;-<span class="kw">rnorm</span>(i,range1,range2)</span>
-<span id="cb80-4"><a href="Chapter-3.html#cb80-4"></a>  tw&lt;-<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span>i,i)</span>
-<span id="cb80-5"><a href="Chapter-3.html#cb80-5"></a>  ws&lt;-w<span class="op">+</span>tw</span>
-<span id="cb80-6"><a href="Chapter-3.html#cb80-6"></a>  ws[ws<span class="op">&lt;=</span><span class="dv">0</span>]&lt;-.<span class="dv">01</span></span>
-<span id="cb80-7"><a href="Chapter-3.html#cb80-7"></a>  ws&lt;-ws<span class="op">/</span><span class="kw">sum</span>(ws)</span>
-<span id="cb80-8"><a href="Chapter-3.html#cb80-8"></a>  ws</span>
-<span id="cb80-9"><a href="Chapter-3.html#cb80-9"></a>}</span>
-<span id="cb80-10"><a href="Chapter-3.html#cb80-10"></a></span>
-<span id="cb80-11"><a href="Chapter-3.html#cb80-11"></a><span class="co">#Stats of dispersion of the weights</span></span>
-<span id="cb80-12"><a href="Chapter-3.html#cb80-12"></a>wstats&lt;-<span class="cf">function</span>(vector,i){</span>
-<span id="cb80-13"><a href="Chapter-3.html#cb80-13"></a>      maxdis&lt;-(<span class="kw">max</span>(vector)<span class="op">/</span>(<span class="dv">1</span><span class="op">/</span>i))<span class="op">-</span><span class="dv">1</span></span>
-<span id="cb80-14"><a href="Chapter-3.html#cb80-14"></a>      mindis&lt;-(<span class="kw">min</span>(vector)<span class="op">/</span>(<span class="dv">1</span><span class="op">/</span>i))<span class="op">-</span><span class="dv">1</span></span>
-<span id="cb80-15"><a href="Chapter-3.html#cb80-15"></a>      cv&lt;-<span class="kw">sd</span>(vector)<span class="op">/</span><span class="kw">mean</span>(vector)</span>
-<span id="cb80-16"><a href="Chapter-3.html#cb80-16"></a>      parms&lt;-<span class="kw">data.frame</span>(<span class="dt">mindis=</span>mindis<span class="op">*</span><span class="dv">100</span>,<span class="dt">maxdis=</span>maxdis<span class="op">*</span><span class="dv">100</span>,<span class="dt">CV=</span>cv<span class="op">*</span><span class="dv">100</span>)</span>
-<span id="cb80-17"><a href="Chapter-3.html#cb80-17"></a>      <span class="kw">return</span>(parms)</span>
-<span id="cb80-18"><a href="Chapter-3.html#cb80-18"></a>       }</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="Chapter-3.html#cb74-1"></a><span class="co">#Random weights</span></span>
+<span id="cb74-2"><a href="Chapter-3.html#cb74-2"></a>ws&lt;-<span class="cf">function</span>(i,range1,range2){</span>
+<span id="cb74-3"><a href="Chapter-3.html#cb74-3"></a>  w&lt;-<span class="kw">rnorm</span>(i,range1,range2)</span>
+<span id="cb74-4"><a href="Chapter-3.html#cb74-4"></a>  tw&lt;-<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span>i,i)</span>
+<span id="cb74-5"><a href="Chapter-3.html#cb74-5"></a>  ws&lt;-w<span class="op">+</span>tw</span>
+<span id="cb74-6"><a href="Chapter-3.html#cb74-6"></a>  ws[ws<span class="op">&lt;=</span><span class="dv">0</span>]&lt;-.<span class="dv">01</span></span>
+<span id="cb74-7"><a href="Chapter-3.html#cb74-7"></a>  ws&lt;-ws<span class="op">/</span><span class="kw">sum</span>(ws)</span>
+<span id="cb74-8"><a href="Chapter-3.html#cb74-8"></a>  ws</span>
+<span id="cb74-9"><a href="Chapter-3.html#cb74-9"></a>}</span>
+<span id="cb74-10"><a href="Chapter-3.html#cb74-10"></a></span>
+<span id="cb74-11"><a href="Chapter-3.html#cb74-11"></a><span class="co">#Stats of dispersion of the weights</span></span>
+<span id="cb74-12"><a href="Chapter-3.html#cb74-12"></a>wstats&lt;-<span class="cf">function</span>(vector,i){</span>
+<span id="cb74-13"><a href="Chapter-3.html#cb74-13"></a>      maxdis&lt;-(<span class="kw">max</span>(vector)<span class="op">/</span>(<span class="dv">1</span><span class="op">/</span>i))<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb74-14"><a href="Chapter-3.html#cb74-14"></a>      mindis&lt;-(<span class="kw">min</span>(vector)<span class="op">/</span>(<span class="dv">1</span><span class="op">/</span>i))<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb74-15"><a href="Chapter-3.html#cb74-15"></a>      cv&lt;-<span class="kw">sd</span>(vector)<span class="op">/</span><span class="kw">mean</span>(vector)</span>
+<span id="cb74-16"><a href="Chapter-3.html#cb74-16"></a>      parms&lt;-<span class="kw">data.frame</span>(<span class="dt">mindis=</span>mindis<span class="op">*</span><span class="dv">100</span>,<span class="dt">maxdis=</span>maxdis<span class="op">*</span><span class="dv">100</span>,<span class="dt">CV=</span>cv<span class="op">*</span><span class="dv">100</span>)</span>
+<span id="cb74-17"><a href="Chapter-3.html#cb74-17"></a>      <span class="kw">return</span>(parms)</span>
+<span id="cb74-18"><a href="Chapter-3.html#cb74-18"></a>       }</span></code></pre></div>
 <p>Para el ejercicio utilizaremos los datos <code>Rel_MD_2</code>. Lo que haremos a continuación es calcular el método de agregación AF a distintas versiones de nuestra medida y aplicaremos distintos sets de pesos. Lo hacemos para siete variantes de la misma medida. Aplicamos nuestra función AF de la siguiente manera:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="Chapter-3.html#cb81-1"></a><span class="kw">library</span>(plyr)</span>
-<span id="cb81-2"><a href="Chapter-3.html#cb81-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">read.table</span>(<span class="st">&quot;Rel_MD_data_2_1.dat&quot;</span>)</span>
-<span id="cb81-3"><a href="Chapter-3.html#cb81-3"></a><span class="kw">colnames</span>(Rel_MD_<span class="dv">2</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,</span>
-<span id="cb81-4"><a href="Chapter-3.html#cb81-4"></a>                      <span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>, <span class="st">&quot;x12&quot;</span>, <span class="st">&quot;x13&quot;</span>, <span class="st">&quot;x14&quot;</span>, <span class="st">&quot;x15&quot;</span>,</span>
-<span id="cb81-5"><a href="Chapter-3.html#cb81-5"></a>                      <span class="st">&quot;resources&quot;</span>,<span class="st">&quot;educ_yr&quot;</span>,<span class="st">&quot;occupation&quot;</span>,<span class="st">&quot;hh_members&quot;</span>,<span class="st">&quot;class&quot;</span>)</span>
-<span id="cb81-6"><a href="Chapter-3.html#cb81-6"></a><span class="kw">str</span>(Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="Chapter-3.html#cb75-1"></a><span class="kw">library</span>(plyr)</span>
+<span id="cb75-2"><a href="Chapter-3.html#cb75-2"></a>Rel_MD_<span class="dv">2</span>&lt;-<span class="kw">read.table</span>(<span class="st">&quot;Rel_MD_data_2_1.dat&quot;</span>)</span>
+<span id="cb75-3"><a href="Chapter-3.html#cb75-3"></a><span class="kw">colnames</span>(Rel_MD_<span class="dv">2</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;x2&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,<span class="st">&quot;x6&quot;</span>,</span>
+<span id="cb75-4"><a href="Chapter-3.html#cb75-4"></a>                      <span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>,<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>, <span class="st">&quot;x12&quot;</span>, <span class="st">&quot;x13&quot;</span>, <span class="st">&quot;x14&quot;</span>, <span class="st">&quot;x15&quot;</span>,</span>
+<span id="cb75-5"><a href="Chapter-3.html#cb75-5"></a>                      <span class="st">&quot;resources&quot;</span>,<span class="st">&quot;educ_yr&quot;</span>,<span class="st">&quot;occupation&quot;</span>,<span class="st">&quot;hh_members&quot;</span>,<span class="st">&quot;class&quot;</span>)</span>
+<span id="cb75-6"><a href="Chapter-3.html#cb75-6"></a><span class="kw">str</span>(Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    5000 obs. of  20 variables:
 ##  $ x1        : num  1 0 1 1 0 1 0 0 0 0 ...
 ##  $ x2        : num  1 0 1 0 0 1 0 0 0 0 ...
@@ -1232,116 +1209,116 @@ Figure 3.5: This is the histogram of the deprivation score. It shows the number 
 ##  $ occupation: num  4.36 3.58 8.33 2.24 2.59 ...
 ##  $ hh_members: num  5.44 0.458 2.787 6.949 2.386 ...
 ##  $ class     : int  2 2 2 2 1 2 2 1 1 2 ...</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="Chapter-3.html#cb83-1"></a>AF1&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-2"><a href="Chapter-3.html#cb83-2"></a>AF2&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-3"><a href="Chapter-3.html#cb83-3"></a>AF3&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-4"><a href="Chapter-3.html#cb83-4"></a>AF4&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-5"><a href="Chapter-3.html#cb83-5"></a>AF5&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-6"><a href="Chapter-3.html#cb83-6"></a>AF6&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-7"><a href="Chapter-3.html#cb83-7"></a>AF7&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
-<span id="cb83-8"><a href="Chapter-3.html#cb83-8"></a>AF8&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="Chapter-3.html#cb77-1"></a>AF1&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-2"><a href="Chapter-3.html#cb77-2"></a>AF2&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-3"><a href="Chapter-3.html#cb77-3"></a>AF3&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-4"><a href="Chapter-3.html#cb77-4"></a>AF4&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-5"><a href="Chapter-3.html#cb77-5"></a>AF5&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-6"><a href="Chapter-3.html#cb77-6"></a>AF6&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-7"><a href="Chapter-3.html#cb77-7"></a>AF7&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span>
+<span id="cb77-8"><a href="Chapter-3.html#cb77-8"></a>AF8&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
 <p>Posteriormente calculamos los estadísticos de los pesos para tener una idea de qué tanta variación tiene este set.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="Chapter-3.html#cb84-1"></a><span class="kw">wstats</span>(<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),<span class="dv">9</span>)</span></code></pre></div>
-<pre><code>##      mindis   maxdis       CV
-## 1 -41.80559 22.89637 22.07695</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="Chapter-3.html#cb78-1"></a><span class="kw">wstats</span>(<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),<span class="dv">9</span>)</span></code></pre></div>
+<pre><code>##      mindis   maxdis      CV
+## 1 -36.78837 36.11696 21.2419</code></pre>
 <p>A continuación, inspeccionamos dos tipos de correlación. El primero, es la correlación de la identificación del grupo pobre y no pobre. Es decir, la relación de personas que son siempre clasificadas como pobres a pesar de cambios en los pesos. El segundo tipo de correlación es la asociación entre los scores de privación. Esta correlación debe ser mayor a la primera puesto que estamos clasificando a la población por severidad/ranking y no estatus.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="Chapter-3.html#cb86-1"></a>respoor&lt;-<span class="kw">cbind</span>(AF1<span class="op">$</span>DT<span class="op">$</span>poor,AF2<span class="op">$</span>DT<span class="op">$</span>poor,AF3<span class="op">$</span>DT<span class="op">$</span>poor,AF4<span class="op">$</span>DT<span class="op">$</span>poor,AF5<span class="op">$</span>DT<span class="op">$</span>poor,AF6<span class="op">$</span>DT<span class="op">$</span>poor,AF7<span class="op">$</span>DT<span class="op">$</span>poor,AF8<span class="op">$</span>DT<span class="op">$</span>poor)</span>
-<span id="cb86-2"><a href="Chapter-3.html#cb86-2"></a>resscore&lt;-<span class="kw">cbind</span>(AF1<span class="op">$</span>DT<span class="op">$</span>score,AF2<span class="op">$</span>DT<span class="op">$</span>score,AF3<span class="op">$</span>DT<span class="op">$</span>score,AF4<span class="op">$</span>DT<span class="op">$</span>score,AF5<span class="op">$</span>DT<span class="op">$</span>score,AF6<span class="op">$</span>DT<span class="op">$</span>score,AF7<span class="op">$</span>DT<span class="op">$</span>score,AF8<span class="op">$</span>DT<span class="op">$</span>poor)</span>
-<span id="cb86-3"><a href="Chapter-3.html#cb86-3"></a></span>
-<span id="cb86-4"><a href="Chapter-3.html#cb86-4"></a><span class="kw">cor</span>(respoor)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="Chapter-3.html#cb80-1"></a>respoor&lt;-<span class="kw">cbind</span>(AF1<span class="op">$</span>DT<span class="op">$</span>poor,AF2<span class="op">$</span>DT<span class="op">$</span>poor,AF3<span class="op">$</span>DT<span class="op">$</span>poor,AF4<span class="op">$</span>DT<span class="op">$</span>poor,AF5<span class="op">$</span>DT<span class="op">$</span>poor,AF6<span class="op">$</span>DT<span class="op">$</span>poor,AF7<span class="op">$</span>DT<span class="op">$</span>poor,AF8<span class="op">$</span>DT<span class="op">$</span>poor)</span>
+<span id="cb80-2"><a href="Chapter-3.html#cb80-2"></a>resscore&lt;-<span class="kw">cbind</span>(AF1<span class="op">$</span>DT<span class="op">$</span>score,AF2<span class="op">$</span>DT<span class="op">$</span>score,AF3<span class="op">$</span>DT<span class="op">$</span>score,AF4<span class="op">$</span>DT<span class="op">$</span>score,AF5<span class="op">$</span>DT<span class="op">$</span>score,AF6<span class="op">$</span>DT<span class="op">$</span>score,AF7<span class="op">$</span>DT<span class="op">$</span>score,AF8<span class="op">$</span>DT<span class="op">$</span>poor)</span>
+<span id="cb80-3"><a href="Chapter-3.html#cb80-3"></a></span>
+<span id="cb80-4"><a href="Chapter-3.html#cb80-4"></a><span class="kw">cor</span>(respoor)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
-## [1,] 1.0000000 0.7140254 0.8440051 0.5875988 0.7219871 0.6696519 0.4364312
-## [2,] 0.7140254 1.0000000 0.6909401 0.7185572 0.7684669 0.6960451 0.4716411
-## [3,] 0.8440051 0.6909401 1.0000000 0.5900013 0.6759684 0.6825670 0.4427214
-## [4,] 0.5875988 0.7185572 0.5900013 1.0000000 0.6736830 0.6517668 0.4899617
-## [5,] 0.7219871 0.7684669 0.6759684 0.6736830 1.0000000 0.6618560 0.5049008
-## [6,] 0.6696519 0.6960451 0.6825670 0.6517668 0.6618560 1.0000000 0.5696545
-## [7,] 0.4364312 0.4716411 0.4427214 0.4899617 0.5049008 0.5696545 1.0000000
-## [8,] 0.4918366 0.4486607 0.4775010 0.4858316 0.5215008 0.4324745 0.4743250
+## [1,] 1.0000000 0.6996650 0.8518641 0.5753275 0.7366315 0.6768031 0.4278342
+## [2,] 0.6996650 1.0000000 0.6983723 0.7114592 0.7356076 0.7042638 0.4420508
+## [3,] 0.8518641 0.6983723 1.0000000 0.5826717 0.7043303 0.6893627 0.4189516
+## [4,] 0.5753275 0.7114592 0.5826717 1.0000000 0.6268714 0.6240975 0.4834137
+## [5,] 0.7366315 0.7356076 0.7043303 0.6268714 1.0000000 0.6575073 0.4795138
+## [6,] 0.6768031 0.7042638 0.6893627 0.6240975 0.6575073 1.0000000 0.5577133
+## [7,] 0.4278342 0.4420508 0.4189516 0.4834137 0.4795138 0.5577133 1.0000000
+## [8,] 0.4704555 0.4251972 0.4682452 0.4548130 0.4997914 0.4185620 0.4716692
 ##           [,8]
-## [1,] 0.4918366
-## [2,] 0.4486607
-## [3,] 0.4775010
-## [4,] 0.4858316
-## [5,] 0.5215008
-## [6,] 0.4324745
-## [7,] 0.4743250
+## [1,] 0.4704555
+## [2,] 0.4251972
+## [3,] 0.4682452
+## [4,] 0.4548130
+## [5,] 0.4997914
+## [6,] 0.4185620
+## [7,] 0.4716692
 ## [8,] 1.0000000</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="Chapter-3.html#cb88-1"></a><span class="kw">cor</span>(resscore)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="Chapter-3.html#cb82-1"></a><span class="kw">cor</span>(resscore)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
-## [1,] 1.0000000 0.9606027 0.9486352 0.9089511 0.9326852 0.8630670 0.6450859
-## [2,] 0.9606027 1.0000000 0.8900888 0.8854448 0.9089581 0.8736089 0.6480785
-## [3,] 0.9486352 0.8900888 1.0000000 0.8288752 0.8640798 0.8739777 0.6555993
-## [4,] 0.9089511 0.8854448 0.8288752 1.0000000 0.8156278 0.8429786 0.6772506
-## [5,] 0.9326852 0.9089581 0.8640798 0.8156278 1.0000000 0.8234302 0.7158325
-## [6,] 0.8630670 0.8736089 0.8739777 0.8429786 0.8234302 1.0000000 0.7999496
-## [7,] 0.6450859 0.6480785 0.6555993 0.6772506 0.7158325 0.7999496 1.0000000
-## [8,] 0.5920835 0.5175127 0.5529561 0.5554327 0.5986112 0.4917838 0.5379837
+## [1,] 1.0000000 0.9633220 0.9502744 0.9088917 0.9334140 0.8679407 0.6347491
+## [2,] 0.9633220 1.0000000 0.8994348 0.8903116 0.9042885 0.8769793 0.6249150
+## [3,] 0.9502744 0.8994348 1.0000000 0.8273972 0.8781475 0.8791887 0.6476166
+## [4,] 0.9088917 0.8903116 0.8273972 1.0000000 0.8057255 0.8426331 0.6690676
+## [5,] 0.9334140 0.9042885 0.8781475 0.8057255 1.0000000 0.8311809 0.6977205
+## [6,] 0.8679407 0.8769793 0.8791887 0.8426331 0.8311809 1.0000000 0.7914399
+## [7,] 0.6347491 0.6249150 0.6476166 0.6690676 0.6977205 0.7914399 1.0000000
+## [8,] 0.5678895 0.4930254 0.5370529 0.5206507 0.5844261 0.4814867 0.5273895
 ##           [,8]
-## [1,] 0.5920835
-## [2,] 0.5175127
-## [3,] 0.5529561
-## [4,] 0.5554327
-## [5,] 0.5986112
-## [6,] 0.4917838
-## [7,] 0.5379837
+## [1,] 0.5678895
+## [2,] 0.4930254
+## [3,] 0.5370529
+## [4,] 0.5206507
+## [5,] 0.5844261
+## [6,] 0.4814867
+## [7,] 0.5273895
 ## [8,] 1.0000000</code></pre>
 <p>Para apreciar la relación entre confiabilidad global y el efecto de los pesos podemos solicitar lo siguiente. Observamos que para valores de confiabilidad sustancialmente menores a <span class="math inline">\(\omega=.8\)</span> la correlación cae dramáticamente:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="Chapter-3.html#cb90-1"></a>omegas&lt;-<span class="kw">rbind</span>(AF1<span class="op">$</span>omega,AF2<span class="op">$</span>omega,AF3<span class="op">$</span>omega,AF4<span class="op">$</span>omega,AF5<span class="op">$</span>omega,AF6<span class="op">$</span>omega,AF7<span class="op">$</span>omega,AF8<span class="op">$</span>omega)</span>
-<span id="cb90-2"><a href="Chapter-3.html#cb90-2"></a>relation&lt;-<span class="kw">cbind</span>(omegas,<span class="kw">cor</span>(resscore)[,<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="Chapter-3.html#cb84-1"></a>omegas&lt;-<span class="kw">rbind</span>(AF1<span class="op">$</span>omega,AF2<span class="op">$</span>omega,AF3<span class="op">$</span>omega,AF4<span class="op">$</span>omega,AF5<span class="op">$</span>omega,AF6<span class="op">$</span>omega,AF7<span class="op">$</span>omega,AF8<span class="op">$</span>omega)</span>
+<span id="cb84-2"><a href="Chapter-3.html#cb84-2"></a>relation&lt;-<span class="kw">cbind</span>(omegas,<span class="kw">cor</span>(resscore)[,<span class="dv">1</span>])</span></code></pre></div>
 </div>
 <div id="error-promedio-simulado-con-pesos" class="section level3">
 <h3><span class="header-section-number">3.8.4</span> Error promedio simulado con pesos</h3>
 <p>Una limitación de los resultados de la sección anterior es que muestran el efecto de distintos sets de pesos para distintas medidas usando una variante. Recordemos que la función <code>rnorm()</code> elige un set de pesos, i.e. una muestra. Aunque esto es útil, es importante ver que pasa cuando se usan variantes de la distribución posible de pesos dada una media y una desviación estándar. A continuación, haremos un ejercicio similar pero con repeticiones.</p>
 <p>Lo primero que haremos es mostrar lo que pasa cuando asignamos distintos subconjuntos de pesos a una medida confiable. Esto nos permitirá tener una conclusión más robusta sobre la relación entre confiabilidad y pesos. Lo que haremos es aplicar cuatro subconjuntos de pesos con 100 repeticiones a los scores confiables obtenidos a partir de los indicadores x1-x9 de la base <em>Rel_MD_2</em>. Los subconjuntos van de menor a mayor variabilidad comenzando por el caso de pesos iguales o no diferenciales.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="Chapter-3.html#cb85-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb85-2"><a href="Chapter-3.html#cb85-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb85-3"><a href="Chapter-3.html#cb85-3"></a><span class="kw">system.time</span>(</span>
+<span id="cb85-4"><a href="Chapter-3.html#cb85-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb85-5"><a href="Chapter-3.html#cb85-5"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    9.00    0.94   10.42</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="Chapter-3.html#cb87-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb87-2"><a href="Chapter-3.html#cb87-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb87-3"><a href="Chapter-3.html#cb87-3"></a><span class="kw">system.time</span>(</span>
+<span id="cb87-4"><a href="Chapter-3.html#cb87-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb87-5"><a href="Chapter-3.html#cb87-5"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    8.86    0.98   10.40</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="Chapter-3.html#cb89-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb89-2"><a href="Chapter-3.html#cb89-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb89-3"><a href="Chapter-3.html#cb89-3"></a><span class="kw">system.time</span>(</span>
+<span id="cb89-4"><a href="Chapter-3.html#cb89-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb89-5"><a href="Chapter-3.html#cb89-5"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    9.05    1.05   10.53</code></pre>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="Chapter-3.html#cb91-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb91-2"><a href="Chapter-3.html#cb91-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb91-3"><a href="Chapter-3.html#cb91-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb91-4"><a href="Chapter-3.html#cb91-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb91-4"><a href="Chapter-3.html#cb91-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb91-5"><a href="Chapter-3.html#cb91-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    8.73    1.02   10.21</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="Chapter-3.html#cb93-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb93-2"><a href="Chapter-3.html#cb93-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb93-3"><a href="Chapter-3.html#cb93-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb93-4"><a href="Chapter-3.html#cb93-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
-<span id="cb93-5"><a href="Chapter-3.html#cb93-5"></a>)</span></code></pre></div>
-<pre><code>##    user  system elapsed 
-##    8.61    1.22   10.39</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="Chapter-3.html#cb95-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb95-2"><a href="Chapter-3.html#cb95-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb95-3"><a href="Chapter-3.html#cb95-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb95-4"><a href="Chapter-3.html#cb95-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
-<span id="cb95-5"><a href="Chapter-3.html#cb95-5"></a>)</span></code></pre></div>
-<pre><code>##    user  system elapsed 
-##    8.81    1.00   10.24</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="Chapter-3.html#cb97-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb97-2"><a href="Chapter-3.html#cb97-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb97-3"><a href="Chapter-3.html#cb97-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb97-4"><a href="Chapter-3.html#cb97-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
-<span id="cb97-5"><a href="Chapter-3.html#cb97-5"></a>)</span></code></pre></div>
-<pre><code>##    user  system elapsed 
-##    8.86    0.85   10.22</code></pre>
+##    9.00    0.90   10.41</code></pre>
 <p>Ahora tenemos cuatro listas con 400 elementos. Lo que queremos saber es la correlación promedio entre el ranking bajo el score observado sin ponderar con el ranking con ponderación. Para ello necesitamos agrupar las listas de la siguiente manera. Por ejemplo, el objeto <em>poorlist4</em> es una base de datos con los scores y la identificación pobre no pobre (con <span class="math inline">\(k=33%\)</span>) para todas las repeticiones de AF4.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="Chapter-3.html#cb99-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb99-2"><a href="Chapter-3.html#cb99-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb99-3"><a href="Chapter-3.html#cb99-3"></a>poorlist3&lt;-AF3[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb99-4"><a href="Chapter-3.html#cb99-4"></a>poorlist4&lt;-AF4[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb99-5"><a href="Chapter-3.html#cb99-5"></a></span>
-<span id="cb99-6"><a href="Chapter-3.html#cb99-6"></a>poorlist1&lt;-<span class="kw">do.call</span>(rbind, poorlist1)</span>
-<span id="cb99-7"><a href="Chapter-3.html#cb99-7"></a>poorlist2&lt;-<span class="kw">do.call</span>(rbind, poorlist2)</span>
-<span id="cb99-8"><a href="Chapter-3.html#cb99-8"></a>poorlist3&lt;-<span class="kw">do.call</span>(rbind, poorlist3)</span>
-<span id="cb99-9"><a href="Chapter-3.html#cb99-9"></a>poorlist4&lt;-<span class="kw">do.call</span>(rbind, poorlist4)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="Chapter-3.html#cb93-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb93-2"><a href="Chapter-3.html#cb93-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb93-3"><a href="Chapter-3.html#cb93-3"></a>poorlist3&lt;-AF3[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb93-4"><a href="Chapter-3.html#cb93-4"></a>poorlist4&lt;-AF4[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb93-5"><a href="Chapter-3.html#cb93-5"></a></span>
+<span id="cb93-6"><a href="Chapter-3.html#cb93-6"></a>poorlist1&lt;-<span class="kw">do.call</span>(rbind, poorlist1)</span>
+<span id="cb93-7"><a href="Chapter-3.html#cb93-7"></a>poorlist2&lt;-<span class="kw">do.call</span>(rbind, poorlist2)</span>
+<span id="cb93-8"><a href="Chapter-3.html#cb93-8"></a>poorlist3&lt;-<span class="kw">do.call</span>(rbind, poorlist3)</span>
+<span id="cb93-9"><a href="Chapter-3.html#cb93-9"></a>poorlist4&lt;-<span class="kw">do.call</span>(rbind, poorlist4)</span></code></pre></div>
 <p>Lo que tenemos que hacer ahora es calcular la correlación para cada uno de los cuatro grandes grupos de pesos.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="Chapter-3.html#cb100-1"></a>Dpoor&lt;-<span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(poorlist1<span class="op">$</span>poor,poorlist2<span class="op">$</span>poor,poorlist3<span class="op">$</span>poor,poorlist4<span class="op">$</span>poor))</span>
-<span id="cb100-2"><a href="Chapter-3.html#cb100-2"></a>Dscore&lt;-<span class="kw">cbind</span>(poorlist1<span class="op">$</span>score,poorlist2<span class="op">$</span>score,poorlist3<span class="op">$</span>score,poorlist4<span class="op">$</span>poor)</span>
-<span id="cb100-3"><a href="Chapter-3.html#cb100-3"></a><span class="kw">cor</span>(Dpoor, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="Chapter-3.html#cb94-1"></a>Dpoor&lt;-<span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(poorlist1<span class="op">$</span>poor,poorlist2<span class="op">$</span>poor,poorlist3<span class="op">$</span>poor,poorlist4<span class="op">$</span>poor))</span>
+<span id="cb94-2"><a href="Chapter-3.html#cb94-2"></a>Dscore&lt;-<span class="kw">cbind</span>(poorlist1<span class="op">$</span>score,poorlist2<span class="op">$</span>score,poorlist3<span class="op">$</span>score,poorlist4<span class="op">$</span>poor)</span>
+<span id="cb94-3"><a href="Chapter-3.html#cb94-3"></a><span class="kw">cor</span>(Dpoor, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>##           V1        V2        V3        V4
 ## V1 1.0000000 0.9195361 0.9115296 0.9016705
 ## V2 0.9195361 1.0000000 0.9913500 0.9811446
 ## V3 0.9115296 0.9913500 1.0000000 0.9896592
 ## V4 0.9016705 0.9811446 0.9896592 1.0000000</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="Chapter-3.html#cb102-1"></a><span class="kw">cor</span>(Dscore, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="Chapter-3.html#cb96-1"></a><span class="kw">cor</span>(Dscore, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]
 ## [1,] 1.0000000 0.9965751 0.9958312 0.8531356
 ## [2,] 0.9965751 1.0000000 0.9998718 0.8600837
@@ -1349,59 +1326,59 @@ Figure 3.5: This is the histogram of the deprivation score. It shows the number 
 ## [4,] 0.8531356 0.8600837 0.8608680 1.0000000</code></pre>
 <p>Vemos que, efectivamente, para el caso de scores con alta confiabilidad, cambios pequeños y moderados en los pesos resultan en pérdidas marginales en el ordenamiento y clasificación de la población. También observamos que la relación entre pesos diferenciales y pesos no diferenciales -moderados- es casi perfecta. Esto, precisamente, es una de las predicciones de la teoría detrás del principio de confiabilidad <span class="citation">(Streiner et al., <a href="referencias.html#ref-Streiner2015" role="doc-biblioref">2015</a>, p. @Najera2018)</span>.</p>
 <p>Para cambios sustantivos en los pesos vemos una pérdida más fuerte. Para entender un poco mejor qué fue lo que ocurrió podemos verificar los valores que toma uno de los casos especiales de pesos con desviación igual a .075. Hay variables que tienen un peso seis veces mayor, lo cual es difícil -aunque no imposible- de ver en la práctica.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="Chapter-3.html#cb104-1"></a><span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="Chapter-3.html#cb98-1"></a><span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>)</span></code></pre></div>
 <pre><code>## [1] 0.09879470 0.10861187 0.12900773 0.12355672 0.20538158 0.10997881
 ## [7] 0.09181357 0.05225118 0.08060384</code></pre>
 <div id="error-promedio-simulado-con-pesos-baja-confiabilidad" class="section level4">
 <h4><span class="header-section-number">3.8.4.1</span> Error promedio simulado con pesos: Baja confiabilidad</h4>
 <p>Hemos visto que hay una clara relación entre alta confiabilidad y el grado de sensibilidad a los pesos- alta confiabilidad reduce el efecto de los pesos sobre el ordenamiento de la población. Ahora vamos a revisar la misma relación, pero para el caso de una medida con baja confiabilidad. En este caso usaremos los indicadores x4-x12 y los compararemos con nuestro estándar de oro que es la medida x1-x9. Este segundo set de indicadores resulta en una confiabilidad igual a <span class="math inline">\(\omega=.77\)</span>- aún alto.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="Chapter-3.html#cb100-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb100-2"><a href="Chapter-3.html#cb100-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb100-3"><a href="Chapter-3.html#cb100-3"></a><span class="kw">system.time</span>(</span>
+<span id="cb100-4"><a href="Chapter-3.html#cb100-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb100-5"><a href="Chapter-3.html#cb100-5"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    9.06    1.00   10.55</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="Chapter-3.html#cb102-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb102-2"><a href="Chapter-3.html#cb102-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb102-3"><a href="Chapter-3.html#cb102-3"></a><span class="kw">system.time</span>(</span>
+<span id="cb102-4"><a href="Chapter-3.html#cb102-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb102-5"><a href="Chapter-3.html#cb102-5"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    9.30    0.89   10.69</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="Chapter-3.html#cb104-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb104-2"><a href="Chapter-3.html#cb104-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb104-3"><a href="Chapter-3.html#cb104-3"></a><span class="kw">system.time</span>(</span>
+<span id="cb104-4"><a href="Chapter-3.html#cb104-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb104-5"><a href="Chapter-3.html#cb104-5"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    9.34    0.83   10.60</code></pre>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="Chapter-3.html#cb106-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb106-2"><a href="Chapter-3.html#cb106-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb106-3"><a href="Chapter-3.html#cb106-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb106-4"><a href="Chapter-3.html#cb106-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
+<span id="cb106-4"><a href="Chapter-3.html#cb106-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb106-5"><a href="Chapter-3.html#cb106-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    8.70    0.92   10.22</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="Chapter-3.html#cb108-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb108-2"><a href="Chapter-3.html#cb108-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb108-3"><a href="Chapter-3.html#cb108-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb108-4"><a href="Chapter-3.html#cb108-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
-<span id="cb108-5"><a href="Chapter-3.html#cb108-5"></a>)</span></code></pre></div>
-<pre><code>##    user  system elapsed 
-##    9.09    0.89   10.36</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="Chapter-3.html#cb110-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb110-2"><a href="Chapter-3.html#cb110-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb110-3"><a href="Chapter-3.html#cb110-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb110-4"><a href="Chapter-3.html#cb110-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
-<span id="cb110-5"><a href="Chapter-3.html#cb110-5"></a>)</span></code></pre></div>
-<pre><code>##    user  system elapsed 
-##    9.11    0.88   10.36</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="Chapter-3.html#cb112-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb112-2"><a href="Chapter-3.html#cb112-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb112-3"><a href="Chapter-3.html#cb112-3"></a><span class="kw">system.time</span>(</span>
-<span id="cb112-4"><a href="Chapter-3.html#cb112-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
-<span id="cb112-5"><a href="Chapter-3.html#cb112-5"></a>)</span></code></pre></div>
-<pre><code>##    user  system elapsed 
-##    9.17    0.89   10.37</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="Chapter-3.html#cb114-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb114-2"><a href="Chapter-3.html#cb114-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb114-3"><a href="Chapter-3.html#cb114-3"></a>poorlist3&lt;-AF3[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb114-4"><a href="Chapter-3.html#cb114-4"></a>poorlist4&lt;-AF4[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
-<span id="cb114-5"><a href="Chapter-3.html#cb114-5"></a></span>
-<span id="cb114-6"><a href="Chapter-3.html#cb114-6"></a>poorlist1&lt;-<span class="kw">do.call</span>(rbind, poorlist1)</span>
-<span id="cb114-7"><a href="Chapter-3.html#cb114-7"></a>poorlist2&lt;-<span class="kw">do.call</span>(rbind, poorlist2)</span>
-<span id="cb114-8"><a href="Chapter-3.html#cb114-8"></a>poorlist3&lt;-<span class="kw">do.call</span>(rbind, poorlist3)</span>
-<span id="cb114-9"><a href="Chapter-3.html#cb114-9"></a>poorlist4&lt;-<span class="kw">do.call</span>(rbind, poorlist4)</span>
-<span id="cb114-10"><a href="Chapter-3.html#cb114-10"></a></span>
-<span id="cb114-11"><a href="Chapter-3.html#cb114-11"></a>Dpoor&lt;-<span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(poorlist1<span class="op">$</span>poor,poorlist2<span class="op">$</span>poor,poorlist3<span class="op">$</span>poor,poorlist4<span class="op">$</span>poor))</span>
-<span id="cb114-12"><a href="Chapter-3.html#cb114-12"></a>Dscore&lt;-<span class="kw">cbind</span>(poorlist1<span class="op">$</span>score,poorlist2<span class="op">$</span>score,poorlist3<span class="op">$</span>score,poorlist4<span class="op">$</span>poor)</span>
-<span id="cb114-13"><a href="Chapter-3.html#cb114-13"></a><span class="kw">cor</span>(Dpoor, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+##    9.15    0.86   10.42</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="Chapter-3.html#cb108-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb108-2"><a href="Chapter-3.html#cb108-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb108-3"><a href="Chapter-3.html#cb108-3"></a>poorlist3&lt;-AF3[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb108-4"><a href="Chapter-3.html#cb108-4"></a>poorlist4&lt;-AF4[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
+<span id="cb108-5"><a href="Chapter-3.html#cb108-5"></a></span>
+<span id="cb108-6"><a href="Chapter-3.html#cb108-6"></a>poorlist1&lt;-<span class="kw">do.call</span>(rbind, poorlist1)</span>
+<span id="cb108-7"><a href="Chapter-3.html#cb108-7"></a>poorlist2&lt;-<span class="kw">do.call</span>(rbind, poorlist2)</span>
+<span id="cb108-8"><a href="Chapter-3.html#cb108-8"></a>poorlist3&lt;-<span class="kw">do.call</span>(rbind, poorlist3)</span>
+<span id="cb108-9"><a href="Chapter-3.html#cb108-9"></a>poorlist4&lt;-<span class="kw">do.call</span>(rbind, poorlist4)</span>
+<span id="cb108-10"><a href="Chapter-3.html#cb108-10"></a></span>
+<span id="cb108-11"><a href="Chapter-3.html#cb108-11"></a>Dpoor&lt;-<span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(poorlist1<span class="op">$</span>poor,poorlist2<span class="op">$</span>poor,poorlist3<span class="op">$</span>poor,poorlist4<span class="op">$</span>poor))</span>
+<span id="cb108-12"><a href="Chapter-3.html#cb108-12"></a>Dscore&lt;-<span class="kw">cbind</span>(poorlist1<span class="op">$</span>score,poorlist2<span class="op">$</span>score,poorlist3<span class="op">$</span>score,poorlist4<span class="op">$</span>poor)</span>
+<span id="cb108-13"><a href="Chapter-3.html#cb108-13"></a><span class="kw">cor</span>(Dpoor, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>##           V1        V2        V3        V4
 ## V1 1.0000000 0.7281012 0.7259123 0.7185450
 ## V2 0.7281012 1.0000000 0.9885491 0.9739881
 ## V3 0.7259123 0.9885491 1.0000000 0.9851401
 ## V4 0.7185450 0.9739881 0.9851401 1.0000000</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="Chapter-3.html#cb116-1"></a><span class="kw">cor</span>(Dscore, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="Chapter-3.html#cb110-1"></a><span class="kw">cor</span>(Dscore, <span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]
 ## [1,] 1.0000000 0.8565984 0.8548751 0.7584154
 ## [2,] 0.8565984 1.0000000 0.9997265 0.8476754
@@ -1415,16 +1392,16 @@ Figure 3.5: This is the histogram of the deprivation score. It shows the number 
 <p>Hemos revisado la relación entre confiabilidad global, ordenamiento población y pesos diferenciales. Ahora vamos a inspeccionar la conexión entre el axioma de monotonicidad de <span class="citation">Sen (<a href="referencias.html#ref-Sen1976" role="doc-biblioref">1976</a>)</span> y la confiabilidad por ítem. Recordemos que el axioma de monotonicidad predice que caídas/aumentos en pobreza deben reflejar cambios en la misma dirección en carencia, i.e. aumento de pobreza debe reflejar un aumento de carencias observadas.</p>
 <p>Cargas factoriales con bajos valores indican que el indicador probablemente no es una manifestación del constructo en cuestión. Esto es, cambios en pobreza latente no resultan en cambios en privación. La sección <a href="Chapter-3.html#itemlevelrel">3.4</a> sugiere que hay una relación entre confiabilidad por ítem y el axioma de monotonicidad. Esta idea se ha explorado recientemente por <span class="citation">Nájera (<a href="referencias.html#ref-NajeraForthcoming" role="doc-biblioref">n.d.</a>)</span> y muestra que efectivamente bajas cargas factoriales -aproximadamente <span class="math inline">\(\leq.5\)</span>- llevan a violaciones del axioma de monotonicidad fuerte, i.e. una reducción en pobreza no refleja una mejora en la matriz de logros. Monotonicidad débil se viola cuando una mejora de pobreza resulta en un incremento de privación. Esto ocurriría cuando las cargas factoriales son negativas, por ejemplo.</p>
 <p>Para revisar cómo funciona operativamente esta relación entre confiabilidad de ítem y monotonicidad utilizaremos los datos <em>Rel_MD_2</em> y estimaremos un modelo factorial jerárquico. Reemplazaremos los indicadores x10 y x11 por x1 y x2.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="Chapter-3.html#cb118-1"></a> MD_model &lt;-<span class="st"> &#39; f1  =~ x10 + x11 + x3</span></span>
-<span id="cb118-2"><a href="Chapter-3.html#cb118-2"></a><span class="st">              f2 =~ x4 + x5 + x6</span></span>
-<span id="cb118-3"><a href="Chapter-3.html#cb118-3"></a><span class="st">              f3   =~ x7 + x8 + x9</span></span>
-<span id="cb118-4"><a href="Chapter-3.html#cb118-4"></a><span class="st">                h =~ f1 + f2 + f3</span></span>
-<span id="cb118-5"><a href="Chapter-3.html#cb118-5"></a><span class="st"> &#39;</span></span>
-<span id="cb118-6"><a href="Chapter-3.html#cb118-6"></a></span>
-<span id="cb118-7"><a href="Chapter-3.html#cb118-7"></a>fit &lt;-<span class="st"> </span><span class="kw">sem</span>(MD_model, <span class="dt">data =</span> Rel_MD_<span class="dv">2</span>,</span>
-<span id="cb118-8"><a href="Chapter-3.html#cb118-8"></a>           <span class="dt">ordered=</span><span class="kw">c</span>(<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,</span>
-<span id="cb118-9"><a href="Chapter-3.html#cb118-9"></a>                      <span class="st">&quot;x6&quot;</span>,<span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>))</span>
-<span id="cb118-10"><a href="Chapter-3.html#cb118-10"></a><span class="kw">inspect</span>(fit,<span class="dt">what=</span><span class="st">&quot;std&quot;</span>)<span class="op">$</span>lambda</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="Chapter-3.html#cb112-1"></a> MD_model &lt;-<span class="st"> &#39; f1  =~ x10 + x11 + x3</span></span>
+<span id="cb112-2"><a href="Chapter-3.html#cb112-2"></a><span class="st">              f2 =~ x4 + x5 + x6</span></span>
+<span id="cb112-3"><a href="Chapter-3.html#cb112-3"></a><span class="st">              f3   =~ x7 + x8 + x9</span></span>
+<span id="cb112-4"><a href="Chapter-3.html#cb112-4"></a><span class="st">                h =~ f1 + f2 + f3</span></span>
+<span id="cb112-5"><a href="Chapter-3.html#cb112-5"></a><span class="st"> &#39;</span></span>
+<span id="cb112-6"><a href="Chapter-3.html#cb112-6"></a></span>
+<span id="cb112-7"><a href="Chapter-3.html#cb112-7"></a>fit &lt;-<span class="st"> </span><span class="kw">sem</span>(MD_model, <span class="dt">data =</span> Rel_MD_<span class="dv">2</span>,</span>
+<span id="cb112-8"><a href="Chapter-3.html#cb112-8"></a>           <span class="dt">ordered=</span><span class="kw">c</span>(<span class="st">&quot;x10&quot;</span>,<span class="st">&quot;x11&quot;</span>,<span class="st">&quot;x3&quot;</span>,<span class="st">&quot;x4&quot;</span>,<span class="st">&quot;x5&quot;</span>,</span>
+<span id="cb112-9"><a href="Chapter-3.html#cb112-9"></a>                      <span class="st">&quot;x6&quot;</span>,<span class="st">&quot;x7&quot;</span>,<span class="st">&quot;x8&quot;</span>,<span class="st">&quot;x9&quot;</span>))</span>
+<span id="cb112-10"><a href="Chapter-3.html#cb112-10"></a><span class="kw">inspect</span>(fit,<span class="dt">what=</span><span class="st">&quot;std&quot;</span>)<span class="op">$</span>lambda</span></code></pre></div>
 <pre><code>##        f1    f2    f3 h
 ## x10 0.137 0.000 0.000 0
 ## x11 0.077 0.000 0.000 0
