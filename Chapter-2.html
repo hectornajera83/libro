@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Pobreza y teoría de la medida: Un marco estadístico | Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones</title>
+  <meta name="description" content="Capítulo 2 Pobreza y teoría de la medida: Un marco estadístico | Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Pobreza y teoría de la medida: Un marco estadístico | Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Pobreza y teoría de la medida: Un marco estadístico | Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones" />
+  
+  
+  
+
+<meta name="author" content="Héctor Nájera con ayuda de mucha gente (favor de citar este borrador)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Chapter-1.html">
+<link rel="next" href="Chapter-3.html">
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="presentacion.html"><a href="presentacion.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="Chapter-1.html"><a href="Chapter-1.html"><i class="fa fa-check"></i><b>1</b> Pobreza y principios de la teoría de medición</a><ul>
+<li class="chapter" data-level="1.1" data-path="Chapter-1.html"><a href="Chapter-1.html#el-concepto-de-pobreza"><i class="fa fa-check"></i><b>1.1</b> El Concepto de Pobreza</a></li>
+<li class="chapter" data-level="1.2" data-path="Chapter-1.html"><a href="Chapter-1.html#Capitulo-1-dimensions"><i class="fa fa-check"></i><b>1.2</b> Las dimensiones de la pobreza</a></li>
+<li class="chapter" data-level="1.3" data-path="Chapter-1.html"><a href="Chapter-1.html#la-medicion-de-la-pobreza-y-sus-retos"><i class="fa fa-check"></i><b>1.3</b> La medición de la pobreza y sus retos</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="Chapter-1.html"><a href="Chapter-1.html#retos-en-la-seleccion-de-dimensiones-contenidos-umbrales-y-pesos"><i class="fa fa-check"></i><b>1.3.1</b> Retos en la selección de dimensiones, contenidos, umbrales y pesos</a></li>
+<li class="chapter" data-level="1.3.2" data-path="Chapter-1.html"><a href="Chapter-1.html#retos-en-la-agregacion-e-identificacion-del-grupo-pobre"><i class="fa fa-check"></i><b>1.3.2</b> Retos en la agregación e identificación del grupo pobre</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="Chapter-1.html"><a href="Chapter-1.html#una-breve-revision-de-la-historia-de-la-medicion-de-la-pobreza"><i class="fa fa-check"></i><b>1.4</b> Una breve revisión de la historia de la medición de la pobreza</a></li>
+<li class="chapter" data-level="1.5" data-path="Chapter-1.html"><a href="Chapter-1.html#estado-del-escrutinio-empirico-en-la-practica-de-la-medicion-de-pobreza"><i class="fa fa-check"></i><b>1.5</b> Estado del escrutinio empírico en la práctica de la medición de pobreza</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Chapter-2.html"><a href="Chapter-2.html"><i class="fa fa-check"></i><b>2</b> Pobreza y teoría de la medida: Un marco estadístico</a><ul>
+<li class="chapter" data-level="2.1" data-path="Chapter-2.html"><a href="Chapter-2.html#ruta-critica-para-medicion-multidimensional-de-pobreza"><i class="fa fa-check"></i><b>2.1</b> Ruta crítica para medición multidimensional de pobreza</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="Chapter-2.html"><a href="Chapter-2.html#samplingspace"><i class="fa fa-check"></i><b>2.1.1</b> Identifiación del espacio de muestreo</a></li>
+<li class="chapter" data-level="2.1.2" data-path="Chapter-2.html"><a href="Chapter-2.html#seleccion-de-indicadores-y-dimensiones"><i class="fa fa-check"></i><b>2.1.2</b> Selección de indicadores y dimensiones</a></li>
+<li class="chapter" data-level="2.1.3" data-path="Chapter-2.html"><a href="Chapter-2.html#agregacion-de-indicadores-y-estructura-de-pesos"><i class="fa fa-check"></i><b>2.1.3</b> Agregación de indicadores y estructura de pesos</a></li>
+<li class="chapter" data-level="2.1.4" data-path="Chapter-2.html"><a href="Chapter-2.html#division-de-la-poblacion-en-los-grupos-pobre-y-no-pobre"><i class="fa fa-check"></i><b>2.1.4</b> División de la población en los grupos pobre y no pobre</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="Chapter-2.html"><a href="Chapter-2.html#la-teoria-de-la-medida-como-marco-estadistico-para-la-medicion"><i class="fa fa-check"></i><b>2.2</b> La teoría de la medida como marco estadístico para la medición</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="Chapter-2.html"><a href="Chapter-2.html#pobreza-y-error-en-medicion"><i class="fa fa-check"></i><b>2.2.1</b> Pobreza y error en medición</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="Chapter-2.html"><a href="Chapter-2.html#modelo-latente-de-medicion-de-pobreza"><i class="fa fa-check"></i><b>2.3</b> Modelo latente de medición de pobreza</a></li>
+<li class="chapter" data-level="2.4" data-path="Chapter-2.html"><a href="Chapter-2.html#esquemas-y-modelos-de-medicion-de-pobreza"><i class="fa fa-check"></i><b>2.4</b> Esquemas y modelos de medición de pobreza</a></li>
+<li class="chapter" data-level="2.5" data-path="Chapter-2.html"><a href="Chapter-2.html#principios-de-la-teoria-de-la-medida"><i class="fa fa-check"></i><b>2.5</b> Principios de la teoría de la medida</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="Chapter-2.html"><a href="Chapter-2.html#origenes-de-la-teoria-de-la-medida"><i class="fa fa-check"></i><b>2.5.1</b> Orígenes de la teoría de la medida</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Chapter-3.html"><a href="Chapter-3.html"><i class="fa fa-check"></i><b>3</b> Confiabilidad en medición de pobreza</a><ul>
+<li class="chapter" data-level="3.1" data-path="Chapter-3.html"><a href="Chapter-3.html#explicacion-intuitiva-del-concepto-de-confiabilidad"><i class="fa fa-check"></i><b>3.1</b> Explicación intuitiva del concepto de confiabilidad</a></li>
+<li class="chapter" data-level="3.2" data-path="Chapter-3.html"><a href="Chapter-3.html#teoria-de-la-confiabilidad"><i class="fa fa-check"></i><b>3.2</b> Teoría de la confiabilidad</a></li>
+<li class="chapter" data-level="3.3" data-path="Chapter-3.html"><a href="Chapter-3.html#Chapter-3-measuresrel"><i class="fa fa-check"></i><b>3.3</b> Estimadores de confiabilidad</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="Chapter-3.html"><a href="Chapter-3.html#estimadores-teoria-clasica-del-test"><i class="fa fa-check"></i><b>3.3.1</b> Estimadores: teoría clásica del test</a></li>
+<li class="chapter" data-level="3.3.2" data-path="Chapter-3.html"><a href="Chapter-3.html#estimadores-variables-latentes"><i class="fa fa-check"></i><b>3.3.2</b> Estimadores: variables latentes</a></li>
+<li class="chapter" data-level="3.3.3" data-path="Chapter-3.html"><a href="Chapter-3.html#criterios-de-uso-estimadores-de-confiabilidad"><i class="fa fa-check"></i><b>3.3.3</b> Criterios de uso: Estimadores de confiabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="Chapter-3.html"><a href="Chapter-3.html#itemlevelrel"><i class="fa fa-check"></i><b>3.4</b> Confiabilidad por ítem y pesos diferenciales</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="Chapter-3.html"><a href="Chapter-3.html#criterios-de-uso-estimadores-de-confiabilidad-de-item"><i class="fa fa-check"></i><b>3.4.1</b> Criterios de uso: Estimadores de confiabilidad de ítem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-de-item-pesos-discriminacion-y-axiomas"><i class="fa fa-check"></i><b>3.5</b> Confiabilidad de ítem: Pesos, discriminación y axiomas</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-y-monotonicidad"><i class="fa fa-check"></i><b>3.5.1</b> Confiabilidad y monotonicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="Chapter-3.html"><a href="Chapter-3.html#relestimation"><i class="fa fa-check"></i><b>3.6</b> Estimación de confiabilidad: Global y de ítem</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-global"><i class="fa fa-check"></i><b>3.6.1</b> Confiabilidad global</a></li>
+<li class="chapter" data-level="3.6.2" data-path="Chapter-3.html"><a href="Chapter-3.html#Chapter-3-expoverel"><i class="fa fa-check"></i><b>3.6.2</b> Estimación exploratoria de confiabilidad gloal</a></li>
+<li class="chapter" data-level="3.6.3" data-path="Chapter-3.html"><a href="Chapter-3.html#analisis-confirmatorio-de-confiabilidad"><i class="fa fa-check"></i><b>3.6.3</b> Análisis confirmatorio de confiabilidad</a></li>
+<li class="chapter" data-level="3.6.4" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-por-item"><i class="fa fa-check"></i><b>3.6.4</b> Confiabilidad por ítem</a></li>
+<li class="chapter" data-level="3.6.5" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-por-item-evaluacion-multidimensional"><i class="fa fa-check"></i><b>3.6.5</b> Confiabilidad por ítem: Evaluación multidimensional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="Chapter-3.html"><a href="Chapter-3.html#ejemplo-con-datos-reales"><i class="fa fa-check"></i><b>3.7</b> Ejemplo con datos reales</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="Chapter-3.html"><a href="Chapter-3.html#analisis-global-de-confiabilidad"><i class="fa fa-check"></i><b>3.7.1</b> Análisis global de confiabilidad</a></li>
+<li class="chapter" data-level="3.7.2" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-por-item-1"><i class="fa fa-check"></i><b>3.7.2</b> Confiabilidad por ítem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="Chapter-3.html"><a href="Chapter-3.html#temas-avananzados-clasificacion-poblacional-y-pesos"><i class="fa fa-check"></i><b>3.8</b> Temas avananzados: Clasificación poblacional y pesos</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="Chapter-3.html"><a href="Chapter-3.html#clasificacion-poblacional-y-confiabilidad"><i class="fa fa-check"></i><b>3.8.1</b> Clasificación poblacional y confiabilidad</a></li>
+<li class="chapter" data-level="3.8.2" data-path="Chapter-3.html"><a href="Chapter-3.html#pesos-confiabilidad-y-clasificacion-poblacional"><i class="fa fa-check"></i><b>3.8.2</b> Pesos, confiabilidad y clasificación poblacional</a></li>
+<li class="chapter" data-level="3.8.3" data-path="Chapter-3.html"><a href="Chapter-3.html#impacto-de-la-confiabilidad-y-pesos-en-la-identificacion-de-grupos"><i class="fa fa-check"></i><b>3.8.3</b> Impacto de la confiabilidad y pesos en la identificación de grupos</a></li>
+<li class="chapter" data-level="3.8.4" data-path="Chapter-3.html"><a href="Chapter-3.html#error-promedio-simulado-con-pesos"><i class="fa fa-check"></i><b>3.8.4</b> Error promedio simulado con pesos</a></li>
+<li class="chapter" data-level="3.8.5" data-path="Chapter-3.html"><a href="Chapter-3.html#monotonicidad-y-confiabilidad-por-item"><i class="fa fa-check"></i><b>3.8.5</b> Monotonicidad y confiabilidad por ítem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="Chapter-3.html"><a href="Chapter-3.html#comentarios-finales"><i class="fa fa-check"></i><b>3.9</b> Comentarios finales</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Chapter-2" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Pobreza y teoría de la medida: Un marco estadístico</h1>
+<p><strong>Resumen</strong></p>
+<p>Este capítulo propone un marco estadístico para enfrentar algunos de los retos actuales en la medición multidimensional de la pobreza. El marco se basa en la teoría de la medida y se propone para el diseño y escrutinio empírico de los supuestos clave en la producción de medidas multidimensionales de pobreza. El capítulo parte de la ruta crítica para producir medidas científicas y posteriormente introduce los principios de <strong>confiabilidad, validez, medición invariante y equivalización de escalas</strong>, mismos que serán definidos y desarrollados en el resto del libro.</p>
+<div id="ruta-critica-para-medicion-multidimensional-de-pobreza" class="section level2">
+<h2><span class="header-section-number">2.1</span> Ruta crítica para medición multidimensional de pobreza</h2>
+<p>El capítulo 1 esbozó algunas de las tareas fundamentales en el desarrollo y producción de índices multidimensionales de pobreza y subrayó el tipo de supuestos que los investigadores tienen que levantar en cada etapa: número de dimensiones, indicadores y umbrales, pesos de indicadores y dimensiones, agregación y producción del score de privación y la especificación de la línea de pobreza (<span class="citation">Alkire (<a href="referencias.html#ref-Alkire2007" role="doc-biblioref">2007</a>)</span>; <span class="citation">Thorbecke (<a href="referencias.html#ref-Thorbecke2007" role="doc-biblioref">2007</a>)</span> y <span class="citation">Gordon &amp; Nandy (<a href="referencias.html#ref-Gordon2012" role="doc-biblioref">2012</a>)</span>).</p>
+<p>La Figura <a href="Chapter-2.html#fig:realwf">2.1</a> ilustra la estrategia que regularmente, en la práctica, siguen los investigadores para producir un índice de pobreza. Esta estrategia no es idea porque generalmente la medición precede a los datos (la información está dada). Por tanto, los investigadores tienen poca influencia sobre el proceso de recolección de datos y, por tanto, tienen que adaptarse a la información existente sobre privación observada y reformular su definición de pobreza -incluso en los peores casos, ellos tienen que adaptar la definición a los datos-. En una siguiente etapa se levantan una serie de supuestos sobre los contenidos de la medida -dimensiones, indicadores, pesos y línea de pobreza- (ver <a href="Chapter-1.html#Chapter-1">Capitulo 1</a>. Idealmente, estos supuestos deberían examinarse usando un marco claro de medición, pero en la práctica los investigadores evaden o ignoran esta etapa. En otros casos, realizan una serie de análisis ad hoc de sensibilidad. La limitación es que este tipo de escrutinio no parte de una hipótesis clara y los investigadores corren el riesgo de confirmar sus prejuicios por falta de una estrategia clara de falseo. El sesgo de confirmación, por tanto, tiene mayor probabilidad de permanecer, así como la validación empírica a desdibujarse. Los investigadores, por tanto, pueden dar un salto de la medida propuesta desde la teoría al proceso de agregación.</p>
+<div class="figure"><span id="fig:realwf"></span>
+<img src="real_workflow_esp.png" alt="Flujo de trabajo que regularmente se sigue en la medición de pobreza"  />
+<p class="caption">
+Figure 2.1: Flujo de trabajo que regularmente se sigue en la medición de pobreza
+</p>
+</div>
+<p>La medición científica demanda una relación clara entre teoría, conceptos, datos y un marco claro para falsear los supuestos del investigador. La Figura <a href="Chapter-2.html#fig:idealwf">2.2</a> muestra la ruta crítica para que los investigadores puedan reducir el riesgo de sesgos de confirmación y error en la medición. Primero, los conceptos adquieren significado a través del marco teórico utilizado para su definición. Es decir, el concepto debe estar anclado en una teoría clara de pobreza. Segundo, la definición de pobreza debe ser científica en el sentido de que sus contenidos sean verificables de alguna manera <a href="Chapter-1.html#Chapter-1">Capítulo 1</a>. Posteriormente, la definición y teoría en cuestión debe utilizarse para diseñar un cuestionario para colectar datos que están pensados para medir pobreza. Los investigadores pueden entonces especificar el tipo de modelo o estructura de la medida de pobreza. Es decir, el número de dimensiones, indicadores, etc. Una vez que se tengan tanto los datos como la especificación, se pueden falsear los supuestos usando un marco estadístico adecuado. Los resultados de este proceso pueden utilizarse para pulir la medida en un proceso iterativo -apegado a la teoría-. Una vez que la medida sea robusta (usando como criterios los del marco de medición adoptado), los investigadores pueden agregar los indicadores y a identificar al grupo pobre y no pobre.</p>
+<div class="figure" style="text-align: center"><span id="fig:idealwf"></span>
+<img src="ideal_workflow_esp.png" alt="Flujo de trabajo que debería seguirse en la medición de pobreza"  />
+<p class="caption">
+Figure 2.2: Flujo de trabajo que debería seguirse en la medición de pobreza
+</p>
+</div>
+<p>Esta ruta crítica para producir medidas de pobreza permite identificar la relación entre teoría, datos y métodos de evaluación. Estos tres aspectos, al final, son esenciales en cualquier programa de investigación científico. Una forma útil y factible de avanzar de forma ordenada en el análisis empírico de medidas de pobreza consiste en detectar los supuestos que levantamos y reconocer sus implicaciones. Una vez hecho esto es posible pasar a un marco falsable de medición. Esto significa, levantar preguntas sobre todos los supuestos y proponer un método que busque responder si las ideas del investigador se sostienen dados los datos.</p>
+<p>Los retos de la medición multidimensional de pobreza pueden ponerse en términos de etapas secuenciales. De hecho, estos elementos son parte de un esfuerzo que busca aproximar la prevalencia e identificación de pobreza y pueden escribirse en términos de un modelo estadístico. Es decir, vamos a comenzar a poner los supuestos y reto de la medición en términos de un modelo que tenga una contraparte estadística. Este modelo no es más que una versión más simple e imperfecta de la pobreza que tiene reflejo en los datos observados. Como plantea <span class="citation">McCullagh (<a href="referencias.html#ref-McCullagh2002" role="doc-biblioref">2002</a>)</span>, la idea de un modelo estadístico parte del reconocimiento de que la caracterización de un fenómeno es simplemente una aproximación. Como tal, un modelo para medir pobreza es una opción que puede y necesitar evaluarse y mejorarse. Antes de decir cómo un modelo de pobreza puede examinarse y mejorarse, es importante presentar un marco explícito que permita posicionar nuestros supuestos de forma falsable.</p>
+<div id="samplingspace" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Identifiación del espacio de muestreo</h3>
+<p>Es un poco extraño pensar en muestreo en medición porque lo relacionamos con encuestas y recolección de datos en campo. Sin embargo, en medición el concepto de muestreo de información es muy importante. Uno de los aspectos ignorados en medición de pobreza es que los investigadores nunca trabajan con información completa. Esto no se refiere a uso de datos censales sino a la información perfecta para producir un índice. La razón principal es que el conjunto de indicadores perfectos para medir pobreza se desconoce o no está disponible. Dada una definición de pobreza, hay diferentes dimensiones, indicadores y parámetros para producir un modelo que aproxime vía datos el nivel individual de severidad de pobreza.</p>
+<p>Las opciones de dimensiones, indicadores, pesos y umbrales pertenecen a un espacio desconocido pero ideal que incluye todas las opciones. Este es un aspecto crucial en medición de pobreza y subraya el hecho de que hay un supuesto general en medición (basado en teoría o datos) sobre qué subconjuntos tienen mayor probabilidad de medir con poco error pobreza.</p>
+<ol style="list-style-type: decimal">
+<li>Espacio de muestreo de todos las dimensiones posibles <span class="math inline">\(\mathscr J\)</span></li>
+<li>Espacio de muestreo de todos las variables <span class="math inline">\(\mathscr X\)</span></li>
+<li>Espacio de muestreo de todos los parámetros posibles (e.g. pesos) <span class="math inline">\(\Theta\)</span></li>
+</ol>
+<p>Estos espacios entonces nos llevan a imaginar el modelo ideal para medir pobreza y que puede escribirse de manera compacta como:</p>
+<p><span class="math display" id="eq:mainmodel">\[\begin{equation}
+\tag{2.1}
+\mathscr F = \{\mathscr X, F_{\theta} : \theta \in \Theta\}
+\end{equation}\]</span></p>
+<p>donde las variables <span class="math inline">\(x_1,...,x_n\)</span> siguen cierta distribución <span class="math inline">\(F_{\theta}\)</span>, la cual se indexa a un parámetro <span class="math inline">\(\theta\)</span> definido en el espacio de los parámetros <span class="math inline">\(\Theta\)</span>. <span class="math inline">\(\mathscr F\)</span> es una familia de distribución de probabilidad, del conjunto completo de datos <span class="math inline">\(\mathscr X\)</span>. Con las muestras que obtenemos de cada espacio aspiramos a tener una probabilidad <span class="math inline">\(\approx1\)</span> de identificar al grupo pobre.</p>
+</div>
+<div id="seleccion-de-indicadores-y-dimensiones" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Selección de indicadores y dimensiones</h3>
+<p>La medición de la pobreza es un ejercicio de muestreo de diferentes espacios- conjunto de opciones. Por ejemplo, se ponen por delante algunas dimensiones, indicadores y pesos que se piensa provienen del espacio de pobreza. Esta selección es el primer reto en medición de pobreza donde los investigadores eligen las dimensiones <span class="math inline">\(j\)</span> de <span class="math inline">\(\mathscr J\)</span>, indicadores <span class="math inline">\(x_{ij}\)</span> de <span class="math inline">\(\mathscr X\)</span>, de manera que si la medida tiene 30 indicadores <span class="math inline">\(\mathscr X={1,2,...,30}\)</span> donde <span class="math inline">\(x_{ij}=1\)</span> cuando hay privación y <span class="math inline">\(x_{ij}=0\)</span> cuando no la hay (y <span class="math inline">\(z&gt;0\)</span> para variables binarias). Para variables nominales, hay un espacio de umbrales posibles <span class="math inline">\(\mathscr Z\)</span>.</p>
+<p>La selección de dimensiones, indicadores y umbrales implica asumir que el muestreo que hacemos es el mejor posible, es decir, es aquel que nos lleva a una buena medida de pobreza. Esto lleva a preguntarse lo siguiente: ¿Cómo sabe el investigador que su muestreo está equivocado? Esta interrogante pude separarse en dos preguntas:</p>
+<ul>
+<li>Es el subconjunto de dimensiones <span class="math inline">\(j\)</span> de <span class="math inline">\(\mathscr J\)</span> una carecterización <em>adecuada</em> de pobreza?</li>
+<li>Es el subconjunto de indicadores, dado un umbral <span class="math inline">\((X;z)\)</span> de <span class="math inline">\(\mathscr X\)</span> una caracterización <em>adecuada</em> de pobreza?</li>
+</ul>
+<p>La palabra <em>adecuada</em> es un término vago en este punto. Necesitamos una teoría clara o estándar para definirla. Esto se cubre en la siguiente sección, pero en este momento nos enfocaremos en traducir con mayor precisión los retos de la medición de pobreza en supuesto dentro de un modelo estadístico, que después pueda testearse de alguna manera.</p>
+</div>
+<div id="agregacion-de-indicadores-y-estructura-de-pesos" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Agregación de indicadores y estructura de pesos</h3>
+<p>Los primeros supuestos se enfocan en la selección de indicadores y dimensiones. Como se discutirá más adelante, en esta etapa un marco falsable es muy útil pero extrañamente ha estado ausente en la investigación de pobreza. En la ruta crítica <em>real</em> de la medición de pobreza es común observar un salto de lis indicadores seleccionados a la agregación. El uso que normalmente se le da al método AF de agregación ilustra el problema de la falta de escrutinio.</p>
+<p>Una vez que se han seleccionado los indicadores y dimensiones, el método AF se utiliza para agregarlos. Este método producirá buenos resultados si los indicadores seleccionados resultan en una caracterización <em>adecuada</em> de pobreza. Sin embargo, no hay nada dentro del método AF que nos asegura que este es el caso. Esto no es una deficiencia del método, sino de la ausencia de un escrutinio empírico claro. En cambio, lo que tiende a pasar es que se asignan pesos <span class="math inline">\(w \in \mathscr W\)</span>, donde <span class="math inline">\(w_{ij}=1\)</span> para medidas con pesos no diferenciales y <span class="math inline">\(w_{ij}\ne 1\)</span> para medidas con pesos diferenciales. Una vez asignados los pesos, se procede con la agregación</p>
+<p>La secuencia, un tanto extraña, de redacción del párrafo anterior es totalmente intencional. Uno de los problemas actuales en medición de pobreza es la sobre preocupación con los pesos y la despreocupación que hay por las propiedades de los indicadores y dimensiones que se incluyen en una medida. Por teoría de la medida (ver <a href="Chapter-3.html#Chapter-3">Capitulo 3</a>), se sabe que los pesos diferenciales son solamente útiles cuando se tiene una medida que tiene mucho ruido puesto que ayudan a corregir los problemas de ordenamiento de la población. Evidentemente, lo que está perdido en esta etapa es el escrutinio del supuesto que levantamos sobre los pesos, llevando a la siguiente pregunta:</p>
+<ul>
+<li>Los pesos seleccionados llevan a ordenamientos consistentes de la población?</li>
+</ul>
+<p>Esta pregunta debe plantease en términos de ordenamiento porque, al final, lo que hacen los pesos es afectar el valor del score observado de privación y esta medida nos indica la severidad de privación de cada persona. Por tanto, nos gustaría saber si los pesos están o no afectando ese ordenamiento. Como veremos en el <a href="Chapter-3.html#Chapter-3">Capitulo 3</a> esto tiene que ver con el principio de confiabilidad de la teoría de la medición.</p>
+</div>
+<div id="division-de-la-poblacion-en-los-grupos-pobre-y-no-pobre" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> División de la población en los grupos pobre y no pobre</h3>
+<p>La teoría fundamental de pobreza predice que cuando menos existen dos grupos de población: el grupo pobre y no pobre. En el Capítulo <a href="Chapter-1.html#Chapter-1">Capitulo 1</a> se discute el significado que se le da a este grupo. La expectativa que se tiene en medición es que una vez que hemos hecho el muestreo de dimensiones, indicadores, umbrales y pesos -y que tal selección es <em>adecuada</em>- se tenga un ordenamiento claro de la población de manera que podamos separarla usando algún criterio para fijar la línea de pobreza.</p>
+<p>Una vez que el modelo de pobreza se ha completado <span class="math inline">\(\mathscr F\)</span> y validado, la agregación produce un score de privación para cada persona en la muestra. En el <a href="Chapter-1.html#Chapter-1">Capitulo 1</a> discutimos las propuestas que existen para fijar la línea de pobreza, pero fundamentalmente estas alternativas buscan producir la mejor separación posible de la población de acuerdo a los dos grupos de interés. Desde el punto de vista estadístico esto significa que, en la mayoría de los casos, los investigadores no hacen más que levantar un supuesto de la mejor separación posible.</p>
+<ul>
+<li>Cómo saber que nuestro criterio de línea de pobreza es <em>adecuado</em>?</li>
+</ul>
+<p>En el <a href="#Chapter-8">Capitulo 8</a> se revisa este tema, pero en este punto el énfasis es sobre la necesidad de validar de alguna manera que empíricamente la línea de pobreza que se propone es consistente con la expectativa teórica.</p>
+<p>Con este tercer gran supuesto en medición multidimensional de pobreza, es posible entonces lanzar la siguiente pregunta decisiva: Qué marco nos permite definir si nuestras decisiones son <em>adecuadas</em> y qué significa o implica que lo sean? A continuación, revisaremos la relación que tienen todos estos supuestos con la teoría de la medida.</p>
+</div>
+</div>
+<div id="la-teoria-de-la-medida-como-marco-estadistico-para-la-medicion" class="section level2">
+<h2><span class="header-section-number">2.2</span> La teoría de la medida como marco estadístico para la medición</h2>
+<div id="pobreza-y-error-en-medicion" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Pobreza y error en medición</h3>
+<p>En el <a href="Chapter-1.html#Chapter-1">Capítulo</a> se subrayó que la pobreza, al igual que otros conceptos en ciencias sociales, es una abstracción. El concepto de pobreza emerge de la idea de que existe un subgrupo de población que tiene un nivel de vida por debajo de lo que la sociedad, en un momento dado, considera como esencial o fundamental para vivir con dignidad. La pobreza, en teoría, impide la participación efectiva en la sociedad e incrementa el riesgo de morir joven, interactúa con varios riesgos sociales, etc. Pero la pobreza es difícil de medir porque no podemos observarla directamente y no podemos describirla con precisión absoluta con una variable. En cambio, la investigación de la pobreza tiene que confiar en datos imperfectos multivariados para ordenar a la población de acuerdo a su nivel de vida. Para hacer las cosas más complicadas, hay varias formas de hacer esta operación puesto que la gente utiliza distintos espacios de muestreo de dimensiones, indicadores, umbrales y pesos.</p>
+<p>El término estadístico de un concepto es <em>variable latente</em>. Las variables latentes son constructos que por teoría deberían tener una serie de manifestaciones en el mundo real<a href="referencias.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. En ciencias sociales trabajamos con variables latentes y pobreza es sólo otro caso en el que los investigadores trabajan con un grupo teóricamente construido (no directamente observable) (la gente con depresión, clase social alta, gente inteligente, gente feliz, etc.).</p>
+<p>Cómo podemos <em>detectar</em> a un grupo de población que proviene de un constructo? <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span> puso al frente una idea capital para la medición en ciencias sociales y que tiene que ver con el muestreo de distintos atributos para caracterizar un fenómeno. La teoría de <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span> señala que <strong>la correlación* que dos o más indicadores de resultado es un síntoma de que ambos probablemente son causados por el mismo fenómeno</strong>. Esta es una primera condición para causalidad. Esto ajusta perfectamente con la teoría que hemos manejado de pobreza <a href="Chapter-1.html#Chapter-1">Capítulo</a>]: <strong>La pobreza es falta de recursos en el tiempo y la privación observada es su consecuencia</strong>. El supuesto básico en medición de pobreza es entonces que el conjunto de indicadores de privación (<span class="math inline">\(X \in \mathscr X\)</span>) constituye una serie de manifestaciones relevantes/adecuadas de la variable latente pobreza. Este tipo de tratamiento del concepto de pobreza es poderoso porque permite vincular de manera natural la teoría de pobreza con su medición.</p>
+<p>Si juntamos a <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span> con una teoría de pobreza como la de <span class="citation">Townsend (<a href="referencias.html#ref-Townsend1979" role="doc-biblioref">1979</a>)</span> tenemos que:</p>
+<blockquote>
+<p>Los indicadores de privación están correlacionados porque tienen la misma causa: pobreza.</p>
+</blockquote>
+<p>Desde el punto de vista conceptual esto significa que, si el efecto de la pobreza es eliminado, la correlación de las variables sería muy débil o incluso cero. <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span>, padre de la teoría de la medida, postula entonces que el problema del conjunto relevante de indicadores de privación puede enmarcarse desde la perspectiva del <em>modelo factorial común</em>. <span class="citation">Thurstone (<a href="referencias.html#ref-Thurstone1947" role="doc-biblioref">1947</a>)</span>, otro de los fundadores de la teoría contemporánea de la medición, propone que este modelo común postula que un indicador observado es función de un factor único, aunque también puede asociarse a otros factores anidados en ese gran factor, es decir, dimensiones.</p>
+<p>La postulación de <span class="citation">Thurstone (<a href="referencias.html#ref-Thurstone1947" role="doc-biblioref">1947</a>)</span> es fundamental en pobreza porque su idea del factor común resuelve un problema fundamental. En medición de pobreza se toman muestras de lo que pensamos es el espacio de medición ideal. <span class="citation">Thurstone (<a href="referencias.html#ref-Thurstone1947" role="doc-biblioref">1947</a>)</span> propone que puede haber varias medidas de pobreza que usan distintas muestras. No es un problema usar muestras distintas sino usar muestras del espacio relevante. La implicación es que uno puede tener <span class="math inline">\(n\)</span> índices <em>adecuados</em> de pobreza, aunque sus contenidos sean distintos. Esto se debe a que cada privación observada tiene dos fuentes de variación: (1) varianza común y (2) varianza única. El primer tipo es la que determina el factor común. El segundo es la varianza dada por otros factores -que no son pobreza o sus dimensiones- o por error aleatorio.</p>
+</div>
+</div>
+<div id="modelo-latente-de-medicion-de-pobreza" class="section level2">
+<h2><span class="header-section-number">2.3</span> Modelo latente de medición de pobreza</h2>
+<p>Las raíces del marco de variables latentes se originan en <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span>, <span class="citation">Thurstone (<a href="referencias.html#ref-Thurstone1947" role="doc-biblioref">1947</a>)</span> y otros <span class="citation">(<span class="citeproc-not-found" data-reference-id="McALLUM"><strong>???</strong></span>)</span>. El modelo estadístico que se propone desde la teoría de la medida consiste en un modelo factorial común donde cada variables observadas (<span class="math inline">\(x_{ij}\)</span>) es producto de una dimensión latente (<span class="math inline">\(\eta_j\)</span>) y de un factor de alto orden (<span class="math inline">\(\zeta_h\)</span>). Es decir, la pobreza multidimensional tiene una jerarquía, el factor de alto orden es pobreza y los factores anidados son las dimensiones. Uno de los aspectos interesantes de esta formulación es que reconoce explícitamente que no toda la variabilidad de los indicadores observados puede deberse a las variables latentes. Esto es, la teoría de la medida reconoce explícitamente que el error es parte de la medición y puede calcularse.</p>
+<p><span class="math display" id="eq:model1">\[\begin{equation}
+\tag{2.2}
+ x_{ij} = \lambda_{ij} \eta_j + \varepsilon_ij  
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:model2">\[\begin{equation}
+\tag{2.3}
+ \eta_j = \gamma_{j} \zeta  + \xi 
+\end{equation}\]</span></p>
+<p>En este caso <span class="math inline">\(\lambda_{ij}\)</span> y <span class="math inline">\(\gamma_{j}\)</span> se conocen como cargas factoriales y capturan la relación entre las variables latentes y los indicadores de resultado, y entre las dimensiones y pobreza, respectivamente. Por supuesto, es posible tener más <span class="math inline">\(\zeta\)</span>’s pero en investigación de pobreza el supuesto es que las dimensiones están anidadas en un factor general (algunos casos especiales se muestran en la Sección @ref() donde hay un modelo tiene tres niveles):</p>
+<p>Pobreza → Dimensiones → Sub-dimensiones → indicadores de resultado.</p>
+<p>Este modelo es una forma de capturar estadísticamente la forma en la que la medición multidimensional de la pobreza se lleva a cabo en la literatura contemporánea. Los investigadores proponen una serie de dimensiones y clasifican los indicadores que proponen de acuerdo con una estructura que puede esquematizarse en un modelo estadístico. El aspecto crucial es que dicha especificación es solo una idea =basada en teoría o datos- sobre cómo pobreza puede medirse mejor desde un punto de vista multidimensional. Esto es, la propuesta es un modelo por validar que demanda algún tipo de escrutinio empírico. Cuando lo ponemos en términos de una ecuación como <a href="Chapter-2.html#eq:model1">(2.2)</a> y <a href="Chapter-2.html#eq:model2">(2.3)</a>, los investigadores se mueven de la especulación teórica hacia falsación empírica.</p>
+</div>
+<div id="esquemas-y-modelos-de-medicion-de-pobreza" class="section level2">
+<h2><span class="header-section-number">2.4</span> Esquemas y modelos de medición de pobreza</h2>
+<p>Los modelos son sólo un esquema de un índice de pobreza que resumen cómo una escala puede construirse. Poner una propuesta teórica en términos de un diagrama ayuda a visualizar y contrastar los distintos planteamientos que se tienen para medir pobreza. La ventaja de la teoría de la medida es que todo puede ponerse en términos de un esquema. Los modelos multidimensionales pueden fácilmente presentarse como un diagrama o esquema, el cuál es una representación gráfica de un modelo. Otra forma de pensar al respecto, es ver a los diferentes esquemas de medición de pobreza como diversas maneras en las que un investigador hace muestrero de <span class="math inline">\(\mathscr J\)</span> y <span class="math inline">\(\mathscr X\)</span>. Estos muestreos llevan a diferentes estructuras, es decir, modelos.</p>
+<p>La ecuación <a href="Chapter-2.html#eq:model1">(2.2)</a> simplemente resume un modelo en el que una variable latente produce distintos indicadores de resultados (<span class="math inline">\(x_{ij}\)</span>). Este modelo es unidimensional porque sólo hay un factor <span class="math inline">\(\eta_j\)</span> como causa de las privaciones observadas. Podemos pensar en este modelo como el <strong>modelo nulo</strong> de medición de pobreza donde los indicadores no pueden ser claramente agrupados en dimensiones. Puede ser el caso de que los indicadores en cuestión midan diversos aspectos de pobreza pero que sean insuficientes para caracterizar a una dimensión. En la práctica, hay pocos modelos teóricos que proponen tal estructura. Empíricamente, sin embargo, es probable que tengamos una medida cuasi-unidimensional por las limitaciones en la recolección de datos y porque raramente ésta viene después de una propuesta teórica (Ver <a href="Chapter-1.html#Chapter-1">1</a>).</p>
+<p>La figure <a href="Chapter-2.html#fig:cfanull">2.3</a> traduce la ecuación <a href="Chapter-2.html#eq:model1">(2.2)</a> en el esquema de una medida unidimensional de pobreza. En la figura podemos ver que la variable latente se representa en círculos y las variables de manifiesto en cuadrados. Esta es la forma convencional de presentar modelos factoriales confirmatorios o, en términos más generales, ecuaciones estructurales. Las flechas apuntan de la variable latente a los indicadores porque se asume que el factor es el fenómeno que causa a las variables observadas. Finalmente, los parámetros que figuran a un lado de cada flecha corresponden a las cargas factoriales. Hemos hablado de que estos parámetros son fundamentales porque son una estimación de la variabilidad explicada por pobreza de cada indicador.</p>
+<div class="figure" style="text-align: center"><span id="fig:cfanull"></span>
+<img src="Diagram_CFA_null.png" alt="Representación visual de un modelo unidimensional"  />
+<p class="caption">
+Figure 2.3: Representación visual de un modelo unidimensional
+</p>
+</div>
+<p>La Figura <a href="Chapter-2.html#fig:cfaguio">2.4</a> muestra más variables latentes. En este caso el factor de alto orden tiene tres dimensiones (tres círculos). Este esquema es la propuesta de <span class="citation">A Guio et al. (<a href="referencias.html#ref-Guio2009" role="doc-biblioref">2009</a>)</span> de pobreza multidimensional y representa lo que generalmente tienen los investigadores en mente cuando piensan en una medida multidimensional. Es decir, un agrupamiento en el que los indicadores pertenecen a ciertas dimensiones y las dimensiones son producto del fenómeno pobreza. En este ejemplo, hay 9 indicadores de resultado clasificadas en tres dimensiones (<span class="math inline">\(\eta_j\)</span>) (Durables, Housing and Economic strain). Las cargas factoriales (<span class="math inline">\(\lambda_{ij}\)</span>) representan la relación de cada indicador con las dimensiones en cuestión. Las flechas del factor de alto orden (pobreza general/Overall Poverty) a cada dimensión son las cargas factoriales (<span class="math inline">\(\gamma_{j}\)</span>) que capturan la relación entre pobreza y cada dimensión.</p>
+<p>Ambos parámetros (<span class="math inline">\(\lambda_{ij}\)</span>) y (<span class="math inline">\(\gamma_{j}\)</span>) muestran la fuerza de la relación entre las variables latentes y los indicadores de resultado (Ver <a href="Chapter-3.html#Chapter-3">3</a> sobre el vínculo entre las cargas factoriales, confiabilidad y pesos diferenciales). En este ejemplo hay sólo tres indicadores por dimensión y ninguno de los indicadores pertenece a más de una dimensión. Las medidas de pobreza asumen casi siempre exclusividad, es decir, que los indicadores son manifestaciones de una dimensión.</p>
+<div class="figure" style="text-align: center"><span id="fig:cfaguio"></span>
+<img src="Diagram_CFA_GuioModel.png" alt="Representación visual del modelo de @Guio2009. Factor de segundo orden"  />
+<p class="caption">
+Figure 2.4: Representación visual del modelo de <span class="citation">Guio et al. (<a href="referencias.html#ref-Guio2009" role="doc-biblioref">2009</a>)</span>. Factor de segundo orden
+</p>
+</div>
+<p>El modelo de <span class="citation">Guio et al. (<a href="referencias.html#ref-Guio2009" role="doc-biblioref">2009</a>)</span> es una de varias interpretaciones que hay sobre la estructura de una medida de pobreza. <span class="citation">Alkire &amp; Santos (<a href="referencias.html#ref-Alkire2010" role="doc-biblioref">2010</a>)</span> proponen algo muy distinto para el cálculo de la medida multidimensional de PNUD-OPHI. La estructura es similar a la de <span class="citation">Guio et al. (<a href="referencias.html#ref-Guio2009" role="doc-biblioref">2009</a>)</span> en el sentido de que las dos son tienen un factor de alto orden- estructura de segundo orden. En este caso, se presume que la pobreza tiene tres dimensiones sustantivas: Educación salud y nivel de vida. Estas son diferentes dimensiones respecto a las que propone <span class="citation">Guio et al. (<a href="referencias.html#ref-Guio2009" role="doc-biblioref">2009</a>)</span> o <span class="citation">Townsend (<a href="referencias.html#ref-Townsend1979" role="doc-biblioref">1979</a>)</span>. La figura <a href="Chapter-2.html#fig:cfampi">2.5</a> muestra la propuesta de <span class="citation">Alkire &amp; Santos (<a href="referencias.html#ref-Alkire2010" role="doc-biblioref">2010</a>)</span>, sin embargo, este índice no tiene tres indicadores para cada dimensión. Tiene solamente dos para salud y educación. Esto tiene implicaciones negativas en dos sentidos. Primero, desde el punto de vista conceptual, es cuestionable pensar que una dimensión puede medirse con dos indicadores. Si pensamos que una dimensión es algo complejo, es bastante limitado pensar que bastan dos indicadores para capturar la dimensión educativa, por ejemplo. Segundo, desde el punto de vista estadístico, se trata de una medida que no está identificada porque tiene más parámetros que variables (grados de libertad negativos). Veremos que en modelación de variables latentes es necesario usar modelos identificados y que hay una conexión directa entre el argumento conceptual y el escrutinio empírico: una pobre especificación resultara en un mal modelo.</p>
+<div class="figure" style="text-align: center"><span id="fig:cfampi"></span>
+<img src="Diagram_CFA_mpi.png" alt="Representación visual del modelo de  @Alkire2010's. Factor de segundo orden"  />
+<p class="caption">
+Figure 2.5: Representación visual del modelo de <span class="citation">Alkire &amp; Santos (<a href="referencias.html#ref-Alkire2010" role="doc-biblioref">2010</a>)</span>’s. Factor de segundo orden
+</p>
+</div>
+<p>El modelo de <span class="citation">Townsend (<a href="referencias.html#ref-Townsend1979" role="doc-biblioref">1979</a>)</span> fue el primer modelo teórico de medición multidimensional de pobreza en el mundo. Su propuesta tiene más dimensiones anidadas (por ejemplo ver <a href="Chapter-2.html#fig:cfaguio">2.4</a> y <a href="Chapter-2.html#fig:cfampi">2.5</a>, En este caso, los indicadores están agrupados en 11 dimensiones y cada una puede agruparse en dos grandes dominios: material y social. La Figura (<a href="Chapter-2.html#fig:cfatownsend">2.6</a> muestra entonces un esquema factorial de tercer orden. <span class="citation">Guio et al. (<a href="referencias.html#ref-Guio2017" role="doc-biblioref">2017</a>)</span>, por ejemplo, propone una versión reducida de este modelo, el cual no considera las 11 dimensiones y los indicadores se clasifican de acuerdo a privación material y social. Las cargas factoriales de los indicadores se omiten. <span class="math inline">\(\kappa_1\)</span> y <span class="math inline">\(\kappa_2\)</span> son las cargas factoriales del fenómeno pobreza, en este caso. Este modelo podría especificarse usando la ecuación <a href="Chapter-2.html#eq:model2">(2.3)</a> como referencia- ahora con <span class="math inline">\(\zeta\)</span> para dos factores.</p>
+<div class="figure" style="text-align: center"><span id="fig:cfatownsend"></span>
+<img src="Diagram_CFA_townsend.png" alt="Representación visual del modelo de @Townsend1979's. Factor de tercer orden"  />
+<p class="caption">
+Figure 2.6: Representación visual del modelo de <span class="citation">Townsend (<a href="referencias.html#ref-Townsend1979" role="doc-biblioref">1979</a>)</span>’s. Factor de tercer orden
+</p>
+</div>
+<p>Otra forma de pensar sobre estos esquemas para la medición de pobreza es verlos como las diversas formas en la que los investigadores muestrean y agruman los espacios <span class="math inline">\(\mathscr J\)</span> y <span class="math inline">\(\mathscr X\)</span>. Estos esquemas tienen la ventaja de son universales y cualquier medida de pobreza puede plantearse en un diagrama. Esto nos lleva de nuevo a la pregunta central del libro: Cómo sabemos si nuestras muestras de <span class="math inline">\(\mathscr J\)</span> y <span class="math inline">\(\mathscr X\)</span> son una representación adecuada de pobreza en una sociedad dada en un momento determinado del tiempo?</p>
+</div>
+<div id="principios-de-la-teoria-de-la-medida" class="section level2">
+<h2><span class="header-section-number">2.5</span> Principios de la teoría de la medida</h2>
+<p>Hasta ahora el término <strong>adecuada</strong> se ha usado vagamente para referir a una situación en la que una medida de pobreza se comporta de manera robusta. La teoría de la medida es un marco de medición que precisamente da significado al término <strong>adecuado</strong>. Uno de los debates centrales en medición es sobre las dimensiones de pobreza. Esta discusión gira en torno a preguntas como: ¿Cuantas dimensiones hay? ¿Cuáles son los contenidos (indicadores) de cada dimensión? ¿Cómo se relacionan estas dimensiones y cómo se diferencian una de la otra? La sección previa tradujo estas cuestiones en retos concretos y avanzó un marco general de medición que explícitamente reconoce el error de medición. Sin embargo, el marco está incompleto y requiere algunos principios gobernantes que efectivamente nos lleven a un marco falsable de medición. Unas preguntas cruciales que se hicieron en la <a href="Chapter-2.html#samplingspace">Sección</a> son las siguientes:</p>
+<ul>
+<li>Es el subconjunto de dimensiones j de <span class="math inline">\(\mathscr J\)</span> una representación <strong>adecuada</strong> de pobreza?</li>
+<li>Es el subconjunto de indicadores, dado un umbral <span class="math inline">\((X;z)\)</span>, de <span class="math inline">\(\mathscr X\)</span> una representación <strong>adecuada</strong> de la dimensión <span class="math inline">\(j\)</span> y pobreza?</li>
+<li>El esquema de pesos nos lleva a una agregación consistente de la población?</li>
+</ul>
+<div id="origenes-de-la-teoria-de-la-medida" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Orígenes de la teoría de la medida</h3>
+<p>Medir consiste en asignar una serie de números a una población de manera tal que éstos representan ciertas cantidades y atributos <span class="citation">(Nunnally &amp; Bernstein, <a href="referencias.html#ref-Nunnally1994" role="doc-biblioref">1994</a>)</span>. La <em>teoría de la medida</em> es un marco que postula que una serie de variables de resultados son manifestaciones de un fenómeno latente dato. Esto es, un marco que convierte una serie de indicadores de privación en números para cuantificar el nivel latente de pobreza de cada persona. Por tanto, la teoría de la medida propone una serie de reglas para distinguir la señal del ruido y permitir que las variable de manifiesto sean una buena aproximación de la variable latente en cuestión.</p>
+<p>Los orígenes de la teoría de la medida tienen sus raíces en la teoría clásica del test <span class="citation">(Lord, <a href="referencias.html#ref-Lord1952" role="doc-biblioref">1952</a>; Novick, <a href="referencias.html#ref-Novick1966" role="doc-biblioref">1966</a>)</span>. Esta teoría postula que el verdadero score es una función linear de una combinación de scores observados y error. La idea de que medimos con error es retomada dentro del marco de variables latentes a través de una serie de avances teóricos, conceptuales y computo <span class="citation">(Cudeck &amp; MacCallum, <a href="referencias.html#ref-Cudeck2012" role="doc-biblioref">2012</a>; Rusch, Lowry, Mair, &amp; Treiblmaier, <a href="referencias.html#ref-Rusch2017" role="doc-biblioref">2017</a>)</span>. La consolidación de este marco fue posible a desarrollos en otros campos de la medición como análisis factorial y teoría de respuesta al ítem (TRI).</p>
+<p>Después de la contribución seminal de <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span> y del trabajo para múltiples factores de <span class="citation">Thurstone (<a href="referencias.html#ref-Thurstone1947" role="doc-biblioref">1947</a>)</span>, se realizaron una serie de trabajo en los sesentas que proponían formular análisis factorial no en términos de una matriz de correlación pero en términos de un modelo <span class="citation">(Lawley &amp; Maxwell, <a href="referencias.html#ref-Lawley1971" role="doc-biblioref">1971</a>; Lazardfeld &amp; Henry, <a href="referencias.html#ref-Lazardfeld1968" role="doc-biblioref">1968</a>)</span>. Posteriormente, y aparentemente de manera independiente al análisis factorial, en la medición educativa y psicometría, se propusieron una serie de trabajos por <span class="citation">Stocking &amp; Lord (<a href="referencias.html#ref-Stocking1983" role="doc-biblioref">1983</a>)</span> y <span class="citation">Bock &amp; Aitkin (<a href="referencias.html#ref-Bock1981" role="doc-biblioref">1981</a>)</span> en los que se sentaron las bases de teoría de respuesta al ítem, la cual postula que la probabilidad de tener cierto score en un indicador dato (como privación o no privación) es producto de un factor latente <span class="citation">(Reise, <a href="referencias.html#ref-Reise2014" role="doc-biblioref">2014</a>)</span>. El nacimiento de TRI fue casi contemporáneo a las contribuciones de <span class="citation">Jöreskog (<a href="referencias.html#ref-Joereskog1970" role="doc-biblioref">1970</a>)</span> y <span class="citation">Joreskog, Sorbom, &amp; Magidson (<a href="referencias.html#ref-Joreskog1979" role="doc-biblioref">1979</a>)</span> sobre análisis factorial confirmatorio y ecuaciones estructurales. Estos modelos factoriales pueden ser como un caso general de TRI para variables categóricas <span class="citation">(Muthén, <a href="referencias.html#ref-Muthen1984" role="doc-biblioref">1984</a>)</span>.</p>
+<p>El marco moderno de la teoría de la medida unifica varias de estas postulaciones <span class="citation">(Cudeck &amp; MacCallum, <a href="referencias.html#ref-Cudeck2012" role="doc-biblioref">2012</a>)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Los indicadores son manifestaciones un fenómeno subyacente.</p></li>
+<li><p>Las manifestaciones pueden agruparse en ciertas subdimensiones -subcausas producen ciertas manifestaciones-.</p></li>
+<li><p>La medición siempre tendrá algún tipo de error sistemático y no sistemático.</p></li>
+<li><p>Es posible proponer un modelo bajo el cual el investigador puede examinar si sus supuestos se sostienen o no, dada la evidencia existente.</p></li>
+</ol>
+<p>La teoría de la medida, desde el trabajo de <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span> ha continuamente desarrollado un marco consistente que aspira a producir medidas que:</p>
+<ol style="list-style-type: decimal">
+<li><p>Consistentemente ordenen a la población dado un grupo de indicadores. Es decir, que dadas ciertas medidas de privación podemos ordenar a la gente con muy bajo y bajo nivel de vida.</p></li>
+<li><p>Este ordenamiento debe tener relación con el fenómeno que aspira a medir. O sea, que las privaciones sean efectivamente manifestaciones de pobreza.</p></li>
+</ol>
+<p>Estos dos principios están detrás de dos de los conceptos más importantes en medición científica: <strong>Confiabilidad</strong> y <strong>Validez</strong>. Además, estos dos conceptos tienen importantes consecuencias para la asignación de pesos, comparabilidad e identificación de grupos de población, en este caso, el pobre y no pobre. Los siguientes capítulos del libro abordan estos conceptos con detalle.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Chapter-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Chapter-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "readable",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

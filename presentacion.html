@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones</title>
+  <meta name="description" content="Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones" />
+  
+  
+  
+
+<meta name="author" content="Héctor Nájera con ayuda de mucha gente (favor de citar este borrador)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="Chapter-1.html">
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="presentacion.html"><a href="presentacion.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="Chapter-1.html"><a href="Chapter-1.html"><i class="fa fa-check"></i><b>1</b> Pobreza y principios de la teoría de medición</a><ul>
+<li class="chapter" data-level="1.1" data-path="Chapter-1.html"><a href="Chapter-1.html#el-concepto-de-pobreza"><i class="fa fa-check"></i><b>1.1</b> El Concepto de Pobreza</a></li>
+<li class="chapter" data-level="1.2" data-path="Chapter-1.html"><a href="Chapter-1.html#Capitulo-1-dimensions"><i class="fa fa-check"></i><b>1.2</b> Las dimensiones de la pobreza</a></li>
+<li class="chapter" data-level="1.3" data-path="Chapter-1.html"><a href="Chapter-1.html#la-medicion-de-la-pobreza-y-sus-retos"><i class="fa fa-check"></i><b>1.3</b> La medición de la pobreza y sus retos</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="Chapter-1.html"><a href="Chapter-1.html#retos-en-la-seleccion-de-dimensiones-contenidos-umbrales-y-pesos"><i class="fa fa-check"></i><b>1.3.1</b> Retos en la selección de dimensiones, contenidos, umbrales y pesos</a></li>
+<li class="chapter" data-level="1.3.2" data-path="Chapter-1.html"><a href="Chapter-1.html#retos-en-la-agregacion-e-identificacion-del-grupo-pobre"><i class="fa fa-check"></i><b>1.3.2</b> Retos en la agregación e identificación del grupo pobre</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="Chapter-1.html"><a href="Chapter-1.html#una-breve-revision-de-la-historia-de-la-medicion-de-la-pobreza"><i class="fa fa-check"></i><b>1.4</b> Una breve revisión de la historia de la medición de la pobreza</a></li>
+<li class="chapter" data-level="1.5" data-path="Chapter-1.html"><a href="Chapter-1.html#estado-del-escrutinio-empirico-en-la-practica-de-la-medicion-de-pobreza"><i class="fa fa-check"></i><b>1.5</b> Estado del escrutinio empírico en la práctica de la medición de pobreza</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Chapter-2.html"><a href="Chapter-2.html"><i class="fa fa-check"></i><b>2</b> Pobreza y teoría de la medida: Un marco estadístico</a><ul>
+<li class="chapter" data-level="2.1" data-path="Chapter-2.html"><a href="Chapter-2.html#ruta-critica-para-medicion-multidimensional-de-pobreza"><i class="fa fa-check"></i><b>2.1</b> Ruta crítica para medición multidimensional de pobreza</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="Chapter-2.html"><a href="Chapter-2.html#samplingspace"><i class="fa fa-check"></i><b>2.1.1</b> Identifiación del espacio de muestreo</a></li>
+<li class="chapter" data-level="2.1.2" data-path="Chapter-2.html"><a href="Chapter-2.html#seleccion-de-indicadores-y-dimensiones"><i class="fa fa-check"></i><b>2.1.2</b> Selección de indicadores y dimensiones</a></li>
+<li class="chapter" data-level="2.1.3" data-path="Chapter-2.html"><a href="Chapter-2.html#agregacion-de-indicadores-y-estructura-de-pesos"><i class="fa fa-check"></i><b>2.1.3</b> Agregación de indicadores y estructura de pesos</a></li>
+<li class="chapter" data-level="2.1.4" data-path="Chapter-2.html"><a href="Chapter-2.html#division-de-la-poblacion-en-los-grupos-pobre-y-no-pobre"><i class="fa fa-check"></i><b>2.1.4</b> División de la población en los grupos pobre y no pobre</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="Chapter-2.html"><a href="Chapter-2.html#la-teoria-de-la-medida-como-marco-estadistico-para-la-medicion"><i class="fa fa-check"></i><b>2.2</b> La teoría de la medida como marco estadístico para la medición</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="Chapter-2.html"><a href="Chapter-2.html#pobreza-y-error-en-medicion"><i class="fa fa-check"></i><b>2.2.1</b> Pobreza y error en medición</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="Chapter-2.html"><a href="Chapter-2.html#modelo-latente-de-medicion-de-pobreza"><i class="fa fa-check"></i><b>2.3</b> Modelo latente de medición de pobreza</a></li>
+<li class="chapter" data-level="2.4" data-path="Chapter-2.html"><a href="Chapter-2.html#esquemas-y-modelos-de-medicion-de-pobreza"><i class="fa fa-check"></i><b>2.4</b> Esquemas y modelos de medición de pobreza</a></li>
+<li class="chapter" data-level="2.5" data-path="Chapter-2.html"><a href="Chapter-2.html#principios-de-la-teoria-de-la-medida"><i class="fa fa-check"></i><b>2.5</b> Principios de la teoría de la medida</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="Chapter-2.html"><a href="Chapter-2.html#origenes-de-la-teoria-de-la-medida"><i class="fa fa-check"></i><b>2.5.1</b> Orígenes de la teoría de la medida</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Chapter-3.html"><a href="Chapter-3.html"><i class="fa fa-check"></i><b>3</b> Confiabilidad en medición de pobreza</a><ul>
+<li class="chapter" data-level="3.1" data-path="Chapter-3.html"><a href="Chapter-3.html#explicacion-intuitiva-del-concepto-de-confiabilidad"><i class="fa fa-check"></i><b>3.1</b> Explicación intuitiva del concepto de confiabilidad</a></li>
+<li class="chapter" data-level="3.2" data-path="Chapter-3.html"><a href="Chapter-3.html#teoria-de-la-confiabilidad"><i class="fa fa-check"></i><b>3.2</b> Teoría de la confiabilidad</a></li>
+<li class="chapter" data-level="3.3" data-path="Chapter-3.html"><a href="Chapter-3.html#Chapter-3-measuresrel"><i class="fa fa-check"></i><b>3.3</b> Estimadores de confiabilidad</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="Chapter-3.html"><a href="Chapter-3.html#estimadores-teoria-clasica-del-test"><i class="fa fa-check"></i><b>3.3.1</b> Estimadores: teoría clásica del test</a></li>
+<li class="chapter" data-level="3.3.2" data-path="Chapter-3.html"><a href="Chapter-3.html#estimadores-variables-latentes"><i class="fa fa-check"></i><b>3.3.2</b> Estimadores: variables latentes</a></li>
+<li class="chapter" data-level="3.3.3" data-path="Chapter-3.html"><a href="Chapter-3.html#criterios-de-uso-estimadores-de-confiabilidad"><i class="fa fa-check"></i><b>3.3.3</b> Criterios de uso: Estimadores de confiabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="Chapter-3.html"><a href="Chapter-3.html#itemlevelrel"><i class="fa fa-check"></i><b>3.4</b> Confiabilidad por ítem y pesos diferenciales</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="Chapter-3.html"><a href="Chapter-3.html#criterios-de-uso-estimadores-de-confiabilidad-de-item"><i class="fa fa-check"></i><b>3.4.1</b> Criterios de uso: Estimadores de confiabilidad de ítem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-de-item-pesos-discriminacion-y-axiomas"><i class="fa fa-check"></i><b>3.5</b> Confiabilidad de ítem: Pesos, discriminación y axiomas</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-y-monotonicidad"><i class="fa fa-check"></i><b>3.5.1</b> Confiabilidad y monotonicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="Chapter-3.html"><a href="Chapter-3.html#relestimation"><i class="fa fa-check"></i><b>3.6</b> Estimación de confiabilidad: Global y de ítem</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-global"><i class="fa fa-check"></i><b>3.6.1</b> Confiabilidad global</a></li>
+<li class="chapter" data-level="3.6.2" data-path="Chapter-3.html"><a href="Chapter-3.html#Chapter-3-expoverel"><i class="fa fa-check"></i><b>3.6.2</b> Estimación exploratoria de confiabilidad gloal</a></li>
+<li class="chapter" data-level="3.6.3" data-path="Chapter-3.html"><a href="Chapter-3.html#analisis-confirmatorio-de-confiabilidad"><i class="fa fa-check"></i><b>3.6.3</b> Análisis confirmatorio de confiabilidad</a></li>
+<li class="chapter" data-level="3.6.4" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-por-item"><i class="fa fa-check"></i><b>3.6.4</b> Confiabilidad por ítem</a></li>
+<li class="chapter" data-level="3.6.5" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-por-item-evaluacion-multidimensional"><i class="fa fa-check"></i><b>3.6.5</b> Confiabilidad por ítem: Evaluación multidimensional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="Chapter-3.html"><a href="Chapter-3.html#ejemplo-con-datos-reales"><i class="fa fa-check"></i><b>3.7</b> Ejemplo con datos reales</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="Chapter-3.html"><a href="Chapter-3.html#analisis-global-de-confiabilidad"><i class="fa fa-check"></i><b>3.7.1</b> Análisis global de confiabilidad</a></li>
+<li class="chapter" data-level="3.7.2" data-path="Chapter-3.html"><a href="Chapter-3.html#confiabilidad-por-item-1"><i class="fa fa-check"></i><b>3.7.2</b> Confiabilidad por ítem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="Chapter-3.html"><a href="Chapter-3.html#temas-avananzados-clasificacion-poblacional-y-pesos"><i class="fa fa-check"></i><b>3.8</b> Temas avananzados: Clasificación poblacional y pesos</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="Chapter-3.html"><a href="Chapter-3.html#clasificacion-poblacional-y-confiabilidad"><i class="fa fa-check"></i><b>3.8.1</b> Clasificación poblacional y confiabilidad</a></li>
+<li class="chapter" data-level="3.8.2" data-path="Chapter-3.html"><a href="Chapter-3.html#pesos-confiabilidad-y-clasificacion-poblacional"><i class="fa fa-check"></i><b>3.8.2</b> Pesos, confiabilidad y clasificación poblacional</a></li>
+<li class="chapter" data-level="3.8.3" data-path="Chapter-3.html"><a href="Chapter-3.html#impacto-de-la-confiabilidad-y-pesos-en-la-identificacion-de-grupos"><i class="fa fa-check"></i><b>3.8.3</b> Impacto de la confiabilidad y pesos en la identificación de grupos</a></li>
+<li class="chapter" data-level="3.8.4" data-path="Chapter-3.html"><a href="Chapter-3.html#error-promedio-simulado-con-pesos"><i class="fa fa-check"></i><b>3.8.4</b> Error promedio simulado con pesos</a></li>
+<li class="chapter" data-level="3.8.5" data-path="Chapter-3.html"><a href="Chapter-3.html#monotonicidad-y-confiabilidad-por-item"><i class="fa fa-check"></i><b>3.8.5</b> Monotonicidad y confiabilidad por ítem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="Chapter-3.html"><a href="Chapter-3.html#comentarios-finales"><i class="fa fa-check"></i><b>3.9</b> Comentarios finales</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Medición de pobreza multidimensional: Una aproximación estadística con aplicaciones</h1>
+<p class="author"><em>Héctor Nájera con ayuda de mucha gente (favor de citar este borrador)</em></p>
+</div>
+<div id="presentacion" class="section level1 unnumbered">
+<h1>Presentación</h1>
+<p>¿Cuál es la prevalencia de pobreza en una sociedad en cierto momento en el tiempo? ¿Por qué observamos tal nivel de pobreza? ¿Por qué algunos grupos de población o regiones son más pobres que otras? Las respuestas a estas preguntas son decisivas para cuestionar nuestro orden institucional puesto que dan pistas sobre el estado y las tendencias de cuestiones capitales como la justicia social. Una condición fundamental para responder estas preguntas es la producción de buenas medidas de pobreza. De otra manera, se genera incertidumbre en torno al dato, lo cual nubla y desvía nuestra atención, acción y juicios sobre el objetivo principal que es la erradicación de la pobreza.</p>
+<p>El consenso internacional es que la pobreza es multidimensional y que debería medirse considerando los aspectos sustantivos de las necesidades para la vida. Sin embargo, la respuesta sobre la prevalencia y naturaleza de la pobreza multidimensional es aún debatida e insatisfactoria. Existen varias propuestas en la literatura para el mismo problema y no es claro si hay alguna que sea superior al resto o si todas son igual de malas. Peor aún, en medición multidimensional no hay criterios estandarizados para distinguir una buena de una mala medida. Y, sin embargo, la literatura continúa produciendo medidas a gran escala. Los peligros de una mala medida son muchos. Las sociedades pueden desperdiciar recursos y tiempo cuando se basan en evidencia y datos pobres. La academia y el gobierno tienen la responsabilidad de producir medidas que sean replicables y robustas a fin de que sean útiles para el diseño e instrumentación de políticas.</p>
+<p>Hay varias razones teóricas y metodológicas que han impedido la producción masiva de medidas de pobreza que sean incuestionables en tanto llevan a poco incertidumbre respecto al dato que proporcionan. Primero, la existencia de varios cuerpos teóricos sobre necesidades humanas que debaten cuáles son los aspectos sustantivos para que los humanos vivan con dignidad. Segundo, aún si las discusiones teóricas tuvieran una solución satisfactoria, en la práctica hay varios obstáculos que necesitan resolverse para el desarrollo exitoso de escalas de pobreza. Este reto se manifiesta en las distintas etapas de la producción de un Índice. Para empezar, la pobreza es una invención humana, una abstracción, que requiere rastrearse usando datos multivariados para poder capturar sus aspectos sustantivos. Inevitablemente, esto resulta en un proceso de magnificación de ruido debido a que las y los investigadores tienen que levantar diversos supuestos sobre cuáles son los conjuntos relevantes de necesidades a incluir en un Índice, los umbrales para identificar privación material, los pesos que se asignan a estos indicadores para reflejar o no la importancia diferenciada de las distintas necesidades y sobre la forma en la que el grupo pobre y no pobre son identificados. Además, todos estos supuestos se ubican en el contexto de los datos disponibles, los cuáles raramente se recolectan con la idea a priori de medir pobreza. Invariablemente, estas decisiones están basadas en nuestros propios prejuicios, más o menos informados por alguna teoría.</p>
+<p>No existe la medición perfecta. Nuestros prejuicios y datos producen imperfección, es decir, error. La medición multidimensional de pobreza al fin es un ejercicio basado en supuestos y nuestra proximidad a una buena medida dependerá de que tan adecuados son nuestras suposiciones y de si se sostienen para los datos que estamos analizando. Pero ¿Cómo sabemos el tamaño de nuestro error? Uno de los retos principales en medición de pobreza multidimensional es cómo enfrentar el problema de error en medición: cómo definirlo y cómo cuantificarlo.</p>
+<p>El error es un aspecto decisivo en medición porque la incertidumbre es función del error. Nada peor que un dato que no puede replicarse porque entonces tendremos por lo menos dos datos para un mismo fenómeno. No por nada, una de las crisis actuales en ciencias sociales es la de la poca replicabilidad de resultados. Queremos cuantificar el error porque añade ruido a nuestros modelos predictivos y aumenta la incertidumbre en la estimación de la prevalencia y severidad de pobreza. En otras palabras, el ruido es variación aleatoria que nos distancia de lo que estamos interesados. En estos casos nuestra medida no es <strong>confiable</strong>. Además, hay otro tipo error, el sistemático. El cuál se origina por nuestros prejuicios y sesgos. Es decir, es todo aquello en lo que no estamos interesados cuando medimos pobreza, pero no nos damos cuenta porque tenemos fe en nuestros supuestos. En estos casos, nuestra medida no es válida.</p>
+<p>La medición de la pobreza multidimensional requiere un marco coherente y sólido para mitigar los sesgos de confirmación -leer la evidencia de forma tal que confirme nuestros prejuicios- a través del escrutinio empírico de nuestros supuestos y nuestros errores. El objetivo de este libro es proveer de un marco que ayude a investigar sistemáticamente al error en medición mediante el análisis de preguntas como: *¿Es sensible agregar nuestra lista ex ante de indicadores en un índice? ¿Hay algunos indicadores que no funcionan como se esperaba? ¿La escala ordena adecuadamente a nuestra población, es decir, de bajo a niveles altos de vida? ¿Es nuestro ordenamiento de la población consistente en distintas muestras y grupos? ¿Ayuda incluir pesos diferenciados o introduce más ruido? ¿Las dimensiones que proponemos parecen existir en los datos? ¿La división que usamos -pobre vs no pobre- lleva a grupos que tienen un perfil y significado teóricamente válido? Es decir, <strong>¿Es nuestro índice multidimensional una medida válida y confiable?</strong></p>
+<p>Este libro se enfoca en uno de los principales problemas en medición contemporánea de pobreza: <em>la falta de un marco sólido para examinar los supuestos en los que se basa una medida multidimensional de pobreza</em>. El libro propone una serie de herramientas para mitigar contra nuestros prejuicios y error en medición de pobreza. Esto no significa que el libro parte de que los investigadores están activamente tratando de producir malas escalas, es sólo un reconocimiento explícito de que siempre trabajamos con supuestos influenciados por nuestros juicios, los cuales pueden o no ser sensibles para los datos que tenemos.</p>
+<p>El libro se basa en <strong>la teoría de la medición</strong> que tiene más de 100 años de desarrollo continuo y que busca ayudar a que los investigadores no produzcan escalas que simplemente magnifican ruido. El libro trata de brindar algunos principios falsables, criterios y métodos para examinar si nuestras medidas de pobreza resultan de un minado de ruido y son irreplicables. Desafortunadamente, la investigación de pobreza ha ignorado los desarrollos en otros campos que enfrentan problemas similares y aunque en ocasiones la teoría de la medición se ha usado, su implementación es parcial, imprecisa y poco sistemática. En 2016, la Comisión del Banco Mundial <span class="citation">(<a href="referencias.html#ref-Bank2017" role="doc-biblioref">2017</a>)</span>, encabezada por Anthony Atkinson, puso en perspectiva los diferentes retos en medición multidimensional de pobreza y propuso 21 recomendaciones. La recomendación 4, reconoce la necesidad de validar los índices de pobreza. Sin embargo, no propone cómo hacerlo. Esto es entendible porque una de las principales dificultades en la medición contemporánea de pobreza es la ausencia de una discusión explícita sobre como checar nuestros supuestos.</p>
+<p>La práctica más común continúa siendo el uso de métodos ad hoc para examinar algunas propiedades (arbitrariamente definidas)
+de una medida. Hasta la fecha, hay pocos ejercicios en medición multidimensional que parten de un marco estadístico claro para poner en escrutinio los supuestos de un índice. El trabajo de <span class="citation">Guio, Gordon, &amp; Marlier (<a href="referencias.html#ref-Guio2012" role="doc-biblioref">2012</a>)</span> and <span class="citation">Guio, Gordon, Marlier, Najera, &amp; Pomati (<a href="referencias.html#ref-Guio2017" role="doc-biblioref">2017</a>)</span>, basado en el trabajo del grupo de Pobreza y Exclusión Social y en la obra monumental de <span class="citation">Townsend (<a href="referencias.html#ref-Townsend1979" role="doc-biblioref">1979</a>)</span>, es tal vez la implementación más amplia de la teoría de la medida en medición multidimensional de pobreza. Sin embargo, los métodos y su aplicación no se han hecho accesibles a la comunidad interesada en medir pobreza. Uno de los problemas es que hay varios libros en medición de pobreza, pero no hay ninguno que se haya enfocado en el tema de evaluación empírica. La mayoría de los libros se enfocan en la producción de un índice, pero dedican pocas páginas al tema de validación. Esto, de hecho, refleja el hecho de que la medición de pobreza no ha seguido el camino de otras disciplinas que han enfrenado problemas similares.</p>
+<p>La medición en educación, psicometría, sociología y ciencias naturales siempre enfrentan retos de medición. A diferencia de los estudios de pobreza, estas disciplinas han tomado muy en serio el ejercicio de producción de escalas y han adoptado una serie de prácticas y principios que reducen incertidumbre sobre el atributo que buscan medir. Estas áreas se basan en el trabajo seminal de <span class="citation">Spearman (<a href="referencias.html#ref-Spearman1904" role="doc-biblioref">1904</a>)</span> sobre correlación y variables latentes que resulto en el desarrollo de la teoría de la medida y métodos con más de 100 años de historia reflejados en: los trabajos clásicos de análisis factorial <span class="citation">(Cudeck &amp; MacCallum, <a href="referencias.html#ref-Cudeck2012" role="doc-biblioref">2012</a>; Lazardfeld &amp; Henry, <a href="referencias.html#ref-Lazardfeld1968" role="doc-biblioref">1968</a>; Thorndike &amp; Hagen, <a href="referencias.html#ref-Thorndike1969" role="doc-biblioref">1969</a>; Thurstone, <a href="referencias.html#ref-Thurstone1947" role="doc-biblioref">1947</a>)</span>, el desarrollo de los principios de validez y confiabilidad <span class="citation">(Guttman, <a href="referencias.html#ref-Guttman1945" role="doc-biblioref">1945</a>, pp. Novick1967, Novick1967, Brennan2006)</span>, el marco moderno de variables latentes <span class="citation">(Bartholomew, <a href="referencias.html#ref-Bartholomew1987" role="doc-biblioref">1987</a>; Kvalheim, <a href="referencias.html#ref-Kvalheim2012" role="doc-biblioref">2012</a>; Muthén, <a href="referencias.html#ref-Muthen2007" role="doc-biblioref">2007</a>; Skrondal &amp; Rabe-Hesketh, <a href="referencias.html#ref-Skrondal2007" role="doc-biblioref">2007</a>)</span>, y los manuales que muestran como estos principios y métodos constituyen en un marco robusto de medición <span class="citation">(Allen &amp; Yen, <a href="referencias.html#ref-Allen2001" role="doc-biblioref">2001</a>; Brennan, <a href="referencias.html#ref-Brennan2006" role="doc-biblioref">2006</a>; McDonald, <a href="referencias.html#ref-McDonald2013" role="doc-biblioref">2013</a>; Michell, <a href="referencias.html#ref-Michell2015" role="doc-biblioref">2015</a>; Streiner, Norman, &amp; Cairney, <a href="referencias.html#ref-Streiner2015" role="doc-biblioref">2015</a>)</span>. La teoría de la medida ha sido tan ampliamente aceptada que hay llevado a la adopción de sus estándares en algunas revistas académicas para que los autores den evidencia de la calidad de sus mediciones.</p>
+<p>Este libro se basa en la teoría de la medida y sus métodos para ilustrar cómo bajo un marco unificado puede utilizarse para el escrutinio empírico de índices multidimensionales de pobreza. Esto es, el libro traduce en conceptos clave y principios de la teoría de la medida e ilustra su implementación usando tanto datos simulados como datos reales. Este libro está pensado para investigadores con conocimiento avanzado de pobreza y para estudiantes de posgrado. La mayoría de los ejemplos se basan en <strong>R-software</strong> y <strong>Mplus</strong> <span class="citation">(Muthén &amp; Muthén, <a href="referencias.html#ref-Muthen2012" role="doc-biblioref">2012</a>; R Core Team, <a href="referencias.html#ref-RCT2018" role="doc-biblioref">2018</a>)</span>.</p>
+<p>El objetivo principal del libro es ayudar a investigadores, estudiantes y técnicos en el gobierno a entender la importancia de los principios de la teoría de la medida en medición multidimensional e incrementar sus habilidades técnicas para análisis empíricos de índices de pobreza. Después de estudiar el libro, los lectores podrán:</p>
+<ul>
+<li>Encender por qué es importante trabajar con medidas falsables en la investigación de pobreza</li>
+<li>Identificar la diferencia entre un método de agregación y una metodología de escrutinio empírico</li>
+<li>Apreciar la relevancia de la teoría de la medida para examinar índices de pobreza pero también entender sus limitaciones</li>
+<li>Entender por qué los principios de confiabilidad y validez son una necesidad necesaria para una calidad mínima de medición</li>
+<li>Implementar análisis de confiabilidad y validez usando <strong>R-software</strong> y <strong>Mplus</strong></li>
+<li>Interpretar los resultados de los análisis de una forma crítica</li>
+<li>Apreciar la importancia del principio de medición invariante y la equivalización de escalas para producir medidas comparables</li>
+<li>Implementar análisis básico de medición invariante y equivalización</li>
+<li>Identificar los usos apropiados e inapropiados de los métodos de la teoría de la medida</li>
+</ul>
+<p>El libro se organiza de la siguiente manera. El segundo capítulo introduce los vínculos entre los problemas en medición de pobreza y los principios de la teoría de la medida. El capítulo comienza con una revisión de algunos de los debates y consensos en la literatura. Después pone énfasis en los retos y supuestos que tienen lugar en la medición de pobreza y los vincula con la respuesta que la teoría de la medida a ellos. El tercer capítulo introduce, discute y traduce el concepto de confiabilidad a la medición multidimensional de pobreza. El capítulo usa datos simulados y reales para ilustrar las consecuencias de violar confiabilidad y muestra como este concepto se conecta con los axiomas en medición multidimensional. El cuarto capítulo presenta el concepto de validez y relaciones los diferentes tipos de validez con el tipo de prácticas que se hacen en medición de pobreza. El capítulo cinco se concentra en el tema de comparabilidad de medidas de pobreza. Muestra cómo el principio de medición invariante es central para hacer comparaciones válidas de grupos o periodos en el tiempo. El capítulo seis también es sobre comparabilidad, pero se enfoca en una técnica para hacer medidas comparables cuando hay discrepancias en los indicadores: equivalización de escalas. El capítulo siete se enfoca en cómo hallar la línea de pobreza usando el Método Óptimo de Bristol, el cual hace uso de modelos Lineales Generalizados.</p>
+<p>Este libro hubiera sido imposible sin el apoyo de…</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="Chapter-1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "readable",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
