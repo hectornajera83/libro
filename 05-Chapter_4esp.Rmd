@@ -1,0 +1,478 @@
+# Validez en medición de pobreza {#Chapter-4}
+
+**Resumen**
+
+Este capítulo se enfoca en la teoría e implementación del principio de validez. La primera sección brinda una explicación intuitiva sobre la relación entre confiabilidad y validez. Posteriormente, se revisan los distintos subtipos de validez. El capítulo usa datos simulados para mostrar cómo la validez de contructo y de criterio pueden invetigarse usando **R** y **Mplus**. El capítulo termina con un ejemplo basado en datos reales. 
+
+## Explicación intuitiva del concepto de validez
+
+Hemos visto hasta ahora que la confiabilidad es homogeneidad en medición y que esto se traduce en la capacidad que tiene una medida de reproducir ordenamientos confiables de una población bajo condiciones cambiantes. La confiabilidad nos dice si un set de indicadores es útil para ordenar a una población acuerdo a sus scores latentes, los cuales *creemos* que de alguna forma reflejan niveles de pobreza. Por tanto, la confiabilidad es una condición necesaria para buna medición pero no suficiente porque requerimos evidencia que nos indique si los indicadores capturan pobreza y no otro fenómeno. 
+
+Una forma de introducir el tema de confiabilidad se puede ejemplificar comparando dos personas en una muestra. Por ejemplo, considere a una persona con alto nivel educativo, riqueza y alto nivel de salud y a otra que, por el contrario, tiene bajo logro educativo, muy poca riqueza y sufre de problemas recurrentes de salud. Imagine que comparamos sus niveles de severidad de pobreza dado un conjunto de indicadores y encontramos un resultado inesperado: La primera persona tiene mayor nivel de severidad de pobreza que la segunda. Esto puede pasar incluso si la medida es altamente confiable. Es decir, podemos tener un buen ordenamiento de nuestra población pero no significa que las persona se ubiquen en la posición correcta. La teoría de la medida nos diría entonces que nuestra escala es confiable pero no válida. Esto significa que hay muy poco evidencia para interpretar nuestro índice de acuerdo con nuestra teoría y concepto de pobreza. 
+
+Una medida válida es aquella que nos dice la naturaleza de lo que se está midiendo y su relación con el índice en cuestión con sus causas. Validez es una propiedad que apunta a examinar si un índice captura lo que trata de medir. En otros campos, por ejemplo, uno puede preguntar la cantidad de bebidas azucaradas que tomó en una semana. Esta información puede registrarse vía cuestionario, por ejemplo. ¿Cómo podemos validar está medición? Bueno, uno puede seguir a una submuestra a todos lados todo el día y tomar nota de su consumo. Después podríamos comparar nuestras notas con el reporte de cada persona y estimar la precisión de nuestro cuestionario. 
+
+¿Podemos hacer una estrategia similar en medición de pobreza? Sí, pero de forma más indirecta porque trabajamos con un constructo que no es directamente observable. En la introducción planteamos que este no es un problema exclusivo de medición de pobreza sino de practicamente cualquier ejercicio. En ciencias sociales, la estrategia para conceptualizar la validación de conceptos está bastante bien documentada en los Estándares para la evaluación Educativa y Psicológica. El camino hacia adelante ha sido la producción de un marco unificado de validación que busca acumular evidencia sobre si la interpretación de los scores de una scala pueden interpretarse como nos lo proponemos [@AERA2014].
+
+## Teoría de la validez en medición
+
+La teoría clásica del test (TCT) propone que la confiabilidad es el máximo nivel posible de validez de los scores de una escala. La confiabilidad es afectada por errores tanto sistemáticos como aleatorios pero los sistemáticos sólo afectan a la validez ¿Cómo es esto posible de acuerdo a la TCT? El score observado es la combinación del score verdadero más error. La validez es una función del error sístemático, i.e. desviaciones contantes del constructo de interés. Es decir, la validez de los scores esta conectada con qué tanto nos alejamos de lo que estamos midiendo. Esto significa que aunque los scores sean confiables, éstos pueden estar siempre mal en el sentido de que se alejan del "blanco". En la teoría clásica del test, la validez se formula de la siguiente manera: 
+
+\begin{equation}
+(\#eq:validity1)
+V = \frac{\sigma^2_{CI}} {\sigma^2_{observed}}
+\end{equation}
+
+Esta formulación es interesante porque nos dice que el *techo* de la validez es cuán confiable es son los scores de una scala. Sin embargo, esta formulación es un tanto limitada porque no sabemos $\sigma^2_{CI}$. Durante mucho tiempo la mejor aproximación empírica al principio de validz consistió en examinar la capacidad predictiva de una escala. Sin embargo, este enfoque se enriqueció después de los años 50s. @Bandalos2018 brinda una revisión de cómo los *estándares* de educación y psicología se han expandido en los últimos 60 años. A mediados del Siglo XX , la validez predictiva o de criterio dominó la literatura aplicada tanto en psicometría como en educación. Estas dos formas de validez se enfocaron en la correlación entre una escala en cuestión y un predictor del fenómeno de interes. En nuestro ejemplo del inicio del capítulo, la validez de criterio nos hubiera señalado que la escala tenía una relación opuesta a la esprada. Por tanto, la escala y sus scores hubieran sido declarados como inválidos desde la perspectiva de validez de criterio. 
+
+La validez de criterio descansa en el supuesto de que las causas y consecuencias de la pobreza están definidas y, por tanto, demanda una teoría clara sobre las causas y consecuencias del fenómeno de interés. @Townsend1979, por ejemplo, provee de un buen marco teórico para tal propósito en tanto brinda una explicación causal clara entre: recursos en el tiempo, pobreza y privación. Por tanto, las medidas de recursos (otra variable latente) podría ser utilizada para predecir pobreza. Por ejmplo, en la teoría de Townsend hay cinco tipos de recursos. En la literatura aplicada, esta teoría a sido la base para validación del índice de privación de la Unión Europea, por @Gordon2010 para su propuesta para la medición oficial mexicana, por @Nandy2015 y por @Pomati2019 para medidas en países en desarrollo. En todos estos ejercicios se usan predictores de pobreza objetivos y subjetivos para ver la relación que éstos tienen con los distintos indicadores de privación material y social, por ejemplo. 
+
+La asociación de un índice con algún predictor puede, sin embargo, ser inadecuada o no factible en algunas circunstancias. En la practica, algunas escalas se producen con el objetivo de medir solamente ciertos aspectos del constructo. Por ejemplo, en investigación de pobreza, se puede enfocar en pobreza aguda o condiciones de la vivienda. En otros casos, los hacedores de política o las intituciones pueden priorizar algunos aspectos de pobreza desde el enfoque de derechos humanos, por ejmplo. Estas consideraciones llevan a pensar en otro tipo de validación: de contenido. En medición de pobreza, tal vez el caso más emblemático es la medida oficial mexicana donde las dimensiones de la pobreza se establecieron a partir de lo que establece la Constitución Mexicana de 1917 y la Ley General de Desarrollo Social (2004). La representación vía derechos es válida en tanto la ley Mexicana representa la voluntad de la población, esto da validez de contenido a la medida [@Gordon2010]. Esto, sin embargo, no signifca que la ley llevará a scores válidos. Lo que significa es que uno debe examinar validez en función de esta definción, i.e. analizar si las dimensiones y los indicadores, bajo distintos tipos de evidencia, llevan a scores confiables y válidos. 
+
+Una pregunta crítica sobre la validez de contenido es ¿Cómo el investigador **sabe** o **define** las partes contitutivas del fenómeno de interes? La mayoría de las veces estos aspectos viene de una teoría. Sin embargo, el uso de métodos mixtos -cualitativos y cuantitativos- es otra manera de incrementar la capacidad de los cuerpos teóricos de desarrollar conceptos y marcos sobre los mecanismos de interacción de los conceptos. El uso de differentes datos mejorará la teoría en tanto le dara un mejor contenido a los conceptos. Este uso de datos se relaciona con otro tipo de validación: **validez de cara**. Este tipo de validez proviene generalemente de trabajo cualitativo. Una manera de entender a la validez de cara es pensarla en términos de la transparencia que tiene una medida para los participantes. En otras palabras, que tan rasonables son los contenidos de un índice de pobre para la población pobre y no pobre. Hay varios métodos cualitativos para analizar la validez de cara y, quizá, la implementación con mayor recorrido, desarrollo y madurez metodológica es el método consensual de privación (MCP) [@Mack1985; @Pantazis2006a; @Gordon2018]. El MCP sigue el flujo de trabajo ideal en medición (see \@ref(fig:idealwf)) puesto que tiene una teoría que brinda una definición científica de pobreza, el cuestionario primero se calibra con trabajo cualitativo (validez de cara), y después el cuestionario resultante se implementa usando una muestra representativa con el propósito explícito de medir pobreza multidimensional. Una crítica a este tipo de aproximación es que la problación pobre puede *adaptar sus preferencias* y esto sesgaría sus respuestas. @Nussbaum1999 argumenta que las preferencias y deseos de la gente responden a sus normas y oportunidades. Esto sugiere que es muy difícil alcanzar consenso sobre las necesidades para vivir dignamente en una sociedad en un momento dado porque la población pobre tendrá ciertos límites y preferirá cosas distintas. Sin embargo, la evidencia, por lo menos en cuanto al método consensual, es que las preferencias adaptativas tienen poco impacto [@Nandy2015; @Pomati2019]. 
+
+En la práctica, como discutíamos en torno a la Figura \@ref(fig:realwf), los datos están dados, los contenidos teóricos de una medida multidimensional son poco claros y la validez de cara no se incorpora como un criterio. Es más, en varios ejercicios, la validez de criterio puede ser imposible de ejecutar porque no existe un marco teórico claro para el ejercicio de medición y puede ser que en los datos no existan los predictores para realizar el análisis. @Cronbach1955 propuso que cuando no existe acuerdo sobre las causas y consencuencias de un fenómeno dado, lo que se puede hacer es analizar si el constructo es útil para separar *significativamente* (no de estadísticamente sino de significado) a los grupos de población. Mientras que la confiabilidad garantiza ciertos ordenamientos, la validez del constructo se enfoca en el significado de tal ordenamiento. Este tipo de validez (constructo) en un principio se veía como el último recurso para validación pero en la literatura contemporánea, la validez de constructo abarca todos los tipos de evidencia o de validez. Para Cronbach, toda la evidencia disponible sobre una scala añade valor al rechazo siempre latente de una escala. De esta forma podemos entender porque @AERA2014 define validez de la siguient emanera (p.14):
+
+> *Es el grado en el que toda la evidencia acumulada sustenta la intención de la interpretación que le damos a los scores*
+
+Esta definición moderna de confiabilidad refiera a los distintos tipo de evidencia sobre la validez de una escala- criterio, contenido, cara y constructo.
+
+## Métodos para el análisis de validez 
+
+### Validez de criterio
+
+La validez de criterio se caracteriza por la correlación entre un índice y una medida alternativa de la causa o efectos del constructo de interés. Este libro no se enfoca en las distintas explicaciones de pobreza pero éstas son necesarias para ilustrar la importancia de un marco de explicativo de pobreza para validar escalas. Es decir, para validar escalas es necesario un marco explicando los causantes y consecuencias de pobreza y cómo ambos se relacionan con el concepto de privación material y social. Hay varios libros sobre las teorías de la pobreza (ver para una revisión de distintos libros [@Spicker2006]). La teorías de pobreza se clasifican crudamente en estructurales e individuales. @Townsend1993 y @Townsend1979 brindan una introducción y discusión sobre estos diferentes marcos. Para ilustrar cómo una teoría de pobreza se relaciona con validez, nos basamos en la teoría de Townsned de estructuración y pobreza, ya que es uno de los pocos marcos que conecta explícitamente una explicación de la existencia de la pobreza con una teoría congruente de la medición de la misma. 
+
+
+@Gordon2010 ofrece uno de los primeros ejercicios de validez de criterio en la literatura contemporánea. Siguiendo la definición de Townsend de pobreza -falta de recursos en el tiempo como causa de privación- Gordon correlaciona una serie de indicadores de privación material con ingreso. La Encuesta Nacional de Ingreso y Gasto de los Hogares (2005) no tenía otros candidatos para la validación (hemos reflexionado sobre el problema de la producción de datos para la medición de la pobreza). Lo que Gordon propuso fue usar una serie de modelos Lineales Generalizados (MLG) donde la variable dependiente es pobreza por ingreso (Pobre=1 y No pobre=2) y las explicativas fueron los indicadores de privación. El modelo se ajustó por condición de urbanización (urbano y rural) y el tamaño del hogar. La expectativa de este modelo era encontrar razones de riesgo mayores a 1 ($\beta_i>1$) puesto que esto sería una indicación de que la privación en un ítem particular estaba asociado con mayor riesgo de ser clasificado como pobre por ingreso. Claramente, en el caso del ejercicio de @Gordon2010 la variable de validación está lejos de ser ideal pero sirve para ilustrar la idea detrás de la validez de criterio ¿Cuál hubiera sido una mejor variable? @Guio2012, por ejemplo, proponen el riesgo de tener pobre salud y evaluación de pobreza subjetiva. 
+
+La figura \@ref(fig:valgordon) se propone otro validador como la posición en el mercado de trabajo, uno de los mejores predictores de pobreza. Las escalas internacionaes de ocupación que buscan medir la posición socioeconómica pueden ser bastante útiles para este propósito [@Ganzeboom1996]. Hay otras alternativas como usar las que se han utilizado en la literatura europea @Guio2012.
+
+```{r valgordon, echo = FALSE, message=FALSE, fig.align='center', fig.cap='Esta es una representacion visual de la validación de criterio propuesta por @Gordon2010. Pobreza por ingreso se reemplaza por la medida de posición socio-económica', fig.pos='H'}
+knitr::include_graphics("val_gordon.png")
+```
+
+La validación seguida por @Gordon2010 es lo que usualmente se hacía en psicometría y educación en los 1970s. Hay varias limitaciones como la falta de parsimonía, la inexistencia de la noción de pobreza como variable latente, etc. La ventaja de usar un marco unificado como el de la teoría de la medición es que es possible expandir y complejizar los modelos de validación y plantearlos como un modelo factorial confirmatorio que integra un modelo explicativo (esto es, un modelo general de ecuaciones estructurales). En la literatura de variables latentes, estos modelos también se llaman MIMIC (Múltiples Indicatores, Múltiples Causas). La figura \@ref(fig:valmimic) muestra una representación visual de la validación de criterio del modelo unidimensional anteriormente presentado. En este caso, hay una nueva flecha (relación) del indicador (Y) hacia la variable latente. El modelo se ajusta por una serie de variables (Z). En este modelo, la expectativa es que $\beta_y$ se asocie con el factor (pobreza) de manera sensible. Si la metrica del factor (generalmente estandarizado con media cero y varianza uno) nos dice que mayores valores significan mayor severidad de privación, entonces deberíamos esperar los trabajos no calificados se asococien positivamente con la variable latente (pobreza). 
+
+```{r valmimic, echo = FALSE, message=FALSE, fig.align='center', fig.cap='Esta es una representación visual de un modelo MIMIC de validación de criterio unidimensiona o null', fig.pos='H'}
+knitr::include_graphics("val_MIMIC.png")
+```
+
+Con la flexibilidad y potencia de ecuaciones estructurales podemos facilmente construir modelos más elaborados. Por ejemplo, podemos hacerlo para el modelo simplificado de Townsend. La figura \@ref(fig:valmdmimic) muestra que el validador, más variables auxiliares, predice pobreza. La expectativa es encontrar una relación entre Y y la variable latente. El resot es simplemente el modelo de Townsend de medición de pobreza basado en la teoría de privación relativa. En esta versión reducida, solo dos dimensiones está presentes. En la siguiente sección se discuten algunos problemas de identificación estadística del modelo. Por ahora nos enfocamos en las construcción en abstracto de modelos de validez de criterio. 
+
+```{r valmdmimic, echo = FALSE, message=FALSE, fig.align='center', fig.cap='Esta es una representación visual de un modelo MIMIC de validación de criterio del modelo reducido de Townsend', fig.pos='H'}
+knitr::include_graphics("val_md_MIMIC.png")
+```
+
+### Construct validity
+
+Construct validity is an ongoing process and it is part of a unified framework of validity. Model specification is central in a statistical framework to measure poverty. This entails making explicit assumptions about the number, type and nature of the dimensions and its indicators. It also involves making assumptions about how the model should behave, i.e. people with multiple deprivation should be more deprived than people with a single or no deprivations, for example. Construct validity comprises different sorts of evidence on the different hypothesis of the measurement model. To ilustrate this we will use the Multidimensional Poverty Measure of acute poverty.
+
+* Multidimensional poverty has three substantive dimensions: education, health and standard of living.
+* These dimensions are clearly distinguishable (discriminant validity).
+* The indicators of each dimensions are adequate manifestations of deprivation of education, health and standard of living (classification of   indicators).
+* The indicators of each dimensions equally account by for variation of the sub-dimensions (within-dimension weights).
+
+The four hypothesis underpin the measurement model of poverty of the MPI. These are ordered from the more general to the most specific. How then these assumptions could be tested. Measurement theory has developed factor models for such a purpose. These models have evolved to such extent that the most powerful factor model could be used to test in one model a number of hypothesis. There are two main ways to conduct factor analysis: exploratory and confirmatory. This book puts emphasis on the second kind as it soughs to encourage the development of scales based on theory and not on what the available data says. The label "Confirmatory" is ambitious in that it suggest that we confirm that our model is right. This, of course, is never possible. The best we can do is to assess whether the model is not a bad one, which does not necessarily means that is the correct one.
+
+Measurement models have a series of parameters  (item loadings, dimension loadings, item thresholds and errors). Confirmatory factor analysis (CFA) is a way to estimate the value of the parameters in question and assess the extent to which the model reproduces the observable relationships among the indicators. This is no different from any experiment where given some assumptions, researchers compute if their model of reality is matched by observation. CFA models aim to assess if the presumed model of poverty seems to hold given the data, i.e. whether there is any indication that there are three dimensions, the indicators seem to relate to these dimensions and the contribution of the indicators is equally important or not within dimensions.
+
+To explain the theory of CFA models is necessary to bring back equations \@ref(eq:model1) and \@ref(eq:model2).
+
+\begin{equation}
+ x_{ij} = \lambda_{ij} \eta_j + \varepsilon_ij   
+\end{equation}
+
+\begin{equation}
+ \eta_j = \gamma_{j} \zeta  + \xi
+\end{equation}
+
+These equations represent a hierarchical Confirmatory Factor model. These make our measurement model testable using a method that was developed for such purpose. This model will tell us: if the three dimensions $\eta_j$ ($j=1,2,3$) is an adequate representation of poverty. It will also tell us if the indicators are manifest ($\lambda_{ij}$) of the presumed dimensions, and whether the loadings are equal or not within dimensions.
+
+How does CFA assesses whether a model matches observation? CFA estimates a series of parameters that produce a variance-covariance matrix ($\Sigma$) that approximates as closely as possible the observed variance-covariance matrix ($S$). Therefore, the goal in CFA is to find a set of parameters that best reproduces the input matrix. This process is achieved by minimizing the difference between $\Sigma$ and $S$. Maximum Likelihood (ML) is one of the preferred methods to estimate the minimizing function $F_{ML}$ (see p. 72 and 73 for an explanation)[@Brown2006]. There are, nonetheless, several estimating procedures that are more or less adequate depending on the nature of the data. One of the most useful and adequate for the kind of data in poverty measurement (categorical data with large samples) is robust weighted least squares (WLSMV) as it is faster than ML and is asymptotic distribution free. $F_{ML}$ is very useful because it provides standard errors (SEs) of the estimates but also because it can be used for the calculation of several indices of goodness-of-fit which tell how poor or good the model is.
+
+$F_{ML}$ is used for several goodness-of-fit indices. An absolute index is $\chi^2$ which operates with the null hypothesis that $S=\Sigma$. When rejected, it tell that the proposed model is not good enough to reproduce $S$. In other words, the number, type of dimensions and indicators do not result in an adequate representation of the construct. $\chi^2 = F_{ML}(N-1)$ and thus is sensible to sample size and based on a very stringent hypothesis that $S=\Sigma$.
+
+A relative index of goodness-of-fit is root mean square error of approximation (RMSEA) [@Steiger1980]. This index looks at the extent to which a model is a reasonable approximation in the population. This index is sensible to the number of parameters in the model but insensitive to sample size.
+
+Comparative fit indices use a baseline model (typically a null model) as reference to evaluate the fit of the proposed model. These indexes often look more favourable than the strict $\chi^2$. Extensive Monte Carlo studies have found that these indexes are nonetheless trustworthy and well-behaved. The Comparative Fit Index (CFI) is one of the most widely used. It varies between 0 and 1 where values closer to 1 indicate a good model fit. The Tucker-Lewis index (TLI) is another popular alternative which includes a penalty function for adding more parameters that do not necessarily improve the fit of the model. It typically has values between 0 and 1, where again closer to 1 implies a relatively good model fit.
+
+Several Monte Carlo studies have been conducted to assess the behaviour of these indices [@Browne1993;@Rigdon1996;@Hu1999;@Bentler2007]. From these studies it has been possible to have an approximation to the values of the indices that often indicate a good fit. These values are summarised as follows:
+
+  Table: (\#tab:cfafitstats) Summary of the suggested cut off for the goodness-of-fit statistics.
+  The values of RMSEA, CFI and TLI need to be taken as an approximation.
+
+  Index       Range values   Poor model fit rule
+  ---------- -------------- ---------------------
+  $\chi^2$    p-values 1-0         $p>.05$
+  $RMSEA$     p-values 1-0         $p<.06$
+  $CFI$          $1-0$             $<.95$
+  $TLI$          $1-0$             $<.95$
+
+Factor loadings are often thought as a measure of item-reliability (see Section \@ref()). So how does the factor loading values fit in a validity analysis? There is no consensus about threating factor loadings as measures of item validity. Only and only if the measure is proven to be valid in some way, it is possible to frame item loadings in terms of validity. In such a context, the square of the factor loadings equals the amount of variance in the indicator explained by the common factor (i.e. communality). Because the factor loadings capture the relationship of each indicator with the latent variable, they can be seen as the optimal weights of the model given the data. Therefore, a test of equality of loadings within dimensional can be used to assess whether using such kind of weighting is reasonable or not. The next section shows how these tests work but the idea is to assess the extent to which $\lambda_{11}=\lambda_{21}=\lambda_{31}$, for example for three items in dimension $j=1$.
+
+## Validity assessment
+
+### Criterion Validity
+
+Criterion or predictive validity holds when there is a correlation between an scale and an alternative measure on the cause or effects of the construct of interest. In poverty research, this kind of validation has been used in the empirical literature [@Gordon2010; @Guio2012; @Nandy2015]. We will again use our simulated multidimensional measure to illustrate how a validation exercise can be undertaken and to underline some issue researchers might find in practice.
+
+
+```{r, include=FALSE}
+library(MplusAutomation)
+############################################
+setwd("C:\\OneDrive\\Proyectos Investigacion\\PM Libro")
+```
+
+Fitting a regression model to assess the relationship between a proposed index and an alternative measure is a common approach to assess predictive validity. To illustrate how this kind of validation works, we will use the simulated data ("Rel\_MD\_data\_1\_1.dat"). This data set contains the nine manifest variables (x1-x9) plus the two unreliable indicators(x10-x11). Three variables were simulated as alternative measures. One is a "perfect" measure of the resources available for each household in the sample. So in principle, this measure ranks the households according to their potential to fulfil their needs. The measure is expressed in monetary terms to facilitate the interpretation. Education years of the household head and occupation (skill scale) are two predictors of the living standards of the households. These two variables reflect the often common case where the survey was not designed with a validator in mind. We will use the variable "hh\_members" to adjust the estimates.
+
+```{r, warning=FALSE, message=FALSE}
+library(plyr)
+Rel_MD_1<-read.table("Rel_MD_data_1_1.dat")
+Rel_MD_1$ds<-rowSums(Rel_MD_1[,c(1:9)])
+colnames(Rel_MD_1)<-c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11",
+                      "resources","educ_yr","occupation",
+                      "hh_members","class","ds")
+Rel_MD_1[1:5,1:11]
+Rel_MD_1[1:5,12:15]
+```
+
+One way to conduct the validation analysis consists in estimating the association between the manifest variables of our index with the validator. This can be simply done by fitting a series of regression models. Because deprivations are binary variables, we need to use a Generalised Linear Model (GLM) with the appropriate distribution. Relative Risk Ratios (RRR) are easier to interpret, so we will fit a Poisson model with log link to obtain the RRRs. Of course, there is no problem in estimating odd-ratios as here we are interested in looking at the association between variables.
+
+In total we have 11 dependent variables (x1-x11) and, thus 11 models. In principle, x1-x11 resulted unreliable and should have been dropped from the analysis but we will keep them just to discuss some connections between reliability and validity. We will create a simple function `lms()` below to loop across the deprivation indicators. We will also transform the resources to get a more sensible metric.
+
+```{r warning=FALSE, message=FALSE, results='hide'}
+Rel_MD_1$resources<-Rel_MD_1$resources*.01
+
+lms<-function(index)
+{
+  fit<-glm(Rel_MD_1[,index] ~ Rel_MD_1$resources +
+                              Rel_MD_1$hh_members,
+           family=poisson(link="log"))
+  exp(cbind(OR = coef(fit), confint(fit)))
+}
+
+coefs<-lapply(1:11,lms)
+
+coefs[[1]]
+```
+
+We could check each of the outputs in list \texttt{coefs} but it is easier to plot the RRRs of resources for each one of the 11 variables. We will not show the code here but one could just simply extract the coefficients and use \texttt{ggplot2()} to produce the graph. The coefficients are displayed with 95\% confidence intervals in plot~\ref{fig:val1}\footnote{Here we are using classic or frequentist statistics. There are many problems around the use of p-values. We will be careful in the interpretation as the kind of test we run here is very conservative, i.e. the association is zero. We are not assessing whether is positive or negative. But we should do it in future editions.}. The null hypothesis in this model is that there is no relationship between resources and deprivation. For items x1-x9 we see that the difference seems to be different from zero and that the estimates are likely to be less than one. This suggests the higher the resources and lower the chances of being deprived. This is in line with our expectation. For items x10 and x11, however, we found no relationship at all. This is an indication that both items are unreliable and invalid. This reinforces our previous suspicion that these two items are not useful to measure poverty.
+
+```{r, results='hide'}
+coefs<-lapply(coefs, function(x) unlist(x[2,]))
+coefs<- as.matrix(matrix(unlist(coefs), nrow=length(coefs), byrow=T))
+coefs<-data.frame(rbind(coefs[,c(1,2,3)]))
+
+coefs$item <- rep(c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11"),1)
+coefs$var<-c(rep("Resources (*100)", 11))
+coefs
+```
+
+We can simply plot the coefficients of each variable using the object `coefs` and `ggplot2()` as follows:
+
+```{r val1, echo=TRUE, message=F, fig.cap="This plot shows the Relative Risk Ratios for the resources variable, adjusted by the household size. Having more resources reduces the risk of being deprived of the item x, as expected."}
+library(ggplot2)
+p<- ggplot(coefs, aes(x=item,y=X1)) + geom_point() +  
+  geom_errorbar(aes(ymin=X2, ymax=X3)) +
+ theme_bw() + scale_y_continuous(trans = 'log10', limits = c(.9, 1.1))
+p + facet_grid(. ~ var) + labs(y="Relative Risk Ratios") + geom_hline(yintercept=1, linetype="dashed",
+                color = "red", size=2)
+```
+
+```{r, include=FALSE}
+p<- ggplot(coefs, aes(x=item,y=X1)) + geom_point() +  
+  geom_errorbar(aes(ymin=X2, ymax=X3)) +
+ theme_bw() + scale_y_continuous(trans = 'log10', limits = c(.9, 1.1))
+
+jpeg("val1.jpg", units="cm", width=15, height=15, res=300)
+p + facet_grid(. ~ var) + labs(y="Relative Risk Ratios") + geom_hline(yintercept=1, linetype="dashed",
+                color = "red", size=2)
+dev.off()
+```
+
+Now we will go through the case of the lack of a validator. Most of the time researchers will lack a validator that was designed a priori. In these circumstances researchers need to use variables that predict poverty. Education attainment of the household head and occupation status are one of the two best predictors of poverty. We will rewrite our `lms()` function to fit a series of models using both education and occupation. All models adjusted by the household size. Again we will fit a GLM to obtain relative risks.
+
+
+```{r}
+lms<-function(index)
+{
+  fit<-glm(Rel_MD_1[,index] ~ Rel_MD_1$occupation +
+                              Rel_MD_1$educ_yr +
+                              Rel_MD_1$hh_members,
+           family=poisson(link="log"))
+  exp(cbind(OR = coef(fit), confint(fit)))
+}
+
+coefs<-lapply(1:11,lms)
+
+coefs[[1]]
+```
+
+```{r}
+coefs<-lapply(coefs, function(x) unlist(x[2:3,]))
+coefs<- as.matrix(matrix(unlist(coefs), nrow=length(coefs), byrow=T))
+coefs<-data.frame(rbind(coefs[,c(1,3,5)],coefs[,c(2,4,6)]))
+
+coefs$item <- rep(c("x1","x2","x3","x4","x5","x6",
+                      "x7","x8","x9","x10","x11"),2)
+coefs$var<-c(rep("Occupation (Skill) scale", 11), rep("Education years", 11))
+coefs
+```
+
+Once the models have been fitted, we could proceed to inspect the parameters. To inspect them we produce two plots shown in figure~\@ref(fig:val2). The plot show the RRRs for both education and occupation adjusted by the household size. There is no evidence to support an association between items x10 and x11 and both predictors of poverty. In contrast, education and occupation predict an decrease and increase in the likelihood of being deprived of items x1-x9. On this basis we could conclude that our scale has criterion validity.  
+
+```{r val2, echo=TRUE, message=F, fig.cap="This plot shows the Relative Risk Ratios for each item using two validators (adjusted by the total household members)"}
+p<- ggplot(coefs, aes(x=item,y=X1)) + geom_point() +  
+  geom_errorbar(aes(ymin=X2, ymax=X3)) +
+ theme_bw() + scale_y_continuous(trans = 'log10', limits = c(.8, 1.2))
+p + facet_grid(. ~ var) + labs(y="Relative Risk Ratios") + geom_hline(yintercept=1, linetype="dashed",
+                color = "red", size=2)
+```
+
+```{r, results='hide'}
+p<- ggplot(coefs, aes(x=item,y=X1)) + geom_point() +  
+  geom_errorbar(aes(ymin=X2, ymax=X3)) +
+ theme_bw() + scale_y_continuous(trans = 'log10', limits = c(.8, 1.2))
+
+jpeg("val_rrrs.jpg", units="cm", width=10, height=10, res=300)
+p + facet_grid(. ~ var) + labs(y="Relative Risk Ratios") + geom_hline(yintercept=1, linetype="dashed",
+                color = "red", size=2)
+dev.off()
+```
+
+### Construct Validity
+
+Validity now is seen under a unified approach that looks at different aspects of the extent to which our scale can be interpreted as it is supposed to- a measure of poverty. Predictive validity might be a useful way to check the predictive validity at item-level. However, such kind of validation tells nothing about the structure of the measure. In section \@ref{} we mention that modern poverty research should walk toward the specification of measurement models so that researchers make their assumptions better. We have mention that our scale is a higher-order scale with three dimensions, each one measured by three items. Construct validity concerns with the assessment of the structure of our scale. We will address several hypothesis about our scale:
+
+* Are three dimensions a sensible way to arrange our indicators?
+* Is a higher order factor present in our scale?
+* Is the contribution to the explanation of the variance of each item equal or unequal?
+
+We will focus on the first two question for now. To assess the validity of our measure we will use CFA to assess whether our measurement model is an adequate representation of poverty given these data. A CFA explicitly asks the question about the capacity of a model to reproduce the observed data. The first step, thus, consists in specifying our model. We have done already this in section \@ref{} when we estimated the reliability statistics $\omega$ and $\omega_h$. We will fit again the model using the `lavaan` R-package and Mplus. We will start with `lavaan` by specifying the $MD_model$. As can be appreciated we are assuming three factors (f1 to f3) and a higher order factor h. We are also stating that the indicators are manifest of one factor, i.e. we do not see x1 in f2 or f3. Then we can simply use the `sem()` function and tell that our items are categorical. We will store the output in the fit object.
+
+```{r, message=FALSE, warning=FALSE}
+library(lavaan)
+MD_model <- ' f1  =~ x1 + x2 + x3
+              f2 =~ x4 + x5 + x6
+              f3   =~ x7 + x8 + x9
+               h =~ f1 + f2 + f3
+'
+
+fit <- sem(MD_model,
+           data = Rel_MD_1,ordered=c("x1","x2","x3","x4","x5",
+                                     "x6","x7","x8","x9"))
+```
+
+Once the model has been estimated, we can request the global statistics of fit of our model saved in the fit object. To extract the statistics we will use the function `fitmeasures()`. We will request the $\chi^2$ test (absolute fit), the CFI and TLI values and RMSEA (relative fit). The p-value of the $\chi^2$ test suggest that we reject the hypothesis that the model does not reproduces the observed data. That means that dimensions, classification of the indicators and the presence of the higher order factor do a good job in representing the structure of the data. CFI, TLI and RMSEA point in the same direction.
+
+```{r, message=FALSE, warning=FALSE}
+chisq<-fitmeasures(fit,fit.measures = c("chisq","df","pvalue"))
+relfit<-fitmeasures(fit,fit.measures = c("tli","cfi"))
+rmsea<-fitmeasures(fit,fit.measures = c("rmsea", "rmsea.ci.lower",
+                                        "rmsea.ci.upper", "rmsea.pvalue"))
+chisq
+relfit
+rmsea
+```
+
+
+We can fit the same model in Mplus using the following code. We estimate the same model: three dimensions, one higher-order factor and each dimension with three exclusive indicators. We store the model specification in the test object and then we use the function `mplusModeler()` to pass (rel\_CFA\_1.inp) and fit the model on Mplus. The results of this operation are saved on the `res` object.
+
+```{r, message=FALSE, warning=FALSE}
+test <- mplusObject(
+TITLE = "Higher order CFA;",
+   VARIABLE = "
+     NAMES = x1-x11 resources educ_yr occupation hh_size class;
+     CATEGORICAL = x1-x9;
+     USEVARIABLES = x1-x9;",
+   ANALYSIS = "ESTIMATOR = WLSMV;
+              PROCESS = 4",
+
+MODEL = "f1 by x1-x3;
+  f2 by x4-x6;
+  f3 by x7-x9;
+  h by f1 f2 f3;",
+
+OUTPUT = "STD stdyx;")
+
+res <- mplusModeler(test, modelout = "rel_CFA_1.inp",
+                    writeData = "never",
+                    hashfilename = FALSE,
+                    dataout="Rel_MD_data_1_1.dat", run = 1L)
+```
+
+Once the model has been estimated we can request the global statistics of fit using the following piece of code. We observed that the estimates match the `lavaan()` figures. The model reproduces the observed data.
+
+```{r}
+fitstats<-c(TLI=res$results$summaries$TLI,
+            CFI=res$results$summaries$CFI,
+            Chisq=res$results$summaries$ChiSqM_PValue,
+            RMSEA=res$results$summaries$RMSEA_Estimate)
+fitstats
+```
+
+### A joint assessment: Criterion and construct validity
+
+Ideally, we would like to move toward a unified validation of scales. This involves examining both criterion and construct validity in the same model. Previously, we discussed that our full model looks like figure \@ref(fig:valmdmimic). This is called a MIMIC model. This moves us from the world of CFA into Structural Equation Modelling (SEM) but still the focus is on measurement and not so much on explanation. Again we will use `lavaan()` and Mplus to fit the model. In `lavaan()` we just need to create a new model that includes a new path. We would like to assess whether the higher-order factor (h) is associated with resources, adjusting by the total of household members. This can be simply achieved by adding a new line with a regression of h on the variables resources and hh\_members. We fit and save the model in the fit object.
+
+```{r, warning=FALSE, message=FALSE}
+MD_model <- ' f1  =~ x1 + x2 + x3
+              f2 =~ x4 + x5 + x6
+              f3   =~ x7 + x8 + x9
+               h =~ f1 + f2 + f3
+               h ~ resources + hh_members
+'
+
+fit <- sem(MD_model,
+           data = Rel_MD_1,ordered=c("x1","x2","x3","x4","x5",
+                                     "x6","x7","x8","x9"))
+```
+
+Construct validity is assessed on the same terms. We will look at the overall fit of our model, which now know includes a new path, using the same statitsics: $\chi^2$, CLI, TLI and RMSEA. We find that our measurement model still holds.
+
+```{r}
+chisq<-fitmeasures(fit,fit.measures = c("chisq","df","pvalue"))
+relfit<-fitmeasures(fit,fit.measures = c("tli","cfi"))
+rmsea<-fitmeasures(fit,fit.measures = c("rmsea", "rmsea.ci.lower",
+                                        "rmsea.ci.upper", "rmsea.pvalue"))
+chisq
+relfit
+rmsea
+```
+
+Now we can check criterion validity by looking at the parameters of the regression part of our model. To extract the values of the parameters we will use the function `parameterEstimates()`, which is applied to the object fit. This is save in the slope object, which has all the estimated parameters in our model. For simplicity we will only show the slope h on resources by selecting the appropriate row. We observe that indeed there is a relationship between the factor and our parameters. What is the meaning of the reported value? The factor scores are presumed to follow a normal distribution. The higher the values of the factor, the higher the severity of poverty and vice versa. Therefore, we see that higher resources predict a decrease in the factor score, which is the expected behaviour in our measurement model.
+
+```{r}
+slope<-as.data.frame(parameterEstimates(fit))
+slope[13,]
+```
+
+We can estimate the same Model in Mplus as follows. All we have to do is to add a new path "h on resources and hh\_members". The rest of the script is similar to the previous CFA model. We will create the following Mplus syntax: val\_sem\_1.inp. We will run the model using the `mplusModeler()` function and ask R to run the model in Mplus and save everything in the `res` object.
+
+```{r, results='hide'}
+test <- mplusObject(
+TITLE = "
+HIgher order MIMIC;",
+VARIABLE="
+
+     NAMES = x1-x11 resources educ_yr occupation hh_members class;
+     CATEGORICAL = x1-x9;
+     USEVARIABLES = x1-x9 resources hh_members;",
+       DEFINE=
+  "resources = resources*.01;",
+ANALYSIS="
+ESTIMATOR = WLSMV;
+PROCESS = 8;",
+MODEL= "
+f1 by x1-x3;
+  f2 by x4-x6;
+  f3 by x7-x9;
+
+h by f1 f2 f3;
+
+h on resources hh_members;",
+
+OUTPUT=
+"STD stdyx;")
+
+res <- mplusModeler(test, modelout = "val_sem_1.inp",
+                    writeData = "never",
+                    hashfilename = FALSE,
+                    dataout="Rel_MD_data_1_1.dat", run = 1L)
+```
+
+We extract the parameters of the MIMIC model using `fitmeasures()` and then we check the estimates. We confirm that our estimates reproduce the `lavaan()` output.
+
+
+```{r}
+fitstats<-c(TLI=res$results$summaries$TLI,
+            CFI=res$results$summaries$CFI,
+            Chisq=res$results$summaries$ChiSqM_PValue,
+            RMSEA=res$results$summaries$RMSEA_Estimate)
+fitstats
+```
+
+With some code we could request the estimate of the slope as we did with the `lavaan()` model. However, we will stress the importance of visualising our measurement models by looking at the standardised parameters on a diagram of our model. Figure  \ref@(fig:valsem1) shows the standardised estimates of our model. We can see that our validator *resources* predicts poverty -latent factor- (following Townsnend's theory representation in this case) and this constitutes a validation of our measure.This variable has the expected sign- an increase in resources reduces the latent severity of poverty. 
+
+```{r valsem1, echo=TRUE, message=F, fig.cap="This is a MIMIC model were a higher-order factor model loads into three dimensions and there is one path to examine criterion validity (resources and hh members)"}
+knitr::include_graphics("val_sem_1.png")
+```
+
+
+### Real-data example
+
+We will use the Mexican data (pobreza\_14.dta) to illustrate how validity could be assessed using a MIMIC model. We had already created a *.dat file (Mex\_pobreza\_14.dat) with the variables we need for the analysis (Section ). We can inspect the deprivation variables to familiarise ourselves with these data. The reduce model of the Mexican multidimensional measure comprises 14 variables classified in three dimensions: Housing, Essential services and food deprivation.
+
+```{r}
+library(haven)
+Mex_D<-read_dta("pobreza_14.dta")
+head(Mex_D[31:34])
+head(Mex_D[36:39])
+head(Mex_D[41:46])
+```
+
+For the validity analysis we will fit the same higher-order CFA model with the three dimensions (essential services, housing quality and food deprivation). We will use two validators: Education attainment of the household head and an index of assets (fridge, tv, washing machine, computer and internet). The estimation of the parameters of both validators will be adjusted by rural v urban areas (rururb) and household size (tot\_integ).
+
+We will fit the model on Mplus. We will add the four new variables to the USEVARIABLES list and then include four new paths to the CFA model. This is achieved by including "h on rururb tot\_integ durables educ\_hh;" in the script (val\_CFA\_mex.inp). Again, we will save this in the test object and we will run the model from R using the `mplusModeler()` function. Bear in mind that the model will take some seconds to run.
+
+```{r}
+test <- mplusObject(
+TITLE = "Validity Mexico CFA model;",
+   VARIABLE = "
+     NAMES = proyecto folioviv foliohog icv_muros icv_techos
+             icv_pisos icv_hac isb_agua isb_dren isb_luz isb_combus
+             ic_sbv ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad
+             ia_7men ia_8men ia_9men ia_10men ia_11men ia_12men
+             tv_dep radio_dep fridge_dep
+             washingmach_dep compu_dep inter_dep psu weight
+             rururb tot_integ durables educ_hh;
+MISSING=.;
+     CATEGORICAL = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+     USEVARIABLES = icv_muros icv_techos icv_pisos icv_hac isb_agua
+                   isb_dren isb_luz isb_combus  ia_1ad
+                   ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad
+                   rururb tot_integ durables educ_hh;
+
+WEIGHT=weight;
+cluster = psu;",
+
+   ANALYSIS = "TYPE = complex;
+
+ESTIMATOR = wlsmv;
+PROCESS = 4;",
+
+MODEL = "f1 by icv_muros icv_techos icv_pisos icv_hac;
+  f2 by isb_agua
+        isb_dren isb_luz isb_combus;
+  f3 by ia_1ad ia_2ad ia_3ad ia_4ad ia_5ad ia_6ad;
+  h  by f1 f2 f3;
+  h on durables educ_hh rururb tot_integ;",
+
+OUTPUT = "std stdyx;")
+
+res<-mplusModeler(test, modelout = "val_CFA_mex.inp",
+                    writeData = "never", hashfilename = FALSE,
+                    dataout="Mex_pobreza_14.dat", run = 1L)
+```
+
+Once the model has been fitted we can examine construct validity by assessing whether our model holds after adding the predictors. We will save the statistics of fit in the `fitstats()` object. We can see that the fit of this model is very good. We find that the model seems to be a valid representation of poverty for Mexico. That means that the dimensions and indicators are adequately classified and identified.
+
+```{r}
+fitstats<-c(TLI=res$results$summaries$TLI,
+            CFI=res$results$summaries$CFI,
+            Chisq=res$results$summaries$ChiSqM_PValue,
+            RMSEA=res$results$summaries$RMSEA_Estimate)
+fitstats
+```
+
+On Mplus we can produce a diagram to display the estimated values of the parameters of our model. From left to right, we appreciate the standardised parameters of the validators and the adjustment variables. We see the four have the expected signs. The higher the education attainment, the lower the factor scores (higher severity). The asset index shows a similar behaviour, having more durables in the household is associated with lower factor scores. Both rurality and the household size increase the factor scores. Then we appreciate that the standardised factor loadings are high ($>.5$).  
+
+
+```{r valcfamex, echo = FALSE, message=FALSE, fig.align='center', fig.cap='This is a MIMIC model of a reduced version of the multidimensional Mexican measure. The model shows that poverty is associated by posession of different goods and education attainment of the household head, adjusted by rurality and household size. Standardised coefficients (Standard error within brackets)', fig.pos='H'}
+knitr::include_graphics("val_cfa_mex.png")
+```
