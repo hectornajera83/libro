@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="Chapter-2.html">
-<link rel="next" href="referencias.html">
+<link rel="next" href="Chapter-4.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -186,7 +186,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.9" data-path="Chapter-3.html"><a href="Chapter-3.html#comentarios-finales"><i class="fa fa-check"></i><b>3.9</b> Comentarios finales</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+<li class="chapter" data-level="4" data-path="Chapter-4.html"><a href="Chapter-4.html"><i class="fa fa-check"></i><b>4</b> Validez en medición de pobreza</a><ul>
+<li class="chapter" data-level="4.1" data-path="Chapter-4.html"><a href="Chapter-4.html#explicacion-intuitiva-del-concepto-de-validez"><i class="fa fa-check"></i><b>4.1</b> Explicación intuitiva del concepto de validez</a></li>
+<li class="chapter" data-level="4.2" data-path="Chapter-4.html"><a href="Chapter-4.html#teoria-de-la-validez-en-medicion"><i class="fa fa-check"></i><b>4.2</b> Teoría de la validez en medición</a></li>
+<li class="chapter" data-level="4.3" data-path="Chapter-4.html"><a href="Chapter-4.html#metodos-para-el-analisis-de-validez"><i class="fa fa-check"></i><b>4.3</b> Métodos para el análisis de validez</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="Chapter-4.html"><a href="Chapter-4.html#validez-de-criterio"><i class="fa fa-check"></i><b>4.3.1</b> Validez de criterio</a></li>
+<li class="chapter" data-level="4.3.2" data-path="Chapter-4.html"><a href="Chapter-4.html#construct-validity"><i class="fa fa-check"></i><b>4.3.2</b> Construct validity</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="Chapter-4.html"><a href="Chapter-4.html#validity-assessment"><i class="fa fa-check"></i><b>4.4</b> Validity assessment</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="Chapter-4.html"><a href="Chapter-4.html#criterion-validity"><i class="fa fa-check"></i><b>4.4.1</b> Criterion Validity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Chapter-4.html"><a href="Chapter-4.html#construct-validity-1"><i class="fa fa-check"></i><b>4.4.2</b> Construct Validity</a></li>
+<li class="chapter" data-level="4.4.3" data-path="Chapter-4.html"><a href="Chapter-4.html#a-joint-assessment-criterion-and-construct-validity"><i class="fa fa-check"></i><b>4.4.3</b> A joint assessment: Criterion and construct validity</a></li>
+<li class="chapter" data-level="4.4.4" data-path="Chapter-4.html"><a href="Chapter-4.html#real-data-example"><i class="fa fa-check"></i><b>4.4.4</b> Real-data example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>5</b> Referencias</a></li>
 </ul>
 
       </nav>
@@ -1222,49 +1236,49 @@ Figure 3.4: This is the histogram of the deprivation score. It shows the number 
 <span id="cb78-8"><a href="Chapter-3.html#cb78-8"></a>AF8&lt;-<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>)</span></code></pre></div>
 <p>Posteriormente calculamos los estadísticos de los pesos para tener una idea de qué tanta variación tiene este set.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="Chapter-3.html#cb79-1"></a><span class="kw">wstats</span>(<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),<span class="dv">9</span>)</span></code></pre></div>
-<pre><code>##      mindis   maxdis      CV
-## 1 -36.78837 36.11696 21.2419</code></pre>
+<pre><code>##      mindis   maxdis       CV
+## 1 -23.99686 34.30256 22.38145</code></pre>
 <p>A continuación, inspeccionamos dos tipos de correlación. El primero, es la correlación de la identificación del grupo pobre y no pobre. Es decir, la relación de personas que son siempre clasificadas como pobres a pesar de cambios en los pesos. El segundo tipo de correlación es la asociación entre los scores de privación. Esta correlación debe ser mayor a la primera puesto que estamos clasificando a la población por severidad/ranking y no estatus.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="Chapter-3.html#cb81-1"></a>respoor&lt;-<span class="kw">cbind</span>(AF1<span class="op">$</span>DT<span class="op">$</span>poor,AF2<span class="op">$</span>DT<span class="op">$</span>poor,AF3<span class="op">$</span>DT<span class="op">$</span>poor,AF4<span class="op">$</span>DT<span class="op">$</span>poor,AF5<span class="op">$</span>DT<span class="op">$</span>poor,AF6<span class="op">$</span>DT<span class="op">$</span>poor,AF7<span class="op">$</span>DT<span class="op">$</span>poor,AF8<span class="op">$</span>DT<span class="op">$</span>poor)</span>
 <span id="cb81-2"><a href="Chapter-3.html#cb81-2"></a>resscore&lt;-<span class="kw">cbind</span>(AF1<span class="op">$</span>DT<span class="op">$</span>score,AF2<span class="op">$</span>DT<span class="op">$</span>score,AF3<span class="op">$</span>DT<span class="op">$</span>score,AF4<span class="op">$</span>DT<span class="op">$</span>score,AF5<span class="op">$</span>DT<span class="op">$</span>score,AF6<span class="op">$</span>DT<span class="op">$</span>score,AF7<span class="op">$</span>DT<span class="op">$</span>score,AF8<span class="op">$</span>DT<span class="op">$</span>poor)</span>
 <span id="cb81-3"><a href="Chapter-3.html#cb81-3"></a></span>
 <span id="cb81-4"><a href="Chapter-3.html#cb81-4"></a><span class="kw">cor</span>(respoor)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
-## [1,] 1.0000000 0.6996650 0.8518641 0.5753275 0.7366315 0.6768031 0.4278342
-## [2,] 0.6996650 1.0000000 0.6983723 0.7114592 0.7356076 0.7042638 0.4420508
-## [3,] 0.8518641 0.6983723 1.0000000 0.5826717 0.7043303 0.6893627 0.4189516
-## [4,] 0.5753275 0.7114592 0.5826717 1.0000000 0.6268714 0.6240975 0.4834137
-## [5,] 0.7366315 0.7356076 0.7043303 0.6268714 1.0000000 0.6575073 0.4795138
-## [6,] 0.6768031 0.7042638 0.6893627 0.6240975 0.6575073 1.0000000 0.5577133
-## [7,] 0.4278342 0.4420508 0.4189516 0.4834137 0.4795138 0.5577133 1.0000000
-## [8,] 0.4704555 0.4251972 0.4682452 0.4548130 0.4997914 0.4185620 0.4716692
+## [1,] 1.0000000 0.7160810 0.8319998 0.6063619 0.7319196 0.6909761 0.4357276
+## [2,] 0.7160810 1.0000000 0.6948275 0.7260508 0.7590116 0.7049097 0.4492465
+## [3,] 0.8319998 0.6948275 1.0000000 0.6036567 0.6884987 0.6978405 0.4496899
+## [4,] 0.6063619 0.7260508 0.6036567 1.0000000 0.6417595 0.6570028 0.5007322
+## [5,] 0.7319196 0.7590116 0.6884987 0.6417595 1.0000000 0.6591877 0.4886306
+## [6,] 0.6909761 0.7049097 0.6978405 0.6570028 0.6591877 1.0000000 0.5762881
+## [7,] 0.4357276 0.4492465 0.4496899 0.5007322 0.4886306 0.5762881 1.0000000
+## [8,] 0.4934883 0.4492909 0.4847856 0.4968696 0.5192962 0.4120052 0.4607565
 ##           [,8]
-## [1,] 0.4704555
-## [2,] 0.4251972
-## [3,] 0.4682452
-## [4,] 0.4548130
-## [5,] 0.4997914
-## [6,] 0.4185620
-## [7,] 0.4716692
+## [1,] 0.4934883
+## [2,] 0.4492909
+## [3,] 0.4847856
+## [4,] 0.4968696
+## [5,] 0.5192962
+## [6,] 0.4120052
+## [7,] 0.4607565
 ## [8,] 1.0000000</code></pre>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="Chapter-3.html#cb83-1"></a><span class="kw">cor</span>(resscore)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
-## [1,] 1.0000000 0.9633220 0.9502744 0.9088917 0.9334140 0.8679407 0.6347491
-## [2,] 0.9633220 1.0000000 0.8994348 0.8903116 0.9042885 0.8769793 0.6249150
-## [3,] 0.9502744 0.8994348 1.0000000 0.8273972 0.8781475 0.8791887 0.6476166
-## [4,] 0.9088917 0.8903116 0.8273972 1.0000000 0.8057255 0.8426331 0.6690676
-## [5,] 0.9334140 0.9042885 0.8781475 0.8057255 1.0000000 0.8311809 0.6977205
-## [6,] 0.8679407 0.8769793 0.8791887 0.8426331 0.8311809 1.0000000 0.7914399
-## [7,] 0.6347491 0.6249150 0.6476166 0.6690676 0.6977205 0.7914399 1.0000000
-## [8,] 0.5678895 0.4930254 0.5370529 0.5206507 0.5844261 0.4814867 0.5273895
+## [1,] 1.0000000 0.9598637 0.9405228 0.9127539 0.9361843 0.8684578 0.6503415
+## [2,] 0.9598637 1.0000000 0.8976644 0.8865571 0.9105642 0.8740797 0.6461279
+## [3,] 0.9405228 0.8976644 1.0000000 0.8247917 0.8683188 0.8756936 0.6631078
+## [4,] 0.9127539 0.8865571 0.8247917 1.0000000 0.8122156 0.8501804 0.6865978
+## [5,] 0.9361843 0.9105642 0.8683188 0.8122156 1.0000000 0.8274925 0.7089409
+## [6,] 0.8684578 0.8740797 0.8756936 0.8501804 0.8274925 1.0000000 0.8168549
+## [7,] 0.6503415 0.6461279 0.6631078 0.6865978 0.7089409 0.8168549 1.0000000
+## [8,] 0.5888469 0.5173498 0.5489858 0.5507532 0.5942649 0.4865148 0.5327606
 ##           [,8]
-## [1,] 0.5678895
-## [2,] 0.4930254
-## [3,] 0.5370529
-## [4,] 0.5206507
-## [5,] 0.5844261
-## [6,] 0.4814867
-## [7,] 0.5273895
+## [1,] 0.5888469
+## [2,] 0.5173498
+## [3,] 0.5489858
+## [4,] 0.5507532
+## [5,] 0.5942649
+## [6,] 0.4865148
+## [7,] 0.5327606
 ## [8,] 1.0000000</code></pre>
 <p>Para apreciar la relación entre confiabilidad global y el efecto de los pesos podemos solicitar lo siguiente. Observamos que para valores de confiabilidad sustancialmente menores a <span class="math inline">\(\omega=.8\)</span> la correlación cae dramáticamente:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="Chapter-3.html#cb85-1"></a>omegas&lt;-<span class="kw">rbind</span>(AF1<span class="op">$</span>omega,AF2<span class="op">$</span>omega,AF3<span class="op">$</span>omega,AF4<span class="op">$</span>omega,AF5<span class="op">$</span>omega,AF6<span class="op">$</span>omega,AF7<span class="op">$</span>omega,AF8<span class="op">$</span>omega)</span>
@@ -1280,28 +1294,28 @@ Figure 3.4: This is the histogram of the deprivation score. It shows the number 
 <span id="cb86-4"><a href="Chapter-3.html#cb86-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb86-5"><a href="Chapter-3.html#cb86-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.09    0.85   10.37</code></pre>
+##    9.34    0.94   10.84</code></pre>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="Chapter-3.html#cb88-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb88-2"><a href="Chapter-3.html#cb88-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb88-3"><a href="Chapter-3.html#cb88-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb88-4"><a href="Chapter-3.html#cb88-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb88-5"><a href="Chapter-3.html#cb88-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.00    1.14   10.53</code></pre>
+##    8.92    1.22   10.78</code></pre>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="Chapter-3.html#cb90-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb90-2"><a href="Chapter-3.html#cb90-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb90-3"><a href="Chapter-3.html#cb90-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb90-4"><a href="Chapter-3.html#cb90-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb90-5"><a href="Chapter-3.html#cb90-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.02    0.68   10.29</code></pre>
+##    8.89    1.16   10.52</code></pre>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="Chapter-3.html#cb92-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb92-2"><a href="Chapter-3.html#cb92-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb92-3"><a href="Chapter-3.html#cb92-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb92-4"><a href="Chapter-3.html#cb92-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb92-5"><a href="Chapter-3.html#cb92-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    8.89    0.94   10.36</code></pre>
+##    8.70    1.08   10.13</code></pre>
 <p>Ahora tenemos cuatro listas con 400 elementos. Lo que queremos saber es la correlación promedio entre el ranking bajo el score observado sin ponderar con el ranking con ponderación. Para ello necesitamos agrupar las listas de la siguiente manera. Por ejemplo, el objeto <em>poorlist4</em> es una base de datos con los scores y la identificación pobre no pobre (con <span class="math inline">\(k=33%\)</span>) para todas las repeticiones de AF4.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="Chapter-3.html#cb94-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
 <span id="cb94-2"><a href="Chapter-3.html#cb94-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
@@ -1341,28 +1355,28 @@ Figure 3.4: This is the histogram of the deprivation score. It shows the number 
 <span id="cb101-4"><a href="Chapter-3.html#cb101-4"></a>  AF1&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)],<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>,<span class="dv">9</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb101-5"><a href="Chapter-3.html#cb101-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    8.92    0.94   10.31</code></pre>
+##    8.94    1.26   10.97</code></pre>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="Chapter-3.html#cb103-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb103-2"><a href="Chapter-3.html#cb103-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb103-3"><a href="Chapter-3.html#cb103-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb103-4"><a href="Chapter-3.html#cb103-4"></a>  AF2&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">025</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb103-5"><a href="Chapter-3.html#cb103-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.44    1.05   11.13</code></pre>
+##    9.16    1.12   10.97</code></pre>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="Chapter-3.html#cb105-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb105-2"><a href="Chapter-3.html#cb105-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb105-3"><a href="Chapter-3.html#cb105-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb105-4"><a href="Chapter-3.html#cb105-4"></a>  AF3&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">05</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb105-5"><a href="Chapter-3.html#cb105-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.46    1.00   10.92</code></pre>
+##    9.28    0.83   10.73</code></pre>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="Chapter-3.html#cb107-1"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb107-2"><a href="Chapter-3.html#cb107-2"></a><span class="kw">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb107-3"><a href="Chapter-3.html#cb107-3"></a><span class="kw">system.time</span>(</span>
 <span id="cb107-4"><a href="Chapter-3.html#cb107-4"></a>  AF4&lt;-<span class="kw">replicate</span>(reps,<span class="kw">AF</span>(Rel_MD_<span class="dv">2</span>[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">12</span>)],<span class="kw">ws</span>(<span class="dv">9</span>,.<span class="dv">1</span>,.<span class="dv">075</span>),.<span class="dv">33</span>,Rel_MD_<span class="dv">2</span>))</span>
 <span id="cb107-5"><a href="Chapter-3.html#cb107-5"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    9.70    0.81   11.19</code></pre>
+##    9.04    0.91   10.69</code></pre>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="Chapter-3.html#cb109-1"></a>poorlist1&lt;-AF1[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
 <span id="cb109-2"><a href="Chapter-3.html#cb109-2"></a>poorlist2&lt;-AF2[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
 <span id="cb109-3"><a href="Chapter-3.html#cb109-3"></a>poorlist3&lt;-AF3[<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">300</span>,<span class="dt">by=</span><span class="dv">4</span>))]</span>
@@ -1432,7 +1446,7 @@ Figure 3.4: This is the histogram of the deprivation score. It shows the number 
         </div>
       </div>
 <a href="Chapter-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Chapter-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
